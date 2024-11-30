@@ -1,0 +1,260 @@
+[
+  {
+    "id": 1,
+    "title": "Set up a Local Yum/DNF Repository using RHEL-9 ISO image mounted on the /mnt directory.",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "Use the command to list block devices and identify the ISO device.",
+        "answer": "lsblk"
+      },
+      {
+        "id": 2,
+        "instruction": "Use the command to find the UUID or LABEL of the ISO device.",
+        "answer": "blkid"
+      },
+      {
+        "id": 3,
+        "instruction": "Use the command to display filesystem usage, ensuring the ISO is properly mounted.",
+        "answer": "df -h"
+      },
+      {
+        "id": 4,
+        "instruction": "Use the command to confirm that the ISO filesystem type is detected as 'iso9660'.",
+        "answer": "mount | grep 'iso9660'"
+      },
+      {
+        "id": 5,
+        "instruction": "Use the command to search for the ISO file within the specified directory or device.",
+        "answer": "find /dev/sr0 -type f -name \"<name of the iso>\""
+      },
+      {
+        "id": 6,
+        "instruction": "Create a directory to use as the mount point for the ISO.",
+        "answer": "mkdir /repo"
+      },
+      {
+        "id": 7,
+        "instruction": "Add the ISO device to the '/etc/fstab' file to ensure it mounts on boot.",
+        "answer": "echo \"/dev/sr0 /repo iso9660 loop 0 0\" >> /etc/fstab"
+      },
+      {
+        "id": 8,
+        "instruction": "Mount all filesystems defined in the '/etc/fstab' file.",
+        "answer": "mount -a"
+      },
+      {
+        "id": 9,
+        "instruction": "Add the BaseOS repository from the mounted ISO to DNF configuration.",
+        "answer": "dnf config-manager --add-repo=file:///repo/BaseOS"
+      },
+      {
+        "id": 10,
+        "instruction": "Add the AppStream repository from the mounted ISO to DNF configuration.",
+        "answer": "dnf config-manager --add-repo=file:///repo/AppStream"
+      },
+      {
+        "id": 11,
+        "instruction": "List all repository configuration files to verify the new repos are created.",
+        "answer": "ls -l /etc/yum.repos.d/"
+      },
+      {
+        "id": 12,
+        "instruction": "Disable GPG checking for the BaseOS repository by appending the appropriate configuration.",
+        "answer": "echo \"gpgcheck=0\" | sudo tee -a /etc/yum.repos.d/repo_BaseOS.repo"
+      },
+      {
+        "id": 13,
+        "instruction": "Disable GPG checking for the AppStream repository by appending the appropriate configuration.",
+        "answer": "echo \"gpgcheck=0\" | sudo tee -a /etc/yum.repos.d/repo_AppStream.repo"
+      },
+      {
+        "id": 14,
+        "instruction": "List all available repositories to confirm the BaseOS and AppStream repositories are active.",
+        "answer": "dnf repolist"
+      },
+      {
+        "id": 15,
+        "instruction": "Open the '/etc/fstab' file in an editor to remove entries causing issues.",
+        "answer": "sudo vim /etc/fstab"
+      },
+      {
+        "id": 16,
+        "instruction": "Delete the problematic line from the '/etc/fstab' file.",
+        "answer": "dd"
+      },
+      {
+        "id": 17,
+        "instruction": "Save and exit the '/etc/fstab' file.",
+        "answer": ":wq"
+      },
+      {
+        "id": 18,
+        "instruction": "Unmount the ISO from the '/repo' directory.",
+        "answer": "umount /repo"
+      },
+      {
+        "id": 19,
+        "instruction": "Remove the '/repo' directory to clean up the mount point.",
+        "answer": "rmdir /repo"
+      },
+      {
+        "id": 20,
+        "instruction": "List all repository configuration files to locate and identify the files to remove.",
+        "answer": "ls /etc/yum.repos.d/"
+      },
+      {
+        "id": 21,
+        "instruction": "Remove the repository configuration files to reset the DNF configuration.",
+        "answer": "rm <name of the files>.repo"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Create a new user and group.",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "Create a user named 'student'.",
+        "answer": "useradd student"
+      },
+      {
+        "id": 2,
+        "instruction": "Create a group named 'developers'.",
+        "answer": "groupadd developers"
+      },
+      {
+        "id": 3,
+        "instruction": "Add 'student' to the 'developers' group.",
+        "answer": "usermod -aG developers student"
+      }
+    ]
+  },{
+      "id": 3,
+      "title": "Assume that you forget the root password. Reset the root password for ServerB. Change it to “secret” to gain access to the system.",
+      "steps": [
+        {
+          "id": 1,
+          "instruction": "Reboot the server to start the reset process.",
+          "answer": "reboot"
+        },
+        {
+          "id": 2,
+          "instruction": "During boot, press the appropriate key to enter the boot menu.",
+          "answer": "F8"
+        },
+        {
+          "id": 3,
+          "instruction": "In the boot menu, edit the kernel boot parameters by pressing the designated key.",
+          "answer": "e"
+        },
+        {
+          "id": 4,
+          "instruction": "Navigate to the kernel boot parameters and modify them to boot into a minimal shell environment.",
+          "answer": "Ctrl-e"
+        },
+        {
+          "id": 5,
+          "instruction": "Exit the boot menu and boot with the modified parameters.",
+          "answer": "Ctrl-x"
+        },
+        {
+          "id": 6,
+          "instruction": "At the bash prompt, remount the root filesystem as read-write to allow changes.",
+          "answer": "mount -o remount,rw /"
+        },
+        {
+          "id": 7,
+          "instruction": "Change the root password using the appropriate command.",
+          "answer": "passwd"
+        },
+        {
+          "id": 8,
+          "instruction": "Set the new password as 'secret' when prompted.",
+          "answer": "secret"
+        },
+        {
+          "id": 9,
+          "instruction": "Ensure the correct SELinux context is applied to the shadow file.",
+          "answer": "chcon system_u:object_r:shadow_t:s0 /etc/shadow"
+        },
+        {
+          "id": 10,
+          "instruction": "Start the init process to fully boot the system.",
+          "answer": "exec /sbin/init"
+        }
+      ]
+    },  {
+      "id": 4,
+      "title": "Create a NetworkManager connection profile named 'myprofile1' for the enp0s3 device with the given settings. Ensure the connection is running and add secondary IPv4 and IPv6 addresses to the profile.",
+      "steps": [
+        {
+          "id": 1,
+          "instruction": "Display the current network interfaces to verify the existence of the 'enp0s3' device.",
+          "answer": "ip link show"
+        },
+        {
+          "id": 2,
+          "instruction": "Add a new NetworkManager connection profile named 'myprofile1' for the 'enp0s3' device.",
+          "answer": "nmcli con add type ethernet con-name myprofile1 ifname enp0s3"
+        },
+        {
+          "id": 3,
+          "instruction": "Set the primary IPv4 address for the 'myprofile1' connection profile.",
+          "answer": "ip4 172.16.127.101/24"
+        },
+        {
+          "id": 4,
+          "instruction": "Set the gateway for the IPv4 address in the 'myprofile1' connection profile.",
+          "answer": "gw4 172.16.127.100"
+        },
+        {
+          "id": 5,
+          "instruction": "Set the DNS servers for the IPv4 address in the 'myprofile1' connection profile.",
+          "answer": "ipv4.dns \"8.8.8.8 8.8.4.4\""
+        },
+        {
+          "id": 6,
+          "instruction": "Set the DNS search domain for the IPv4 address in the 'myprofile1' connection profile.",
+          "answer": "ipv4.dns-search \"example.com\""
+        },
+        {
+          "id": 7,
+          "instruction": "Set the primary IPv6 address for the 'myprofile1' connection profile.",
+          "answer": "ip6 fd01::0:101/64"
+        },
+        {
+          "id": 8,
+          "instruction": "Set the gateway for the IPv6 address in the 'myprofile1' connection profile.",
+          "answer": "gw6 fd01::0:100"
+        },
+        {
+          "id": 9,
+          "instruction": "Set the DNS server for the IPv6 address in the 'myprofile1' connection profile.",
+          "answer": "ipv6.dns fd01::0:111"
+        },
+        {
+          "id": 10,
+          "instruction": "Set the DNS search domain for the IPv6 address in the 'myprofile1' connection profile.",
+          "answer": "ipv6.dns-search \"example.com\""
+        },
+        {
+          "id": 11,
+          "instruction": "Add a secondary IPv4 address to the 'myprofile1' connection profile.",
+          "answer": "nmcli con mod myprofile1 +ipv4.addresses 172.16.127.102/24"
+        },
+        {
+          "id": 12,
+          "instruction": "Add a secondary IPv6 address to the 'myprofile1' connection profile.",
+          "answer": "nmcli con mod myprofile1 +ipv6.addresses fd01::0:102/64"
+        },
+        {
+          "id": 13,
+          "instruction": "Bring up the 'myprofile1' connection to ensure it is active and running.",
+          "answer": "nmcli con up myprofile1"
+        }
+      ]
+    }
+  
+]

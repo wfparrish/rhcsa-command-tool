@@ -1,0 +1,58 @@
+11/30/2024
+
+Started the RHCSA command tool project
+
+to start the frontend, go to the frontend folder and type:
+npm start
+
+to start the backend, go to the backend folder and type:
+node server.js
+
+Video #1
+
+Created the frontend folder
+-added the React app using:
+npx create-react-app frontend 
+
+-this created the npm library node_modules the package-lock.json and package.json folder, 
+along with a .gitignore file
+
+Created the first video tutorial in the series introducing the problem:
+https://ucdenver.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4ed20275-92ff-4182-91ac-b23801195900&start=0
+
+Here is the ChatGPT chat that has the code
+https://chatgpt.com/c/674b2107-8a08-8002-bc4b-83d2615036b3
+
+************************************************************************
+
+Video #2
+
+Panapto link:
+https://ucdenver.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=aa5e9e21-911f-413d-9ca5-b2380136ca78&start=0
+
+Here is the ChatGPT chat that has the code
+https://chatgpt.com/c/674b2107-8a08-8002-bc4b-83d2615036b3
+
+Added the Test, Question, and Step components in the frontend folder
+Added the backend folder
+
+Added the npm library to the backend
+-this created the npm library node_modules the package-lock.json and package.json folder, 
+but it didn't create a .gitignore, I'll probably need to add that later
+
+-added the questions.json file
+-created the server.js file
+
+For now run:
+node server.js
+to see the server spin up on http://localhost:5000
+
+************************************************************************
+
+Video #3
+
+So based on the format I have now, I'm updating the questions list
+
+Using ChatGPT to generate the Step questions for the UI using the work I've already
+done to create command lists for the questions.
+
