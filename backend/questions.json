@@ -130,131 +130,974 @@
         "answer": "usermod -aG developers student"
       }
     ]
+  },
+  {
+    "id": 3,
+    "title": "Assume that you forget the root password. Reset the root password for ServerB. Change it to “secret” to gain access to the system.",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "Reboot the server to start the reset process.",
+        "answer": "reboot"
+      },
+      {
+        "id": 2,
+        "instruction": "During boot, press the appropriate key to enter the boot menu.",
+        "answer": "F8"
+      },
+      {
+        "id": 3,
+        "instruction": "In the boot menu, edit the kernel boot parameters by pressing the designated key.",
+        "answer": "e"
+      },
+      {
+        "id": 4,
+        "instruction": "Navigate to the kernel boot parameters and modify them to boot into a minimal shell environment.",
+        "answer": "Ctrl-e"
+      },
+      {
+        "id": 5,
+        "instruction": "Exit the boot menu and boot with the modified parameters.",
+        "answer": "Ctrl-x"
+      },
+      {
+        "id": 6,
+        "instruction": "At the bash prompt, remount the root filesystem as read-write to allow changes.",
+        "answer": "mount -o remount,rw /"
+      },
+      {
+        "id": 7,
+        "instruction": "Change the root password using the appropriate command.",
+        "answer": "passwd"
+      },
+      {
+        "id": 8,
+        "instruction": "Set the new password as 'secret' when prompted.",
+        "answer": "secret"
+      },
+      {
+        "id": 9,
+        "instruction": "Ensure the correct SELinux context is applied to the shadow file.",
+        "answer": "chcon system_u:object_r:shadow_t:s0 /etc/shadow"
+      },
+      {
+        "id": 10,
+        "instruction": "Start the init process to fully boot the system.",
+        "answer": "exec /sbin/init"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Create a NetworkManager connection profile named 'myprofile1' for the enp0s3 device with the given settings. Ensure the connection is running and add secondary IPv4 and IPv6 addresses to the profile.",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "Display the current network interfaces to verify the existence of the 'enp0s3' device.",
+        "answer": "ip link show"
+      },
+      {
+        "id": 2,
+        "instruction": "Add a new NetworkManager connection profile named 'myprofile1' for the 'enp0s3' device.",
+        "answer": "nmcli con add type ethernet con-name myprofile1 ifname enp0s3"
+      },
+      {
+        "id": 3,
+        "instruction": "Set the primary IPv4 address for the 'myprofile1' connection profile.",
+        "answer": "nmcli con mod myprofile1 ipv4.addresses 172.16.127.101/24"
+      },
+      {
+        "id": 4,
+        "instruction": "Set the gateway for the IPv4 address in the 'myprofile1' connection profile.",
+        "answer": "nmcli con mod myprofile1 ipv4.gateway 172.16.127.100"
+      },
+      {
+        "id": 5,
+        "instruction": "Set the DNS servers for the IPv4 address in the 'myprofile1' connection profile.",
+        "answer": "nmcli con mod myprofile1 ipv4.dns \"8.8.8.8 8.8.4.4\""
+      },
+      {
+        "id": 6,
+        "instruction": "Set the DNS search domain for the IPv4 address in the 'myprofile1' connection profile.",
+        "answer": "nmcli con mod myprofile1 ipv4.dns-search \"example.com\""
+      },
+      {
+        "id": 7,
+        "instruction": "Set the primary IPv6 address for the 'myprofile1' connection profile.",
+        "answer": "nmcli con mod myprofile1 ipv6.addresses fd01::0:101/64"
+      },
+      {
+        "id": 8,
+        "instruction": "Set the gateway for the IPv6 address in the 'myprofile1' connection profile.",
+        "answer": "nmcli con mod myprofile1 ipv6.gateway fd01::0:100"
+      },
+      {
+        "id": 9,
+        "instruction": "Set the DNS server for the IPv6 address in the 'myprofile1' connection profile.",
+        "answer": "nmcli con mod myprofile1 ipv6.dns fd01::0:111"
+      },
+      {
+        "id": 10,
+        "instruction": "Set the DNS search domain for the IPv6 address in the 'myprofile1' connection profile.",
+        "answer": "nmcli con mod myprofile1 ipv6.dns-search \"example.com\""
+      },
+      {
+        "id": 11,
+        "instruction": "Add a secondary IPv4 address to the 'myprofile1' connection profile.",
+        "answer": "nmcli con mod myprofile1 +ipv4.addresses 172.16.127.102/24"
+      },
+      {
+        "id": 12,
+        "instruction": "Add a secondary IPv6 address to the 'myprofile1' connection profile.",
+        "answer": "nmcli con mod myprofile1 +ipv6.addresses fd01::0:102/64"
+      },
+      {
+        "id": 13,
+        "instruction": "Bring up the 'myprofile1' connection to ensure it is active and running.",
+        "answer": "nmcli con up myprofile1"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "On ServerA, configure a Local Yum/DNF Repository using the RHEL-9 ISO image mounted on the /repo directory. Additionally, set up an HTTP server to allow client machines to access the repository via HTTP. Ensure the repository includes both the BaseOS and AppStream directories and is accessible without an internet connection.\n\nOnce the HTTP server is configured, prepare the client machines to use the HTTP server as their repository source. Test the setup by verifying the repository configuration and availability on the client machines.",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "Create a directory to serve as the mount point for the RHEL-9 ISO.",
+        "answer": "mkdir /repo"
+      },
+      {
+        "id": 2,
+        "instruction": "Add the ISO device to '/etc/fstab' to ensure it mounts persistently on reboot.",
+        "answer": "echo \"/dev/sr0 /repo iso9660 loop 0 0\" >> /etc/fstab"
+      },
+      {
+        "id": 3,
+        "instruction": "Mount all filesystems defined in '/etc/fstab' to mount the ISO.",
+        "answer": "mount -a"
+      },
+      {
+        "id": 4,
+        "instruction": "Configure DNF to use the 'BaseOS' directory from the mounted ISO.",
+        "answer": "dnf config-manager --add-repo=file:///repo/BaseOS"
+      },
+      {
+        "id": 5,
+        "instruction": "Configure DNF to use the 'AppStream' directory from the mounted ISO.",
+        "answer": "dnf config-manager --add-repo=file:///repo/AppStream"
+      },
+      {
+        "id": 6,
+        "instruction": "Verify the repository configuration files in '/etc/yum.repos.d/'.",
+        "answer": "ls -l /etc/yum.repos.d/"
+      },
+      {
+        "id": 7,
+        "instruction": "Disable GPG signature checking for the 'BaseOS' repository.",
+        "answer": "echo \"gpgcheck=0\" | sudo tee -a /etc/yum.repos.d/repo_BaseOS.repo"
+      },
+      {
+        "id": 8,
+        "instruction": "Disable GPG signature checking for the 'AppStream' repository.",
+        "answer": "echo \"gpgcheck=0\" | sudo tee -a /etc/yum.repos.d/repo_AppStream.repo"
+      },
+      {
+        "id": 9,
+        "instruction": "Install the HTTP server package.",
+        "answer": "sudo dnf install httpd"
+      },
+      {
+        "id": 10,
+        "instruction": "Start the HTTP server.",
+        "answer": "sudo systemctl start httpd"
+      },
+      {
+        "id": 11,
+        "instruction": "Enable the HTTP server to start on boot.",
+        "answer": "sudo systemctl enable httpd"
+      },
+      {
+        "id": 12,
+        "instruction": "Create a symbolic link in the web server directory for 'BaseOS'.",
+        "answer": "sudo ln -s /repo/BaseOS /var/www/html/BaseOS"
+      },
+      {
+        "id": 13,
+        "instruction": "Create a symbolic link in the web server directory for 'AppStream'.",
+        "answer": "sudo ln -s /repo/AppStream /var/www/html/AppStream"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "On the client machines, configure the repositories to use the HTTP server on ServerA. Test the setup by verifying that the repositories are correctly configured and available.",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "Create the repository file for the BaseOS repository.",
+        "answer": "sudo vi /etc/yum.repos.d/local_BaseOS.repo"
+      },
+      {
+        "id": 2,
+        "instruction": "Add the repository ID for the BaseOS repository.",
+        "answer": "[local-baseos]"
+      },
+      {
+        "id": 3,
+        "instruction": "Set the name for the BaseOS repository.",
+        "answer": "name=Local BaseOS Repository"
+      },
+      {
+        "id": 4,
+        "instruction": "Specify the base URL for the BaseOS repository (replace 'your-server-ip' with the server's IP address).",
+        "answer": "baseurl=http://your-server-ip/BaseOS"
+      },
+      {
+        "id": 5,
+        "instruction": "Enable the BaseOS repository.",
+        "answer": "enabled=1"
+      },
+      {
+        "id": 6,
+        "instruction": "Disable GPG signature verification for the BaseOS repository.",
+        "answer": "gpgcheck=0"
+      },
+      {
+        "id": 7,
+        "instruction": "Save and exit the repository file.",
+        "answer": ":wq"
+      },
+      {
+        "id": 8,
+        "instruction": "Create the repository file for the AppStream repository.",
+        "answer": "sudo vi /etc/yum.repos.d/local_AppStream.repo"
+      },
+      {
+        "id": 9,
+        "instruction": "Add the repository ID for the AppStream repository.",
+        "answer": "[local-appstream]"
+      },
+      {
+        "id": 10,
+        "instruction": "Set the name for the AppStream repository.",
+        "answer": "name=Local AppStream Repository"
+      },
+      {
+        "id": 11,
+        "instruction": "Specify the base URL for the AppStream repository (replace 'your-server-ip' with the server's IP address).",
+        "answer": "baseurl=http://your-server-ip/AppStream"
+      },
+      {
+        "id": 12,
+        "instruction": "Enable the AppStream repository.",
+        "answer": "enabled=1"
+      },
+      {
+        "id": 13,
+        "instruction": "Disable GPG signature verification for the AppStream repository.",
+        "answer": "gpgcheck=0"
+      },
+      {
+        "id": 14,
+        "instruction": "Save and exit the repository file.",
+        "answer": ":wq"
+      },
+      {
+        "id": 15,
+        "instruction": "Clean the DNF cache to ensure the new repositories are recognized.",
+        "answer": "sudo dnf clean all"
+      },
+      {
+        "id": 16,
+        "instruction": "Verify that the repositories are correctly configured and available.",
+        "answer": "sudo dnf repolist"
+      }
+    ]
   },{
-      "id": 3,
-      "title": "Assume that you forget the root password. Reset the root password for ServerB. Change it to “secret” to gain access to the system.",
-      "steps": [
-        {
-          "id": 1,
-          "instruction": "Reboot the server to start the reset process.",
-          "answer": "reboot"
-        },
-        {
-          "id": 2,
-          "instruction": "During boot, press the appropriate key to enter the boot menu.",
-          "answer": "F8"
-        },
-        {
-          "id": 3,
-          "instruction": "In the boot menu, edit the kernel boot parameters by pressing the designated key.",
-          "answer": "e"
-        },
-        {
-          "id": 4,
-          "instruction": "Navigate to the kernel boot parameters and modify them to boot into a minimal shell environment.",
-          "answer": "Ctrl-e"
-        },
-        {
-          "id": 5,
-          "instruction": "Exit the boot menu and boot with the modified parameters.",
-          "answer": "Ctrl-x"
-        },
-        {
-          "id": 6,
-          "instruction": "At the bash prompt, remount the root filesystem as read-write to allow changes.",
-          "answer": "mount -o remount,rw /"
-        },
-        {
-          "id": 7,
-          "instruction": "Change the root password using the appropriate command.",
-          "answer": "passwd"
-        },
-        {
-          "id": 8,
-          "instruction": "Set the new password as 'secret' when prompted.",
-          "answer": "secret"
-        },
-        {
-          "id": 9,
-          "instruction": "Ensure the correct SELinux context is applied to the shadow file.",
-          "answer": "chcon system_u:object_r:shadow_t:s0 /etc/shadow"
-        },
-        {
-          "id": 10,
-          "instruction": "Start the init process to fully boot the system.",
-          "answer": "exec /sbin/init"
-        }
-      ]
-    },  {
-      "id": 4,
-      "title": "Create a NetworkManager connection profile named 'myprofile1' for the enp0s3 device with the given settings. Ensure the connection is running and add secondary IPv4 and IPv6 addresses to the profile.",
-      "steps": [
-        {
-          "id": 1,
-          "instruction": "Display the current network interfaces to verify the existence of the 'enp0s3' device.",
-          "answer": "ip link show"
-        },
-        {
-          "id": 2,
-          "instruction": "Add a new NetworkManager connection profile named 'myprofile1' for the 'enp0s3' device.",
-          "answer": "nmcli con add type ethernet con-name myprofile1 ifname enp0s3"
-        },
-        {
-          "id": 3,
-          "instruction": "Set the primary IPv4 address for the 'myprofile1' connection profile.",
-          "answer": "ip4 172.16.127.101/24"
-        },
-        {
-          "id": 4,
-          "instruction": "Set the gateway for the IPv4 address in the 'myprofile1' connection profile.",
-          "answer": "gw4 172.16.127.100"
-        },
-        {
-          "id": 5,
-          "instruction": "Set the DNS servers for the IPv4 address in the 'myprofile1' connection profile.",
-          "answer": "ipv4.dns \"8.8.8.8 8.8.4.4\""
-        },
-        {
-          "id": 6,
-          "instruction": "Set the DNS search domain for the IPv4 address in the 'myprofile1' connection profile.",
-          "answer": "ipv4.dns-search \"example.com\""
-        },
-        {
-          "id": 7,
-          "instruction": "Set the primary IPv6 address for the 'myprofile1' connection profile.",
-          "answer": "ip6 fd01::0:101/64"
-        },
-        {
-          "id": 8,
-          "instruction": "Set the gateway for the IPv6 address in the 'myprofile1' connection profile.",
-          "answer": "gw6 fd01::0:100"
-        },
-        {
-          "id": 9,
-          "instruction": "Set the DNS server for the IPv6 address in the 'myprofile1' connection profile.",
-          "answer": "ipv6.dns fd01::0:111"
-        },
-        {
-          "id": 10,
-          "instruction": "Set the DNS search domain for the IPv6 address in the 'myprofile1' connection profile.",
-          "answer": "ipv6.dns-search \"example.com\""
-        },
-        {
-          "id": 11,
-          "instruction": "Add a secondary IPv4 address to the 'myprofile1' connection profile.",
-          "answer": "nmcli con mod myprofile1 +ipv4.addresses 172.16.127.102/24"
-        },
-        {
-          "id": 12,
-          "instruction": "Add a secondary IPv6 address to the 'myprofile1' connection profile.",
-          "answer": "nmcli con mod myprofile1 +ipv6.addresses fd01::0:102/64"
-        },
-        {
-          "id": 13,
-          "instruction": "Bring up the 'myprofile1' connection to ensure it is active and running.",
-          "answer": "nmcli con up myprofile1"
-        }
-      ]
-    }
-  
+    "id": 7,
+    "title": "On ServerA, configure the system time to the 'America/New_York' timezone.",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "View the current system time and timezone configuration.",
+        "answer": "timedatectl"
+      },
+      {
+        "id": 2,
+        "instruction": "List all available timezones to find the desired timezone.",
+        "answer": "timedatectl list-timezones"
+      },
+      {
+        "id": 3,
+        "instruction": "Search for the 'America/New_York' timezone using grep.",
+        "answer": "timedatectl list-timezones | grep -o 'America/Ne.*'"
+      },
+      {
+        "id": 4,
+        "instruction": "Set the system timezone to 'America/New_York'.",
+        "answer": "timedatectl set-timezone 'America/New_York'"
+      },
+      {
+        "id": 5,
+        "instruction": "Verify that the timezone has been set to 'America/New_York'.",
+        "answer": "timedatectl"
+      }
+    ]
+  },{
+    "id": 8,
+    "title": "Configure Time Synchronization and Timezone Using Chrony.",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "Install the chrony package to manage time synchronization.",
+        "answer": "sudo dnf install chrony"
+      },
+      {
+        "id": 2,
+        "instruction": "Verify that the chrony package is installed.",
+        "answer": "sudo dnf list installed chrony"
+      },
+      {
+        "id": 3,
+        "instruction": "Enable the chronyd service to start at boot.",
+        "answer": "sudo systemctl enable chronyd"
+      },
+      {
+        "id": 4,
+        "instruction": "Start the chronyd service to begin time synchronization immediately.",
+        "answer": "sudo systemctl start chronyd"
+      },
+      {
+        "id": 5,
+        "instruction": "Verify the current time synchronization status.",
+        "answer": "chronyc tracking"
+      },
+      {
+        "id": 6,
+        "instruction": "Check the current time sources used by chronyd.",
+        "answer": "chronyc sources -v"
+      },
+      {
+        "id": 7,
+        "instruction": "Open the /etc/chrony.conf file for editing to specify NTP servers.",
+        "answer": "sudo vim /etc/chrony.conf"
+      },
+      {
+        "id": 8,
+        "instruction": "Add a preferred NTP server configuration to the /etc/chrony.conf file.",
+        "answer": "server time1.example.com iburst"
+      },
+      {
+        "id": 9,
+        "instruction": "Add a second preferred NTP server configuration to the /etc/chrony.conf file.",
+        "answer": "server time2.example.com iburst"
+      },
+      {
+        "id": 10,
+        "instruction": "Configure the firewall to allow NTP traffic through.",
+        "answer": "sudo firewall-cmd --add-service=ntp --permanent"
+      },
+      {
+        "id": 11,
+        "instruction": "Reload the firewall to apply the changes for NTP traffic.",
+        "answer": "sudo firewall-cmd --reload"
+      },
+      {
+        "id": 12,
+        "instruction": "Force an immediate synchronization of the system clock with NTP servers.",
+        "answer": "sudo chronyc -a makestep"
+      },
+      {
+        "id": 13,
+        "instruction": "Set the system timezone to 'America/New_York'.",
+        "answer": "sudo timedatectl set-timezone America/New_York"
+      },
+      {
+        "id": 14,
+        "instruction": "Verify the current time and timezone configuration.",
+        "answer": "timedatectl"
+      }
+    ]
+  },{
+    "id": 9,
+    "title": "On ServerA, add a new disk, create a 2GiB partition on /dev/sdb, and use it to create a volume group named 'myvg'.",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "List all available block devices to verify the current disk configuration.",
+        "answer": "lsblk"
+      },
+      {
+        "id": 2,
+        "instruction": "Shut down the virtual machine to add a new disk.",
+        "answer": "shutdown now"
+      },
+      {
+        "id": 3,
+        "instruction": "Add a new SATA disk to the system using your hypervisor or environment's disk addition process.",
+        "answer": "Add a new SATA disk."
+      },
+      {
+        "id": 4,
+        "instruction": "Attach the newly added disk to the virtual machine or server.",
+        "answer": "Attach the new disk to the VM or server."
+      },
+      {
+        "id": 5,
+        "instruction": "Start the virtual machine and verify that the new disk appears as 'sdb'.",
+        "answer": "lsblk"
+      },
+      {
+        "id": 6,
+        "instruction": "Open the /dev/sdb disk in the fdisk utility to partition it.",
+        "answer": "fdisk /dev/sdb"
+      },
+      {
+        "id": 7,
+        "instruction": "Create a new partition by selecting the 'new partition' option in fdisk.",
+        "answer": "n"
+      },
+      {
+        "id": 8,
+        "instruction": "Specify the partition type as 'primary'.",
+        "answer": "p"
+      },
+      {
+        "id": 9,
+        "instruction": "Enter the partition number for the new partition (e.g., 1).",
+        "answer": "1"
+      },
+      {
+        "id": 10,
+        "instruction": "Press Enter to confirm the default first sector.",
+        "answer": "Press Enter"
+      },
+      {
+        "id": 11,
+        "instruction": "Specify the last sector to create a 2GiB partition.",
+        "answer": "+2GiB"
+      },
+      {
+        "id": 12,
+        "instruction": "Change the partition type by selecting the appropriate fdisk option.",
+        "answer": "t"
+      },
+      {
+        "id": 13,
+        "instruction": "Enter the hex code for 'Linux LVM' partition type.",
+        "answer": "8e"
+      },
+      {
+        "id": 14,
+        "instruction": "Display the partition table to confirm the updated partition type.",
+        "answer": "p"
+      },
+      {
+        "id": 15,
+        "instruction": "Write the changes to the disk and exit fdisk.",
+        "answer": "w"
+      },
+      {
+        "id": 16,
+        "instruction": "Verify the new partition table to ensure the partition was created.",
+        "answer": "fdisk -l"
+      },
+      {
+        "id": 17,
+        "instruction": "Initialize the /dev/sdb1 physical volume for use by LVM.",
+        "answer": "pvcreate /dev/sdb1"
+      },
+      {
+        "id": 18,
+        "instruction": "Display information about configured physical volumes.",
+        "answer": "pvs"
+      },
+      {
+        "id": 19,
+        "instruction": "Create a volume group named 'myvg' using /dev/sdb1.",
+        "answer": "vgcreate myvg /dev/sdb1"
+      },
+      {
+        "id": 20,
+        "instruction": "Verify that the volume group 'myvg' has been created.",
+        "answer": "vgs"
+      }
+    ]
+  },{
+    "id": 10,
+    "title": "On ServerA, create a 500MiB logical volume named 'mylv' within the 'myvg' volume group on /dev/sdb.",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "Display information about the existing volume groups to confirm 'myvg' exists.",
+        "answer": "vgs"
+      },
+      {
+        "id": 2,
+        "instruction": "Create a logical volume named 'mylv' with a size of 500MiB in the 'myvg' volume group.",
+        "answer": "lvcreate -n mylv -L 500MiB myvg"
+      },
+      {
+        "id": 3,
+        "instruction": "Verify that the logical volume 'mylv' has been created successfully.",
+        "answer": "lvs"
+      },
+      {
+        "id": 4,
+        "instruction": "Recheck the volume group to ensure it reflects the new logical volume.",
+        "answer": "vgs"
+      }
+    ]
+  },{
+    "id": 11,
+    "title": "On ServerA, format the 'mylv' logical volume with the ext4 filesystem and mount it persistently on the /mylv directory.",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "Display information about the logical volumes to confirm 'mylv' exists.",
+        "answer": "lvs"
+      },
+      {
+        "id": 2,
+        "instruction": "Create an ext4 filesystem on the 'mylv' logical volume.",
+        "answer": "mkfs.ext4 /dev/mapper/myvg-mylv"
+      },
+      {
+        "id": 3,
+        "instruction": "Create a directory named '/mylv' to serve as the mount point.",
+        "answer": "mkdir /mylv"
+      },
+      {
+        "id": 4,
+        "instruction": "Open the '/etc/fstab' file for editing using Vim.",
+        "answer": "vim /etc/fstab"
+      },
+      {
+        "id": 5,
+        "instruction": "Navigate to the last line in the file and insert a new line below it.",
+        "answer": "Press Shift + G, then press o"
+      },
+      {
+        "id": 6,
+        "instruction": "Add the following entry to mount 'mylv' persistently:\n/dev/mapper/myvg-mylv /mylv ext4 defaults 0 0",
+        "answer": "/dev/mapper/myvg-mylv /mylv ext4 defaults 0 0"
+      },
+      {
+        "id": 7,
+        "instruction": "Save and exit the Vim editor.",
+        "answer": "Press Esc, then type :wq and press Enter"
+      },
+      {
+        "id": 8,
+        "instruction": "Mount all file systems specified in '/etc/fstab' to ensure the changes take effect.",
+        "answer": "mount -a"
+      },
+      {
+        "id": 9,
+        "instruction": "List all available block devices to confirm '/mylv' is mounted correctly.",
+        "answer": "lsblk"
+      }
+    ]
+  },{
+    "id": 12,
+    "title": "On ServerA, extend the ext4 filesystem on 'mylv' by 500MiB.",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "Display information about the volume groups to confirm sufficient space is available.",
+        "answer": "vgs"
+      },
+      {
+        "id": 2,
+        "instruction": "Extend the logical volume 'myvg-mylv' by 500MiB and resize the filesystem to match the new size.",
+        "answer": "lvextend -r -L +500M /dev/mapper/myvg-mylv"
+      },
+      {
+        "id": 3,
+        "instruction": "Verify that the logical volume 'myvg-mylv' has been extended successfully.",
+        "answer": "lvs"
+      }
+    ]
+  },{
+    "id": 13,
+    "title": "On ServerA, configure a basic web server that displays 'Welcome to the webserver!' and ensure the firewall allows HTTP/HTTPS services.",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "Install the Apache web server.",
+        "answer": "dnf install httpd -y"
+      },
+      {
+        "id": 2,
+        "instruction": "Enable the Apache service to start automatically at boot.",
+        "answer": "systemctl enable httpd"
+      },
+      {
+        "id": 3,
+        "instruction": "Start the Apache service.",
+        "answer": "systemctl start httpd"
+      },
+      {
+        "id": 4,
+        "instruction": "Check the status of the Apache service to ensure it is running.",
+        "answer": "systemctl status httpd"
+      },
+      {
+        "id": 5,
+        "instruction": "Open the 'index.html' file in the '/var/www/html/' directory using Vim.",
+        "answer": "vim /var/www/html/index.html"
+      },
+      {
+        "id": 6,
+        "instruction": "Add the text 'Welcome to the webserver!' to the 'index.html' file.",
+        "answer": "Enter: Welcome to the webserver!"
+      },
+      {
+        "id": 7,
+        "instruction": "Save and exit the Vim editor.",
+        "answer": "Press Esc, then type :wq and press Enter"
+      },
+      {
+        "id": 8,
+        "instruction": "Restart the Apache service to apply changes.",
+        "answer": "systemctl restart httpd"
+      },
+      {
+        "id": 9,
+        "instruction": "Display a list of all the active zones and their associated firewall rules in the firewalld service.",
+        "answer": "firewall-cmd --list-all"
+      },
+      {
+        "id": 10,
+        "instruction": "List all the available services in the firewall.",
+        "answer": "firewall-cmd --get-services"
+      },
+      {
+        "id": 11,
+        "instruction": "Add a permanent firewall rule to allow incoming HTTP traffic.",
+        "answer": "firewall-cmd --zone=public --add-service=http --permanent"
+      },
+      {
+        "id": 12,
+        "instruction": "Add a permanent firewall rule to allow incoming HTTPS traffic.",
+        "answer": "firewall-cmd --zone=public --add-service=https --permanent"
+      },
+      {
+        "id": 13,
+        "instruction": "Reload the firewall configuration to apply the changes.",
+        "answer": "firewall-cmd --reload"
+      },
+      {
+        "id": 14,
+        "instruction": "Verify the active firewall rules to confirm HTTP and HTTPS traffic are allowed.",
+        "answer": "firewall-cmd --list-all"
+      },
+      {
+        "id": 15,
+        "instruction": "Perform a simple HTTP request to the web server running on the local machine to confirm it is working.",
+        "answer": "curl http://localhost"
+      }
+    ]
+  },{
+    "id": 14,
+    "title": "On ServerA, find all files larger than 3MB in the '/etc' directory and copy them to '/find/3mfiles'.",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "Create the '/find/3mfiles' directory, including any necessary parent directories.",
+        "answer": "mkdir -p /find/3mfiles"
+      },
+      {
+        "id": 2,
+        "instruction": "Find all files in the '/etc' directory that are larger than 3MB and copy them to '/find/3mfiles'.",
+        "answer": "find /etc -size +3M -exec cp {} /find/3mfiles/ \\;"
+      },
+      {
+        "id": 3,
+        "instruction": "List the files in '/find/3mfiles' in long format to verify the copied files.",
+        "answer": "ll /find/3mfiles"
+      }
+    ]
+  },{
+    "id": 15,
+    "title": "On ServerA, ensure that boot messages are present (not silenced).",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "Open the GRUB configuration file using Vim.",
+        "answer": "vim /etc/default/grub"
+      },
+      {
+        "id": 2,
+        "instruction": "Locate the line beginning with 'GRUB_CMDLINE_LINUX' and remove 'rhgb quiet' from the line.",
+        "answer": "Remove: rhgb quiet"
+      },
+      {
+        "id": 3,
+        "instruction": "Save and exit the Vim editor.",
+        "answer": "Press Esc, then type :wq and press Enter"
+      },
+      {
+        "id": 4,
+        "instruction": "Generate a new GRUB configuration file to apply the changes.",
+        "answer": "grub2-mkconfig -o /boot/grub2/grub.cfg"
+      },
+      {
+        "id": 5,
+        "instruction": "Reboot the system to apply the new GRUB configuration.",
+        "answer": "systemctl reboot"
+      }
+    ]
+  },{
+    "id": 16,
+    "title": "On ServerA, create users and groups, then configure access to '/admins' and '/developers' directories.",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "Create the 'admins' group if it does not already exist.",
+        "answer": "groupadd admins"
+      },
+      {
+        "id": 2,
+        "instruction": "Create the 'developers' group if it does not already exist.",
+        "answer": "groupadd developers"
+      },
+      {
+        "id": 3,
+        "instruction": "Create the user 'amr'.",
+        "answer": "useradd amr"
+      },
+      {
+        "id": 4,
+        "instruction": "Create the user 'biko'.",
+        "answer": "useradd biko"
+      },
+      {
+        "id": 5,
+        "instruction": "Create the user 'carlos'.",
+        "answer": "useradd carlos"
+      },
+      {
+        "id": 6,
+        "instruction": "Create the user 'david'.",
+        "answer": "useradd david"
+      },
+      {
+        "id": 7,
+        "instruction": "Add the user 'amr' to the 'admins' group as a secondary group.",
+        "answer": "usermod -aG admins amr"
+      },
+      {
+        "id": 8,
+        "instruction": "Add the user 'biko' to the 'admins' group as a secondary group.",
+        "answer": "usermod -aG admins biko"
+      },
+      {
+        "id": 9,
+        "instruction": "Add the user 'carlos' to the 'developers' group as a secondary group.",
+        "answer": "usermod -aG developers carlos"
+      },
+      {
+        "id": 10,
+        "instruction": "Add the user 'david' to the 'developers' group as a secondary group.",
+        "answer": "usermod -aG developers david"
+      },
+      {
+        "id": 11,
+        "instruction": "Create the '/admins' directory.",
+        "answer": "mkdir /admins"
+      },
+      {
+        "id": 12,
+        "instruction": "Create the '/developers' directory.",
+        "answer": "mkdir /developers"
+      },
+      {
+        "id": 13,
+        "instruction": "Set the ownership of the '/admins' directory to the user 'biko' and the group 'admins'.",
+        "answer": "chown biko:admins /admins"
+      },
+      {
+        "id": 14,
+        "instruction": "Set the ownership of the '/developers' directory to the user 'carlos' and the group 'developers'.",
+        "answer": "chown carlos:developers /developers"
+      },
+      {
+        "id": 15,
+        "instruction": "Set the permissions of the '/admins' directory so only the owner and group members have access.",
+        "answer": "chmod 770 /admins"
+      },
+      {
+        "id": 16,
+        "instruction": "Set the permissions of the '/developers' directory so only the owner and group members have access.",
+        "answer": "chmod 770 /developers"
+      },
+      {
+        "id": 17,
+        "instruction": "Set the SGID (Set Group ID) bit on the '/admins' directory to ensure new files inherit the group owner.",
+        "answer": "chmod g+s /admins"
+      },
+      {
+        "id": 18,
+        "instruction": "Set the SGID (Set Group ID) bit on the '/developers' directory to ensure new files inherit the group owner.",
+        "answer": "chmod g+s /developers"
+      },
+      {
+        "id": 19,
+        "instruction": "Prevent users other than the file creator from deleting files in the '/admins' directory by setting the sticky bit.",
+        "answer": "chmod +t /admins"
+      },
+      {
+        "id": 20,
+        "instruction": "Prevent users other than the file creator from deleting files in the '/developers' directory by setting the sticky bit.",
+        "answer": "chmod +t /developers"
+      },
+      {
+        "id": 21,
+        "instruction": "Verify the ownership, permissions, SGID, and sticky bit on the '/admins' directory.",
+        "answer": "ls -ld /admins"
+      },
+      {
+        "id": 22,
+        "instruction": "Verify the ownership, permissions, SGID, and sticky bit on the '/developers' directory.",
+        "answer": "ls -ld /developers"
+      }
+    ]
+  },{
+    "id": 17,
+    "title": "On ServerA, create a 200MB swap partition on /dev/sdb and ensure it takes effect automatically at boot.",
+    "steps": [
+      {
+        "id": 1,
+        "instruction": "Display the current amount of free and used memory in the system, in megabytes.",
+        "answer": "free -m"
+      },
+      {
+        "id": 2,
+        "instruction": "Open the interactive command-line mode of the fdisk utility to create a new partition on /dev/sdb.",
+        "answer": "fdisk /dev/sdb"
+      },
+      {
+        "id": 3,
+        "instruction": "Enter the correct value in fdisk to display available options.",
+        "answer": "m"
+      },
+      {
+        "id": 4,
+        "instruction": "Enter the correct value to create a new partition.",
+        "answer": "n"
+      },
+      {
+        "id": 5,
+        "instruction": "Select the correct value to create a primary partition.",
+        "answer": "p"
+      },
+      {
+        "id": 6,
+        "instruction": "Specify the partition number as '2' or press this key to accept the default.",
+        "answer": "2 or Enter"
+      },
+      {
+        "id": 7,
+        "instruction": "Press this key to confirm the default first sector.",
+        "answer": "Enter"
+      },
+      {
+        "id": 8,
+        "instruction": "Specify the partition size as 200MB by entering the correct value",
+        "answer": "+200M"
+      },
+      {
+        "id": 9,
+        "instruction": "Enter the correct value to print the current partition table and verify the new partition.",
+        "answer": "p"
+      },
+      {
+        "id": 10,
+        "instruction": "Enter the correct value to change the partition type.",
+        "answer": "t"
+      },
+      {
+        "id": 11,
+        "instruction": "Specify the partition number and press Enter.",
+        "answer": "2"
+      },
+      {
+        "id": 12,
+        "instruction": "Enter the correct value to list known partition types in fdisk.",
+        "answer": "l"
+      },
+      {
+        "id": 13,
+        "instruction": "Set the partition type to Linux Swap by entering the correct value.",
+        "answer": "82"
+      },
+      {
+        "id": 14,
+        "instruction": "Enter the correct value to print the updated partition table and confirm the changes.",
+        "answer": "p"
+      },
+      {
+        "id": 15,
+        "instruction": "Enter the correct value to write the changes to the disk and exit fdisk.",
+        "answer": "w"
+      },
+      {
+        "id": 16,
+        "instruction": "Inform the kernel of the changes made to the partition table without rebooting.",
+        "answer": "partprobe"
+      },
+      {
+        "id": 17,
+        "instruction": "List all available block devices to verify the new partition.",
+        "answer": "lsblk"
+      },
+      {
+        "id": 18,
+        "instruction": "Format the new partition as a swap partition.",
+        "answer": "mkswap /dev/sdb2"
+      },
+      {
+        "id": 19,
+        "instruction": "Display the UUID of '/dev/sdb2' to use for persistent configuration.",
+        "answer": "blkid"
+      },
+      {
+        "id": 20,
+        "instruction": "Open the '/etc/fstab' file using Vim to configure the new swap partition for automatic use at boot.",
+        "answer": "vim /etc/fstab"
+      },
+      {
+        "id": 21,
+        "instruction": "Add the line to the file to enable the new swap partition: ",
+        "answer": "UUID=<id listed for /dev/sdb2 in the blkid output> swap swap defaults 0 0"
+      },
+      {
+        "id": 22,
+        "instruction": "Save and exit Vim.",
+        "answer": "Press Esc, then type :wq and press Enter"
+      },
+      {
+        "id": 23,
+        "instruction": "Mount all filesystems specified in '/etc/fstab' to activate the new configuration.",
+        "answer": "mount -a"
+      },
+      {
+        "id": 24,
+        "instruction": "Enable the new swap partition.",
+        "answer": "swapon /dev/sdb2"
+      },
+      {
+        "id": 25,
+        "instruction": "Display the updated amount of free and used memory to confirm the new swap partition is active.",
+        "answer": "free -m"
+      },
+      {
+        "id": 26,
+        "instruction": "List all available block devices to confirm the setup.",
+        "answer": "lsblk"
+      }
+    ]
+  }
 ]

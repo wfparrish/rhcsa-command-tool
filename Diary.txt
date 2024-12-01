@@ -56,3 +56,19 @@ So based on the format I have now, I'm updating the questions list
 Using ChatGPT to generate the Step questions for the UI using the work I've already
 done to create command lists for the questions.
 
+Fixed a bug in the UI where the correct or incorrect textbox wouldn't go away when moving to another question
+https://chatgpt.com/c/674b8255-0370-8002-a653-356df5bc4af9
+
+Created the Github repo for the project:
+https://github.com/wfparrish/rhcsa-command-tool.git
+
+using main as the word for the main branch
+
+git push origin main
+
+***************************************************************************
+
+What I think would be cool is if at the bottom of each screen I had a simulated terminal
+In that terminal you could enter each command one after another and get the output from them like you would on the Test
+It would let you reinforce what you are learning with each separate command entered
+
