@@ -74,3 +74,30 @@ textarea:focus {
   border-radius: 10px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
 }
+
+.explanation {
+  margin-top: 10px;
+  padding: 10px;
+  border-left: 4px solid #4caf50;
+  background-color: #f1f8e9;
+  border-radius: 5px;
+  font-style: italic;
+  font-weight: bold;
+  color: #33691e;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease, max-height 0.5s ease;
+}
+
+.feedback.correct + .explanation {
+  opacity: 1;
+  max-height: 500px; /* Arbitrary large value to accommodate content */
+}
+
+
+
+/* Optional: Target the paragraph inside explanation for additional styling */
+.explanation p {
+  margin: 0;
+}

@@ -14,7 +14,7 @@ const Question = ({ question, onNext, onPrevious, isFirst, isLast, resetTrigger 
           resetTrigger={resetTrigger} // Pass resetTrigger to Step
         />
       ))}
-      <div>
+      <div style={{ textAlign: 'center', marginTop: '20px' }}>
         {!isFirst && <button onClick={onPrevious}>Previous</button>}
         {!isLast && <button onClick={onNext}>Next</button>}
       </div>

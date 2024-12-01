@@ -1,3 +1,4 @@
+// server.js
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -12,8 +13,7 @@ app.get('/', (req, res) => {
   res.send('Backend is running. Use /api/questions or /api/validate for API endpoints.');
 });
 
-
-// Route: Get all questions (without answers)
+// Route: Get all questions (without answers and explanations)
 app.get('/api/questions', (req, res) => {
   const questionsWithoutAnswers = questions.map((q) => ({
     id: q.id,
@@ -46,13 +46,12 @@ app.post('/api/validate', (req, res) => {
 
   console.log('Step Found:', step); // Log the step object to verify its content
 
-  const isCorrect = userAnswer.trim() === step.answer.trim();
+  const isCorrect = userAnswer.trim().toLowerCase() === step.answer.trim().toLowerCase();
   res.json({
     isCorrect,
-    ...(isCorrect ? {} : { correctAnswer: step.answer }),
+    ...(isCorrect ? { explanation: step.explanation } : { correctAnswer: step.answer }),
   });
 });
-
 
 // Start the server
 const PORT = process.env.PORT || 5000;

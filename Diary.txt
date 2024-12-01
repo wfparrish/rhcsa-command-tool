@@ -72,3 +72,10 @@ What I think would be cool is if at the bottom of each screen I had a simulated 
 In that terminal you could enter each command one after another and get the output from them like you would on the Test
 It would let you reinforce what you are learning with each separate command entered
 
+------------------------------------------------------------------------------------------
+
+12/1
+
+Added about 55 questions to the app
+Used the scripts that I wanted to write as the basis, should work nicely with RHCSA objectives and memorization
+

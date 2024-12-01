@@ -1,3 +1,4 @@
+// Test.js
 import React, { useState, useEffect } from 'react';
 import Question from './Question';
 
@@ -51,7 +52,7 @@ const Test = () => {
                 color: currentQuestionIndex === index ? '#1b5e20' : '#00796b',
               }}
             >
-              Question {index + 1}
+              {index + 1}
             </button>
           ))}
         </div>

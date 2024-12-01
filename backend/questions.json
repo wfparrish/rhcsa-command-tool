@@ -1,112 +1,133 @@
 [
   {
     "id": 1,
-    "title": "Set up a Local Yum/DNF Repository using a RHEL-9 ISO image mounted on the /mnt directory.",
+    "title": "Establish a local repository by mounting a RHEL-9 ISO on the /mnt directory.",
     "steps": [
       {
         "id": 1,
         "instruction": "Use the command to list block devices and identify the ISO device.",
-        "answer": "lsblk"
+        "answer": "lsblk",
+        "explanation": "The `lsblk` (list block devices) command displays information about all available or the specified block devices. It helps identify the device name assigned to the mounted ISO, ensuring you mount the correct device."
       },
       {
         "id": 2,
         "instruction": "Use the command to find the UUID or LABEL of the ISO device.",
-        "answer": "blkid"
+        "answer": "blkid",
+        "explanation": "The `blkid` command is used to locate or print block device attributes such as UUID (Universally Unique Identifier) or LABEL. Identifying the UUID or LABEL of the ISO device ensures precise mounting, especially in environments where device names might change."
       },
       {
         "id": 3,
         "instruction": "Use the command to display filesystem usage, ensuring the ISO is properly mounted.",
-        "answer": "df -h"
+        "answer": "df -h",
+        "explanation": "The `df` (disk filesystem) command reports file system disk space usage. The `-h` flag stands for 'human-readable' format, displaying sizes in KB, MB, or GB. Running this command verifies that the ISO has been successfully mounted by showing its mount point and available space."
       },
       {
         "id": 4,
         "instruction": "Use the command to confirm that the ISO filesystem type is detected as 'iso9660'.",
-        "answer": "mount | grep 'iso9660'"
+        "answer": "mount | grep 'iso9660'",
+        "explanation": "The `mount` command without arguments lists all mounted filesystems. Piping it to `grep 'iso9660'` filters the output to show only entries using the 'iso9660' filesystem type, which is standard for ISO images. This confirmation ensures that the ISO is mounted with the correct filesystem type."
       },
       {
         "id": 5,
         "instruction": "Use the command to search for the ISO file within the specified directory or device.",
-        "answer": "find /dev/sr0 -type f -name \"<name of the iso>\""
+        "answer": "find /dev/sr0 -type f -name \"<name of the iso>\"",
+        "explanation": "The `find` command searches for files in a directory hierarchy. Here, it's used to locate the ISO file within the `/dev/sr0` device directory by specifying the file type as `f` (regular file) and matching the ISO file name. This step ensures that the correct ISO file is identified for mounting."
       },
       {
         "id": 6,
         "instruction": "Create a directory to use as the mount point for the ISO.",
-        "answer": "mkdir /repo"
+        "answer": "mkdir /repo",
+        "explanation": "The `mkdir` (make directory) command creates a new directory named `/repo`, which serves as the mount point for the ISO. Establishing a dedicated mount point helps organize the filesystem and ensures that the ISO is mounted in a predictable and accessible location."
       },
       {
         "id": 7,
         "instruction": "Add the ISO device to the '/etc/fstab' file to ensure it mounts on boot.",
-        "answer": "echo \"/dev/sr0 /repo iso9660 loop 0 0\" >> /etc/fstab"
+        "answer": "echo \"/dev/sr0 /repo iso9660 loop 0 0\" >> /etc/fstab",
+        "explanation": "This command appends a new entry to the `/etc/fstab` file, which configures filesystems to be mounted automatically at boot time. The entry specifies that the ISO device `/dev/sr0` should be mounted at `/repo` using the `iso9660` filesystem type. The `loop` option allows mounting a file as a filesystem, and the final two zeros (`0 0`) indicate that the filesystem should not be dumped or checked on boot."
       },
       {
         "id": 8,
         "instruction": "Mount all filesystems defined in the '/etc/fstab' file.",
-        "answer": "mount -a"
+        "answer": "mount -a",
+        "explanation": "The `mount -a` command mounts all filesystems mentioned in the `/etc/fstab` file, except those marked with the `noauto` option. This ensures that the ISO is mounted immediately without needing a system reboot, adhering to the configurations set previously."
       },
       {
         "id": 9,
         "instruction": "Add the BaseOS repository from the mounted ISO to DNF configuration.",
-        "answer": "dnf config-manager --add-repo=file:///repo/BaseOS"
+        "answer": "dnf config-manager --add-repo=file:///repo/BaseOS",
+        "explanation": "The `dnf config-manager` command manages DNF repository configurations. The `--add-repo` option adds a new repository by specifying its URL. Here, it adds the BaseOS repository from the mounted ISO located at `/repo/BaseOS`, enabling the system to install packages from this local source."
       },
       {
         "id": 10,
         "instruction": "Add the AppStream repository from the mounted ISO to DNF configuration.",
-        "answer": "dnf config-manager --add-repo=file:///repo/AppStream"
+        "answer": "dnf config-manager --add-repo=file:///repo/AppStream",
+        "explanation": "Similar to Step 9, this command adds the AppStream repository from the mounted ISO at `/repo/AppStream` to the DNF configuration. The AppStream repository contains additional packages and modules, expanding the range of software available for installation from the local repository."
       },
       {
         "id": 11,
         "instruction": "List all repository configuration files to verify the new repos are created.",
-        "answer": "ls -l /etc/yum.repos.d/"
+        "answer": "ls -l /etc/yum.repos.d/",
+        "explanation": "The `ls -l` command lists detailed information about files in the `/etc/yum.repos.d/` directory, where DNF repository configuration files are stored. Verifying the presence of new `.repo` files confirms that the BaseOS and AppStream repositories have been successfully added."
       },
       {
         "id": 12,
         "instruction": "Disable GPG checking for the BaseOS repository by appending the appropriate configuration.",
-        "answer": "echo \"gpgcheck=0\" | sudo tee -a /etc/yum.repos.d/repo_BaseOS.repo"
+        "answer": "echo \"gpgcheck=0\" | sudo tee -a /etc/yum.repos.d/repo_BaseOS.repo",
+        "explanation": "This command disables GPG (GNU Privacy Guard) signature checking for the BaseOS repository by appending `gpgcheck=0` to its `.repo` file. Disabling GPG checks allows DNF to install packages without verifying their signatures, which can be useful in controlled environments but should be done with caution to maintain security."
       },
       {
         "id": 13,
         "instruction": "Disable GPG checking for the AppStream repository by appending the appropriate configuration.",
-        "answer": "echo \"gpgcheck=0\" | sudo tee -a /etc/yum.repos.d/repo_AppStream.repo"
+        "answer": "echo \"gpgcheck=0\" | sudo tee -a /etc/yum.repos.d/repo_AppStream.repo",
+        "explanation": "Similar to Step 12, this command disables GPG signature checking for the AppStream repository by adding `gpgcheck=0` to its `.repo` file. This ensures that packages from the AppStream repository can be installed without signature verification."
       },
       {
         "id": 14,
         "instruction": "List all available repositories to confirm the BaseOS and AppStream repositories are active.",
-        "answer": "dnf repolist"
+        "answer": "dnf repolist",
+        "explanation": "The `dnf repolist` command lists all enabled DNF repositories. Running this command verifies that the newly added BaseOS and AppStream repositories are active and available for package installations."
       },
       {
         "id": 15,
         "instruction": "Open the '/etc/fstab' file in an editor to remove entries causing issues.",
-        "answer": "sudo vim /etc/fstab"
+        "answer": "sudo vim /etc/fstab",
+        "explanation": "The `vim` editor is used here to open the `/etc/fstab` file with superuser privileges (`sudo`). Editing this file allows you to remove or modify filesystem mount entries that may be causing boot or mounting issues, ensuring system stability."
       },
       {
         "id": 16,
         "instruction": "Delete the problematic line from the '/etc/fstab' file.",
-        "answer": "dd"
+        "answer": "dd",
+        "explanation": "In the `vim` editor, the `dd` command deletes the current line where the cursor is positioned. This is used to remove the faulty mount entry from `/etc/fstab`, preventing potential boot problems related to incorrect filesystem mounts."
       },
       {
         "id": 17,
         "instruction": "Save and exit the '/etc/fstab' file.",
-        "answer": ":wq"
+        "answer": ":wq",
+        "explanation": "The `:wq` command in `vim` writes (saves) the changes made to the file and quits the editor. This finalizes the removal of the problematic entry from `/etc/fstab`, ensuring that the system no longer attempts to mount the faulty filesystem on boot."
       },
       {
         "id": 18,
         "instruction": "Unmount the ISO from the '/repo' directory.",
-        "answer": "umount /repo"
+        "answer": "umount /repo",
+        "explanation": "The `umount` command detaches the filesystem mounted at `/repo`. Unmounting the ISO ensures that resources are freed and the mount point is clean, especially after removing the corresponding entry from `/etc/fstab`."
       },
       {
         "id": 19,
         "instruction": "Remove the '/repo' directory to clean up the mount point.",
-        "answer": "rmdir /repo"
+        "answer": "rmdir /repo",
+        "explanation": "The `rmdir` (remove directory) command deletes the `/repo` directory. Cleaning up the mount point by removing the directory helps maintain an organized filesystem and prevents clutter from unused mount points."
       },
       {
         "id": 20,
         "instruction": "List all repository configuration files to locate and identify the files to remove.",
-        "answer": "ls /etc/yum.repos.d/"
+        "answer": "ls /etc/yum.repos.d/",
+        "explanation": "The `ls` command lists the contents of the `/etc/yum.repos.d/` directory, where DNF repository configuration files are stored. Reviewing these files helps identify which repository configurations need to be removed or modified to reset the DNF configuration."
       },
       {
         "id": 21,
         "instruction": "Remove the repository configuration files to reset the DNF configuration.",
-        "answer": "rm <name of the files>.repo"
+        "answer": "rm <name of the files>.repo",
+        "explanation": "The `rm` (remove) command deletes specified `.repo` files from `/etc/yum.repos.d/`. Removing these repository configuration files resets DNF to its default state, eliminating any custom or problematic repository settings that were previously added."
       }
     ]
   },
@@ -3431,7 +3452,64 @@
             "answer": "df -h /mnt"
           }
         ]
+      },
+      {
+        "id": 78,
+        "title": "Setting and Modifying ACLs using setfacl and getfacl",
+        "steps": [
+          {
+            "id": 1,
+            "instruction": "Prompt the user to enter the file or directory name to manage ACLs and store it in a variable named 'file_name'.",
+            "answer": "read -p 'Enter the file or directory name to manage ACLs: ' file_name"
+          },
+          {
+            "id": 2,
+            "instruction": "Display the current ACLs for the specified file or directory using getfacl.",
+            "answer": "getfacl $file_name"
+          },
+          {
+            "id": 3,
+            "instruction": "Prompt the user to enter a username and permissions (e.g., rwx) to set an ACL for the user. Store the inputs in variables 'username' and 'permissions'.",
+            "answer": "read -p 'Enter the username: ' username; read -p 'Enter the permissions (e.g., rwx): ' permissions"
+          },
+          {
+            "id": 4,
+            "instruction": "Set the specified ACL for the user on the given file or directory using setfacl.",
+            "answer": "setfacl -m u:$username:$permissions $file_name"
+          },
+          {
+            "id": 5,
+            "instruction": "Prompt the user to enter a group name and permissions to set an ACL for the group. Store the inputs in variables 'groupname' and 'permissions'.",
+            "answer": "read -p 'Enter the group name: ' groupname; read -p 'Enter the permissions (e.g., rwx): ' permissions"
+          },
+          {
+            "id": 6,
+            "instruction": "Set the specified ACL for the group on the given file or directory using setfacl.",
+            "answer": "setfacl -m g:$groupname:$permissions $file_name"
+          },
+          {
+            "id": 7,
+            "instruction": "Prompt the user to enter a default ACL for all files in a directory (if applicable). Store the inputs in variables 'default_permissions'.",
+            "answer": "read -p 'Enter the default permissions for the directory (e.g., rwx): ' default_permissions"
+          },
+          {
+            "id": 8,
+            "instruction": "Set the default ACL for all files in a directory using setfacl.",
+            "answer": "setfacl -d -m u:$username:$default_permissions $file_name"
+          },
+          {
+            "id": 9,
+            "instruction": "Remove an ACL entry for a specific user. Prompt the user to enter the username and store it in a variable 'username'.",
+            "answer": "read -p 'Enter the username to remove ACL for: ' username; setfacl -x u:$username $file_name"
+          },
+          {
+            "id": 10,
+            "instruction": "Verify the updated ACLs for the specified file or directory.",
+            "answer": "getfacl $file_name"
+          }
+        ]
       }
+      
     ]
     
 
