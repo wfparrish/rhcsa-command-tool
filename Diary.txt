@@ -79,3 +79,9 @@ It would let you reinforce what you are learning with each separate command ente
 Added about 55 questions to the app
 Used the scripts that I wanted to write as the basis, should work nicely with RHCSA objectives and memorization
 
+Also added explanations
+-I thought I needed to create a component but that wasn't necessary
+-I'm just updating the UI with muliple JSX components when I get response of whether the answer is correct or not.
+
+It could be that I should split this off into a component, but right now I don't think there is any harm
+
