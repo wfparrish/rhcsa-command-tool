@@ -397,6 +397,21 @@
         "id": 13,
         "instruction": "Create a symbolic link in the web server directory for 'AppStream'.",
         "answer": "sudo ln -s /repo/AppStream /var/www/html/AppStream"
+      },
+      {
+        "id": 14,
+        "instruction": "Test HTTP access to the 'BaseOS' repository from the server.",
+        "answer": "curl http://localhost/BaseOS"
+      },
+      {
+        "id": 15,
+        "instruction": "Verify the repository configuration on the client machine.",
+        "answer": "sudo dnf repolist"
+      },
+      {
+        "id": 16,
+        "instruction": "Test the repository by installing a package on the client machine.",
+        "answer": "sudo dnf install vim"
       }
     ]
   },
