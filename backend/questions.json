@@ -1018,31 +1018,31 @@
         "id": 1,
         "instruction": "Open the GRUB configuration file using Vim.",
         "answer": "vim /etc/default/grub",
-        "explanation": ""
+        "explanation": "The command vim /etc/default/grub opens the GRUB configuration file for editing using the Vim text editor. This file contains GRUB's default boot options, which control the behavior of the boot process, including the display of boot messages. By accessing this file, you prepare to modify the parameters that influence whether boot messages are shown or silenced. Understanding how to edit critical configuration files like this is essential for managing system startup behavior, a skill commonly tested in the RHCSA exam."
       },
       {
         "id": 2,
         "instruction": "Locate the line beginning with 'GRUB_CMDLINE_LINUX' and remove 'rhgb quiet' from the line.",
         "answer": "Remove: rhgb quiet",
-        "explanation": ""
+        "explanation": "To ensure that boot messages are displayed during startup, locate the line in the GRUB configuration file that begins with GRUB_CMDLINE_LINUX and remove the options rhgb and quiet. The rhgb option enables the Red Hat graphical boot screen, which hides boot messages, and the quiet option suppresses non-critical boot output. Removing these options ensures that detailed boot messages are displayed, which can be useful for troubleshooting and monitoring the system during startup. This modification directly affects how the system presents information at boot time, aligning with the goal of enabling verbose boot messages."
       },
       {
         "id": 3,
         "instruction": "Save and exit the Vim editor.",
         "answer": "Press Esc, then type :wq and press Enter",
-        "explanation": ""
+        "explanation": "To save the changes made to the GRUB configuration file and exit the Vim editor, press the Esc key to switch to command mode, then type :wq and press Enter. This sequence writes the changes to the file and quits the editor. Saving the updated GRUB configuration ensures that the removal of rhgb and quiet persists, preparing the system to display boot messages during startup. Exiting properly confirms that no unsaved edits remain, maintaining the integrity of the GRUB configuration."
       },
       {
         "id": 4,
         "instruction": "Generate a new GRUB configuration file to apply the changes.",
         "answer": "grub2-mkconfig -o /boot/grub2/grub.cfg",
-        "explanation": ""
+        "explanation": "The grub2-mkconfig command is used to generate a new GRUB configuration file, incorporating any changes made to the GRUB defaults. The -o option specifies the output file, which in this case is /boot/grub2/grub.cfg, the active GRUB configuration file. Running this command applies the modifications made to /etc/default/grub, such as removing rhgb and quiet. This ensures that the updated settings are used during the next boot process, enabling the display of boot messages. Generating a new configuration file is a critical step in making the GRUB changes effective."
       },
       {
         "id": 5,
         "instruction": "Reboot the system to apply the new GRUB configuration.",
         "answer": "systemctl reboot",
-        "explanation": ""
+        "explanation": "The systemctl reboot command reboots the system, applying the new GRUB configuration during the next boot process. This step ensures that the changes, such as enabling the display of boot messages by removing rhgb and quiet, take effect. Rebooting is necessary to transition the system to the updated GRUB settings, allowing you to confirm that boot messages are now visible."
       }
     ]
   },{
@@ -1053,133 +1053,133 @@
         "id": 1,
         "instruction": "Create the 'admins' group if it does not already exist.",
         "answer": "groupadd admins",
-        "explanation": ""
+        "explanation": "The groupadd admins command is used to create a new group named 'admins' on the system. Groups in Linux serve as a mechanism to manage and organize users for easier permission control and access management. By creating the 'admins' group, you prepare a centralized structure for assigning privileges to multiple users who will collectively need access to specific resources, like directories or files. This step is foundational, as it allows subsequent commands to define and enforce access rules for all members of this group."
       },
       {
         "id": 2,
         "instruction": "Create the 'developers' group if it does not already exist.",
         "answer": "groupadd developers",
-        "explanation": ""
+        "explanation": "The groupadd developers command creates a new group named 'developers' on the system. Groups in Linux are essential for managing user permissions and access to shared resources. By creating the 'developers' group, you establish a collective structure for assigning permissions to users who will work on shared projects or files within designated directories. This step ensures that access control for the 'developers' group can be configured effectively in later steps."
       },
       {
         "id": 3,
         "instruction": "Create the user 'amr'.",
         "answer": "useradd amr",
-        "explanation": ""
+        "explanation": "The useradd amr command creates a new user named 'amr' on the system. By default, this command assigns the user a unique User ID (UID), creates a home directory at /home/amr, and sets up basic user files. Creating this user is a foundational step in assigning roles and permissions, particularly as 'amr' will later be associated with the 'admins' group for collaborative and access control purposes. This step aligns with managing users efficiently within the Linux environment."
       },
       {
         "id": 4,
         "instruction": "Create the user 'biko'.",
         "answer": "useradd biko",
-        "explanation": ""
+        "explanation": "The useradd biko command is used to create a new user named 'biko' on the system. Similar to the previous step, this command assigns a unique User ID (UID) to 'biko', creates a home directory at /home/biko, and initializes the user with default configuration files. Adding 'biko' as a user is part of setting up roles and permissions, as 'biko' will later be assigned to the 'admins' group to collaborate with other administrative users. This step is essential for managing access control in multi-user environments."
       },
       {
         "id": 5,
         "instruction": "Create the user 'carlos'.",
         "answer": "useradd carlos",
-        "explanation": ""
+        "explanation": "The useradd carlos command creates a new user named 'carlos' on the system. This step adds 'carlos' to the system's user database, assigns a unique User ID (UID), and creates a home directory at /home/carlos with default user configuration files. Later, 'carlos' will be assigned to the 'developers' group to align with their role in managing or accessing the /developers directory. This step is a foundational part of configuring user-based access control and ensuring proper directory ownership and permissions."
       },
       {
         "id": 6,
         "instruction": "Create the user 'david'.",
         "answer": "useradd david",
-        "explanation": ""
+        "explanation": "The useradd david command creates a new user named 'david' on the system. This step ensures that 'david' is added to the system's user database with a unique User ID (UID) and a default home directory at /home/david. The user will later be assigned to the 'developers' group to facilitate role-based access to the /developers directory. Adding users like 'david' is critical for setting up controlled access to resources and ensuring that permissions are allocated appropriately based on group membership."
       },
       {
         "id": 7,
         "instruction": "Add the user 'amr' to the 'admins' group as a secondary group.",
         "answer": "usermod -aG admins amr",
-        "explanation": ""
+        "explanation": "The usermod -aG admins amr command modifies the existing user 'amr' by appending them to the 'admins' group. The -a (append) flag ensures that the user is added to the specified group without being removed from other groups they belong to, while the -G flag specifies the group to which the user is being added. This step is critical for granting 'amr' access to resources designated for the 'admins' group, such as the /admins directory. Proper use of this command ensures that group-based permissions are configured effectively, aligning with best practices for access control."
       },
       {
         "id": 8,
         "instruction": "Add the user 'biko' to the 'admins' group as a secondary group.",
         "answer": "usermod -aG admins biko",
-        "explanation": ""
+        "explanation": "The usermod -aG admins biko command appends the user 'biko' to the 'admins' group as a secondary group. The -a option ensures that the existing group memberships of 'biko' are preserved, while the -G flag specifies the group to add. This step is essential for granting 'biko' the necessary access permissions associated with the 'admins' group, such as the ability to access or modify files in the /admins directory. Proper execution of this command maintains the integrity of group membership configurations while extending access rights as needed."
       },
       {
         "id": 9,
         "instruction": "Add the user 'carlos' to the 'developers' group as a secondary group.",
         "answer": "usermod -aG developers carlos",
-        "explanation": ""
+        "explanation": "The usermod -aG developers carlos command adds the user 'carlos' to the 'developers' group as a secondary group. The -a (append) option ensures that 'carlos' retains membership in any existing groups while adding them to the specified group. The -G flag specifies the group to which the user is being added. This step is crucial for granting 'carlos' the appropriate permissions and access rights associated with the 'developers' group, enabling collaborative work in the /developers directory without affecting other group memberships."
       },
       {
         "id": 10,
         "instruction": "Add the user 'david' to the 'developers' group as a secondary group.",
         "answer": "usermod -aG developers david",
-        "explanation": ""
+        "explanation": "The usermod -aG developers david command adds the user 'david' to the 'developers' group as a secondary group. The -a option ensures that 'david' is appended to the 'developers' group without removing membership from any existing groups, and the -G flag specifies the group being added. This is an essential step for providing 'david' with the permissions and access rights associated with the 'developers' group, ensuring they can collaborate on resources within the /developers directory while retaining other group memberships."
       },
       {
         "id": 11,
         "instruction": "Create the '/admins' directory.",
         "answer": "mkdir /admins",
-        "explanation": ""
+        "explanation": "The mkdir /admins command creates the /admins directory in the root filesystem. This directory will serve as the designated workspace or storage area for the 'admins' group. By creating this directory, you establish a location where the access permissions and ownership settings specific to the 'admins' group can be applied, enabling secure and organized management of group-specific resources. This step is crucial in preparing the directory for further configuration, such as setting ownership and permissions."
       },
       {
         "id": 12,
         "instruction": "Create the '/developers' directory.",
         "answer": "mkdir /developers",
-        "explanation": ""
+        "explanation": "The mkdir /developers command creates the /developers directory in the root filesystem. This directory is intended to serve as the dedicated workspace or resource area for the 'developers' group. Creating this directory lays the foundation for configuring ownership and permissions tailored to the group, ensuring secure access and proper organization of group-specific resources. This step is essential for setting up a controlled environment where only authorized users can access or modify the contents."
       },
       {
         "id": 13,
         "instruction": "Set the ownership of the '/admins' directory to the user 'biko' and the group 'admins'.",
         "answer": "chown biko:admins /admins",
-        "explanation": ""
+        "explanation": "The chown carlos:developers /developers command changes the ownership of the /developers directory. Here, the ownership is assigned to the user 'carlos' and the group 'developers'. This ensures that 'carlos', as the owner, has full control over the directory, and members of the 'developers' group can access and modify its contents as allowed by the permissions. Assigning proper ownership is critical for maintaining security and proper access control within the directory."
       },
       {
         "id": 14,
         "instruction": "Set the ownership of the '/developers' directory to the user 'carlos' and the group 'developers'.",
         "answer": "chown carlos:developers /developers",
-        "explanation": ""
+        "explanation": "The chown carlos:developers /developers command changes the ownership of the /developers directory. Here, the ownership is assigned to the user 'carlos' and the group 'developers'. This ensures that 'carlos', as the owner, has full control over the directory, and members of the 'developers' group can access and modify its contents as allowed by the permissions. Assigning proper ownership is critical for maintaining security and proper access control within the directory."
       },
       {
         "id": 15,
         "instruction": "Set the permissions of the '/admins' directory so only the owner and group members have access.",
         "answer": "chmod 770 /admins",
-        "explanation": ""
+        "explanation": "The chmod 770 /admins command sets the permissions for the /admins directory so that only the owner and members of the group have access. The numeric value 770 translates to the following permissions: the owner has full access (rwx), the group has full access (rwx), and others have no access (---). This ensures that the directory's contents are accessible only to authorized users, aligning with the principle of least privilege and securing sensitive files within the directory."
       },
       {
         "id": 16,
         "instruction": "Set the permissions of the '/developers' directory so only the owner and group members have access.",
         "answer": "chmod 770 /developers",
-        "explanation": ""
+        "explanation": "The chmod 770 /developers command configures the permissions for the /developers directory, ensuring that only the owner and members of the group have access. In this case, the numeric value 770 means the owner has full access (rwx), the group has full access (rwx), and others are denied access (---). This setup restricts access to authorized users only, ensuring that the directory's contents are secure and available exclusively to the intended individuals."
       },
       {
         "id": 17,
         "instruction": "Set the SGID (Set Group ID) bit on the '/admins' directory to ensure new files inherit the group owner.",
         "answer": "chmod g+s /admins",
-        "explanation": ""
+        "explanation": "The chmod g+s /admins command applies the SGID (Set Group ID) bit to the /admins directory. Setting this bit ensures that any new files or directories created within /admins automatically inherit the group ownership of the parent directory, in this case, the admins group. This behavior facilitates consistent group-based access control, which is particularly useful for collaborative environments where multiple users in the same group need shared access to files and directories. By applying the SGID, you maintain group ownership integrity, simplifying permission management for the directory."
       },
       {
         "id": 18,
         "instruction": "Set the SGID (Set Group ID) bit on the '/developers' directory to ensure new files inherit the group owner.",
         "answer": "chmod g+s /developers",
-        "explanation": ""
+        "explanation": "The chmod g+s /developers command sets the SGID (Set Group ID) bit on the /developers directory. This ensures that any new files or subdirectories created within /developers automatically inherit the group ownership of the parent directory, which is the developers group in this case. This setting is crucial for maintaining consistent group ownership, streamlining collaboration among members of the developers group. By applying the SGID, administrative overhead is reduced as permissions for newly created files remain aligned with the group's access requirements."
       },
       {
         "id": 19,
         "instruction": "Prevent users other than the file creator from deleting files in the '/admins' directory by setting the sticky bit.",
         "answer": "chmod +t /admins",
-        "explanation": ""
+        "explanation": "The chmod +t /admins command sets the sticky bit on the /admins directory. This ensures that only the owner of a file or the directory owner (in this case, biko) can delete or rename files within the directory. This feature is particularly useful in shared directories, as it prevents unauthorized users, even if they are part of the admins group, from modifying or deleting files they do not own. By adding the sticky bit, the directory gains an additional layer of security, safeguarding its contents against accidental or malicious deletions by group members."
       },
       {
         "id": 20,
         "instruction": "Prevent users other than the file creator from deleting files in the '/developers' directory by setting the sticky bit.",
         "answer": "chmod +t /developers",
-        "explanation": ""
+        "explanation": "The chmod +t /developers command sets the sticky bit on the /developers directory. This ensures that only the owner of a file or the directory owner (in this case, carlos) can delete or rename files within the directory. This is particularly useful in shared environments, as it prevents other members of the developers group from accidentally or intentionally deleting files they do not own. By applying the sticky bit, the directory gains added protection, ensuring that the contents are managed securely and reducing the risk of unintended modifications."
       },
       {
         "id": 21,
         "instruction": "Verify the ownership, permissions, SGID, and sticky bit on the '/admins' directory.",
         "answer": "ls -ld /admins",
-        "explanation": ""
+        "explanation": "The ls -ld /admins command displays detailed information about the /admins directory, including its ownership, permissions, and special attributes such as the SGID and sticky bit. The -l option provides a long listing format, showing information like the directory's owner (biko), group (admins), and permission settings (rwxrwx--T if the SGID and sticky bits are set correctly). The -d option ensures that the command shows information about the directory itself rather than its contents. Running this command verifies that the directory's configuration aligns with the requirements, ensuring proper access control and inheritance rules for files created within the directory."
       },
       {
         "id": 22,
         "instruction": "Verify the ownership, permissions, SGID, and sticky bit on the '/developers' directory.",
         "answer": "ls -ld /developers",
-        "explanation": ""
+        "explanation": "The ls -ld /developers command is used to display detailed information about the /developers directory, including its ownership, permissions, and special attributes such as the SGID and sticky bit. The -l option provides a long listing format, showing details like the directory’s owner (carlos), group (developers), and permission settings (rwxrwx--T if configured correctly). The -d option ensures the output pertains to the directory itself rather than its contents. Executing this command confirms that the directory’s setup meets the specified requirements, including proper ownership, access permissions, and inheritance behavior for newly created files."
       }
     ]
   },{
@@ -1189,132 +1189,158 @@
       {
         "id": 1,
         "instruction": "Display the current amount of free and used memory in the system, in megabytes.",
-        "answer": "free -m"
+        "answer": "free -m",
+        "explanation": "The free command provides a snapshot of the system's memory usage, including total, used, and available memory. The -m option displays these values in megabytes, making it easier to interpret and confirm the current swap memory allocation. This step ensures that the system's existing memory configuration is understood before adding a new swap partition, providing a baseline for comparison after the swap setup. It aligns with system administration best practices and is critical for monitoring and troubleshooting in an RHCSA scenario."
       },
       {
         "id": 2,
         "instruction": "Open the interactive command-line mode of the fdisk utility to create a new partition on /dev/sdb.",
-        "answer": "fdisk /dev/sdb"
+        "answer": "fdisk /dev/sdb",
+        "explanation": "The fdisk command is a disk partitioning tool used to manage partitions on a disk. By specifying /dev/sdb, you target the second disk on the system for partitioning. Entering the interactive mode of fdisk allows you to create, delete, or modify partitions. This step is essential for preparing the disk to host a new swap partition and must be performed carefully to avoid altering existing partitions or data on the disk. In the RHCSA context, understanding how to use fdisk is critical for disk management tasks."
       },
       {
         "id": 3,
         "instruction": "Enter the correct value in fdisk to display available options.",
-        "answer": "m"
+        "answer": "m",
+        "explanation": "In the interactive mode of fdisk, entering m displays a list of all available commands and their descriptions. This is helpful for understanding the options you can use during partitioning. It acts as an in-tool reference guide, ensuring you can proceed with confidence and avoid errors while creating or modifying partitions. This step is particularly useful during an exam like the RHCSA, where quick access to command options can save time and prevent mistakes."
       },
       {
         "id": 4,
         "instruction": "Enter the correct value to create a new partition.",
-        "answer": "n"
+        "answer": "n",
+        "explanation": "In the fdisk utility, entering n initiates the process to create a new partition. This command is essential when adding storage by creating logical sections on a disk. Once invoked, fdisk prompts for further details, such as partition type, number, and size. This step is crucial for defining the structure of the disk, enabling the allocation of specific purposes, such as creating a swap partition, as required in this task."
       },
       {
         "id": 5,
         "instruction": "Select the correct value to create a primary partition.",
-        "answer": "p"
+        "answer": "p",
+        "explanation": "In the fdisk utility, selecting p specifies the partition type as primary. A primary partition is one of the main divisions of a disk and is necessary for creating directly accessible storage units like a swap space. This step ensures the partition is configured to meet the requirements for the Linux operating system, where up to four primary partitions can exist on a traditional partitioning scheme."
       },
       {
         "id": 6,
         "instruction": "Specify the partition number as '2' or press this key to accept the default.",
-        "answer": "2 or Enter"
+        "answer": "2 or Enter",
+        "explanation": "When creating a partition in fdisk, the tool prompts for a partition number. Specifying 2 explicitly assigns this as the second partition on the disk. Pressing Enter accepts the default value suggested by fdisk, which typically increments automatically based on existing partitions. This step ensures the partition is correctly numbered and does not overwrite existing partitions. Proper numbering is essential for identifying and configuring the swap space accurately."
       },
       {
         "id": 7,
         "instruction": "Press this key to confirm the default first sector.",
-        "answer": "Enter"
+        "answer": "Enter",
+        "explanation": "In fdisk, after selecting a partition number, the tool prompts for the first sector of the partition. By pressing Enter, the default value provided by fdisk is accepted, which is typically the next available sector following existing partitions. This ensures optimal alignment and utilization of disk space. Confirming the default first sector simplifies the partitioning process and avoids manually calculating offsets, minimizing the risk of errors."
       },
       {
         "id": 8,
         "instruction": "Specify the partition size as 200MB by entering the correct value",
-        "answer": "+200M"
+        "answer": "+200M",
+        "explanation": "In the fdisk utility, specifying the size of a new partition is achieved by entering a value prefixed with a + sign, followed by the desired size and unit. The value +200M instructs fdisk to allocate 200MB for the partition. This input ensures precise control over the partition size and aligns with the requirement to create a 200MB swap partition. Using the M unit for megabytes makes the command intuitive and avoids ambiguity in specifying the partition size."
       },
       {
         "id": 9,
         "instruction": "Enter the correct value to print the current partition table and verify the new partition.",
-        "answer": "p"
+        "answer": "p",
+        "explanation": "The p command in the fdisk utility displays the current partition table, allowing you to review the structure of the disk and confirm that the new partition has been added correctly. After specifying the size and type of the partition, it is critical to verify the changes before writing them to the disk. This ensures the configuration matches the intended setup and avoids errors that could lead to data loss or misconfiguration."
       },
       {
         "id": 10,
         "instruction": "Enter the correct value to change the partition type.",
-        "answer": "t"
+        "answer": "t",
+        "explanation": "The t command in the fdisk utility is used to change the partition type of a specific partition. Once a partition is created, its type may need to be updated to match its intended purpose. For instance, in this scenario, the partition must be set as a Linux Swap partition, which requires specifying its type. This step is essential for correctly formatting and utilizing the partition in subsequent operations."
       },
       {
         "id": 11,
         "instruction": "Specify the partition number and press Enter.",
-        "answer": "2"
+        "answer": "2",
+        "explanation": "In this step, you specify the partition number of the partition whose type you want to change. Here, the partition number is 2, referring to the second partition on the disk /dev/sdb. By providing this number, fdisk identifies which partition's type needs to be updated, ensuring that changes are applied to the correct partition. This step ensures precision in partition management, avoiding accidental modifications to other partitions."
       },
       {
         "id": 12,
         "instruction": "Enter the correct value to list known partition types in fdisk.",
-        "answer": "l"
+        "answer": "l",
+        "explanation": "Pressing l in the fdisk utility displays a list of all known partition types along with their corresponding hexadecimal codes. This step helps you identify the appropriate code for the desired partition type, such as 82 for a Linux Swap partition. Knowing the correct partition type is critical for configuring the partition for its intended use, ensuring compatibility with the operating system and related tools."
       },
       {
         "id": 13,
         "instruction": "Set the partition type to Linux Swap by entering the correct value.",
-        "answer": "82"
+        "answer": "82",
+        "explanation": "The value 82 is the hexadecimal code for the Linux Swap partition type. By entering this value in the fdisk utility after selecting the partition type change option, you configure the partition for use as swap space. This step ensures that the operating system recognizes the partition as dedicated for virtual memory, enabling efficient memory management when the physical memory (RAM) is fully utilized. Properly assigning the partition type is essential for its intended functionality."
       },
       {
         "id": 14,
         "instruction": "Enter the correct value to print the updated partition table and confirm the changes.",
-        "answer": "p"
+        "answer": "p",
+        "explanation": "The p command in the fdisk utility displays the current partition table, including any updates or changes made during the session. This step ensures that the newly created partition is listed with its size, type, and other details, such as being designated as a Linux Swap partition. Confirming these details before writing changes to the disk prevents potential errors and ensures that the partition setup aligns with your objectives."
       },
       {
         "id": 15,
         "instruction": "Enter the correct value to write the changes to the disk and exit fdisk.",
-        "answer": "w"
+        "answer": "w",
+        "explanation": "The w command in the fdisk utility writes the changes made during the session to the disk and exits the program. This step finalizes the partitioning process, ensuring that the new partition is permanently recorded in the disk's partition table. It is critical to execute this command to apply the changes; otherwise, the new partition will not be created, and all modifications made during the session will be discarded."
       },
       {
         "id": 16,
         "instruction": "Inform the kernel of the changes made to the partition table without rebooting.",
-        "answer": "partprobe"
+        "answer": "partprobe",
+        "explanation": "The partprobe command informs the kernel about changes made to the partition table of a disk. This step is necessary after modifying partitions using tools like fdisk to ensure the operating system recognizes the updates without requiring a system reboot. By executing partprobe, the kernel refreshes its partition table cache, allowing you to use the newly created or modified partitions immediately. This is particularly useful in scenarios requiring minimal downtime, such as during exams or in production environments."
       },
       {
         "id": 17,
         "instruction": "List all available block devices to verify the new partition.",
-        "answer": "lsblk"
+        "answer": "lsblk",
+        "explanation": "The lsblk command displays information about all available block devices in a tree-like format. This includes details such as device names, sizes, and mount points. After running partprobe, using lsblk verifies that the new partition (/dev/sdb2) is recognized by the system. This step confirms that the partition table changes have been successfully applied and that the new swap partition is ready for further configuration. Regularly checking block devices ensures accuracy and helps prevent errors in subsequent steps."
       },
       {
         "id": 18,
         "instruction": "Format the new partition as a swap partition.",
-        "answer": "mkswap /dev/sdb2"
+        "answer": "mkswap /dev/sdb2",
+        "explanation": "The mkswap command prepares a partition for use as swap space by formatting it with the necessary swap metadata. In this case, the command formats the /dev/sdb2 partition, making it ready to serve as additional virtual memory. Formatting ensures that the system recognizes the partition as swap and can utilize it effectively. This step is critical for initializing the partition before enabling it for use, as an unformatted partition cannot function as swap space."
       },
       {
         "id": 19,
         "instruction": "Display the UUID of '/dev/sdb2' to use for persistent configuration.",
-        "answer": "blkid"
+        "answer": "blkid",
+        "explanation": "The blkid command retrieves information about block devices, including their filesystem types and UUIDs (Universally Unique Identifiers). The UUID is a unique identifier assigned to each partition, ensuring that the system can consistently recognize the partition even if its device name changes (e.g., from /dev/sdb2 to another name after reboot). Running blkid for /dev/sdb2 displays its UUID, which is required for adding a persistent entry to the /etc/fstab file. This ensures that the swap partition is automatically enabled during each boot."
       },
       {
         "id": 20,
         "instruction": "Open the '/etc/fstab' file using Vim to configure the new swap partition for automatic use at boot.",
-        "answer": "vim /etc/fstab"
+        "answer": "vim /etc/fstab",
+        "explanation": "The /etc/fstab file is a configuration file that defines how disk partitions and other filesystems are mounted and used by the system at boot. By opening the file with the vim editor, you can add an entry to configure the new swap partition for persistent activation. Using Vim provides a reliable way to modify system files with fine control. Ensuring the swap partition is listed in /etc/fstab allows the operating system to automatically enable it during boot, making the setup permanent and consistent."
       },
       {
         "id": 21,
         "instruction": "Add the line to the file to enable the new swap partition: ",
-        "answer": "UUID=<id listed for /dev/sdb2 in the blkid output> swap swap defaults 0 0"
+        "answer": "UUID=<id listed for /dev/sdb2 in the blkid output> swap swap defaults 0 0",
+        "explanation": "Adding this line to the /etc/fstab file ensures the swap partition is automatically enabled at boot. The UUID=<id> specifies the unique identifier for the /dev/sdb2 partition, which ensures the correct partition is used even if device names change. The swap entries in the second and third fields indicate the filesystem type and mount point type, confirming that this entry configures a swap space. The defaults option sets standard mount options, while the 0 0 fields disable dump and fsck checks for the swap space. Using the UUID instead of a device name adds reliability, particularly in environments where device names can change dynamically."
       },
       {
         "id": 22,
         "instruction": "Save and exit Vim.",
-        "answer": "Press Esc, then type :wq and press Enter"
+        "answer": "Press Esc, then type :wq and press Enter",
+        "explanation": "To persist the changes made to the /etc/fstab file, you need to save and exit the Vim editor. Pressing Esc ensures you are in command mode, where :wq is a command that writes (saves) the changes to the file (w) and then quits (q) the editor. This step finalizes the addition of the swap partition configuration to the file, making it ready for the system to apply the settings. Exiting properly ensures that the UUID entry and associated swap configuration are securely saved."
       },
       {
         "id": 23,
         "instruction": "Mount all filesystems specified in '/etc/fstab' to activate the new configuration.",
-        "answer": "mount -a"
+        "answer": "mount -a",
+        "explanation": "The mount -a command mounts all filesystems defined in the /etc/fstab file, except those marked with the noauto option. Running this command ensures that the new swap partition configuration added to /etc/fstab is activated without requiring a system reboot. It confirms that the entry is valid and correctly applied, preparing the swap partition for immediate use by the system. This step is critical to verify that the configuration works as intended before enabling the swap partition."
       },
       {
         "id": 24,
         "instruction": "Enable the new swap partition.",
-        "answer": "swapon /dev/sdb2"
+        "answer": "swapon /dev/sdb2",
+        "explanation": "The swapon command activates a specified swap partition or file, making it available for use by the system. By running swapon /dev/sdb2, the newly created swap partition is enabled, allowing the kernel to use it as additional virtual memory. This step is crucial for ensuring that the swap space is functional and ready to handle memory overflow scenarios. Using swapon after configuring the partition in /etc/fstab ensures the swap is active immediately and persists across reboots."
       },
       {
         "id": 25,
         "instruction": "Display the updated amount of free and used memory to confirm the new swap partition is active.",
-        "answer": "free -m"
+        "answer": "free -m",
+        "explanation": "The free command displays information about the system’s memory usage, including physical memory (RAM) and swap space. The -m option formats the output in megabytes, making it easier to interpret the memory statistics. Running free -m after enabling the swap partition confirms its activation by showing an increase in the total available swap space. This step validates that the system recognizes and can utilize the newly configured swap partition, ensuring proper memory management."
       },
       {
         "id": 26,
         "instruction": "List all available block devices to confirm the setup.",
-        "answer": "lsblk"
+        "answer": "lsblk",
+        "explanation": "The lsblk command lists information about all available block devices, such as disks and their partitions, in a tree-like structure. By running lsblk after configuring the swap partition, you can verify that the new partition (/dev/sdb2) is correctly recognized by the system and is marked as a swap device. This step provides a visual confirmation of the setup and ensures that the partitioning and formatting tasks were completed successfully."
       }
     ]
   },{
@@ -1324,27 +1350,32 @@
       {
         "id": 1,
         "instruction": "Display the current working directory.",
-        "answer": "pwd"
+        "answer": "pwd",
+        "explanation": "The pwd (print working directory) command outputs the absolute path of the current working directory. This step is essential for confirming your current location in the filesystem before performing tasks that involve directory navigation or management. Knowing your exact location ensures that subsequent operations, such as creating or navigating directories, are executed in the intended context, which is especially useful in scripting or structured environments like the RHCSA exam."
       },
       {
         "id": 2,
         "instruction": "Check if a directory named 'TestDir' exists. If not, create it.",
-        "answer": "[[ ! -d TestDir ]] && mkdir TestDir"
+        "answer": "[[ ! -d TestDir ]] && mkdir TestDir",
+        "explanation": "This command uses a conditional test to check for the existence of the directory 'TestDir'. The [[ ! -d TestDir ]] evaluates whether a directory named 'TestDir' does not exist (! negates the condition). If the condition is true, the mkdir TestDir command is executed to create the directory. The && operator ensures that mkdir only runs if the test condition is satisfied. This approach is efficient for automating directory creation without risking errors from attempting to create an already existing directory. Such conditional checks are vital in scripting and exam scenarios where idempotence (performing an action without unintended side effects) is required."
       },
       {
         "id": 3,
         "instruction": "Navigate into the 'TestDir' directory using the `cd` command.",
-        "answer": "cd TestDir"
+        "answer": "cd TestDir",
+        "explanation": "The cd command, short for 'change directory,' is used to switch the working directory to the specified location. In this step, cd TestDir changes the current working directory to 'TestDir', assuming it exists. This command is essential for moving into the newly created directory to perform tasks or create and manage files within it. If the directory does not exist, the command will return an error, highlighting the importance of the prior step's directory existence check. Mastery of cd is foundational in managing and navigating the Linux filesystem effectively."
       },
       {
         "id": 4,
         "instruction": "Print the new current directory.",
-        "answer": "pwd"
+        "answer": "pwd",
+        "explanation": "The pwd command, short for 'print working directory,' outputs the full path of the current working directory to the terminal. After navigating into the 'TestDir' directory using the cd command in the previous step, running pwd confirms that the current working directory has successfully changed. This step ensures verification of the navigation process, an essential practice when managing files and directories in Linux to avoid unintended operations in the wrong directory."
       },
       {
         "id": 5,
         "instruction": "Navigate back to the original directory using the `cd` command.",
-        "answer": "cd -"
+        "answer": "cd -",
+        "explanation": "The cd - command is a convenient way to switch back to the previous working directory. In this context, after navigating into the 'TestDir' directory and verifying the current directory, cd - allows you to return to the directory you were in before executing cd TestDir. This is especially useful for quick navigation between two directories without needing to remember or type out their full paths. The - flag acts as a shorthand for the last working directory, improving efficiency when performing directory management tasks."
       }
     ]
   },{
@@ -1354,17 +1385,20 @@
       {
         "id": 1,
         "instruction": "List all files in the current directory and redirect the output to a file named 'output.txt', appending to the file if it already exists.",
-        "answer": "ls >> output.txt"
+        "answer": "ls >> output.txt",
+        "explanation": "The ls command lists all files and directories in the current directory. Using the >> operator redirects the standard output to a file, appending the output to the end of the file if it already exists, rather than overwriting it. This is useful for preserving the contents of the file while adding new information. In this context, the file output.txt will store the directory listing, and subsequent executions of the command will append the new listings, ensuring no previous data is lost. This approach demonstrates the practical application of output redirection in Linux."
       },
       {
         "id": 2,
         "instruction": "Attempt to read a non-existent file and redirect the error message to a file named 'error.txt', appending to the file if it already exists.",
-        "answer": "cat non_existent_file 2>> error.txt"
+        "answer": "cat non_existent_file 2>> error.txt",
+        "explanation": "The cat command attempts to read the contents of the specified file. When the file non_existent_file does not exist, an error message is generated and sent to standard error (file descriptor 2). The 2>> operator redirects this error output to the file error.txt, appending the message to the file if it already exists. This prevents overwriting existing error logs while capturing new errors. This example highlights the distinction between standard output and standard error, showcasing how redirection operators can be used to manage error messages effectively."
       },
       {
         "id": 3,
         "instruction": "Run a command that prints 'This is a message' to standard output and generates an error when you try to read from a file that doesn't exist. Redirect both standard output and the error from reading a non-existent file to a file named combined_output.txt, appending to the file if it already exists.",
-        "answer": "echo \"This is a message\" && cat non_existent_file >> combined_output.txt 2>&1"
+        "answer": "echo \"This is a message\" && cat non_existent_file >> combined_output.txt 2>&1",
+        "explanation": "This command demonstrates combining standard output and standard error redirection into a single file. The echo 'This is a message' command outputs text to standard output, while cat non_existent_file attempts to read a non-existent file, generating an error sent to standard error. The >> combined_output.txt appends standard output to the file, and the 2>&1 redirects standard error (2) to the same location as standard output (1), ensuring both outputs are captured in combined_output.txt. The use of && ensures that the second command (cat) runs only if the first command (echo) succeeds, demonstrating proper flow control and output management. This approach is useful for debugging and logging both regular output and errors in a unified log file."
       }
     ]
   },{
@@ -1374,22 +1408,26 @@
       {
         "id": 1,
         "instruction": "Extract all lines in 'sample.log' that contain the word 'ERROR' and save them to 'errors.log'.",
-        "answer": "grep 'ERROR' sample.log > errors.log"
+        "answer": "grep 'ERROR' sample.log > errors.log",
+        "explanation": "The grep command searches for the pattern ERROR in the file sample.log. This command identifies all lines containing the word ERROR (case-sensitive match) and redirects the output to a new file named errors.log using the > operator, which overwrites any existing content in errors.log. This step is essential for isolating error messages from the log file into a separate file for focused analysis or troubleshooting."
       },
       {
         "id": 2,
         "instruction": "Extract all lines with a timestamp of '2024-08-10' and a log level of 'INFO', and save them to 'info_logs.log'.",
-        "answer": "grep -E '^2024-08-10.*INFO' sample.log > info_logs.log"
+        "answer": "grep -E '^2024-08-10.*INFO' sample.log > info_logs.log",
+        "explanation": "The grep command with the -E option allows for extended regular expression usage, which enables more flexible pattern matching. The pattern ^2024-08-10.*INFO matches lines that begin (^) with the exact date '2024-08-10', followed by any characters (.*), and end with the log level 'INFO'. This ensures only lines containing logs from the specified date and log level are included. The > operator redirects these matched lines to a file named info_logs.log, overwriting the file if it already exists. This step helps to focus specifically on informational log entries for the specified date, making it easier to analyze activity during that period."
       },
       {
         "id": 3,
         "instruction": "Count the number of lines in 'sample.log' that contain the word 'Disk' and print the count to the terminal.",
-        "answer": "grep -c 'Disk' sample.log"
+        "answer": "grep -c 'Disk' sample.log",
+        "explanation": "The grep command with the -c option counts the number of lines in the file sample.log that contain the specified pattern, in this case, the word Disk. This pattern is case-sensitive and matches any occurrence of the word within the file. The result, which is the count of matching lines, is displayed directly on the terminal. This step is useful for quickly determining how many log entries relate to disk-related events without displaying the matching lines themselves, streamlining the analysis process."
       },
       {
         "id": 4,
         "instruction": "Extract all lines with a log level of 'WARN' and a message that starts with 'Disk', and save them to 'warn_disk_logs.log'.",
-        "answer": "grep -E 'WARN Disk.*' sample.log > warn_disk_logs.log"
+        "answer": "grep -E 'WARN Disk.*' sample.log > warn_disk_logs.log",
+        "explanation": "The grep command with the -E flag enables extended regular expressions, allowing the use of more complex patterns. Here, the pattern 'WARN Disk.*' matches lines containing the log level WARN followed by the word Disk at the start of the log message and any characters afterward (.*). The output is redirected to warn_disk_logs.log using the > operator, which creates or overwrites the file. This step filters specific warnings about disk-related issues for further review or action."
       }
     ]
   },{
@@ -1399,62 +1437,74 @@
       {
         "id": 1,
         "instruction": "Create a prompt in the bash terminal that outputs 'Enter remote host: ' and uses a variable named remote_host to store user input.",
-        "answer": "read -p 'Enter remote host: ' remote_host"
+        "answer": "read -p 'Enter remote host: ' remote_host",
+        "explanation": "The instruction prompts the user for a remote host, such as a hostname or an IP address, and stores the input in the remote_host variable. The command read -p 'Enter remote host: ' remote_host is used, where read reads user input and -p displays the specified prompt message, 'Enter remote host: ', to the user. The user's input is then assigned to the remote_host variable for later use. This step is essential to dynamically configure the SSH connection based on user input, ensuring flexibility and relevance for different environments. Additionally, prompting for user input avoids hardcoding values, aligning with secure and customizable SSH practices."
       },
       {
         "id": 2,
         "instruction": "Create a prompt in the bash terminal that outputs 'Enter SSH port (default is 22): ' and uses a variable named ssh_port to store user input.",
-        "answer": "read -p 'Enter SSH port (default is 22): ' ssh_port"
+        "answer": "read -p 'Enter SSH port (default is 22): ' ssh_port",
+        "explanation": "This step prompts the user to specify the SSH port for the remote connection. The command read -p 'Enter SSH port (default is 22): ' ssh_port uses the read utility to display the prompt message 'Enter SSH port (default is 22): ' and stores the user's input in the ssh_port variable. If the user provides a value, it will override the default SSH port of 22; otherwise, the default will be set in a later step. This flexibility is critical as some systems might use non-standard ports for SSH to enhance security. By including this prompt, the script ensures compatibility with varied SSH configurations while maintaining user control."
       },
       {
         "id": 3,
         "instruction": "Create a prompt in the bash terminal that outputs 'Enter username: ' and uses a variable named ssh_user to store user input.",
-        "answer": "read -p 'Enter username: ' ssh_user"
+        "answer": "read -p 'Enter username: ' ssh_user",
+        "explanation": "This step prompts the user to provide a username for the SSH connection. The command read -p 'Enter username: ' ssh_user uses the read utility to display the message 'Enter username: ' and saves the user's input in the ssh_user variable. The username is a required parameter for establishing an SSH connection because it identifies the account to be accessed on the remote host. This step is crucial for tailoring the SSH session to the appropriate user credentials, ensuring successful authentication and access to the desired remote server."
       },
       {
         "id": 4,
         "instruction": "Create a prompt in the bash terminal that outputs 'Enter private key path (leave empty if not using a key): ' and uses a variable named private_key to store user input.",
-        "answer": "read -p 'Enter private key path (leave empty if not using a key): ' private_key"
+        "answer": "read -p 'Enter private key path (leave empty if not using a key): ' private_key",
+        "explanation": "This step prompts the user to specify the path to a private key file, which is often used for secure authentication in SSH. The command read -p 'Enter private key path (leave empty if not using a key): ' private_key displays the prompt and stores the user's input in the private_key variable. If the user provides a path, this file will be used as the private key for the SSH connection. Private key authentication is a common alternative to password-based login, enhancing security by relying on cryptographic keys instead of user passwords. By allowing the user to leave the input blank, this step accommodates both key-based and password-based SSH setups, ensuring flexibility in various authentication scenarios."
       },
       {
         "id": 5,
         "instruction": "Validate that the remote_host variable is not empty and matches a valid hostname or IP address format.",
-        "answer": "[[ -n $remote_host && $remote_host =~ ^[a-zA-Z0-9.-]+$ ]] || { echo 'Invalid remote host'; exit 1; }"
+        "answer": "[[ -n $remote_host && $remote_host =~ ^[a-zA-Z0-9.-]+$ ]] || { echo 'Invalid remote host'; exit 1; }",
+        "explanation": "This step ensures that the remote_host variable contains a valid value before proceeding with the SSH connection. The validation command [[ -n $remote_host && $remote_host =~ ^[a-zA-Z0-9.-]+$ ]] || { echo 'Invalid remote host'; exit 1; } checks two conditions. First, it ensures the variable is not empty (-n $remote_host), as an empty hostname or IP address would be invalid. Second, it uses a regular expression ($remote_host =~ ^[a-zA-Z0-9.-]+$) to confirm the value matches the acceptable format for hostnames or IP addresses. If either condition fails, an error message is displayed, and the script exits with status 1 to prevent further execution. This step is critical to avoid connection errors or potential security risks caused by invalid or malicious input. By verifying the remote_host input, the script enforces reliability and robustness in establishing secure SSH connections."
       },
       {
         "id": 6,
         "instruction": "Validate that the ssh_port variable, if provided, is a number between 1 and 65535.",
-        "answer": "[[ -z $ssh_port || ($ssh_port -ge 1 && $ssh_port -le 65535) ]] || { echo 'Invalid SSH port'; exit 1; }"
+        "answer": "[[ -z $ssh_port || ($ssh_port -ge 1 && $ssh_port -le 65535) ]] || { echo 'Invalid SSH port'; exit 1; }",
+        "explanation": "This step validates the ssh_port variable to ensure it contains a valid port number, which is essential for establishing a reliable SSH connection. The command [[ -z $ssh_port || ($ssh_port -ge 1 && $ssh_port -le 65535) ]] || { echo 'Invalid SSH port'; exit 1; } checks two conditions. First, it allows the ssh_port variable to be empty (-z $ssh_port), as an empty value will later default to the standard SSH port 22. If a value is provided, the second condition ensures the port number is within the valid range of 1 to 65535 ($ssh_port -ge 1 && $ssh_port -le 65535). If neither condition is met, an error message is displayed, and the script exits with status 1. This step is crucial for preventing invalid or potentially harmful port numbers, ensuring the script operates securely and connects to the correct SSH service. By enforcing this validation, the script guarantees compatibility with standard network configurations."
       },
       {
         "id": 7,
         "instruction": "Validate that the private_key variable, if provided, points to an existing and readable file.",
-        "answer": "[[ -z $private_key || -r $private_key ]] || { echo 'Private key file does not exist or is not readable'; exit 1; }"
+        "answer": "[[ -z $private_key || -r $private_key ]] || { echo 'Private key file does not exist or is not readable'; exit 1; }",
+        "explanation": "This step validates the private_key variable to ensure it refers to a valid file that exists and is readable, which is critical when using key-based authentication for SSH connections. The command [[ -z $private_key || -r $private_key ]] || { echo 'Private key file does not exist or is not readable'; exit 1; } performs two checks. First, it allows the private_key variable to be empty (-z $private_key), accommodating cases where no private key is required for the SSH connection. If a value is provided, the second condition (-r $private_key) ensures that the specified file exists and has read permissions. If neither condition is satisfied, an error message is displayed, and the script exits with status 1. This validation is essential for avoiding runtime errors when attempting to use an invalid or inaccessible private key file during SSH authentication. It ensures the integrity of the connection setup and prevents unnecessary troubleshooting."
       },
       {
         "id": 8,
         "instruction": "Set the default SSH port to 22 if the ssh_port variable is empty.",
-        "answer": "ssh_port=${ssh_port:-22}"
+        "answer": "ssh_port=${ssh_port:-22}",
+        "explanation": "This step assigns a default value of 22 to the ssh_port variable if it is empty, ensuring that the SSH connection uses the standard port when no specific port is provided. The command ssh_port=${ssh_port:-22} uses parameter expansion in bash. The syntax ${variable:-default} checks if the variable is unset or null; if it is, the default value (22 in this case) is assigned. This step is crucial for maintaining the reliability of the script because SSH defaults to port 22 unless otherwise specified. By explicitly setting the default, the script avoids errors caused by an undefined ssh_port variable and provides flexibility for users who might specify a non-standard port."
       },
       {
         "id": 9,
         "instruction": "Construct the SSH command using the remote_host, ssh_user, ssh_port, and private_key variables. Include the private key option only if private_key is not empty.",
-        "answer": "ssh_cmd=\"ssh -p $ssh_port ${private_key:+-i $private_key} $ssh_user@$remote_host\""
+        "answer": "ssh_cmd=\"ssh -p $ssh_port ${private_key:+-i $private_key} $ssh_user@$remote_host\"",
+        "explanation": "This step constructs the SSH command using the input variables remote_host, ssh_user, ssh_port, and private_key. The constructed command is stored in the ssh_cmd variable to prepare for execution. The syntax ssh_cmd='ssh -p $ssh_port ${private_key:+-i $private_key} $ssh_user@$remote_host' dynamically includes the private key option (-i $private_key) only if the private_key variable is not empty. The ${private_key:+-i $private_key} syntax uses bash parameter expansion, which appends -i $private_key only when private_key is non-empty, avoiding redundant options. This step ensures that the constructed command is flexible and accounts for whether the user provided a private key path. The resulting ssh_cmd encapsulates all user inputs, forming a complete and ready-to-execute SSH command that specifies the port, user, host, and optionally the private key. This preparation step is critical for maintaining clarity, reusability, and correctness of the SSH connection command."
       },
       {
         "id": 10,
         "instruction": "Display the constructed SSH command in the terminal for user verification.",
-        "answer": "echo \"SSH Command: $ssh_cmd\""
+        "answer": "echo \"SSH Command: $ssh_cmd\"",
+        "explanation": "This step displays the constructed SSH command in the terminal for user verification. The echo 'SSH Command: $ssh_cmd' command outputs the value of the ssh_cmd variable, which contains the full SSH command with all the specified options. By showing the constructed command to the user, this step provides an opportunity for them to review and confirm that the inputs, such as the remote host, port, username, and private key (if specified), are correct before attempting the connection. This verification step is particularly helpful in avoiding potential errors caused by incorrect input or misconfigured variables. It enhances the script's usability and transparency by allowing the user to understand and validate the command that will be executed, which is essential in both automated scripts and interactive sessions."
       },
       {
         "id": 11,
         "instruction": "Execute the constructed SSH command to connect to the remote server.",
-        "answer": "eval $ssh_cmd"
+        "answer": "eval $ssh_cmd",
+        "explanation": "This step executes the constructed SSH command to connect to the remote server. The eval $ssh_cmd command is used to evaluate and run the SSH command stored in the ssh_cmd variable. The ssh_cmd variable contains the full command, dynamically constructed based on user inputs such as the remote host, SSH port, username, and optional private key. Using eval ensures that the command is interpreted and executed as intended, including any options specified by the user. This step initiates the SSH connection, leveraging the ssh utility to establish secure access to the remote server. The dynamic nature of the command allows flexibility for different configurations while maintaining a streamlined approach for execution. By executing the SSH command, this step achieves the primary goal of establishing a secure session, which is crucial in system administration and remote management tasks."
       },
       {
         "id": 12,
         "instruction": "Handle errors by checking if the SSH command failed and displaying an error message.",
-        "answer": "[[ $? -ne 0 ]] && echo 'SSH connection failed. Please check your inputs and try again.'"
+        "answer": "[[ $? -ne 0 ]] && echo 'SSH connection failed. Please check your inputs and try again.'",
+        "explanation": "In this step, the script checks whether the SSH connection was successful by examining the exit status of the SSH command. The exit status is stored in the special variable $?, which holds the return code of the last executed command. A non-zero exit status indicates a failure, while a zero exit status means the command was successful. The command [[ $? -ne 0 ]] checks if the exit status is not equal to zero, meaning the SSH connection attempt failed. If the connection fails, the script outputs the message: 'SSH connection failed. Please check your inputs and try again.'. This helps provide clear feedback to the user in case of an error, allowing them to troubleshoot and correct the input values, such as the remote host, SSH port, username, or private key file. This step is important for error handling, ensuring the user is informed if the connection attempt does not succeed, making the process more robust and user-friendly."
       }
     ]
   },{
@@ -1464,37 +1514,44 @@
       {
         "id": 1,
         "instruction": "Create a prompt in the bash terminal that outputs 'Enter username to log in as: ' and stores the input in a variable named 'login_user'.",
-        "answer": "read -p 'Enter username to log in as: ' login_user"
+        "answer": "read -p 'Enter username to log in as: ' login_user",
+        "explanation": ""
       },
       {
         "id": 2,
         "instruction": "Create a prompt in the bash terminal that outputs 'Do you want to switch to another user? (yes/no): ' and stores the input in a variable named 'switch_option'.",
-        "answer": "read -p 'Do you want to switch to another user? (yes/no): ' switch_option"
+        "answer": "read -p 'Do you want to switch to another user? (yes/no): ' switch_option",
+        "explanation": ""
       },
       {
         "id": 3,
         "instruction": "If the user chooses to switch (answer is 'yes'), create a prompt that outputs 'Enter target username: ' and stores the input in a variable named 'target_user'.",
-        "answer": "if [[ $switch_option == 'yes' ]]; then read -p 'Enter target username: ' target_user; fi"
+        "answer": "if [[ $switch_option == 'yes' ]]; then read -p 'Enter target username: ' target_user; fi",
+        "explanation": ""
       },
       {
         "id": 4,
         "instruction": "Validate that the 'login_user' variable is not empty and that the specified user exists on the system. If the variable is empty or the user does not exist, display the message 'User does not exist or input is empty' and exit the script with a status code of 1.",
-        "answer": "[[ -n $login_user && $(id -u $login_user 2>/dev/null) ]] || { echo 'User does not exist or input is empty'; exit 1; }"
+        "answer": "[[ -n $login_user && $(id -u $login_user 2>/dev/null) ]] || { echo 'User does not exist or input is empty'; exit 1; }",
+        "explanation": ""
       },
       {
         "id": 5,
         "instruction": "If switching is requested, validate that the 'target_user' variable is not empty and the specified user exists on the system. If the user does not exist or the input is empty, display the message 'Target user does not exist or input is empty' and exit the script with a status code of 1.",
-        "answer": "[[ -z $target_user || $(id -u $target_user 2>/dev/null) ]] || { echo 'Target user does not exist or input is empty'; exit 1; }"
+        "answer": "[[ -z $target_user || $(id -u $target_user 2>/dev/null) ]] || { echo 'Target user does not exist or input is empty'; exit 1; }",
+        "explanation": ""
       },
       {
         "id": 6,
         "instruction": "Log in as the specified 'login_user' using the su command and display a success message if the command is successful.",
-        "answer": "su - $login_user && echo 'Logged in as $login_user successfully.'"
+        "answer": "su - $login_user && echo 'Logged in as $login_user successfully.'",
+        "explanation": ""
       },
       {
         "id": 7,
         "instruction": "If switching is requested, switch to the 'target_user' from the logged-in session using the su command. Display the message 'Switched to $target_user successfully' if successful, or 'Failed to switch to $target_user' if it fails.",
-        "answer": "if [[ $switch_option == 'yes' ]]; then su - $target_user && echo 'Switched to $target_user successfully' || echo 'Failed to switch to $target_user'; fi"
+        "answer": "if [[ $switch_option == 'yes' ]]; then su - $target_user && echo 'Switched to $target_user successfully' || echo 'Failed to switch to $target_user'; fi",
+        "explanation": ""
       }
     ]
   },{
@@ -1504,52 +1561,62 @@
       {
         "id": 1,
         "instruction": "Prompt the user to enter the name of the directory to archive. Display the prompt 'Enter the directory to archive: ' and store the input in a variable named 'directory'.",
-        "answer": "read -p 'Enter the directory to archive: ' directory"
+        "answer": "read -p 'Enter the directory to archive: ' directory",
+        "explanation": ""
       },
       {
         "id": 2,
         "instruction": "Prompt the user to enter the name for the tar archive. Display the prompt 'Enter the tar archive name (without extension): ' and store the input in a variable named 'archive_name'.",
-        "answer": "read -p 'Enter the tar archive name (without extension): ' archive_name"
+        "answer": "read -p 'Enter the tar archive name (without extension): ' archive_name",
+        "explanation": ""
       },
       {
         "id": 3,
         "instruction": "Prompt the user to enter the name for the compressed file. Display the prompt 'Enter the name for the compressed file (without extension): ' and store the input in a variable named 'compressed_name'.",
-        "answer": "read -p 'Enter the name for the compressed file (without extension): ' compressed_name"
+        "answer": "read -p 'Enter the name for the compressed file (without extension): ' compressed_name",
+        "explanation": ""
       },
       {
         "id": 4,
         "instruction": "Validate that the 'directory' variable is not empty and that the directory exists. If it does not exist or is empty, display the message 'Directory does not exist or input is empty' and exit the script with a status code of 1.",
-        "answer": "[[ -d $directory ]] || { echo 'Directory does not exist or input is empty'; exit 1; }"
+        "answer": "[[ -d $directory ]] || { echo 'Directory does not exist or input is empty'; exit 1; }",
+        "explanation": ""
       },
       {
         "id": 5,
         "instruction": "Validate that the 'archive_name' variable is not empty. If it is empty, display the message 'Archive name cannot be empty' and exit the script with a status code of 1.",
-        "answer": "[[ -n $archive_name ]] || { echo 'Archive name cannot be empty'; exit 1; }"
+        "answer": "[[ -n $archive_name ]] || { echo 'Archive name cannot be empty'; exit 1; }",
+        "explanation": ""
       },
       {
         "id": 6,
         "instruction": "Validate that the 'compressed_name' variable is not empty. If it is empty, display the message 'Compressed file name cannot be empty' and exit the script with a status code of 1.",
-        "answer": "[[ -n $compressed_name ]] || { echo 'Compressed file name cannot be empty'; exit 1; }"
+        "answer": "[[ -n $compressed_name ]] || { echo 'Compressed file name cannot be empty'; exit 1; }",
+        "explanation": ""
       },
       {
         "id": 7,
         "instruction": "Create a tar archive of the specified directory. The archive should be named '${archive_name}.tar'.",
-        "answer": "tar -cf ${archive_name}.tar $directory"
+        "answer": "tar -cf ${archive_name}.tar $directory",
+        "explanation": ""
       },
       {
         "id": 8,
         "instruction": "Compress the tar archive using gzip. The compressed file should be referenced as '${compressed_name}.gz'.",
-        "answer": "gzip -c ${archive_name}.tar > ${compressed_name}.gz"
+        "answer": "gzip -c ${archive_name}.tar > ${compressed_name}.gz",
+        "explanation": ""
       },
       {
         "id": 9,
         "instruction": "Decompress the compressed file using gzip. The decompressed tar file should be named '${archive_name}.tar'.",
-        "answer": "gzip -d ${compressed_name}.gz"
+        "answer": "gzip -d ${compressed_name}.gz",
+        "explanation": ""
       },
       {
         "id": 10,
         "instruction": "Extract the decompressed tar archive to the current directory. The extracted files should come from '${archive_name}.tar'.",
-        "answer": "tar -xf ${archive_name}.tar"
+        "answer": "tar -xf ${archive_name}.tar",
+        "explanation": ""
       }
     ]
   },{
@@ -1559,37 +1626,44 @@
       {
         "id": 1,
         "instruction": "Prompt the user to enter the name of the text file they want to create. Store this input in a variable named 'file_name'.",
-        "answer": "read -p 'Enter the name of the text file to create: ' file_name"
+        "answer": "read -p 'Enter the name of the text file to create: ' file_name",
+        "explanation": ""
       },
       {
         "id": 2,
         "instruction": "Prompt the user to choose a method for creating the file: 'touch', 'cat', or 'echo'. Store this input in a variable named 'creation_method'.",
-        "answer": "read -p 'Choose a method to create the file (touch, cat, echo): ' creation_method"
+        "answer": "read -p 'Choose a method to create the file (touch, cat, echo): ' creation_method",
+        "explanation": ""
       },
       {
         "id": 3,
         "instruction": "Create the file using the method chosen by the user. If 'touch' is chosen, use 'touch $file_name'. If 'cat' is chosen, use 'cat > $file_name'. If 'echo' is chosen, use 'echo > $file_name'.",
-        "answer": "case $creation_method in touch) touch $file_name ;; cat) cat > $file_name ;; echo) echo '' > $file_name ;; esac"
+        "answer": "case $creation_method in touch) touch $file_name ;; cat) cat > $file_name ;; echo) echo '' > $file_name ;; esac",
+        "explanation": ""
       },
       {
         "id": 4,
         "instruction": "Prompt the user to choose how they want to add content to the file: 'append' or 'overwrite'. Store this input in a variable named 'write_method'.",
-        "answer": "read -p 'Do you want to append or overwrite the file? (append/overwrite): ' write_method"
+        "answer": "read -p 'Do you want to append or overwrite the file? (append/overwrite): ' write_method",
+        "explanation": ""
       },
       {
         "id": 5,
         "instruction": "Based on the user's choice, add content to the file. If 'append' is chosen, use 'cat >> $file_name'. If 'overwrite' is chosen, use 'cat > $file_name'.",
-        "answer": "case $write_method in append) cat >> $file_name ;; overwrite) cat > $file_name ;; esac"
+        "answer": "case $write_method in append) cat >> $file_name ;; overwrite) cat > $file_name ;; esac",
+        "explanation": ""
       },
       {
         "id": 6,
         "instruction": "Prompt the user to choose a text editor to open the file: 'nano', 'vim', or 'gedit'. Store this input in a variable named 'editor'.",
-        "answer": "read -p 'Choose a text editor to open the file (nano, vim, gedit): ' editor"
+        "answer": "read -p 'Choose a text editor to open the file (nano, vim, gedit): ' editor",
+        "explanation": ""
       },
       {
         "id": 7,
         "instruction": "Open the file using the selected text editor. If 'nano' is chosen, use 'nano $file_name'. If 'vim' is chosen, use 'vim $file_name'. If 'gedit' is chosen, use 'gedit $file_name'.",
-        "answer": "case $editor in nano) nano $file_name ;; vim) vim $file_name ;; gedit) gedit $file_name ;; esac"
+        "answer": "case $editor in nano) nano $file_name ;; vim) vim $file_name ;; gedit) gedit $file_name ;; esac",
+        "explanation": ""
       }
     ]
   },{
