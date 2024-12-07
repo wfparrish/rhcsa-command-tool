@@ -36,9 +36,9 @@ const Question = require('./models/Question');
         },
         {
           "id": 5,
-          "instruction": "Use the command to search for the ISO file within the specified directory or device.",
-          "answer": "find /dev/sr0 -type f -name \"<name of the iso>\"",
-          "explanation": "The `find` command is a powerful utility for searching for files and directories in a directory hierarchy. In this step, it is applied to the `/dev/sr0` directory, which represents the optical drive or device, to locate a specific ISO file. The `-type f` flag ensures that only regular files (and not directories or special files) are included in the search results. The `-name` flag is used to specify the exact or partial name of the file to search for. For example, you could search for a file named `RHEL-9.iso` by replacing `<name of the iso>` with `RHEL-9.iso`. The search is case-sensitive, so the file name must match exactly. If you know only part of the name, wildcards (e.g., `-name \"*RHEL*.iso\"`) can be used to match patterns. This command is especially useful in cases where the ISO’s exact location or name is uncertain, allowing you to locate the file quickly and accurately. On the RHCSA, this step may involve determining the ISO’s name and location using insights gained from earlier commands like `lsblk` or `blkid`. Understanding how `find` works is critical for managing larger, more complex systems effectively."
+          "instruction": "Search the system for the ISO file to locate its directory.",
+          "answer": "find / -type f -name \"<name of the iso>\" 2>/dev/null",
+          "explanation": "The `find` command is used to search for files and directories across the filesystem. Here, the root directory (`/`) is specified as the starting point to perform a thorough system-wide search. The `-type f` flag limits the search to regular files, excluding directories and other special files, while the `-name` flag specifies the name of the file or a pattern to match. For example, to search for `RHEL-9.iso`, replace `<name of the iso>` with `RHEL-9.iso`. The `2>/dev/null` portion suppresses error messages from inaccessible directories (e.g., due to permissions), allowing the search results to be displayed cleanly. This command is particularly useful when the location of an ISO file is unknown and needs to be determined manually. On the RHCSA, this skill is essential for scenarios requiring you to locate critical files that are not readily accessible or documented."
         },
         {
           "id": 6,
