@@ -1,19 +1,25 @@
-// Question.js
+// frontend/src/Question.js
 import React from 'react';
 import Step from './Step';
 
-const Question = ({ question, onNext, onPrevious, isFirst, isLast, resetTrigger }) => {
+const Question = ({ question, onNext, onPrevious, isFirst, isLast, resetTrigger, attempts }) => {
   return (
     <div>
       <h2>{question.title}</h2>
-      {question.steps.map((step) => (
-        <Step
-          key={step.id}
-          step={step}
-          questionId={question.id}
-          resetTrigger={resetTrigger} // Pass resetTrigger to Step
-        />
-      ))}
+      {question.steps.map((step) => {
+        const stepAttempt = attempts.find(
+          (attempt) => attempt.stepId === step.id && attempt.questionId === question.id
+        );
+        return (
+          <Step
+            key={step.id}
+            step={step}
+            questionId={question.id}
+            resetTrigger={resetTrigger}
+            previousAttempt={stepAttempt}
+          />
+        );
+      })}
       <div style={{ textAlign: 'center', marginTop: '20px' }}>
         {!isFirst && <button onClick={onPrevious}>Previous</button>}
         {!isLast && <button onClick={onNext}>Next</button>}

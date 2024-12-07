@@ -1,17 +1,33 @@
-// Step.js
+// frontend/src/Step.js
 import React, { useState, useEffect } from 'react';
 
-const Step = ({ step, questionId, resetTrigger }) => {
+const Step = ({ step, questionId, resetTrigger, previousAttempt }) => {
   const [userAnswer, setUserAnswer] = useState('');
   const [feedback, setFeedback] = useState(null);
-  const [explanation, setExplanation] = useState(''); // New state for explanation
+  const [explanation, setExplanation] = useState('');
 
   useEffect(() => {
-    // Clear feedback, userAnswer, and explanation whenever resetTrigger changes
     setUserAnswer('');
     setFeedback(null);
     setExplanation('');
   }, [resetTrigger]);
+
+  useEffect(() => {
+    // Load previous attempt if exists and not dismissed
+    if (previousAttempt && !previousAttempt.dismissed) {
+      if (previousAttempt.isCorrect) {
+        setFeedback('Correct!');
+        setExplanation(previousAttempt.explanation);
+      } else {
+        setFeedback(`Incorrect. The correct answer is: ${previousAttempt.correctAnswer}`);
+        setExplanation('');
+      }
+    } else if (previousAttempt && previousAttempt.dismissed) {
+      // If previously dismissed, do not show feedback
+      setFeedback(null);
+      setExplanation('');
+    }
+  }, [previousAttempt]);
 
   const checkAnswer = async () => {
     if (!userAnswer || userAnswer.trim() === '') {
@@ -24,30 +40,23 @@ const Step = ({ step, questionId, resetTrigger }) => {
       const response = await fetch('http://localhost:5000/api/validate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          questionId,
-          stepId: step.id,
-          userAnswer,
-        }),
+        body: JSON.stringify({ questionId, stepId: step.id, userAnswer }),
       });
 
       const result = await response.json();
-      console.log('Validation Result:', result); // Debugging line
-
       if (result.isCorrect) {
         setFeedback('Correct!');
         if (result.explanation) {
           setExplanation(result.explanation);
-          console.log('Showing Explanation'); // Debugging line
         }
       } else {
         setFeedback(`Incorrect. The correct answer is: ${result.correctAnswer}`);
-        setExplanation(''); // Clear explanation if previously set
+        setExplanation('');
       }
 
       setUserAnswer('');
     } catch (error) {
-      console.error('Error during validation:', error); // Debugging line
+      console.error('Error during validation:', error);
       setFeedback('An error occurred while validating your answer.');
       setExplanation('');
     }
@@ -60,9 +69,26 @@ const Step = ({ step, questionId, resetTrigger }) => {
     }
   };
 
-  const handleFeedbackClick = () => {
-    setFeedback(null);
-    setExplanation('');
+  const handleFeedbackClick = async () => {
+    // If we have a previousAttempt saved and currently showing feedback, dismiss it
+    if (previousAttempt && feedback) {
+      try {
+        await fetch(`http://localhost:5000/api/attempts/${questionId}/${step.id}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ dismissed: true })
+        });
+        // After successful update, clear local feedback
+        setFeedback(null);
+        setExplanation('');
+      } catch (err) {
+        console.error('Error updating dismissal:', err);
+      }
+    } else {
+      // If no previousAttempt or not showing feedback from DB, just clear local state
+      setFeedback(null);
+      setExplanation('');
+    }
   };
 
   return (
@@ -79,17 +105,15 @@ const Step = ({ step, questionId, resetTrigger }) => {
       <button onClick={checkAnswer}>Check Answer</button>
       {feedback && (
         <div
-          className={`feedback ${feedback.includes('Correct') ? 'correct' : 'incorrect'
-            }`}
+          className={`feedback ${feedback.includes('Correct') ? 'correct' : 'incorrect'}`}
           onClick={handleFeedbackClick}
-          style={{ cursor: 'pointer' }}
+          style={{ cursor: 'pointer', marginTop: '10px', padding: '5px' }}
         >
           {feedback}
         </div>
       )}
-      {/* Render explanation inline if available */}
       {feedback === 'Correct!' && explanation && (
-        <div className="explanation">
+        <div className="explanation" style={{ marginTop: '10px' }}>
           <p>{explanation}</p>
         </div>
       )}

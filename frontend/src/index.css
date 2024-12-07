@@ -1,3 +1,5 @@
+/* frontend/src/index.css */
+
 /* Global styles */
 body {
   background: linear-gradient(135deg, #e0f7fa, #ffffff, #e0f2f1);
@@ -93,8 +95,6 @@ textarea:focus {
   opacity: 1;
   max-height: 500px; /* Arbitrary large value to accommodate content */
 }
-
-
 
 /* Optional: Target the paragraph inside explanation for additional styling */
 .explanation p {

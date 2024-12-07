@@ -85,3 +85,33 @@ Also added explanations
 
 It could be that I should split this off into a component, but right now I don't think there is any harm
 
+
+------------------------------------------------------------------------------------------
+
+12/7
+
+Added Nodemon to make backend development easier
+
+You can start the server with this command:
+
+npm run dev
+or 
+npm run start
+
+Also adding mongodb so I will need to start the mongodb server with the command:
+
+mongod
+
+Installing mongoose
+
+The mongodb will have the name rhcsaPractice assigned in the file db.js
+
+Added the mongoose folder models and the files Question.js and UserAttempt.js
+Added the seed.js file and the questions from the original questions.json file
+
+To populate the mongodb database with data you will have to run 
+
+npm run seed
+
+The database was successfully seeded. 
+
