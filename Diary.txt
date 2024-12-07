@@ -115,3 +115,19 @@ npm run seed
 
 The database was successfully seeded. 
 
+ChatGPT couldn't seem to get the updates to the state by removing the Correct or Incorrect by touch correctly
+
+As a compromise, I added a Clear Attempts button at the bottom of each question
+It clears all Steps from the page at once. 
+
+Also I'm using Local Storage to save what question I'm working on at any given time, so that refreshes 
+don't take me back to Question 1 every time I refresh the browser
+
+ChatGPT said if I make this a multiuser environment I'll have to create a different solution for this problem
+
+This current functionality should be enough for me to work on the RHCSA test and have the ability to see what I've gotten correct and incorrect
+
+Correction: I'm not sure why but for some reason it is working correctly. 
+The removal of Correct or Incorrect by clicking the div is working and the UI is displaying the updates after refreshes
+
+

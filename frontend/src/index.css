@@ -100,3 +100,22 @@ textarea:focus {
 .explanation p {
   margin: 0;
 }
+
+.question-nav-button {
+  width: 50px;         /* Fixed width for uniform size */
+  display: inline-block;
+  text-align: center;
+  margin: 5px;          /* Uniform margin all around, including top/bottom */
+  border: 2px solid #4caf50;
+  padding: 10px 0;      /* Adjust padding to control vertical space inside */
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.question-nav-button:hover {
+  background-color: #4caf50;
+  color: #ffffff;
+  transform: scale(1.1);
+}

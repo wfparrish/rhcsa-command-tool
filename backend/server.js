@@ -152,6 +152,24 @@ app.patch('/api/attempts/:questionId/:stepId', async (req, res) => {
   }
 });
 
+// DELETE all attempts for a question
+app.delete('/api/attempts/:questionId', async (req, res) => {
+  const { questionId } = req.params;
+
+  try {
+    const result = await UserAttempt.deleteMany({ questionId: Number(questionId) });
+    if (result.deletedCount > 0) {
+      return res.json({ message: 'All attempts deleted successfully.' });
+    } else {
+      return res.status(404).json({ error: 'No attempts found for this question.' });
+    }
+  } catch (error) {
+    console.error('Error deleting attempts:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
 // Global Error Handler (Optional)
 app.use((err, req, res, next) => {
   console.error('Unhandled Error:', err);

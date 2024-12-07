@@ -1,8 +1,7 @@
-// frontend/src/Question.js
 import React from 'react';
 import Step from './Step';
 
-const Question = ({ question, onNext, onPrevious, isFirst, isLast, resetTrigger, attempts }) => {
+const Question = ({ question, onNext, onPrevious, isFirst, isLast, resetTrigger, attempts, onClearAttempts }) => {
   return (
     <div>
       <h2>{question.title}</h2>
@@ -23,6 +22,8 @@ const Question = ({ question, onNext, onPrevious, isFirst, isLast, resetTrigger,
       <div style={{ textAlign: 'center', marginTop: '20px' }}>
         {!isFirst && <button onClick={onPrevious}>Previous</button>}
         {!isLast && <button onClick={onNext}>Next</button>}
+        {/* New Clear Attempts Button */}
+        <button onClick={onClearAttempts}>Clear Attempts</button>
       </div>
     </div>
   );
