@@ -130,4 +130,19 @@ This current functionality should be enough for me to work on the RHCSA test and
 Correction: I'm not sure why but for some reason it is working correctly. 
 The removal of Correct or Incorrect by clicking the div is working and the UI is displaying the updates after refreshes
 
+So to summarize:
+
+To start in the backend run
+
+1. mongod
+2. npm run dev
+or 
+npm run start
+3. npm run seed
+
+And then in the frontend run
+
+npm start
+
+
 
