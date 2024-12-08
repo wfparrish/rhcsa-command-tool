@@ -144,5 +144,9 @@ And then in the frontend run
 
 npm start
 
+-------------------------------------------------------------------------------------------
 
+12/8 
+
+Created more explanations for questions, stopped at 31
 
