@@ -1522,43 +1522,43 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Create a prompt in the bash terminal that outputs 'Enter username to log in as: ' and stores the input in a variable named 'login_user'.",
           "answer": "read -p 'Enter username to log in as: ' login_user",
-          "explanation": ""
+          "explanation": "In the RHCSA context, the read command is a critical tool for gathering user input directly from the terminal during script execution. The -p flag allows you to display a prompt message, in this case, 'Enter username to log in as: ', providing clear guidance to the user on the expected input. By capturing the input in a variable named login_user, you ensure that the script has access to the username provided, which is essential for validating the user's existence on the system and executing login-related commands. This foundational step prepares the script for interactive user validation, aligning with the RHCSA objectives of managing users and automating common tasks through scripting."
         },
         {
           "id": 2,
           "instruction": "Create a prompt in the bash terminal that outputs 'Do you want to switch to another user? (yes/no): ' and stores the input in a variable named 'switch_option'.",
           "answer": "read -p 'Do you want to switch to another user? (yes/no): ' switch_option",
-          "explanation": ""
+          "explanation": "In this step, the read command is again utilized with the -p flag to prompt the user with a clear question: 'Do you want to switch to another user? (yes/no): '. The input is stored in a variable named switch_option, allowing the script to capture the user's decision. This interaction sets up conditional logic for subsequent steps, where the script will determine whether additional input and actions are required based on the user's response. The use of clear, concise prompts ensures a user-friendly experience while maintaining the flexibility needed to handle different workflows, which aligns with the RHCSA objectives of automating and validating user operations."
         },
         {
           "id": 3,
           "instruction": "If the user chooses to switch (answer is 'yes'), create a prompt that outputs 'Enter target username: ' and stores the input in a variable named 'target_user'.",
           "answer": "if [[ $switch_option == 'yes' ]]; then read -p 'Enter target username: ' target_user; fi",
-          "explanation": ""
+          "explanation": "If the user chooses to switch by entering 'yes', the if conditional checks the value of switch_option and executes the read command to prompt for a target username with the message 'Enter target username: '. The input is then stored in the target_user variable. This ensures that the script gathers the necessary information to facilitate a user switch. The conditional structure allows the script to dynamically adapt based on the user's input, maintaining efficiency and flexibility, which are key principles in RHCSA scripting tasks."
         },
         {
           "id": 4,
           "instruction": "Validate that the 'login_user' variable is not empty and that the specified user exists on the system. If the variable is empty or the user does not exist, display the message 'User does not exist or input is empty' and exit the script with a status code of 1.",
           "answer": "[[ -n $login_user && $(id -u $login_user 2>/dev/null) ]] || { echo 'User does not exist or input is empty'; exit 1; }",
-          "explanation": ""
+          "explanation": "To validate the login_user input, the script checks that the variable is not empty and that the specified user exists on the system using the id command. The condition [[ -n $login_user && $(id -u $login_user 2>/dev/null) ]] ensures both criteria are met, where -n checks for a non-empty string and id -u verifies the user's existence. If either condition fails, an error message 'User does not exist or input is empty' is displayed, and the script exits with a status code of 1. This validation step is critical for ensuring the script operates only with valid input, reflecting RHCSA objectives of robust input handling and user management."
         },
         {
           "id": 5,
           "instruction": "If switching is requested, validate that the 'target_user' variable is not empty and the specified user exists on the system. If the user does not exist or the input is empty, display the message 'Target user does not exist or input is empty' and exit the script with a status code of 1.",
           "answer": "[[ -z $target_user || $(id -u $target_user 2>/dev/null) ]] || { echo 'Target user does not exist or input is empty'; exit 1; }",
-          "explanation": ""
+          "explanation": "If the user opts to switch, the script validates the target_user input by ensuring the variable is not empty and that the specified user exists on the system. This is achieved with the condition [[ -n $target_user && $(id -u $target_user 2>/dev/null) ]], where -n checks for a non-empty value and id -u confirms the user's existence. If either condition fails, the script displays the message 'Target user does not exist or input is empty' and exits with a status code of 1. This step ensures reliable and secure handling of user input, aligning with RHCSA objectives for input validation and user switching tasks."
         },
         {
           "id": 6,
           "instruction": "Log in as the specified 'login_user' using the su command and display a success message if the command is successful.",
           "answer": "su - $login_user && echo 'Logged in as $login_user successfully.'",
-          "explanation": ""
+          "explanation": "In this step, the script uses the su command to switch to the user specified in the login_user variable, dynamically substituted at runtime with the value provided earlier. The - option ensures that a full login shell is initialized for the user, setting up their environment as if they logged in directly. Since the login_user variable was dynamically created and assigned during the input phase, it now holds the username necessary for this operation. The && operator checks if the su command executes successfully, and if so, it displays the success message 'Logged in as $login_user successfully.' This feedback confirms the operation's success, aligning with RHCSA objectives of user session management and providing meaningful, interactive feedback in scripts."
         },
         {
           "id": 7,
           "instruction": "If switching is requested, switch to the 'target_user' from the logged-in session using the su command. Display the message 'Switched to $target_user successfully' if successful, or 'Failed to switch to $target_user' if it fails.",
           "answer": "if [[ $switch_option == 'yes' ]]; then su - $target_user && echo 'Switched to $target_user successfully' || echo 'Failed to switch to $target_user'; fi",
-          "explanation": ""
+          "explanation": "If the user opts to switch to another user, the script checks the value of the switch_option variable to confirm it is 'yes'. If true, it executes the su command to switch to the user stored in the target_user variable, dynamically substituted at runtime with the provided input. The - option ensures the new user's environment is fully initialized. The && operator displays the message 'Switched to $target_user successfully' upon a successful switch, while the || operator outputs 'Failed to switch to $target_user' if the command fails. This logic provides clear feedback to the user, ensuring the script handles the switching process dynamically and robustly, aligning with RHCSA objectives of scripting for user management and error handling."
         }
       ]
     }, {
@@ -1569,61 +1569,61 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the name of the directory to archive. Display the prompt 'Enter the directory to archive: ' and store the input in a variable named 'directory'.",
           "answer": "read -p 'Enter the directory to archive: ' directory",
-          "explanation": ""
+          "explanation": "In this step, the read command is used to prompt the user for input dynamically. When the user enters the directory name, the input is assigned to the directory variable, creating it automatically without requiring prior declaration. The prompt 'Enter the directory to archive: ' provides clear instructions, ensuring the user supplies a valid directory path. By capturing the input in a variable, the script can reference the specified directory in subsequent commands. This approach aligns with RHCSA objectives of creating interactive scripts that adapt to user inputs and automate administrative tasks effectively."
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the name for the tar archive. Display the prompt 'Enter the tar archive name (without extension): ' and store the input in a variable named 'archive_name'.",
           "answer": "read -p 'Enter the tar archive name (without extension): ' archive_name",
-          "explanation": ""
+          "explanation": "In this step, the read command prompts the user to enter a name for the tar archive, which is then assigned to the archive_name variable. The prompt 'Enter the tar archive name (without extension): ' ensures the user understands that the input should not include a file extension, simplifying subsequent steps where the .tar extension will be appended automatically. By dynamically creating the archive_name variable during this input phase, the script becomes flexible and user-driven, meeting RHCSA objectives of interactive scripting and efficient automation."
         },
         {
           "id": 3,
           "instruction": "Prompt the user to enter the name for the compressed file. Display the prompt 'Enter the name for the compressed file (without extension): ' and store the input in a variable named 'compressed_name'.",
           "answer": "read -p 'Enter the name for the compressed file (without extension): ' compressed_name",
-          "explanation": ""
+          "explanation": "In this step, the read command is used to prompt the user for the name of the compressed file, storing the input in the compressed_name variable. The prompt 'Enter the name for the compressed file (without extension): ' makes it clear that the user should not include a file extension, as the .gz extension will be added later during compression. The dynamic creation and assignment of the compressed_name variable at runtime enable the script to handle user-defined file names efficiently, aligning with RHCSA objectives of building adaptable and interactive automation scripts."
         },
         {
           "id": 4,
           "instruction": "Validate that the 'directory' variable is not empty and that the directory exists. If it does not exist or is empty, display the message 'Directory does not exist or input is empty' and exit the script with a status code of 1.",
           "answer": "[[ -d $directory ]] || { echo 'Directory does not exist or input is empty'; exit 1; }",
-          "explanation": ""
+          "explanation": "In this step, the script validates the directory variable to ensure it is not empty and that the specified directory exists. The condition [[ -d $directory ]] checks if the input corresponds to an existing directory, where -d verifies the presence of a directory at the given path. If the validation fails, the script displays the error message 'Directory does not exist or input is empty' and exits with a status code of 1, signaling an error. This validation step ensures the script operates on valid input, preventing errors in subsequent commands and aligning with RHCSA objectives of robust input handling and error management in scripts."
         },
         {
           "id": 5,
           "instruction": "Validate that the 'archive_name' variable is not empty. If it is empty, display the message 'Archive name cannot be empty' and exit the script with a status code of 1.",
           "answer": "[[ -n $archive_name ]] || { echo 'Archive name cannot be empty'; exit 1; }",
-          "explanation": ""
+          "explanation": "In this step, the script validates the archive_name variable to ensure it is not empty. The condition [[ -n $archive_name ]] checks whether the variable contains a non-empty value, where -n tests for a string length greater than zero. If the validation fails, the script displays the error message 'Archive name cannot be empty' and exits with a status code of 1, indicating an error. This step ensures that a valid name is provided for the tar archive, preventing issues in later steps and aligning with RHCSA objectives of creating reliable and user-friendly automation scripts."
         },
         {
           "id": 6,
           "instruction": "Validate that the 'compressed_name' variable is not empty. If it is empty, display the message 'Compressed file name cannot be empty' and exit the script with a status code of 1.",
           "answer": "[[ -n $compressed_name ]] || { echo 'Compressed file name cannot be empty'; exit 1; }",
-          "explanation": ""
+          "explanation": "In this step, the script validates the compressed_name variable to ensure it is not empty. The condition [[ -n $compressed_name ]] checks whether the variable contains a non-empty value, where -n confirms the string length is greater than zero. If the validation fails, the script displays the error message 'Compressed file name cannot be empty' and exits with a status code of 1, signaling an error. This validation ensures that the user provides a valid name for the compressed file, which is essential for the subsequent compression step. This aligns with RHCSA objectives of enforcing proper input handling and error prevention in automated scripts."
         },
         {
           "id": 7,
           "instruction": "Create a tar archive of the specified directory. The archive should be named '${archive_name}.tar'.",
           "answer": "tar -cf ${archive_name}.tar $directory",
-          "explanation": ""
+          "explanation": "In this step, the script creates a tar archive of the specified directory using the tar command. The -c flag instructs tar to create an archive, while the -f flag specifies the output file name as ${archive_name}.tar. The variable archive_name, dynamically set by the user earlier, is substituted at runtime to construct the full archive name with the .tar extension. This ensures the directory specified in the directory variable is packaged into a single file for easier handling. This step demonstrates core RHCSA competencies in using tar to manage file archives efficiently, a fundamental skill for system administration."
         },
         {
           "id": 8,
           "instruction": "Compress the tar archive using gzip. The compressed file should be referenced as '${compressed_name}.gz'.",
           "answer": "gzip -c ${archive_name}.tar > ${compressed_name}.gz",
-          "explanation": ""
+          "explanation": "In this step, the script compresses the tar archive using the gzip command. The -c flag ensures that the output is written to a file, and the > operator redirects the compressed output to a file named ${compressed_name}.gz. The variable compressed_name, dynamically provided by the user, is substituted at runtime to determine the name of the compressed file with the .gz extension. This step reduces the size of the tar archive, making it more efficient to store or transfer, and aligns with RHCSA objectives of managing compressed files and optimizing storage."
         },
         {
           "id": 9,
           "instruction": "Decompress the compressed file using gzip. The decompressed tar file should be named '${archive_name}.tar'.",
           "answer": "gzip -d ${compressed_name}.gz",
-          "explanation": ""
+          "explanation": "In this step, the script decompresses the compressed file using the gzip command with the -d flag, which stands for 'decompress.' The file ${compressed_name}.gz is dynamically referenced using the value provided earlier by the user. Decompressing restores the original tar archive, naming it ${archive_name}.tar as specified during the tar creation process. This step ensures the compressed file is accessible in its original format, demonstrating RHCSA competencies in handling compressed and archived files effectively."
         },
         {
           "id": 10,
           "instruction": "Extract the decompressed tar archive to the current directory. The extracted files should come from '${archive_name}.tar'.",
           "answer": "tar -xf ${archive_name}.tar",
-          "explanation": ""
+          "explanation": "In this step, the script extracts the contents of the decompressed tar archive using the tar command with the -x flag, which specifies extraction, and the -f flag, which indicates the file to extract. The archive ${archive_name}.tar, dynamically named based on the user's earlier input, is used as the source. Extracting the archive restores its contents to the current directory, making the files accessible in their original structure. This step showcases RHCSA competencies in managing archived and compressed files, ensuring data can be efficiently restored when needed."
         }
       ]
     }, {
@@ -1632,45 +1632,45 @@ const Question = require('./models/Question');
       "steps": [
         {
           "id": 1,
-          "instruction": "Prompt the user to enter the name of the text file they want to create. Store this input in a variable named 'file_name'.",
+          "instruction": "Prompt the user with the phrase 'Enter the name of the text file to create: '. Store this input in a variable named 'file_name'.",
           "answer": "read -p 'Enter the name of the text file to create: ' file_name",
-          "explanation": ""
+          "explanation": "In this step, the read command prompts the user to enter the name of the text file they wish to create. The input is stored in the file_name variable, which is automatically created and assigned the user's input. The prompt 'Enter the name of the text file to create: ' provides clear instructions to the user, ensuring that they supply a valid file name. By dynamically creating the file_name variable during execution, the script becomes flexible and user-driven, enabling subsequent steps to operate on the specified file. This approach aligns with RHCSA objectives of creating interactive and adaptable scripts for system management tasks."
         },
         {
           "id": 2,
-          "instruction": "Prompt the user to choose a method for creating the file: 'touch', 'cat', or 'echo'. Store this input in a variable named 'creation_method'.",
+          "instruction": "Prompt the user with the phrase 'Choose a method to create the file (touch, cat, echo): '. Store this input in a variable named 'creation_method'.",
           "answer": "read -p 'Choose a method to create the file (touch, cat, echo): ' creation_method",
-          "explanation": ""
+          "explanation": "In this step, the read command prompts the user to choose a method for creating the file, storing their input in the creation_method variable. The prompt 'Choose a method to create the file (touch, cat, echo): ' clearly outlines the available options, ensuring the user selects one of the supported methods. The creation_method variable is dynamically created and assigned the user's input at runtime, allowing the script to adapt based on the user's choice. This step enables the script to proceed with file creation in a flexible and user-defined manner, aligning with RHCSA objectives of interactive automation and scripting efficiency."
         },
         {
           "id": 3,
           "instruction": "Create the file using the method chosen by the user. If 'touch' is chosen, use 'touch $file_name'. If 'cat' is chosen, use 'cat > $file_name'. If 'echo' is chosen, use 'echo > $file_name'.",
           "answer": "case $creation_method in touch) touch $file_name ;; cat) cat > $file_name ;; echo) echo '' > $file_name ;; esac",
-          "explanation": ""
+          "explanation": "In this step, the script uses a case statement to create the file based on the method chosen by the user and stored in the creation_method variable. If the user selects touch, the touch $file_name command is executed, which creates an empty file or updates the timestamp if the file already exists. If cat is chosen, the command cat > $file_name allows the user to input content directly into the file, creating it if it doesn't exist. If echo is chosen, the command echo '' > $file_name creates the file with an empty string as content. The case statement dynamically evaluates the user's choice, ensuring the file is created using the specified method. This step demonstrates the flexibility of Bash scripting to handle user input and perform conditional actions, a core skill tested in the RHCSA exam."
         },
         {
           "id": 4,
-          "instruction": "Prompt the user to choose how they want to add content to the file: 'append' or 'overwrite'. Store this input in a variable named 'write_method'.",
+          "instruction": "Prompt the user with the phrase 'Do you want to append or overwrite the file? (append/overwrite): '. Store this input in a variable named 'write_method'.",
           "answer": "read -p 'Do you want to append or overwrite the file? (append/overwrite): ' write_method",
-          "explanation": ""
+          "explanation": "In this step, the read command prompts the user to choose how they want to add content to the file, storing their choice in the write_method variable. The prompt 'Do you want to append or overwrite the file? (append/overwrite): ' clearly informs the user of the two available options. The write_method variable is dynamically created and assigned the user's input, which will determine the subsequent operation on the file. This step ensures the script captures user preferences for modifying the file, aligning with RHCSA objectives of building interactive and adaptable automation scripts."
         },
         {
           "id": 5,
           "instruction": "Based on the user's choice, add content to the file. If 'append' is chosen, use 'cat >> $file_name'. If 'overwrite' is chosen, use 'cat > $file_name'.",
           "answer": "case $write_method in append) cat >> $file_name ;; overwrite) cat > $file_name ;; esac",
-          "explanation": ""
+          "explanation": "In this step, the script uses a case statement to determine how to add content to the file based on the user's choice stored in the write_method variable. If the user selects append, the command cat >> $file_name appends new content to the existing file without overwriting it. If the user chooses overwrite, the command cat > $file_name replaces the existing content with new input. The case statement dynamically evaluates the user's preference, allowing the script to perform the appropriate operation. This step showcases the script's ability to handle conditional logic for modifying files, a skill emphasized in RHCSA exam scenarios"
         },
         {
           "id": 6,
-          "instruction": "Prompt the user to choose a text editor to open the file: 'nano', 'vim', or 'gedit'. Store this input in a variable named 'editor'.",
+          "instruction": "Prompt the user with the phrase 'Choose a text editor to open the file (nano, vim, gedit): '. Store this input in a variable named 'editor'.",
           "answer": "read -p 'Choose a text editor to open the file (nano, vim, gedit): ' editor",
-          "explanation": ""
+          "explanation": "In this step, the read command prompts the user to select a text editor to open the file, storing their choice in the editor variable. The prompt 'Choose a text editor to open the file (nano, vim, gedit): ' clearly lists the available options, ensuring the user selects one of the supported editors. The editor variable is dynamically created and assigned the user's input, which will determine the tool used to edit the file. This step allows the script to accommodate user preferences for file editing, demonstrating flexibility and adaptability, key concepts in RHCSA scripting tasks."
         },
         {
           "id": 7,
           "instruction": "Open the file using the selected text editor. If 'nano' is chosen, use 'nano $file_name'. If 'vim' is chosen, use 'vim $file_name'. If 'gedit' is chosen, use 'gedit $file_name'.",
           "answer": "case $editor in nano) nano $file_name ;; vim) vim $file_name ;; gedit) gedit $file_name ;; esac",
-          "explanation": ""
+          "explanation": "In this step, the script uses a case statement to open the file in the text editor chosen by the user, stored in the editor variable. If the user selects nano, the command nano $file_name is executed, opening the file in the Nano text editor. If vim is chosen, the command vim $file_name opens the file in Vim. If gedit is selected, the command gedit $file_name opens the file in the Gedit graphical text editor. The case statement evaluates the user's choice dynamically and executes the corresponding command, ensuring the file is opened using the preferred tool. This step demonstrates the ability of Bash scripts to provide user-driven functionality, aligning with RHCSA objectives of creating flexible and interactive scripts for file management."
         }
       ]
     }, {
@@ -1681,13 +1681,13 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the file name. Store this input in a variable named 'file_name'.",
           "answer": "read -p 'Enter the file name to delete: ' file_name",
-          "explanation": ""
+          "explanation": "In this step, the read command is used to prompt the user for the name of the file they wish to delete. The input is stored in the file_name variable, which is dynamically created and assigned the user's input. The prompt 'Enter the file name to delete: ' provides clear instructions, ensuring the user specifies the file to be removed. By capturing the input in a variable, the script can reference the file name dynamically in the subsequent delete operation, aligning with RHCSA objectives of interactive and user-driven automation in scripting."
         },
         {
           "id": 2,
           "instruction": "Delete the file specified by the 'file_name' variable.",
           "answer": "rm $file_name",
-          "explanation": ""
+          "explanation": "In this step, the script uses the rm command to delete the file specified by the file_name variable. The variable, dynamically assigned with the user input in the previous step, is substituted at runtime to identify the file to be removed. The rm command is a standard tool for file deletion in Linux, and its use here ensures the file is removed securely and efficiently. This step demonstrates the script's capability to automate file management tasks dynamically based on user input, a key skill emphasized in the RHCSA exam."
         }
       ]
     }, {
@@ -1696,15 +1696,15 @@ const Question = require('./models/Question');
       "steps": [
         {
           "id": 1,
-          "instruction": "Prompt the user to enter the name of the empty directory they want to delete. Store this input in a variable named 'directory_name'.",
+          "instruction": "Prompt the user with the phrase 'Enter the name of the empty directory they want to delete: '. Store this input in a variable named 'directory_name'.",
           "answer": "read -p 'Enter the empty directory name to delete: ' directory_name",
-          "explanation": ""
+          "explanation": "In this step, the read command is used to prompt the user to enter the name of the empty directory they wish to delete. The input is stored in the directory_name variable, which is dynamically created and assigned the user's input. The prompt 'Enter the empty directory name to delete: ' ensures the user provides the directory name explicitly, setting the foundation for its deletion in the subsequent step. Capturing user input in this way makes the script flexible and interactive, aligning with RHCSA objectives of dynamic input handling and automation."
         },
         {
           "id": 2,
           "instruction": "Delete the directory specified by the 'directory_name' variable.",
           "answer": "rmdir $directory_name",
-          "explanation": ""
+          "explanation": "In this step, the script uses the rmdir command to delete the directory specified by the directory_name variable. The variable, dynamically assigned based on user input in the previous step, is substituted at runtime to identify the directory to be removed. The rmdir command ensures that only empty directories are deleted, making it a safe choice for this operation. This step demonstrates the script's ability to perform directory management tasks dynamically, aligning with RHCSA objectives of efficient and precise system administration through scripting."
         }
       ]
     }, {
@@ -1715,13 +1715,13 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the name of the directory they want to delete. Store this input in a variable named 'directory_name'.",
           "answer": "read -p 'Enter the directory name to delete (including contents): ' directory_name",
-          "explanation": ""
+          "explanation": "In this step, the read command prompts the user to enter the name of the directory they wish to delete, including its contents. The input is stored in the directory_name variable, which is dynamically created and assigned the user's input. The prompt 'Enter the directory name to delete (including contents): ' provides clear instructions, ensuring the user understands that the operation will delete the directory and everything within it. By capturing this input, the script becomes interactive and capable of handling user-specified directory management tasks, aligning with RHCSA objectives of dynamic and user-driven automation."
         },
         {
           "id": 2,
           "instruction": "Delete the directory specified by the 'directory_name' variable along with all its contents.",
           "answer": "rm -r $directory_name",
-          "explanation": ""
+          "explanation": "In this step, the script uses the rm command with the -r option to delete the directory specified by the directory_name variable along with all its contents. The -r (recursive) flag ensures that the rm command removes the directory and all files and subdirectories within it. The directory_name variable, dynamically assigned based on user input in the previous step, is substituted at runtime to specify the target directory. This step demonstrates the script's ability to handle recursive directory deletion, a critical skill for effective system management and emphasized in RHCSA objectives."
         }
       ]
     }, {
@@ -1732,19 +1732,19 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the source file path. Store this input in a variable named 'source_file'.",
           "answer": "read -p 'Enter the source file path: ' source_file",
-          "explanation": ""
+          "explanation": "In this step, the read command prompts the user to input the path of the file they wish to move. The input is stored in the source_file variable, which is dynamically created and assigned the user's input. The prompt 'Enter the source file path: ' provides clear instructions, ensuring the user specifies the exact location of the file to be moved. Capturing this input dynamically allows the script to work with user-defined file paths, making it interactive and adaptable, which aligns with RHCSA objectives of creating flexible automation scripts."
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the destination file path. Store this input in a variable named 'destination_file'.",
           "answer": "read -p 'Enter the destination file path: ' destination_file",
-          "explanation": ""
+          "explanation": "In this step, the read command prompts the user to input the destination path where the file should be moved. The input is stored in the destination_file variable, which is dynamically created and assigned the user's input. The prompt 'Enter the destination file path: ' ensures the user specifies the target location for the file. By capturing this input, the script is equipped to handle user-defined file movements, enabling dynamic and precise file management tasks, which aligns with RHCSA objectives of interactive and user-driven scripting."
         },
         {
           "id": 3,
           "instruction": "Move the file from the source path to the destination path using the 'mv' command.",
           "answer": "mv $source_file $destination_file",
-          "explanation": ""
+          "explanation": "In this step, the script uses the mv command to move the file from the source path specified in the source_file variable to the destination path specified in the destination_file variable. The mv command is a standard tool for moving files or renaming them, depending on the context. The variables are dynamically substituted at runtime with the values provided by the user, ensuring the operation is carried out according to their input. This step demonstrates the script's capability to automate file management tasks dynamically, a fundamental skill emphasized in the RHCSA exam."
         }
       ]
     },
@@ -1756,19 +1756,19 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the source directory path. Store this input in a variable named 'source_directory'.",
           "answer": "read -p 'Enter the source directory path: ' source_directory",
-          "explanation": ""
+          "explanation": "In this step, the read command prompts the user to input the path of the directory they wish to move. The input is stored in the source_directory variable, which is dynamically created and assigned the user's input. The prompt 'Enter the source directory path: ' ensures the user specifies the exact location of the directory to be moved. By capturing this input dynamically, the script can handle user-defined directory management tasks, aligning with RHCSA objectives of creating flexible and interactive automation scripts."
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the destination directory path. Store this input in a variable named 'destination_directory'.",
           "answer": "read -p 'Enter the destination directory path: ' destination_directory",
-          "explanation": ""
+          "explanation": "In this step, the read command prompts the user to input the destination path where the directory should be moved. The input is stored in the destination_directory variable, which is dynamically created and assigned the user's input. The prompt 'Enter the destination directory path: ' ensures the user provides the target location for the directory. By capturing this input, the script is prepared to move the directory to a user-specified location, demonstrating dynamic input handling and aligning with RHCSA objectives of interactive system administration tasks."
         },
         {
           "id": 3,
           "instruction": "Move the directory from the source path to the destination path using the 'mv' command.",
           "answer": "mv $source_directory $destination_directory",
-          "explanation": ""
+          "explanation": "In this step, the script uses the mv command to move the directory from the source path specified in the source_directory variable to the destination path specified in the destination_directory variable. The mv command is versatile and handles both files and directories, ensuring the entire directory and its contents are moved to the new location. The variables are dynamically substituted at runtime with the values provided by the user, enabling precise and user-driven directory management. This step aligns with RHCSA objectives by demonstrating proficiency in automating directory operations and managing file systems efficiently."
         }
       ]
     },
@@ -1780,19 +1780,19 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the source file path. Store this input in a variable named 'source_file'.",
           "answer": "read -p 'Enter the source file path: ' source_file",
-          "explanation": ""
+          "explanation": "In this step, the read command prompts the user to input the path of the file they wish to copy. The input is stored in the source_file variable, which is dynamically created and assigned the user's input. The prompt 'Enter the source file path: ' provides clear instructions to ensure the user specifies the exact location of the file to be copied. By capturing this input dynamically, the script is equipped to handle user-defined file copying tasks, aligning with RHCSA objectives of creating interactive and adaptable automation scripts."
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the destination file path. Store this input in a variable named 'destination_file'.",
           "answer": "read -p 'Enter the destination file path: ' destination_file",
-          "explanation": ""
+          "explanation": "In this step, the read command prompts the user to input the destination path where the file should be copied. The input is stored in the destination_file variable, which is dynamically created and assigned the user's input. The prompt 'Enter the destination file path: ' ensures the user specifies the target location for the file copy operation. By capturing this input, the script becomes flexible and capable of handling user-defined file operations, aligning with RHCSA objectives of building interactive and user-driven automation scripts."
         },
         {
           "id": 3,
           "instruction": "Copy the file from the source path to the destination path using the 'cp' command.",
           "answer": "cp $source_file $destination_file",
-          "explanation": ""
+          "explanation": "In this step, the script uses the cp command to copy the file from the source path specified in the source_file variable to the destination path specified in the destination_file variable. The cp command ensures that the original file remains intact while creating a duplicate at the specified destination. The variables are dynamically substituted at runtime with the values provided by the user, enabling the script to perform precise and user-defined file copy operations. This step demonstrates effective use of system utilities for file management, aligning with RHCSA objectives of automating and handling file operations dynamically."
         }
       ]
     },
@@ -1804,19 +1804,19 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the source directory path. Store this input in a variable named 'source_directory'.",
           "answer": "read -p 'Enter the source directory path: ' source_directory",
-          "explanation": ""
+          "explanation": "In this step, the read command prompts the user to input the path of the directory they wish to copy. The input is stored in the source_directory variable, which is dynamically created and assigned the user's input. The prompt 'Enter the source directory path: ' ensures the user provides the exact location of the directory to be copied. By capturing this input, the script becomes interactive and capable of handling user-defined directory management tasks, aligning with RHCSA objectives of creating flexible and dynamic automation scripts."
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the destination directory path. Store this input in a variable named 'destination_directory'.",
           "answer": "read -p 'Enter the destination directory path: ' destination_directory",
-          "explanation": ""
+          "explanation": "In this step, the read command prompts the user to input the destination path where the directory should be copied. The input is stored in the destination_directory variable, which is dynamically created and assigned the user's input. The prompt 'Enter the destination directory path: ' ensures the user specifies the target location for the directory copy operation. By capturing this input, the script enables flexible and user-driven directory management tasks, aligning with RHCSA objectives of building interactive and adaptable automation scripts."
         },
         {
           "id": 3,
           "instruction": "Copy the directory and its contents from the source path to the destination path using the 'cp -r' command.",
           "answer": "cp -r $source_directory $destination_directory",
-          "explanation": ""
+          "explanation": "In this step, the script uses the cp command with the -r flag to copy the directory specified in the source_directory variable to the destination specified in the destination_directory variable. The -r option, which stands for recursive, ensures that the entire directory, including all its subdirectories and files, is copied to the target location. The variables are dynamically substituted at runtime with the user-provided paths, enabling precise and user-defined directory copying operations. This step demonstrates efficient directory management using system utilities, a critical skill emphasized in the RHCSA exam."
         }
       ]
     }, {
