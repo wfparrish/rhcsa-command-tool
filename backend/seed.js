@@ -18,9 +18,9 @@ const Question = require('./models/Question');
         },
         {
           "id": 2,
-          "instruction": "Use the command to find the UUID or LABEL of the ISO device.",
-          "answer": "blkid",
-          "explanation": "The `blkid` command is a utility for displaying block device attributes, including UUID (Universally Unique Identifier) and LABEL. In the RHCSA context, accurately identifying the UUID or LABEL of the ISO device is essential for reliable mounting. UUIDs provide a unique identifier that remains consistent, even if the device name changes (e.g., from `/dev/sr0` to another name after reboot). This ensures the system can always locate the correct ISO device. This step is particularly important for updating the `/etc/fstab` file later, as using UUIDs or LABELs prevents errors in identifying devices during automated mounting at boot."
+          "instruction": "Identify the ISO device using the command to list block devices.",
+          "answer": "lsblk",
+          "explanation": "The `lsblk` (list block devices) command displays information about all available or the specified block devices, including their mount points. In the context of the RHCSA exam, using `lsblk` helps identify the device name (e.g., `/dev/sr0`) associated with the RHEL-9 ISO. This step is crucial for ensuring that you are referencing the correct device in subsequent steps, such as mounting the ISO to a directory or updating `/etc/fstab`. While UUIDs and LABELs can be used for more consistent device identification, in this process, device paths are used directly for simplicity and clarity."
         },
         {
           "id": 3,
