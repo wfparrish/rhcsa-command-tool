@@ -1680,12 +1680,14 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the file name. Store this input in a variable named 'file_name'.",
-          "answer": "read -p 'Enter the file name to delete: ' file_name"
+          "answer": "read -p 'Enter the file name to delete: ' file_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Delete the file specified by the 'file_name' variable.",
-          "answer": "rm $file_name"
+          "answer": "rm $file_name",
+          "explanation": ""
         }
       ]
     }, {
@@ -1695,12 +1697,14 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the name of the empty directory they want to delete. Store this input in a variable named 'directory_name'.",
-          "answer": "read -p 'Enter the empty directory name to delete: ' directory_name"
+          "answer": "read -p 'Enter the empty directory name to delete: ' directory_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Delete the directory specified by the 'directory_name' variable.",
-          "answer": "rmdir $directory_name"
+          "answer": "rmdir $directory_name",
+          "explanation": ""
         }
       ]
     }, {
@@ -1710,12 +1714,14 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the name of the directory they want to delete. Store this input in a variable named 'directory_name'.",
-          "answer": "read -p 'Enter the directory name to delete (including contents): ' directory_name"
+          "answer": "read -p 'Enter the directory name to delete (including contents): ' directory_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Delete the directory specified by the 'directory_name' variable along with all its contents.",
-          "answer": "rm -r $directory_name"
+          "answer": "rm -r $directory_name",
+          "explanation": ""
         }
       ]
     }, {
@@ -1725,17 +1731,20 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the source file path. Store this input in a variable named 'source_file'.",
-          "answer": "read -p 'Enter the source file path: ' source_file"
+          "answer": "read -p 'Enter the source file path: ' source_file",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the destination file path. Store this input in a variable named 'destination_file'.",
-          "answer": "read -p 'Enter the destination file path: ' destination_file"
+          "answer": "read -p 'Enter the destination file path: ' destination_file",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Move the file from the source path to the destination path using the 'mv' command.",
-          "answer": "mv $source_file $destination_file"
+          "answer": "mv $source_file $destination_file",
+          "explanation": ""
         }
       ]
     },
@@ -1746,17 +1755,20 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the source directory path. Store this input in a variable named 'source_directory'.",
-          "answer": "read -p 'Enter the source directory path: ' source_directory"
+          "answer": "read -p 'Enter the source directory path: ' source_directory",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the destination directory path. Store this input in a variable named 'destination_directory'.",
-          "answer": "read -p 'Enter the destination directory path: ' destination_directory"
+          "answer": "read -p 'Enter the destination directory path: ' destination_directory",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Move the directory from the source path to the destination path using the 'mv' command.",
-          "answer": "mv $source_directory $destination_directory"
+          "answer": "mv $source_directory $destination_directory",
+          "explanation": ""
         }
       ]
     },
@@ -1767,17 +1779,20 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the source file path. Store this input in a variable named 'source_file'.",
-          "answer": "read -p 'Enter the source file path: ' source_file"
+          "answer": "read -p 'Enter the source file path: ' source_file",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the destination file path. Store this input in a variable named 'destination_file'.",
-          "answer": "read -p 'Enter the destination file path: ' destination_file"
+          "answer": "read -p 'Enter the destination file path: ' destination_file",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Copy the file from the source path to the destination path using the 'cp' command.",
-          "answer": "cp $source_file $destination_file"
+          "answer": "cp $source_file $destination_file",
+          "explanation": ""
         }
       ]
     },
@@ -1788,17 +1803,20 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the source directory path. Store this input in a variable named 'source_directory'.",
-          "answer": "read -p 'Enter the source directory path: ' source_directory"
+          "answer": "read -p 'Enter the source directory path: ' source_directory",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the destination directory path. Store this input in a variable named 'destination_directory'.",
-          "answer": "read -p 'Enter the destination directory path: ' destination_directory"
+          "answer": "read -p 'Enter the destination directory path: ' destination_directory",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Copy the directory and its contents from the source path to the destination path using the 'cp -r' command.",
-          "answer": "cp -r $source_directory $destination_directory"
+          "answer": "cp -r $source_directory $destination_directory",
+          "explanation": ""
         }
       ]
     }, {
@@ -1808,32 +1826,38 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to choose the type of link to create. Display the prompt 'Enter link type (hard/symbolic): ' and store the input in a variable named 'link_type'.",
-          "answer": "read -p 'Enter link type (hard/symbolic): ' link_type"
+          "answer": "read -p 'Enter link type (hard/symbolic): ' link_type",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the path of the target file. Display the prompt 'Enter the target file path: ' and store the input in a variable named 'target_file'.",
-          "answer": "read -p 'Enter the target file path: ' target_file"
+          "answer": "read -p 'Enter the target file path: ' target_file",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Prompt the user to enter the name for the link to be created. Display the prompt 'Enter the name for the link: ' and store the input in a variable named 'link_name'.",
-          "answer": "read -p 'Enter the name for the link: ' link_name"
+          "answer": "read -p 'Enter the name for the link: ' link_name",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Check the value of 'link_type'. If it is 'hard', create a hard link. Display a success message 'Hard link created successfully' after creating the link.",
-          "answer": "if [[ $link_type == 'hard' ]]; then ln $target_file $link_name && echo 'Hard link created successfully'; fi"
+          "answer": "if [[ $link_type == 'hard' ]]; then ln $target_file $link_name && echo 'Hard link created successfully'; fi",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "If the value of 'link_type' is 'symbolic', create a symbolic link. Display a success message 'Symbolic link created successfully.' after creating the link.",
-          "answer": "if [[ $link_type == 'symbolic' ]]; then ln -s $target_file $link_name && echo 'Symbolic link created successfully'; fi"
+          "answer": "if [[ $link_type == 'symbolic' ]]; then ln -s $target_file $link_name && echo 'Symbolic link created successfully'; fi",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "If the value of 'link_type' is neither 'hard' nor 'symbolic', display an error message 'Invalid link type entered' and exit the script.",
-          "answer": "if [[ $link_type != 'hard' && $link_type != 'symbolic' ]]; then echo 'Invalid link type entered'; exit 1; fi"
+          "answer": "if [[ $link_type != 'hard' && $link_type != 'symbolic' ]]; then echo 'Invalid link type entered'; exit 1; fi",
+          "explanation": ""
         }
       ]
     }, {
@@ -1843,27 +1867,32 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "List all files in the directory '/path/to/directory' along with their current permissions using the command 'ls -l /path/to/directory'. Replace '/path/to/directory' with the desired directory path.",
-          "answer": "ls -l /path/to/directory"
+          "answer": "ls -l /path/to/directory",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the name of the file to change permissions to 755 by displaying the message: 'Enter the name of the file to change permissions to 755: '. Store the input in a variable named 'file1' and use the 'chmod' command to set the permissions.",
-          "answer": "read -p 'Enter the name of the file to change permissions to 755: ' file1; chmod 755 $file1"
+          "answer": "read -p 'Enter the name of the file to change permissions to 755: ' file1; chmod 755 $file1",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Prompt the user to enter the name of the file to change permissions to 644 by displaying the message: 'Enter the name of the file to change permissions to 644: '. Store the input in a variable named 'file2' and use the 'chmod' command to set the permissions.",
-          "answer": "read -p 'Enter the name of the file to change permissions to 644: ' file2; chmod 644 $file2"
+          "answer": "read -p 'Enter the name of the file to change permissions to 644: ' file2; chmod 644 $file2",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Prompt the user to enter the directory path to recursively set permissions to 600 by displaying the message: 'Enter the directory path to recursively set permissions to 600: '. Store the input in a variable named 'target_directory' and use the 'chmod -R' command to apply the permissions.",
-          "answer": "read -p 'Enter the directory path to recursively set permissions to 600: ' target_directory; chmod -R 600 $target_directory"
+          "answer": "read -p 'Enter the directory path to recursively set permissions to 600: ' target_directory; chmod -R 600 $target_directory",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Create a new file named 'newfile' using the 'touch' command. Then, set its permissions to 700 using the 'chmod' command and verify the change by listing its permissions with 'ls -l newfile'.",
-          "answer": "touch newfile; chmod 700 newfile; ls -l newfile"
+          "answer": "touch newfile; chmod 700 newfile; ls -l newfile",
+          "explanation": ""
         }
       ]
     }, {
@@ -1873,32 +1902,38 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Ensure the autofs package is installed on your system by using the package manager.",
-          "answer": "sudo dnf install autofs -y"
+          "answer": "sudo dnf install autofs -y",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Edit the '/etc/auto.master' file to include a new map file for automount configuration. Add the following line to the file: '/mnt/nfs /etc/auto.nfs'.",
-          "answer": "sudo bash -c \"echo '/mnt/nfs /etc/auto.nfs' >> /etc/auto.master\""
+          "answer": "sudo bash -c \"echo '/mnt/nfs /etc/auto.nfs' >> /etc/auto.master\"",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Create the '/etc/auto.nfs' map file to specify the NFS server and share to mount. Add the following line to the file: 'share -rw,soft nfsserver:/export/share'. Replace 'nfsserver:/export/share' with the actual NFS server and export path.",
-          "answer": "sudo bash -c \"echo 'share -rw,soft nfsserver:/export/share' > /etc/auto.nfs\""
+          "answer": "sudo bash -c \"echo 'share -rw,soft nfsserver:/export/share' > /etc/auto.nfs\"",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Reload the autofs service to apply the new configuration.",
-          "answer": "sudo systemctl restart autofs"
+          "answer": "sudo systemctl restart autofs",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Verify that the NFS mount is automatically created when accessed. Navigate to '/mnt/nfs/share' to trigger the automount.",
-          "answer": "cd /mnt/nfs/share"
+          "answer": "cd /mnt/nfs/share",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Confirm the mount by listing the active mounts and checking for the automounted directory.",
-          "answer": "mount | grep autofs"
+          "answer": "mount | grep autofs",
+          "explanation": ""
         }
       ]
     }, {
@@ -1908,32 +1943,38 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Check that the script is called with two arguments: the directory name and the group name. If not, display the message 'Usage: script_name <directory_name> <group_name>' and exit the script with a status code of 1.",
-          "answer": "if [[ $# -ne 2 ]]; then echo 'Usage: $0 <directory_name> <group_name>'; exit 1; fi"
+          "answer": "if [[ $# -ne 2 ]]; then echo 'Usage: $0 <directory_name> <group_name>'; exit 1; fi",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Assign the first argument to a variable named 'directory_name' and the second argument to a variable named 'group_name'.",
-          "answer": "directory_name=$1; group_name=$2"
+          "answer": "directory_name=$1; group_name=$2",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Create the directory specified by 'directory_name' if it does not already exist.",
-          "answer": "mkdir -p $directory_name"
+          "answer": "mkdir -p $directory_name",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Change the group ownership of the directory to the group specified by 'group_name'.",
-          "answer": "chgrp $group_name $directory_name"
+          "answer": "chgrp $group_name $directory_name",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Set the set-GID bit on the directory to ensure new files inherit the group ownership of the directory.",
-          "answer": "chmod g+s $directory_name"
+          "answer": "chmod g+s $directory_name",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Verify and display the permissions of the directory to confirm the set-GID bit is set. Use the 'ls -ld' command.",
-          "answer": "ls -ld $directory_name"
+          "answer": "ls -ld $directory_name",
+          "explanation": ""
         }
       ]
     }, {
@@ -1943,37 +1984,44 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "List all existing cron jobs for the current user to view any scheduled tasks.",
-          "answer": "crontab -l"
+          "answer": "crontab -l",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Create or edit a cron job to schedule a script named 'backup.sh' to run daily at 2:30 AM. Use the 'crontab -e' command to edit the cron jobs.",
-          "answer": "echo '30 2 * * * /path/to/backup.sh' | crontab -"
+          "answer": "echo '30 2 * * * /path/to/backup.sh' | crontab -",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Verify that the new cron job has been added by listing all cron jobs for the current user.",
-          "answer": "crontab -l"
+          "answer": "crontab -l",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Create a cron job to delete all log files in the '/var/log/tmp_logs' directory at 1:00 AM on the first day of each month. Use 'crontab -e' or an alternative command to add the job.",
-          "answer": "echo '0 1 1 * * rm -rf /var/log/tmp_logs/*.log' | crontab -"
+          "answer": "echo '0 1 1 * * rm -rf /var/log/tmp_logs/*.log' | crontab -",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Check the status of the cron service to ensure it is active and running.",
-          "answer": "systemctl status crond"
+          "answer": "systemctl status crond",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Start and enable the cron service if it is not already running.",
-          "answer": "sudo systemctl start crond; sudo systemctl enable crond"
+          "answer": "sudo systemctl start crond; sudo systemctl enable crond",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "Remove all cron jobs for the current user to reset the crontab.",
-          "answer": "crontab -r"
+          "answer": "crontab -r",
+          "explanation": ""
         }
       ]
     }, {
@@ -1983,32 +2031,38 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the name of the service to manage. Store the input in a variable named 'service_name'.",
-          "answer": "read -p 'Enter the name of the service to manage: ' service_name"
+          "answer": "read -p 'Enter the name of the service to manage: ' service_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Start the specified service using the systemctl command.",
-          "answer": "sudo systemctl start $service_name"
+          "answer": "sudo systemctl start $service_name",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Stop the specified service using the systemctl command.",
-          "answer": "sudo systemctl stop $service_name"
+          "answer": "sudo systemctl stop $service_name",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Enable the specified service to start automatically at boot using the systemctl command.",
-          "answer": "sudo systemctl enable $service_name"
+          "answer": "sudo systemctl enable $service_name",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Disable the specified service from starting automatically at boot using the systemctl command.",
-          "answer": "sudo systemctl disable $service_name"
+          "answer": "sudo systemctl disable $service_name",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Check the status of the specified service using the systemctl command and display its state.",
-          "answer": "sudo systemctl status $service_name"
+          "answer": "sudo systemctl status $service_name",
+          "explanation": ""
         }
       ]
     }, {
@@ -2018,22 +2072,26 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the name of the target they want to set as the default (e.g., multi-user.target or graphical.target). Store the input in a variable named 'target'.",
-          "answer": "read -p 'Enter the target to set as default (e.g., multi-user.target, graphical.target): ' target"
+          "answer": "read -p 'Enter the target to set as default (e.g., multi-user.target, graphical.target): ' target",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Set the specified target as the default boot target using the systemctl command.",
-          "answer": "sudo systemctl set-default $target"
+          "answer": "sudo systemctl set-default $target",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Verify that the default target has been set correctly by displaying the current default target.",
-          "answer": "systemctl get-default"
+          "answer": "systemctl get-default",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Display the status of all systemd targets to show their active states.",
-          "answer": "systemctl list-units --type=target"
+          "answer": "systemctl list-units --type=target",
+          "explanation": ""
         }
       ]
     }, {
@@ -2043,37 +2101,44 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Create a backup directory at '/backup/grub' if it does not already exist.",
-          "answer": "sudo mkdir -p /backup/grub"
+          "answer": "sudo mkdir -p /backup/grub",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Backup the current GRUB configuration file '/boot/grub2/grub.cfg' to the '/backup/grub' directory.",
-          "answer": "sudo cp /boot/grub2/grub.cfg /backup/grub/"
+          "answer": "sudo cp /boot/grub2/grub.cfg /backup/grub/",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Update the GRUB configuration file to include any new kernels or changes using the grub2-mkconfig command.",
-          "answer": "sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
+          "answer": "sudo grub2-mkconfig -o /boot/grub2/grub.cfg",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Edit the '/etc/grub.d/40_custom' file to add a custom GRUB entry for a hypothetical custom kernel. Add the following lines:\n\nmenuentry 'Custom Kernel' {\n  set root='hd0,msdos1'\n  linux /vmlinuz-custom root=/dev/sda1 ro\n  initrd /initrd-custom.img\n}",
-          "answer": "sudo vim /etc/grub.d/40_custom"
+          "answer": "sudo vim /etc/grub.d/40_custom",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Regenerate the GRUB configuration file to include the custom entry using the grub2-mkconfig command.",
-          "answer": "sudo grub2-mkconfig -o /boot/grub2/grub.cfg"
+          "answer": "sudo grub2-mkconfig -o /boot/grub2/grub.cfg",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Set the default boot entry to the newly added custom kernel entry using the grub2-set-default command.",
-          "answer": "sudo grub2-set-default 'Custom Kernel'"
+          "answer": "sudo grub2-set-default 'Custom Kernel'",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "Verify the default boot entry to confirm it is set to the custom kernel.",
-          "answer": "sudo grub2-editenv list"
+          "answer": "sudo grub2-editenv list",
+          "explanation": ""
         }
       ]
     }, {
@@ -2083,42 +2148,50 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the DNS server address. Display the message 'Enter the DNS server address: ' and store the input in a variable named 'dns_server'.",
-          "answer": "read -p 'Enter the DNS server address: ' dns_server"
+          "answer": "read -p 'Enter the DNS server address: ' dns_server",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the search domain. Display the message 'Enter the search domain: ' and store the input in a variable named 'search_domain'.",
-          "answer": "read -p 'Enter the search domain: ' search_domain"
+          "answer": "read -p 'Enter the search domain: ' search_domain",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Create or update the '/etc/resolv.conf' file with the provided DNS server and search domain. Append 'nameserver' and 'search' lines to the file.",
-          "answer": "echo -e 'nameserver $dns_server\\nsearch $search_domain' | sudo tee /etc/resolv.conf"
+          "answer": "echo -e 'nameserver $dns_server\\nsearch $search_domain' | sudo tee /etc/resolv.conf",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Prompt the user to enter the hostname for the new hosts file entry. Display the message 'Enter the hostname: ' and store the input in a variable named 'hostname'.",
-          "answer": "read -p 'Enter the hostname: ' hostname"
+          "answer": "read -p 'Enter the hostname: ' hostname",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Prompt the user to enter the IP address for the new hosts file entry. Display the message 'Enter the IP address: ' and store the input in a variable named 'ip_address'.",
-          "answer": "read -p 'Enter the IP address: ' ip_address"
+          "answer": "read -p 'Enter the IP address: ' ip_address",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Add the new entry to the '/etc/hosts' file using the provided hostname and IP address.",
-          "answer": "echo '$ip_address $hostname' | sudo tee -a /etc/hosts"
+          "answer": "echo '$ip_address $hostname' | sudo tee -a /etc/hosts",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "Verify that the DNS server is correctly set in '/etc/resolv.conf' by displaying the file's contents.",
-          "answer": "cat /etc/resolv.conf"
+          "answer": "cat /etc/resolv.conf",
+          "explanation": ""
         },
         {
           "id": 8,
           "instruction": "Verify that the new entry is present in '/etc/hosts' by displaying the file's contents.",
-          "answer": "cat /etc/hosts"
+          "answer": "cat /etc/hosts",
+          "explanation": ""
         }
       ]
     }, {
@@ -2128,47 +2201,56 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter a port number for which the firewall rule needs to be added. Display the message 'Enter the port number: ' and store the input in a variable named 'port'.",
-          "answer": "read -p 'Enter the port number: ' port"
+          "answer": "read -p 'Enter the port number: ' port",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the firewall zone for the rule. Display the message 'Enter the firewall zone: ' and store the input in a variable named 'zone'.",
-          "answer": "read -p 'Enter the firewall zone: ' zone"
+          "answer": "read -p 'Enter the firewall zone: ' zone",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Add a firewall rule to allow traffic on the specified port and zone. Use the 'firewall-cmd' command with '--add-port' and '--permanent' options.",
-          "answer": "sudo firewall-cmd --zone=$zone --add-port=$port/tcp --permanent"
+          "answer": "sudo firewall-cmd --zone=$zone --add-port=$port/tcp --permanent",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Prompt the user to enter a port number and zone to remove a firewall rule. Display the messages 'Enter the port number to remove: ' and 'Enter the firewall zone: ', storing inputs in variables 'port' and 'zone', respectively.",
-          "answer": "read -p 'Enter the port number to remove: ' port; read -p 'Enter the firewall zone: ' zone"
+          "answer": "read -p 'Enter the port number to remove: ' port; read -p 'Enter the firewall zone: ' zone",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Remove the firewall rule for the specified port and zone using the 'firewall-cmd' command with '--remove-port' and '--permanent' options.",
-          "answer": "sudo firewall-cmd --zone=$zone --remove-port=$port/tcp --permanent"
+          "answer": "sudo firewall-cmd --zone=$zone --remove-port=$port/tcp --permanent",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Prompt the user to enter a firewall zone to list its current rules. Display the message 'Enter the firewall zone: ' and store the input in a variable named 'zone'.",
-          "answer": "read -p 'Enter the firewall zone: ' zone"
+          "answer": "read -p 'Enter the firewall zone: ' zone",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "List all current firewall rules for the specified zone using the 'firewall-cmd' command with '--list-all'.",
-          "answer": "sudo firewall-cmd --zone=$zone --list-all"
+          "answer": "sudo firewall-cmd --zone=$zone --list-all",
+          "explanation": ""
         },
         {
           "id": 8,
           "instruction": "Check the status of the firewall and display whether it is running. Use the 'firewall-cmd' command with '--state'.",
-          "answer": "sudo firewall-cmd --state"
+          "answer": "sudo firewall-cmd --state",
+          "explanation": ""
         },
         {
           "id": 9,
           "instruction": "Reload the firewall configuration to apply any changes. Use the 'firewall-cmd' command with '--reload'.",
-          "answer": "sudo firewall-cmd --reload"
+          "answer": "sudo firewall-cmd --reload",
+          "explanation": ""
         }
       ]
     }, {
@@ -2178,42 +2260,50 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Set the default firewall zone to 'public' using the 'firewall-cmd' command.",
-          "answer": "sudo firewall-cmd --set-default-zone=public"
+          "answer": "sudo firewall-cmd --set-default-zone=public",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Allow incoming HTTP traffic on port 80 in the 'public' zone. Use the '--add-service' option to specify the HTTP service and ensure the rule is persistent.",
-          "answer": "sudo firewall-cmd --zone=public --add-service=http --permanent"
+          "answer": "sudo firewall-cmd --zone=public --add-service=http --permanent",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Allow incoming HTTPS traffic on port 443 in the 'public' zone. Use the '--add-service' option to specify the HTTPS service and ensure the rule is persistent.",
-          "answer": "sudo firewall-cmd --zone=public --add-service=https --permanent"
+          "answer": "sudo firewall-cmd --zone=public --add-service=https --permanent",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Block incoming traffic on port 1234 in the 'public' zone. Use the '--add-rich-rule' option to define a rule that denies traffic on the specified port and ensure the rule is persistent.",
-          "answer": "sudo firewall-cmd --zone=public --add-rich-rule='rule family=\"ipv4\" port protocol=\"tcp\" port=\"1234\" reject' --permanent"
+          "answer": "sudo firewall-cmd --zone=public --add-rich-rule='rule family=\"ipv4\" port protocol=\"tcp\" port=\"1234\" reject' --permanent",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Reload the firewall configuration to apply all changes.",
-          "answer": "sudo firewall-cmd --reload"
+          "answer": "sudo firewall-cmd --reload",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Verify the default zone is set to 'public'. Use the 'firewall-cmd' command to check the current default zone.",
-          "answer": "sudo firewall-cmd --get-default-zone"
+          "answer": "sudo firewall-cmd --get-default-zone",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "Verify that HTTP and HTTPS services are allowed in the 'public' zone. Use the 'firewall-cmd' command to list services in the zone.",
-          "answer": "sudo firewall-cmd --zone=public --list-services"
+          "answer": "sudo firewall-cmd --zone=public --list-services",
+          "explanation": ""
         },
         {
           "id": 8,
           "instruction": "Verify that traffic on port 1234 is blocked in the 'public' zone. Use the 'firewall-cmd' command to list rich rules in the zone.",
-          "answer": "sudo firewall-cmd --zone=public --list-rich-rules"
+          "answer": "sudo firewall-cmd --zone=public --list-rich-rules",
+          "explanation": ""
         }
       ]
     }, {
@@ -2223,22 +2313,26 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Check if an SSH key pair already exists by verifying the presence of the files '~/.ssh/id_rsa' and '~/.ssh/id_rsa.pub'. If they do not exist, prompt the user to confirm whether to generate a new key pair.",
-          "answer": "if [[ ! -f ~/.ssh/id_rsa || ! -f ~/.ssh/id_rsa.pub ]]; then read -p 'SSH key pair not found. Generate a new key pair? (yes/no): ' confirm; if [[ $confirm == 'yes' ]]; then ssh-keygen -t rsa -b 2048 -N '' -f ~/.ssh/id_rsa; fi; fi"
+          "answer": "if [[ ! -f ~/.ssh/id_rsa || ! -f ~/.ssh/id_rsa.pub ]]; then read -p 'SSH key pair not found. Generate a new key pair? (yes/no): ' confirm; if [[ $confirm == 'yes' ]]; then ssh-keygen -t rsa -b 2048 -N '' -f ~/.ssh/id_rsa; fi; fi",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the username and IP address of the remote server. Store the username in 'remote_user' and the IP address in 'remote_host'.",
-          "answer": "read -p 'Enter the remote server username: ' remote_user; read -p 'Enter the remote server IP address: ' remote_host"
+          "answer": "read -p 'Enter the remote server username: ' remote_user; read -p 'Enter the remote server IP address: ' remote_host",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Copy the public SSH key to the remote server using the 'ssh-copy-id' command.",
-          "answer": "ssh-copy-id -i ~/.ssh/id_rsa.pub $remote_user@$remote_host"
+          "answer": "ssh-copy-id -i ~/.ssh/id_rsa.pub $remote_user@$remote_host",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Verify that key-based authentication is working by attempting to log in to the remote server using SSH.",
-          "answer": "ssh $remote_user@$remote_host"
+          "answer": "ssh $remote_user@$remote_host",
+          "explanation": ""
         }
       ]
     }, {
@@ -2248,32 +2342,38 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Check and display the current SELinux mode using the 'sestatus' command.",
-          "answer": "sestatus | grep 'Current mode'"
+          "answer": "sestatus | grep 'Current mode'",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Store the current SELinux mode in a variable named 'current_mode' by using the 'getenforce' command.",
-          "answer": "current_mode=$(getenforce)"
+          "answer": "current_mode=$(getenforce)",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Temporarily set SELinux to permissive mode using the 'setenforce' command.",
-          "answer": "setenforce 0"
+          "answer": "setenforce 0",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Confirm that SELinux is now in permissive mode by re-checking the current mode using 'getenforce'.",
-          "answer": "getenforce"
+          "answer": "getenforce",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Restore SELinux to its original mode stored in the 'current_mode' variable using the 'setenforce' command.",
-          "answer": "setenforce $current_mode"
+          "answer": "setenforce $current_mode",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Verify that SELinux has been restored to its original mode using the 'getenforce' command.",
-          "answer": "getenforce"
+          "answer": "getenforce",
+          "explanation": ""
         }
       ]
     }, {
@@ -2283,32 +2383,38 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "List the SELinux contexts of all files in a specified directory.",
-          "answer": "ls -Z /path/to/directory"
+          "answer": "ls -Z /path/to/directory",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the directory path to list SELinux contexts of all files. Store this input in a variable named 'directory'.",
-          "answer": "read -p 'Enter the directory path to list SELinux contexts: ' directory; ls -Z $directory"
+          "answer": "read -p 'Enter the directory path to list SELinux contexts: ' directory; ls -Z $directory",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Prompt the user to enter the file path for which the SELinux context should be changed. Store this input in a variable named 'file_path'.",
-          "answer": "read -p 'Enter the file path to change SELinux context: ' file_path"
+          "answer": "read -p 'Enter the file path to change SELinux context: ' file_path",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Prompt the user to enter the new SELinux context for the specified file. Store this input in a variable named 'new_context'.",
-          "answer": "read -p 'Enter the new SELinux context: ' new_context"
+          "answer": "read -p 'Enter the new SELinux context: ' new_context",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Change the SELinux context of the specified file to the new context.",
-          "answer": "semanage fcontext -a -t $new_context $file_path; restorecon $file_path"
+          "answer": "semanage fcontext -a -t $new_context $file_path; restorecon $file_path",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Verify the SELinux context of the specified file after the change using the 'ls -Z' command.",
-          "answer": "ls -Z $file_path"
+          "answer": "ls -Z $file_path",
+          "explanation": ""
         }
       ]
     }, {
@@ -2318,22 +2424,26 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the directory path for which SELinux contexts need to be restored. Store this input in a variable named 'directory'.",
-          "answer": "read -p 'Enter the directory path to restore SELinux contexts: ' directory"
+          "answer": "read -p 'Enter the directory path to restore SELinux contexts: ' directory",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Verify that the directory specified in the 'directory' variable exists. If it does not exist, display an error message and exit the script with a status code of 1.",
-          "answer": "[[ -d $directory ]] || { echo 'Directory does not exist'; exit 1; }"
+          "answer": "[[ -d $directory ]] || { echo 'Directory does not exist'; exit 1; }",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Restore the default SELinux file contexts for the specified directory and its contents using the 'restorecon -R' command.",
-          "answer": "restorecon -Rv $directory"
+          "answer": "restorecon -Rv $directory",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Display the output of the restoration process, including any errors encountered, to the user.",
-          "answer": "restorecon -Rv $directory"
+          "answer": "restorecon -Rv $directory",
+          "explanation": ""
         }
       ]
     }, {
@@ -2343,27 +2453,32 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Check if the 'semanage' command is available on the system. If not, output an error message and exit the script.",
-          "answer": "command -v semanage >/dev/null 2>&1 || { echo 'Error: semanage command not found. Please install the policycoreutils-python-utils package.'; exit 1; }"
+          "answer": "command -v semanage >/dev/null 2>&1 || { echo 'Error: semanage command not found. Please install the policycoreutils-python-utils package.'; exit 1; }",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the port number they want to label. Store the input in a variable named 'port'.",
-          "answer": "read -p 'Enter the port number to label: ' port"
+          "answer": "read -p 'Enter the port number to label: ' port",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Prompt the user to enter the SELinux type for the port label (e.g., 'http_port_t'). Store the input in a variable named 'selinux_type'.",
-          "answer": "read -p 'Enter the SELinux type for the port label (e.g., http_port_t): ' selinux_type"
+          "answer": "read -p 'Enter the SELinux type for the port label (e.g., http_port_t): ' selinux_type",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Add a new SELinux port label for the specified port and SELinux type using the 'semanage port -a' command.",
-          "answer": "semanage port -a -t $selinux_type -p tcp $port"
+          "answer": "semanage port -a -t $selinux_type -p tcp $port",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Verify that the new SELinux port label has been applied by listing all SELinux port labels and filtering for the specified port using 'semanage port -l'.",
-          "answer": "semanage port -l | grep -w $port"
+          "answer": "semanage port -l | grep -w $port",
+          "explanation": ""
         }
       ]
     }, {
@@ -2373,32 +2488,38 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the name of the container image, including the registry (e.g., 'docker.io/library/nginx'). Store the input in a variable named 'image_name'.",
-          "answer": "read -p 'Enter the container image name (e.g., docker.io/library/nginx): ' image_name"
+          "answer": "read -p 'Enter the container image name (e.g., docker.io/library/nginx): ' image_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the tag of the container image (e.g., 'latest'). Store the input in a variable named 'image_tag'.",
-          "answer": "read -p 'Enter the image tag (e.g., latest): ' image_tag"
+          "answer": "read -p 'Enter the image tag (e.g., latest): ' image_tag",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Attempt to pull the specified container image using 'podman pull' or 'docker pull'. Store the full image name with tag in a variable named 'full_image' and log the command's output to a file named 'image_pull.log'.",
-          "answer": "full_image=\"$image_name:$image_tag\"; podman pull $full_image >> image_pull.log 2>&1 || docker pull $full_image >> image_pull.log 2>&1"
+          "answer": "full_image=\"$image_name:$image_tag\"; podman pull $full_image >> image_pull.log 2>&1 || docker pull $full_image >> image_pull.log 2>&1",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Check if the container image pull command was successful. If it fails, log an error message to 'image_pull_error.log' and notify the user.",
-          "answer": "[[ $? -ne 0 ]] && { echo \"Failed to pull $full_image\" | tee -a image_pull_error.log; exit 1; }"
+          "answer": "[[ $? -ne 0 ]] && { echo \"Failed to pull $full_image\" | tee -a image_pull_error.log; exit 1; }",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "If the image pull is successful, log the success message to 'image_pull.log' and notify the user.",
-          "answer": "echo \"Successfully pulled $full_image\" >> image_pull.log; echo \"Container image $full_image retrieved successfully.\""
+          "answer": "echo \"Successfully pulled $full_image\" >> image_pull.log; echo \"Container image $full_image retrieved successfully.\"",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Optional: If email notification is enabled, send an email with the success or failure log. Use a tool like 'mail' and prompt the user for the recipient's email address. Store the email in a variable named 'email_recipient'.",
-          "answer": "read -p 'Enter the email address for notifications: ' email_recipient; mail -s \"Container Image Pull Report\" $email_recipient < image_pull.log"
+          "answer": "read -p 'Enter the email address for notifications: ' email_recipient; mail -s \"Container Image Pull Report\" $email_recipient < image_pull.log",
+          "explanation": ""
         }
       ]
     }, {
@@ -2408,32 +2529,38 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the name of the container image, including the registry (e.g., 'docker.io/library/nginx'). Store the input in a variable named 'image_name'.",
-          "answer": "read -p 'Enter the container image name (e.g., docker.io/library/nginx): ' image_name"
+          "answer": "read -p 'Enter the container image name (e.g., docker.io/library/nginx): ' image_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Pull the specified container image using 'podman pull' or 'docker pull'. Log the output to a file named 'image_retrieve.log'.",
-          "answer": "podman pull $image_name >> image_retrieve.log 2>&1 || docker pull $image_name >> image_retrieve.log 2>&1"
+          "answer": "podman pull $image_name >> image_retrieve.log 2>&1 || docker pull $image_name >> image_retrieve.log 2>&1",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Check if the container image pull command was successful. If it fails, log an error message to 'image_retrieve_error.log' and exit the script with a status code of 1.",
-          "answer": "[[ $? -ne 0 ]] && { echo \"Failed to pull $image_name\" | tee -a image_retrieve_error.log; exit 1; }"
+          "answer": "[[ $? -ne 0 ]] && { echo \"Failed to pull $image_name\" | tee -a image_retrieve_error.log; exit 1; }",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Inspect the pulled container image to retrieve metadata. Use the appropriate inspect command ('podman inspect' or 'docker inspect') and save the output to 'image_metadata.json'.",
-          "answer": "podman inspect $image_name > image_metadata.json || docker inspect $image_name > image_metadata.json"
+          "answer": "podman inspect $image_name > image_metadata.json || docker inspect $image_name > image_metadata.json",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Parse the metadata file 'image_metadata.json' to extract the image ID, creation date, and size. Use tools like 'jq' to process the JSON file.",
-          "answer": "jq '.[0] | {ImageID: .Id, CreationDate: .Created, Size: .Size}' image_metadata.json"
+          "answer": "jq '.[0] | {ImageID: .Id, CreationDate: .Created, Size: .Size}' image_metadata.json",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Check if the size of the container image exceeds 100MB. Print a message if the condition is met.",
-          "answer": "size=$(jq -r '.[0].Size' image_metadata.json); [[ $size -gt 104857600 ]] && echo \"The image size is greater than 100MB: $((size / 1024 / 1024)) MB\""
+          "answer": "size=$(jq -r '.[0].Size' image_metadata.json); [[ $size -gt 104857600 ]] && echo \"The image size is greater than 100MB: $((size / 1024 / 1024)) MB\"",
+          "explanation": ""
         }
       ]
     }, {
@@ -2443,32 +2570,38 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the name of the container image to pull (e.g., 'docker.io/library/nginx'). Store the input in a variable named 'image_name'.",
-          "answer": "read -p 'Enter the container image name to pull (e.g., docker.io/library/nginx): ' image_name"
+          "answer": "read -p 'Enter the container image name to pull (e.g., docker.io/library/nginx): ' image_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Pull the specified container image using 'podman pull' and log the output to a file named 'image_pull.log'.",
-          "answer": "podman pull $image_name >> image_pull.log 2>&1"
+          "answer": "podman pull $image_name >> image_pull.log 2>&1",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Inspect the pulled container image using 'podman inspect' and save the metadata to a file named 'image_metadata.json'.",
-          "answer": "podman inspect $image_name > image_metadata.json"
+          "answer": "podman inspect $image_name > image_metadata.json",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Prompt the user to enter the destination registry for pushing the container image (e.g., 'quay.io/username/nginx'). Store the input in a variable named 'destination_image'.",
-          "answer": "read -p 'Enter the destination registry and image name (e.g., quay.io/username/nginx): ' destination_image"
+          "answer": "read -p 'Enter the destination registry and image name (e.g., quay.io/username/nginx): ' destination_image",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Use skopeo to copy the container image from the local Podman repository to the specified remote registry.",
-          "answer": "skopeo copy containers-storage:$image_name docker://$destination_image"
+          "answer": "skopeo copy containers-storage:$image_name docker://$destination_image",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Remove the local copy of the container image using 'podman rmi' to clean up.",
-          "answer": "podman rmi $image_name"
+          "answer": "podman rmi $image_name",
+          "explanation": ""
         }
       ]
     }, {
@@ -2478,32 +2611,38 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the container image to pull (e.g., 'nginx'). Store the input in a variable named 'image_name'.",
-          "answer": "read -p 'Enter the container image name to pull (e.g., nginx): ' image_name"
+          "answer": "read -p 'Enter the container image name to pull (e.g., nginx): ' image_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Pull the specified container image from a public registry using 'podman pull' or 'docker pull'. Log the output to a file named 'container_pull.log'.",
-          "answer": "podman pull $image_name >> container_pull.log 2>&1 || { echo 'Error: Failed to pull the image'; exit 1; }"
+          "answer": "podman pull $image_name >> container_pull.log 2>&1 || { echo 'Error: Failed to pull the image'; exit 1; }",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Create and start a container from the pulled image. Prompt the user to name the container and store the input in a variable named 'container_name'.",
-          "answer": "read -p 'Enter a name for the container: ' container_name; podman run -d --name $container_name $image_name || { echo 'Error: Failed to start the container'; exit 1; }"
+          "answer": "read -p 'Enter a name for the container: ' container_name; podman run -d --name $container_name $image_name || { echo 'Error: Failed to start the container'; exit 1; }",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "List all running containers to verify that the newly created container is running.",
-          "answer": "podman ps"
+          "answer": "podman ps",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Stop the running container. Use the variable 'container_name' to specify the container.",
-          "answer": "podman stop $container_name || { echo 'Error: Failed to stop the container'; exit 1; }"
+          "answer": "podman stop $container_name || { echo 'Error: Failed to stop the container'; exit 1; }",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Remove the stopped container using the variable 'container_name'.",
-          "answer": "podman rm $container_name || { echo 'Error: Failed to remove the container'; exit 1; }"
+          "answer": "podman rm $container_name || { echo 'Error: Failed to remove the container'; exit 1; }",
+          "explanation": ""
         }
       ]
     }, {
@@ -2513,32 +2652,38 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Pull the latest nginx image from the container registry. Use the 'podman pull' or 'docker pull' command to retrieve the image.",
-          "answer": "podman pull nginx || { echo 'Error: Failed to pull nginx image'; exit 1; }"
+          "answer": "podman pull nginx || { echo 'Error: Failed to pull nginx image'; exit 1; }",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Run a new container with the nginx image. Ensure the container runs in the background and maps port 80 of the container to port 8080 on the host. Name the container 'nginx_server'.",
-          "answer": "podman run -d --name nginx_server -p 8080:80 nginx || { echo 'Error: Failed to start nginx container'; exit 1; }"
+          "answer": "podman run -d --name nginx_server -p 8080:80 nginx || { echo 'Error: Failed to start nginx container'; exit 1; }",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Verify that the nginx container is running by listing all running containers.",
-          "answer": "podman ps"
+          "answer": "podman ps",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Test if the nginx service is accessible by navigating to http://localhost:8080 in a browser or using the curl command.",
-          "answer": "curl http://localhost:8080"
+          "answer": "curl http://localhost:8080",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Stop the running nginx container using its name 'nginx_server'.",
-          "answer": "podman stop nginx_server || { echo 'Error: Failed to stop nginx container'; exit 1; }"
+          "answer": "podman stop nginx_server || { echo 'Error: Failed to stop nginx container'; exit 1; }",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Remove the stopped nginx container using its name 'nginx_server'.",
-          "answer": "podman rm nginx_server || { echo 'Error: Failed to remove nginx container'; exit 1; }"
+          "answer": "podman rm nginx_server || { echo 'Error: Failed to remove nginx container'; exit 1; }",
+          "explanation": ""
         }
       ]
     }, {
@@ -2548,37 +2693,44 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Verify that the 'myapp:latest' container image is available locally. If it is not available, pull it using Podman.",
-          "answer": "podman images | grep myapp || podman pull myapp:latest"
+          "answer": "podman images | grep myapp || podman pull myapp:latest",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Create a systemd service unit file named 'myapp.service' in the '/etc/systemd/system/' directory.",
-          "answer": "sudo touch /etc/systemd/system/myapp.service"
+          "answer": "sudo touch /etc/systemd/system/myapp.service",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Edit the 'myapp.service' file to define the service. Add the following content to specify the container image, command, restart policy, and dependencies:",
-          "answer": "[Unit]\nDescription=Podman container for MyApp\nWants=network-online.target\nAfter=network-online.target\n\n[Service]\nExecStart=/usr/bin/podman run --rm --name myapp -d myapp:latest\nExecStop=/usr/bin/podman stop myapp\nRestart=always\nRestartSec=10\n\n[Install]\nWantedBy=multi-user.target"
+          "answer": "[Unit]\nDescription=Podman container for MyApp\nWants=network-online.target\nAfter=network-online.target\n\n[Service]\nExecStart=/usr/bin/podman run --rm --name myapp -d myapp:latest\nExecStop=/usr/bin/podman stop myapp\nRestart=always\nRestartSec=10\n\n[Install]\nWantedBy=multi-user.target",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Reload the systemd configuration to recognize the new service file.",
-          "answer": "sudo systemctl daemon-reload"
+          "answer": "sudo systemctl daemon-reload",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Enable the 'myapp' service to start automatically on system boot.",
-          "answer": "sudo systemctl enable myapp.service"
+          "answer": "sudo systemctl enable myapp.service",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Start the 'myapp' service immediately.",
-          "answer": "sudo systemctl start myapp.service"
+          "answer": "sudo systemctl start myapp.service",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "Verify the status of the 'myapp' service to ensure it is running correctly.",
-          "answer": "sudo systemctl status myapp.service"
+          "answer": "sudo systemctl status myapp.service",
+          "explanation": ""
         }
       ]
     }, {
@@ -2588,32 +2740,38 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Create a directory on the host to be used as persistent storage. Prompt the user to enter the directory path and store it in a variable named 'host_dir'.",
-          "answer": "read -p 'Enter the host directory path for persistent storage: ' host_dir; mkdir -p $host_dir"
+          "answer": "read -p 'Enter the host directory path for persistent storage: ' host_dir; mkdir -p $host_dir",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Run a Podman container with the host directory mounted as a volume. Prompt the user to enter the container name, image name, and volume mount point inside the container.",
-          "answer": "read -p 'Enter the container name: ' container_name; read -p 'Enter the container image name: ' image_name; read -p 'Enter the container volume mount point (e.g., /data): ' container_mount; podman run -d --name $container_name -v $host_dir:$container_mount $image_name"
+          "answer": "read -p 'Enter the container name: ' container_name; read -p 'Enter the container image name: ' image_name; read -p 'Enter the container volume mount point (e.g., /data): ' container_mount; podman run -d --name $container_name -v $host_dir:$container_mount $image_name",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Verify that the volume is correctly mounted inside the container by listing the contents of the mount point. Use the 'podman exec' command.",
-          "answer": "podman exec $container_name ls -l $container_mount"
+          "answer": "podman exec $container_name ls -l $container_mount",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Write a test file to the mounted volume from inside the container. Use the 'podman exec' command to create a file named 'test_file.txt' inside the container's mount point.",
-          "answer": "podman exec $container_name sh -c 'echo \"Test File Content\" > $container_mount/test_file.txt'"
+          "answer": "podman exec $container_name sh -c 'echo \"Test File Content\" > $container_mount/test_file.txt'",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Stop the container using the 'podman stop' command.",
-          "answer": "podman stop $container_name"
+          "answer": "podman stop $container_name",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Verify that the test file exists in the host directory after the container is stopped by listing the contents of the host directory.",
-          "answer": "ls -l $host_dir"
+          "answer": "ls -l $host_dir",
+          "explanation": ""
         }
       ]
     }, {
@@ -2623,102 +2781,122 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "List all installed packages using `yum` and save the output to a file named `installed_packages_yum.txt`.",
-          "answer": "yum list installed > installed_packages_yum.txt"
+          "answer": "yum list installed > installed_packages_yum.txt",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Use `dnf` to search for a package named `nano` and display the available versions.",
-          "answer": "dnf search nano"
+          "answer": "dnf search nano",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Install the latest version of the `nano` text editor using `dnf`.",
-          "answer": "sudo dnf install nano"
+          "answer": "sudo dnf install nano",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Verify that `nano` has been installed by querying the package using `rpm`.",
-          "answer": "rpm -q nano"
+          "answer": "rpm -q nano",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Display detailed information about the `nano` package using `rpm`.",
-          "answer": "rpm -qi nano"
+          "answer": "rpm -qi nano",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "List all files installed by the `nano` package using `rpm`.",
-          "answer": "rpm -ql nano"
+          "answer": "rpm -ql nano",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "Remove the `nano` package using `dnf`.",
-          "answer": "sudo dnf remove nano"
+          "answer": "sudo dnf remove nano",
+          "explanation": ""
         },
         {
           "id": 8,
           "instruction": "Check for updates to installed packages and list available updates using `dnf`.",
-          "answer": "dnf check-update"
+          "answer": "dnf check-update",
+          "explanation": ""
         },
         {
           "id": 9,
           "instruction": "Update all installed packages to their latest versions using `dnf`.",
-          "answer": "sudo dnf upgrade"
+          "answer": "sudo dnf upgrade",
+          "explanation": ""
         },
         {
           "id": 10,
           "instruction": "Download the `vim` package RPM file without installing it using `dnf`.",
-          "answer": "dnf download vim"
+          "answer": "dnf download vim",
+          "explanation": ""
         },
         {
           "id": 11,
           "instruction": "Install the downloaded `vim` RPM file using `rpm`.",
-          "answer": "sudo rpm -ivh vim-*.rpm"
+          "answer": "sudo rpm -ivh vim-*.rpm",
+          "explanation": ""
         },
         {
           "id": 12,
           "instruction": "Remove the `vim` package using `rpm`.",
-          "answer": "sudo rpm -e vim"
+          "answer": "sudo rpm -e vim",
+          "explanation": ""
         },
         {
           "id": 13,
           "instruction": "Reinstall the `vim` package using `dnf`.",
-          "answer": "sudo dnf reinstall vim"
+          "answer": "sudo dnf reinstall vim",
+          "explanation": ""
         },
         {
           "id": 14,
           "instruction": "Enable the Extra Packages for Enterprise Linux (EPEL) repository using `dnf`.",
-          "answer": "sudo dnf install epel-release"
+          "answer": "sudo dnf install epel-release",
+          "explanation": ""
         },
         {
           "id": 15,
           "instruction": "Install the `htop` package from the EPEL repository using `dnf`.",
-          "answer": "sudo dnf install htop"
+          "answer": "sudo dnf install htop",
+          "explanation": ""
         },
         {
           "id": 16,
           "instruction": "Disable the EPEL repository temporarily when installing a package using `dnf`.",
-          "answer": "sudo dnf install --disablerepo=epel <package_name>"
+          "answer": "sudo dnf install --disablerepo=epel <package_name>",
+          "explanation": ""
         },
         {
           "id": 17,
           "instruction": "Clean the package cache using `dnf`.",
-          "answer": "sudo dnf clean all"
+          "answer": "sudo dnf clean all",
+          "explanation": ""
         },
         {
           "id": 18,
           "instruction": "List all enabled repositories using `dnf`.",
-          "answer": "dnf repolist enabled"
+          "answer": "dnf repolist enabled",
+          "explanation": ""
         },
         {
           "id": 19,
           "instruction": "Display package group information using `yum`.",
-          "answer": "yum group list"
+          "answer": "yum group list",
+          "explanation": ""
         },
         {
           "id": 20,
           "instruction": "Install the 'Development Tools' package group using `yum`.",
-          "answer": "sudo yum groupinstall 'Development Tools'"
+          "answer": "sudo yum groupinstall 'Development Tools'",
+          "explanation": ""
         }
       ]
     }, {
@@ -2728,87 +2906,104 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Ensure the SSH service is installed and running on ServerA. Install the service if it is not already installed.",
-          "answer": "sudo dnf install -y openssh-server && sudo systemctl enable --now sshd"
+          "answer": "sudo dnf install -y openssh-server && sudo systemctl enable --now sshd",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Create a new user named `secureuser` for secure SSH access.",
-          "answer": "sudo useradd secureuser"
+          "answer": "sudo useradd secureuser",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "On the client machine, generate an SSH key pair using the `ssh-keygen` command. Save the key to a file named `id_rsa_secureuser`.",
-          "answer": "ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_secureuser"
+          "answer": "ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_secureuser",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Copy the public key to `secureuser`'s home directory on ServerA using the `ssh-copy-id` command.",
-          "answer": "ssh-copy-id -i ~/.ssh/id_rsa_secureuser.pub secureuser@ServerA"
+          "answer": "ssh-copy-id -i ~/.ssh/id_rsa_secureuser.pub secureuser@ServerA",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Manually verify that the public key has been added to the `~/.ssh/authorized_keys` file on ServerA for `secureuser`.",
-          "answer": "cat /home/secureuser/.ssh/authorized_keys"
+          "answer": "cat /home/secureuser/.ssh/authorized_keys",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Test key-based authentication by logging in as `secureuser` to ServerA without a password.",
-          "answer": "ssh -i ~/.ssh/id_rsa_secureuser secureuser@ServerA"
+          "answer": "ssh -i ~/.ssh/id_rsa_secureuser secureuser@ServerA",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "On ServerA, disable password-based authentication in the SSH configuration file.",
-          "answer": "sudo sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config"
+          "answer": "sudo sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config",
+          "explanation": ""
         },
         {
           "id": 8,
           "instruction": "Restrict SSH access to the `secureuser` account by editing the SSH configuration file.",
-          "answer": "echo 'AllowUsers secureuser' | sudo tee -a /etc/ssh/sshd_config"
+          "answer": "echo 'AllowUsers secureuser' | sudo tee -a /etc/ssh/sshd_config",
+          "explanation": ""
         },
         {
           "id": 9,
           "instruction": "Change the default SSH port to 2222 to reduce unauthorized access attempts.",
-          "answer": "sudo sed -i 's/^#Port 22/Port 2222/' /etc/ssh/sshd_config"
+          "answer": "sudo sed -i 's/^#Port 22/Port 2222/' /etc/ssh/sshd_config",
+          "explanation": ""
         },
         {
           "id": 10,
           "instruction": "Restart the SSH service to apply the new configuration.",
-          "answer": "sudo systemctl restart sshd"
+          "answer": "sudo systemctl restart sshd",
+          "explanation": ""
         },
         {
           "id": 11,
           "instruction": "On the client machine, test the new configuration by connecting to ServerA using the key and the new port.",
-          "answer": "ssh -i ~/.ssh/id_rsa_secureuser -p 2222 secureuser@ServerA"
+          "answer": "ssh -i ~/.ssh/id_rsa_secureuser -p 2222 secureuser@ServerA",
+          "explanation": ""
         },
         {
           "id": 12,
           "instruction": "Enable SSH connection logging for auditing purposes on ServerA.",
-          "answer": "sudo sed -i 's/^#LogLevel INFO/LogLevel VERBOSE/' /etc/ssh/sshd_config && sudo systemctl restart sshd"
+          "answer": "sudo sed -i 's/^#LogLevel INFO/LogLevel VERBOSE/' /etc/ssh/sshd_config && sudo systemctl restart sshd",
+          "explanation": ""
         },
         {
           "id": 13,
           "instruction": "Set a login banner to warn unauthorized users by editing the SSH configuration file.",
-          "answer": "echo 'Banner /etc/issue.net' | sudo tee -a /etc/ssh/sshd_config && echo 'Unauthorized access is prohibited!' | sudo tee /etc/issue.net"
+          "answer": "echo 'Banner /etc/issue.net' | sudo tee -a /etc/ssh/sshd_config && echo 'Unauthorized access is prohibited!' | sudo tee /etc/issue.net",
+          "explanation": ""
         },
         {
           "id": 14,
           "instruction": "Restrict SSH access to specific IP ranges by configuring the firewall on ServerA.",
-          "answer": "sudo firewall-cmd --permanent --add-rich-rule='rule family=\"ipv4\" source address=\"192.168.1.0/24\" service name=\"ssh\" accept' && sudo firewall-cmd --reload"
+          "answer": "sudo firewall-cmd --permanent --add-rich-rule='rule family=\"ipv4\" source address=\"192.168.1.0/24\" service name=\"ssh\" accept' && sudo firewall-cmd --reload",
+          "explanation": ""
         },
         {
           "id": 15,
           "instruction": "Test the restricted IP access by attempting to connect from an unauthorized IP address.",
-          "answer": "ssh -i ~/.ssh/id_rsa_secureuser secureuser@ServerA -p 2222 (Should fail if from unauthorized IP)"
+          "answer": "ssh -i ~/.ssh/id_rsa_secureuser secureuser@ServerA -p 2222 (Should fail if from unauthorized IP)",
+          "explanation": ""
         },
         {
           "id": 16,
           "instruction": "Verify that SSH logins are being logged in `/var/log/secure`.",
-          "answer": "sudo tail /var/log/secure"
+          "answer": "sudo tail /var/log/secure",
+          "explanation": ""
         },
         {
           "id": 17,
           "instruction": "Create a backup of the SSH configuration file for future reference.",
-          "answer": "sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak"
+          "answer": "sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak",
+          "explanation": ""
         }
       ]
     }, {
@@ -2818,87 +3013,104 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "List all running processes in the system, including processes of other users, in a hierarchical format.",
-          "answer": "ps -eF --forest"
+          "answer": "ps -eF --forest",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Use the `top` command to display real-time process information. Explore the available sorting options.",
-          "answer": "top (then use `M` to sort by memory usage or `P` to sort by CPU usage)"
+          "answer": "top (then use `M` to sort by memory usage or `P` to sort by CPU usage)",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Display detailed information about a specific process using its PID. Assume the PID is `1234`.",
-          "answer": "ps -p 1234 -o pid,ppid,cmd,%mem,%cpu,stat"
+          "answer": "ps -p 1234 -o pid,ppid,cmd,%mem,%cpu,stat",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Kill a process with PID `5678` using the `kill` command.",
-          "answer": "kill 5678"
+          "answer": "kill 5678",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Kill a process forcefully using `SIGKILL` if it does not respond to the normal kill command.",
-          "answer": "kill -9 5678"
+          "answer": "kill -9 5678",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Find and kill a process by its name, such as `firefox`.",
-          "answer": "pkill firefox"
+          "answer": "pkill firefox",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "Start a long-running process, such as `sleep 600`, in the background and verify it is running.",
-          "answer": "sleep 600 & && jobs"
+          "answer": "sleep 600 & && jobs",
+          "explanation": ""
         },
         {
           "id": 8,
           "instruction": "Bring the `sleep` process started in the background to the foreground.",
-          "answer": "fg %1"
+          "answer": "fg %1",
+          "explanation": ""
         },
         {
           "id": 9,
           "instruction": "Suspend the `sleep` process running in the foreground.",
-          "answer": "Ctrl+Z"
+          "answer": "Ctrl+Z",
+          "explanation": ""
         },
         {
           "id": 10,
           "instruction": "Resume the `sleep` process in the background.",
-          "answer": "bg %1"
+          "answer": "bg %1",
+          "explanation": ""
         },
         {
           "id": 11,
           "instruction": "Change the priority of a running process with PID `91011` to a higher priority (lower nice value).",
-          "answer": "sudo renice -5 -p 91011"
+          "answer": "sudo renice -5 -p 91011",
+          "explanation": ""
         },
         {
           "id": 12,
           "instruction": "Monitor process resource usage, including CPU and memory usage, with a command-line utility.",
-          "answer": "htop"
+          "answer": "htop",
+          "explanation": ""
         },
         {
           "id": 13,
           "instruction": "Write a script to check if a process named `httpd` is running. If not, start the service.",
-          "answer": "if ! pgrep httpd; then sudo systemctl start httpd; fi"
+          "answer": "if ! pgrep httpd; then sudo systemctl start httpd; fi",
+          "explanation": ""
         },
         {
           "id": 14,
           "instruction": "Use the `strace` command to trace system calls made by a process with PID `121314`.",
-          "answer": "strace -p 121314"
+          "answer": "strace -p 121314",
+          "explanation": ""
         },
         {
           "id": 15,
           "instruction": "Monitor a specific user's processes in real-time using a command-line utility.",
-          "answer": "top -u <username>"
+          "answer": "top -u <username>",
+          "explanation": ""
         },
         {
           "id": 16,
           "instruction": "Create a cron job to check the number of running processes every minute and log it to a file.",
-          "answer": "echo '* * * * * ps -e | wc -l >> /var/log/process_count.log' | crontab -"
+          "answer": "echo '* * * * * ps -e | wc -l >> /var/log/process_count.log' | crontab -",
+          "explanation": ""
         },
         {
           "id": 17,
           "instruction": "Identify zombie processes on the system and explain their significance.",
-          "answer": "ps aux | awk '$8 == \"Z\" { print $2, $11 }' (Zombie processes are defunct processes that have completed execution but still have an entry in the process table because their parent has not read their exit status.)"
+          "answer": "ps aux | awk '$8 == \"Z\" { print $2, $11 }' (Zombie processes are defunct processes that have completed execution but still have an entry in the process table because their parent has not read their exit status.)",
+          "explanation": ""
         }
       ]
     }, {
@@ -2908,52 +3120,62 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "View the last 20 lines of the system log file `/var/log/syslog` (or `/var/log/messages` depending on your distribution).",
-          "answer": "tail -n 20 /var/log/syslog"
+          "answer": "tail -n 20 /var/log/syslog",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Continuously monitor a log file to view new entries in real time.",
-          "answer": "tail -f /var/log/syslog"
+          "answer": "tail -f /var/log/syslog",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "List all log files managed by the `journald` service.",
-          "answer": "journalctl --list-boots"
+          "answer": "journalctl --list-boots",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Display all logs for the current boot using `journalctl`.",
-          "answer": "journalctl -b"
+          "answer": "journalctl -b",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Filter system logs to show only messages related to the `sshd` service.",
-          "answer": "journalctl -u sshd"
+          "answer": "journalctl -u sshd",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Configure log rotation for the `/var/log/syslog` file to manage its size.",
-          "answer": "Edit `/etc/logrotate.d/rsyslog` to specify rotation frequency, size, and retention."
+          "answer": "Edit `/etc/logrotate.d/rsyslog` to specify rotation frequency, size, and retention.",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "Write a script to check the size of `/var/log/syslog`. If it exceeds 50MB, archive it with a timestamp.",
-          "answer": "if [ $(stat -c%s /var/log/syslog) -gt $((50 * 1024 * 1024)) ]; then cp /var/log/syslog /var/log/syslog.$(date +%Y%m%d%H%M%S); > /var/log/syslog; fi"
+          "answer": "if [ $(stat -c%s /var/log/syslog) -gt $((50 * 1024 * 1024)) ]; then cp /var/log/syslog /var/log/syslog.$(date +%Y%m%d%H%M%S); > /var/log/syslog; fi",
+          "explanation": ""
         },
         {
           "id": 8,
           "instruction": "Clear the contents of the `/var/log/auth.log` file without deleting it.",
-          "answer": "> /var/log/auth.log"
+          "answer": "> /var/log/auth.log",
+          "explanation": ""
         },
         {
           "id": 9,
           "instruction": "Configure `rsyslog` to forward all logs to a remote server with the IP `192.168.1.100`.",
-          "answer": "Edit `/etc/rsyslog.conf` and add `*.* @192.168.1.100:514`."
+          "answer": "Edit `/etc/rsyslog.conf` and add `*.* @192.168.1.100:514`.",
+          "explanation": ""
         },
         {
           "id": 10,
           "instruction": "Find and display all `ERROR` messages from `/var/log/syslog`.",
-          "answer": "grep 'ERROR' /var/log/syslog"
+          "answer": "grep 'ERROR' /var/log/syslog",
+          "explanation": ""
         }
       ]
     }, {
@@ -2963,62 +3185,74 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "List all currently loaded kernel modules.",
-          "answer": "lsmod"
+          "answer": "lsmod",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Display detailed information about the `dm_mod` module.",
-          "answer": "modinfo dm_mod"
+          "answer": "modinfo dm_mod",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Load the `loop` kernel module manually.",
-          "answer": "sudo modprobe loop"
+          "answer": "sudo modprobe loop",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Remove the `loop` module from the kernel.",
-          "answer": "sudo modprobe -r loop"
+          "answer": "sudo modprobe -r loop",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Load a module named `example.ko` from the `/tmp` directory.",
-          "answer": "sudo insmod /tmp/example.ko"
+          "answer": "sudo insmod /tmp/example.ko",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Remove the `example` module loaded with `insmod`.",
-          "answer": "sudo rmmod example"
+          "answer": "sudo rmmod example",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "List all dependencies of the `firewire_core` kernel module.",
-          "answer": "modinfo -F depends firewire_core"
+          "answer": "modinfo -F depends firewire_core",
+          "explanation": ""
         },
         {
           "id": 8,
           "instruction": "Blacklist the `nouveau` kernel module to prevent it from loading during boot.",
-          "answer": "Add `blacklist nouveau` to `/etc/modprobe.d/blacklist.conf`."
+          "answer": "Add `blacklist nouveau` to `/etc/modprobe.d/blacklist.conf`.",
+          "explanation": ""
         },
         {
           "id": 9,
           "instruction": "Verify that the `nouveau` module is not loaded after blacklisting.",
-          "answer": "lsmod | grep nouveau"
+          "answer": "lsmod | grep nouveau",
+          "explanation": ""
         },
         {
           "id": 10,
           "instruction": "Write a script to check if the `ext4` module is loaded and load it if necessary.",
-          "answer": "if ! lsmod | grep ext4; then sudo modprobe ext4; fi"
+          "answer": "if ! lsmod | grep ext4; then sudo modprobe ext4; fi",
+          "explanation": ""
         },
         {
           "id": 11,
           "instruction": "Create a persistent configuration to load the `br_netfilter` module on every boot.",
-          "answer": "Add `br_netfilter` to `/etc/modules-load.d/br_netfilter.conf`."
+          "answer": "Add `br_netfilter` to `/etc/modules-load.d/br_netfilter.conf`.",
+          "explanation": ""
         },
         {
           "id": 12,
           "instruction": "Monitor kernel messages in real-time to verify module loading using `dmesg`.",
-          "answer": "dmesg -w"
+          "answer": "dmesg -w",
+          "explanation": ""
         }
       ]
     }, {
@@ -3028,67 +3262,80 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Display the current password aging information for a user named 'alice'.",
-          "answer": "chage -l alice"
+          "answer": "chage -l alice",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Set the maximum number of days a password remains valid before it must be changed (e.g., 60 days) for the user 'alice'.",
-          "answer": "sudo chage -M 60 alice"
+          "answer": "sudo chage -M 60 alice",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Set the minimum number of days before a password can be changed (e.g., 7 days) for the user 'alice'.",
-          "answer": "sudo chage -m 7 alice"
+          "answer": "sudo chage -m 7 alice",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Set the number of days of warning before a password expires (e.g., 7 days) for the user 'alice'.",
-          "answer": "sudo chage -W 7 alice"
+          "answer": "sudo chage -W 7 alice",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Set the account to expire 90 days after the password is changed for the user 'alice'.",
-          "answer": "sudo chage -I 90 alice"
+          "answer": "sudo chage -I 90 alice",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Verify the updated password aging information for 'alice'.",
-          "answer": "chage -l alice"
+          "answer": "chage -l alice",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "Set default password aging policies for all new users by editing the '/etc/login.defs' file. Set 'PASS_MAX_DAYS' to 60, 'PASS_MIN_DAYS' to 7, and 'PASS_WARN_AGE' to 7.",
-          "answer": "Edit the file '/etc/login.defs' using 'sudo vim /etc/login.defs' and set 'PASS_MAX_DAYS 60', 'PASS_MIN_DAYS 7', and 'PASS_WARN_AGE 7'."
+          "answer": "Edit the file '/etc/login.defs' using 'sudo vim /etc/login.defs' and set 'PASS_MAX_DAYS 60', 'PASS_MIN_DAYS 7', and 'PASS_WARN_AGE 7'.",
+          "explanation": ""
         },
         {
           "id": 8,
           "instruction": "Create a new user named 'bob' and verify that the default password aging policies have been applied.",
-          "answer": "Run 'sudo useradd bob', set the password with 'sudo passwd bob', and verify the policies using 'chage -l bob'."
+          "answer": "Run 'sudo useradd bob', set the password with 'sudo passwd bob', and verify the policies using 'chage -l bob'.",
+          "explanation": ""
         },
         {
           "id": 9,
           "instruction": "Force the user 'alice' to change her password on the next login.",
-          "answer": "sudo chage -d 0 alice"
+          "answer": "sudo chage -d 0 alice",
+          "explanation": ""
         },
         {
           "id": 10,
           "instruction": "Lock the account of the user 'charlie' to prevent any login.",
-          "answer": "sudo usermod -L charlie"
+          "answer": "sudo usermod -L charlie",
+          "explanation": ""
         },
         {
           "id": 11,
           "instruction": "Unlock the account of the user 'charlie' to allow login.",
-          "answer": "sudo usermod -U charlie"
+          "answer": "sudo usermod -U charlie",
+          "explanation": ""
         },
         {
           "id": 12,
           "instruction": "Set an account expiration date for the user 'diana' to December 31, 2024.",
-          "answer": "sudo chage -E 2024-12-31 diana"
+          "answer": "sudo chage -E 2024-12-31 diana",
+          "explanation": ""
         },
         {
           "id": 13,
           "instruction": "Disable password expiration for the user 'eve' to prevent the password from expiring.",
-          "answer": "sudo chage -M -1 eve"
+          "answer": "sudo chage -M -1 eve",
+          "explanation": ""
         }
       ]
     }, {
@@ -3098,52 +3345,62 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "List the available partitions on the system to identify the target partition for encryption.",
-          "answer": "lsblk"
+          "answer": "lsblk",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Initialize the selected partition '/dev/sdX1' for encryption using `cryptsetup`. Confirm the action when prompted.",
-          "answer": "sudo cryptsetup luksFormat /dev/sdX1"
+          "answer": "sudo cryptsetup luksFormat /dev/sdX1",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Open the encrypted partition and map it to a device named 'secure_partition'.",
-          "answer": "sudo cryptsetup open /dev/sdX1 secure_partition"
+          "answer": "sudo cryptsetup open /dev/sdX1 secure_partition",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Create a new ext4 file system on the mapped device '/dev/mapper/secure_partition'.",
-          "answer": "sudo mkfs.ext4 /dev/mapper/secure_partition"
+          "answer": "sudo mkfs.ext4 /dev/mapper/secure_partition",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Create a mount point at '/mnt/secure' and mount the encrypted partition to this location.",
-          "answer": "Run 'sudo mkdir /mnt/secure' and 'sudo mount /dev/mapper/secure_partition /mnt/secure'."
+          "answer": "Run 'sudo mkdir /mnt/secure' and 'sudo mount /dev/mapper/secure_partition /mnt/secure'.",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Verify the partition is mounted successfully by listing the contents of the mount point.",
-          "answer": "ls /mnt/secure"
+          "answer": "ls /mnt/secure",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "Unmount the partition and close the encrypted device.",
-          "answer": "Run 'sudo umount /mnt/secure' and 'sudo cryptsetup close secure_partition'."
+          "answer": "Run 'sudo umount /mnt/secure' and 'sudo cryptsetup close secure_partition'.",
+          "explanation": ""
         },
         {
           "id": 8,
           "instruction": "Add an entry to '/etc/crypttab' to enable unlocking the encrypted partition on boot. Map '/dev/sdX1' to 'secure_partition'.",
-          "answer": "Run 'sudo vim /etc/crypttab' and add 'secure_partition /dev/sdX1 none luks'."
+          "answer": "Run 'sudo vim /etc/crypttab' and add 'secure_partition /dev/sdX1 none luks'.",
+          "explanation": ""
         },
         {
           "id": 9,
           "instruction": "Add an entry to '/etc/fstab' to mount the encrypted partition at '/mnt/secure' after unlocking during boot.",
-          "answer": "Run 'sudo vim /etc/fstab' and add '/dev/mapper/secure_partition /mnt/secure ext4 defaults 0 2'."
+          "answer": "Run 'sudo vim /etc/fstab' and add '/dev/mapper/secure_partition /mnt/secure ext4 defaults 0 2'.",
+          "explanation": ""
         },
         {
           "id": 10,
           "instruction": "Reboot the system and verify the encrypted partition is automatically unlocked and mounted at '/mnt/secure'.",
-          "answer": "ls /mnt/secure"
+          "answer": "ls /mnt/secure",
+          "explanation": ""
         }
       ]
     }, {
@@ -3153,82 +3410,98 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Install the required packages for Stratis and VDO storage management.",
-          "answer": "Run 'sudo dnf install stratisd stratis-cli vdo kmod-kvdo'."
+          "answer": "Run 'sudo dnf install stratisd stratis-cli vdo kmod-kvdo'.",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Enable and start the Stratis daemon service.",
-          "answer": "Run 'sudo systemctl enable stratisd && sudo systemctl start stratisd'."
+          "answer": "Run 'sudo systemctl enable stratisd && sudo systemctl start stratisd'.",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Create a new Stratis pool named 'mypool' using the device '/dev/sdX'.",
-          "answer": "sudo stratis pool create mypool /dev/sdX"
+          "answer": "sudo stratis pool create mypool /dev/sdX",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Create a Stratis filesystem named 'myfs' within the 'mypool'.",
-          "answer": "sudo stratis filesystem create mypool myfs"
+          "answer": "sudo stratis filesystem create mypool myfs",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Mount the Stratis filesystem at '/mnt/stratis'.",
-          "answer": "Run 'sudo mkdir /mnt/stratis && sudo mount /stratis/mypool/myfs /mnt/stratis'."
+          "answer": "Run 'sudo mkdir /mnt/stratis && sudo mount /stratis/mypool/myfs /mnt/stratis'.",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Verify that the Stratis filesystem is mounted successfully.",
-          "answer": "ls /mnt/stratis"
+          "answer": "ls /mnt/stratis",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "Create a VDO volume named 'myvdo' with 10 GB of physical size on '/dev/sdX'.",
-          "answer": "sudo vdo create --name=myvdo --device=/dev/sdX --vdoLogicalSize=10G"
+          "answer": "sudo vdo create --name=myvdo --device=/dev/sdX --vdoLogicalSize=10G",
+          "explanation": ""
         },
         {
           "id": 8,
           "instruction": "Verify the VDO volume status to ensure it is active.",
-          "answer": "sudo vdostats --human-readable"
+          "answer": "sudo vdostats --human-readable",
+          "explanation": ""
         },
         {
           "id": 9,
           "instruction": "Format the VDO volume with an ext4 filesystem.",
-          "answer": "sudo mkfs.ext4 /dev/mapper/myvdo"
+          "answer": "sudo mkfs.ext4 /dev/mapper/myvdo",
+          "explanation": ""
         },
         {
           "id": 10,
           "instruction": "Create a mount point at '/mnt/vdo' and mount the VDO volume.",
-          "answer": "Run 'sudo mkdir /mnt/vdo && sudo mount /dev/mapper/myvdo /mnt/vdo'."
+          "answer": "Run 'sudo mkdir /mnt/vdo && sudo mount /dev/mapper/myvdo /mnt/vdo'.",
+          "explanation": ""
         },
         {
           "id": 11,
           "instruction": "Add entries to '/etc/fstab' to ensure the Stratis and VDO volumes are mounted on boot.",
-          "answer": "Run 'sudo vim /etc/fstab' and add '/stratis/mypool/myfs /mnt/stratis xfs defaults 0 0' and '/dev/mapper/myvdo /mnt/vdo ext4 defaults 0 0'."
+          "answer": "Run 'sudo vim /etc/fstab' and add '/stratis/mypool/myfs /mnt/stratis xfs defaults 0 0' and '/dev/mapper/myvdo /mnt/vdo ext4 defaults 0 0'.",
+          "explanation": ""
         },
         {
           "id": 12,
           "instruction": "Reboot the system and verify that both the Stratis and VDO volumes are automatically mounted.",
-          "answer": "Run 'ls /mnt/stratis' and 'ls /mnt/vdo' to verify."
+          "answer": "Run 'ls /mnt/stratis' and 'ls /mnt/vdo' to verify.",
+          "explanation": ""
         },
         {
           "id": 13,
           "instruction": "Resize the Stratis pool 'mypool' by adding another device '/dev/sdY'.",
-          "answer": "Run 'sudo stratis pool add-data mypool /dev/sdY'."
+          "answer": "Run 'sudo stratis pool add-data mypool /dev/sdY'.",
+          "explanation": ""
         },
         {
           "id": 14,
           "instruction": "Enable deduplication and compression for the VDO volume 'myvdo'.",
-          "answer": "Run 'sudo vdo enableCompression /dev/mapper/myvdo && sudo vdo enableDeduplication /dev/mapper/myvdo'."
+          "answer": "Run 'sudo vdo enableCompression /dev/mapper/myvdo && sudo vdo enableDeduplication /dev/mapper/myvdo'.",
+          "explanation": ""
         },
         {
           "id": 15,
           "instruction": "Delete the Stratis pool 'mypool' and clean up its configuration.",
-          "answer": "Run 'sudo umount /mnt/stratis && sudo stratis filesystem destroy mypool myfs && sudo stratis pool destroy mypool'."
+          "answer": "Run 'sudo umount /mnt/stratis && sudo stratis filesystem destroy mypool myfs && sudo stratis pool destroy mypool'.",
+          "explanation": ""
         },
         {
           "id": 16,
           "instruction": "Delete the VDO volume 'myvdo' and clean up its configuration.",
-          "answer": "Run 'sudo umount /mnt/vdo && sudo vdo remove --name=myvdo'."
+          "answer": "Run 'sudo umount /mnt/vdo && sudo vdo remove --name=myvdo'.",
+          "explanation": ""
         }
       ]
     }, {
@@ -3238,52 +3511,62 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "List the available initramfs files on the system to identify the current configuration.",
-          "answer": "ls -l /boot/initramfs-*"
+          "answer": "ls -l /boot/initramfs-*",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Inspect the current kernel version to ensure compatibility when rebuilding initramfs.",
-          "answer": "uname -r"
+          "answer": "uname -r",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Back up the existing initramfs file before making any changes.",
-          "answer": "sudo cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak"
+          "answer": "sudo cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Rebuild the initramfs file for the currently running kernel using dracut.",
-          "answer": "sudo dracut -f /boot/initramfs-$(uname -r).img $(uname -r)"
+          "answer": "sudo dracut -f /boot/initramfs-$(uname -r).img $(uname -r)",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Generate a new initramfs file for a specific kernel version (e.g., '5.15.0').",
-          "answer": "sudo dracut -f /boot/initramfs-5.15.0.img 5.15.0"
+          "answer": "sudo dracut -f /boot/initramfs-5.15.0.img 5.15.0",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Verify the contents of the newly created initramfs file.",
-          "answer": "lsinitrd /boot/initramfs-$(uname -r).img"
+          "answer": "lsinitrd /boot/initramfs-$(uname -r).img",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "Troubleshoot by adding verbose output during the initramfs rebuild process.",
-          "answer": "sudo dracut -fv /boot/initramfs-$(uname -r).img $(uname -r)"
+          "answer": "sudo dracut -fv /boot/initramfs-$(uname -r).img $(uname -r)",
+          "explanation": ""
         },
         {
           "id": 8,
           "instruction": "Reboot the system to test the newly rebuilt initramfs.",
-          "answer": "sudo reboot"
+          "answer": "sudo reboot",
+          "explanation": ""
         },
         {
           "id": 9,
           "instruction": "If the system fails to boot, use a live CD/USB to access the system and rebuild initramfs.",
-          "answer": "Boot into a live environment, mount the root filesystem with 'sudo mount /dev/sdXn /mnt', chroot with 'sudo chroot /mnt', rebuild initramfs with 'sudo dracut -f /boot/initramfs-$(uname -r).img $(uname -r)', exit chroot, and reboot."
+          "answer": "Boot into a live environment, mount the root filesystem with 'sudo mount /dev/sdXn /mnt', chroot with 'sudo chroot /mnt', rebuild initramfs with 'sudo dracut -f /boot/initramfs-$(uname -r).img $(uname -r)', exit chroot, and reboot.",
+          "explanation": ""
         },
         {
           "id": 10,
           "instruction": "Restore the backed-up initramfs file if issues persist after rebuilding.",
-          "answer": "sudo mv /boot/initramfs-$(uname -r).img.bak /boot/initramfs-$(uname -r).img"
+          "answer": "sudo mv /boot/initramfs-$(uname -r).img.bak /boot/initramfs-$(uname -r).img",
+          "explanation": ""
         }
       ]
     }, {
@@ -3293,76 +3576,91 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Display basic system performance statistics such as CPU, memory, and I/O using `vmstat`.",
-          "answer": "vmstat 1 5"
+          "answer": "vmstat 1 5",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "View detailed statistics about block device I/O using `iostat`.",
-          "answer": "iostat -x 2 3"
+          "answer": "iostat -x 2 3",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Check the overall system load and memory usage using `sar` from the sysstat package.",
-          "answer": "sar -r 1 5"
+          "answer": "sar -r 1 5",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Inspect kernel messages related to hardware or driver errors using `dmesg`.",
-          "answer": "dmesg | tail"
+          "answer": "dmesg | tail",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Monitor CPU usage over time with `sar`.",
-          "answer": "sar -u 1 5"
+          "answer": "sar -u 1 5",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "List disk usage by device using `iostat` with human-readable output.",
-          "answer": "iostat -h"
+          "answer": "iostat -h",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "Filter `dmesg` output for messages related to a specific driver or hardware, such as 'eth0'.",
-          "answer": "dmesg | grep eth0"
+          "answer": "dmesg | grep eth0",
+          "explanation": ""
         },
         {
           "id": 8,
           "instruction": "Install the sysstat package to enable the use of `sar` if it's not available.",
-          "answer": "sudo yum install sysstat"
+          "answer": "sudo yum install sysstat",
+          "explanation": ""
         }, {
           "id": 9,
           "instruction": "Enable and start the sysstat service to collect performance statistics regularly.",
-          "answer": "sudo systemctl enable sysstat && sudo systemctl start sysstat"
+          "answer": "sudo systemctl enable sysstat && sudo systemctl start sysstat",
+          "explanation": ""
         },
         {
           "id": 10,
           "instruction": "Analyze CPU and I/O usage trends for the past day using `sar`.",
-          "answer": "sar -q -f /var/log/sa/sa$(date +%d)"
+          "answer": "sar -q -f /var/log/sa/sa$(date +%d)",
+          "explanation": ""
         },
         {
           "id": 11,
           "instruction": "Combine `vmstat` and `sar` to correlate memory and CPU usage trends.",
-          "answer": "vmstat 1 10 > memory_usage.txt && sar -u 1 10 > cpu_usage.txt && echo 'Review memory_usage.txt and cpu_usage.txt to analyze trends.'"
+          "answer": "vmstat 1 10 > memory_usage.txt && sar -u 1 10 > cpu_usage.txt && echo 'Review memory_usage.txt and cpu_usage.txt to analyze trends.'",
+          "explanation": ""
         },
         {
           "id": 12,
           "instruction": "Run `dmesg` with timestamps for easier debugging of kernel messages.",
-          "answer": "dmesg -T"
+          "answer": "dmesg -T",
+          "explanation": ""
         },
         {
           "id": 13,
           "instruction": "Check CPU, memory, and I/O usage using a combined tool such as `htop` for real-time monitoring.",
-          "answer": "sudo htop"
+          "answer": "sudo htop",
+          "explanation": ""
         },
         {
           "id": 14,
           "instruction": "Schedule regular reports from `sar` using a cron job.",
-          "answer": "sudo bash -c \"echo '0 * * * * /usr/lib64/sa/sa1' >> /var/spool/cron/root\""
+          "answer": "sudo bash -c \"echo '0 * * * * /usr/lib64/sa/sa1' >> /var/spool/cron/root\"",
+          "explanation": ""
         },
         {
           "id": 15,
           "instruction": "Filter `vmstat` output to focus on memory usage only.",
-          "answer": "vmstat -s | grep -i memory"
+          "answer": "vmstat -s | grep -i memory",
+          "explanation": ""
         }
       ]
     }, {
@@ -3372,52 +3670,62 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Schedule a one-time task to display 'Hello, World!' after 5 minutes using `at`.",
-          "answer": "echo 'echo Hello, World!' | at now + 5 minutes"
+          "answer": "echo 'echo Hello, World!' | at now + 5 minutes",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Verify the list of scheduled tasks created with `at`.",
-          "answer": "atq"
+          "answer": "atq",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Remove a specific job from the `at` queue by its job number (e.g., job number 2).",
-          "answer": "atrm 2"
+          "answer": "atrm 2",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Check if the `at` service is active and enable it if necessary.",
-          "answer": "sudo systemctl status atd && sudo systemctl enable --now atd"
+          "answer": "sudo systemctl status atd && sudo systemctl enable --now atd",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Schedule a task to reboot the system at a specific time (e.g., 02:00 AM).",
-          "answer": "echo 'sudo reboot' | at 02:00"
+          "answer": "echo 'sudo reboot' | at 02:00",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Schedule a one-time task to create a backup file after 10 minutes using `at`.",
-          "answer": "echo 'cp /path/to/file /path/to/backup' | at now + 10 minutes"
+          "answer": "echo 'cp /path/to/file /path/to/backup' | at now + 10 minutes",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "Display the contents of a scheduled `at` job by its job number (e.g., job number 1).",
-          "answer": "at -c 1"
+          "answer": "at -c 1",
+          "explanation": ""
         },
         {
           "id": 8,
           "instruction": "Schedule a task to display the current date in a file after 15 minutes.",
-          "answer": "echo 'date > /tmp/current_date.txt' | at now + 15 minutes"
+          "answer": "echo 'date > /tmp/current_date.txt' | at now + 15 minutes",
+          "explanation": ""
         },
         {
           "id": 9,
           "instruction": "Configure a user to be allowed to use `at` by editing the `/etc/at.allow` file.",
-          "answer": "sudo sh -c 'echo \"username\" >> /etc/at.allow'"
+          "answer": "sudo sh -c 'echo \"username\" >> /etc/at.allow'",
+          "explanation": ""
         },
         {
           "id": 10,
           "instruction": "Check the logs to confirm if a scheduled `at` job ran successfully.",
-          "answer": "sudo journalctl -u atd"
+          "answer": "sudo journalctl -u atd",
+          "explanation": ""
         }
       ]
     }, {
@@ -3427,22 +3735,26 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the name of the file to view using `cat`. Store the input in a variable named 'file_name'.",
-          "answer": "read -p 'Enter the name of the file to view: ' file_name"
+          "answer": "read -p 'Enter the name of the file to view: ' file_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Use the `cat` command to display the file's contents.",
-          "answer": "cat $file_name"
+          "answer": "cat $file_name",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Open the same file in `less` for navigation.",
-          "answer": "less $file_name"
+          "answer": "less $file_name",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Exit the `less` viewer by pressing 'q'.",
-          "answer": "Press 'q' to exit."
+          "answer": "Press 'q' to exit.",
+          "explanation": ""
         }
       ]
     },
@@ -3453,22 +3765,26 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the name of the file to view specific lines from. Store the input in a variable named 'file_name'.",
-          "answer": "read -p 'Enter the name of the file: ' file_name"
+          "answer": "read -p 'Enter the name of the file: ' file_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Display the first 10 lines of the file using `head`.",
-          "answer": "head $file_name"
+          "answer": "head $file_name",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Display the last 5 lines of the file using `tail`.",
-          "answer": "tail -n 5 $file_name"
+          "answer": "tail -n 5 $file_name",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Prompt the user to enter the number of lines from the start of the file to view. Store this input in a variable named 'line_count'.",
-          "answer": "read -p 'Enter the number of lines to view from the start: ' line_count; head -n $line_count $file_name"
+          "answer": "read -p 'Enter the number of lines to view from the start: ' line_count; head -n $line_count $file_name",
+          "explanation": ""
         }
       ]
     },
@@ -3479,22 +3795,26 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the file name and store it in a variable named 'file_name'.",
-          "answer": "read -p 'Enter the file name: ' file_name"
+          "answer": "read -p 'Enter the file name: ' file_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter a keyword to search for and store it in a variable named 'keyword'.",
-          "answer": "read -p 'Enter the keyword to search for: ' keyword"
+          "answer": "read -p 'Enter the keyword to search for: ' keyword",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Search the file for the keyword using `grep`.",
-          "answer": "grep \"$keyword\" $file_name"
+          "answer": "grep \"$keyword\" $file_name",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Count the number of occurrences of the keyword in the file using `grep`.",
-          "answer": "grep -c \"$keyword\" $file_name"
+          "answer": "grep -c \"$keyword\" $file_name",
+          "explanation": ""
         }
       ]
     },
@@ -3505,17 +3825,20 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the name of the file to process. Store the input in a variable named 'file_name'.",
-          "answer": "read -p 'Enter the name of the file: ' file_name"
+          "answer": "read -p 'Enter the name of the file: ' file_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the field number to display (assuming the file is space-delimited). Store this input in a variable named 'field_number'.",
-          "answer": "read -p 'Enter the field number to display: ' field_number"
+          "answer": "read -p 'Enter the field number to display: ' field_number",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Use `awk` to extract and display the specified field from the file.",
-          "answer": "awk '{print $field_number}' $file_name"
+          "answer": "awk '{print $field_number}' $file_name",
+          "explanation": ""
         }
       ]
     },
@@ -3526,22 +3849,26 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the file name. Store the input in a variable named 'file_name'.",
-          "answer": "read -p 'Enter the file name: ' file_name"
+          "answer": "read -p 'Enter the file name: ' file_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the text to search for. Store this input in a variable named 'search_text'.",
-          "answer": "read -p 'Enter the text to search for: ' search_text"
+          "answer": "read -p 'Enter the text to search for: ' search_text",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Prompt the user to enter the replacement text. Store this input in a variable named 'replacement_text'.",
-          "answer": "read -p 'Enter the replacement text: ' replacement_text"
+          "answer": "read -p 'Enter the replacement text: ' replacement_text",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Use `sed` to replace all occurrences of the search text with the replacement text in the file. Save the output to a new file named 'output_file'.",
-          "answer": "sed 's/$search_text/$replacement_text/g' $file_name > output_file"
+          "answer": "sed 's/$search_text/$replacement_text/g' $file_name > output_file",
+          "explanation": ""
         }
       ]
     },
@@ -3552,27 +3879,32 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the log file name. Store the input in a variable named 'log_file'.",
-          "answer": "read -p 'Enter the log file name: ' log_file"
+          "answer": "read -p 'Enter the log file name: ' log_file",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the log level to search for (e.g., INFO, ERROR). Store the input in a variable named 'log_level'.",
-          "answer": "read -p 'Enter the log level to search for (e.g., INFO, ERROR): ' log_level"
+          "answer": "read -p 'Enter the log level to search for (e.g., INFO, ERROR): ' log_level",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Use `grep` to extract all lines with the specified log level.",
-          "answer": "grep \"$log_level\" $log_file"
+          "answer": "grep \"$log_level\" $log_file",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Use `awk` to extract and display the timestamp and log message from the extracted lines.",
-          "answer": "grep \"$log_level\" $log_file | awk '{print $1, $2, $3, $4}'"
+          "answer": "grep \"$log_level\" $log_file | awk '{print $1, $2, $3, $4}'",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Use `sed` to replace the log level with '[LOG]'.",
-          "answer": "grep \"$log_level\" $log_file | sed 's/$log_level/[LOG]/g'"
+          "answer": "grep \"$log_level\" $log_file | sed 's/$log_level/[LOG]/g'",
+          "explanation": ""
         }
       ]
     }, {
@@ -3582,27 +3914,32 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the name of the XFS device to repair (e.g., /dev/sdb1). Store the input in a variable named 'device_name'.",
-          "answer": "read -p 'Enter the XFS device to repair: ' device_name"
+          "answer": "read -p 'Enter the XFS device to repair: ' device_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Ensure the device is unmounted. If the device is mounted, unmount it using the `umount` command.",
-          "answer": "umount $device_name"
+          "answer": "umount $device_name",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Run `xfs_repair` on the specified device to repair the filesystem.",
-          "answer": "xfs_repair $device_name"
+          "answer": "xfs_repair $device_name",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "If `xfs_repair` reports a need to mount the device for log recovery, mount the device and immediately unmount it, then re-run `xfs_repair`.",
-          "answer": "mount $device_name && umount $device_name && xfs_repair $device_name"
+          "answer": "mount $device_name && umount $device_name && xfs_repair $device_name",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Display the device's status using `blkid` to ensure the repair was successful.",
-          "answer": "blkid $device_name"
+          "answer": "blkid $device_name",
+          "explanation": ""
         }
       ]
     },
@@ -3613,27 +3950,32 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the mount point of the XFS filesystem to expand (e.g., /mnt/data). Store the input in a variable named 'mount_point'.",
-          "answer": "read -p 'Enter the mount point of the XFS filesystem to expand: ' mount_point"
+          "answer": "read -p 'Enter the mount point of the XFS filesystem to expand: ' mount_point",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Ensure the filesystem is mounted. If not, mount the filesystem to the specified mount point.",
-          "answer": "mount | grep $mount_point || mount /dev/sdX1 $mount_point"
+          "answer": "mount | grep $mount_point || mount /dev/sdX1 $mount_point",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Prompt the user to enter the new size or specify 'max' to grow the filesystem to use all available space. Store the input in a variable named 'new_size'.",
-          "answer": "read -p 'Enter the new size for the filesystem (or type max for full expansion): ' new_size"
+          "answer": "read -p 'Enter the new size for the filesystem (or type max for full expansion): ' new_size",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Run `xfs_growfs` on the mount point to expand the filesystem. If 'max' is specified, omit the size parameter.",
-          "answer": "if [[ $new_size == 'max' ]]; then xfs_growfs $mount_point; else xfs_growfs $mount_point -D $new_size; fi"
+          "answer": "if [[ $new_size == 'max' ]]; then xfs_growfs $mount_point; else xfs_growfs $mount_point -D $new_size; fi",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Verify the expansion by checking the filesystem's size with the `df -h` command.",
-          "answer": "df -h $mount_point"
+          "answer": "df -h $mount_point",
+          "explanation": ""
         }
       ]
     },
@@ -3644,17 +3986,20 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the device name of the XFS filesystem (e.g., /dev/sdb1). Store the input in a variable named 'device_name'.",
-          "answer": "read -p 'Enter the XFS device to check: ' device_name"
+          "answer": "read -p 'Enter the XFS device to check: ' device_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Run `xfs_check` to inspect the filesystem for errors. (If unavailable, advise using `xfs_repair` in dry-run mode.)",
-          "answer": "xfs_check $device_name || echo 'xfs_check unavailable, consider dry-run repair with xfs_repair -n $device_name'"
+          "answer": "xfs_check $device_name || echo 'xfs_check unavailable, consider dry-run repair with xfs_repair -n $device_name'",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "If errors are found, prompt the user to decide whether to proceed with repair.",
-          "answer": "read -p 'Errors found. Proceed with repair? (yes/no): ' proceed && [[ $proceed == 'yes' ]] && xfs_repair $device_name"
+          "answer": "read -p 'Errors found. Proceed with repair? (yes/no): ' proceed && [[ $proceed == 'yes' ]] && xfs_repair $device_name",
+          "explanation": ""
         }
       ]
     },
@@ -3665,17 +4010,20 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the device name of the XFS filesystem (e.g., /dev/sdb1). Store the input in a variable named 'device_name'.",
-          "answer": "read -p 'Enter the XFS device to simulate repair: ' device_name"
+          "answer": "read -p 'Enter the XFS device to simulate repair: ' device_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Run `xfs_repair` in dry-run mode to check for errors without making changes.",
-          "answer": "xfs_repair -n $device_name"
+          "answer": "xfs_repair -n $device_name",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Interpret the output and decide if full repair is needed.",
-          "answer": "echo 'Review output for errors and decide on further action.'"
+          "answer": "echo 'Review output for errors and decide on further action.'",
+          "explanation": ""
         }
       ]
     },
@@ -3686,22 +4034,26 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the device name of the XFS filesystem (e.g., /dev/sdb1). Store the input in a variable named 'device_name'.",
-          "answer": "read -p 'Enter the XFS device for log recovery: ' device_name"
+          "answer": "read -p 'Enter the XFS device for log recovery: ' device_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Mount the device to trigger automatic log recovery by the XFS kernel module.",
-          "answer": "mount $device_name /mnt"
+          "answer": "mount $device_name /mnt",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Unmount the device once the log recovery is complete.",
-          "answer": "umount $device_name"
+          "answer": "umount $device_name",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Run `xfs_repair` on the device if log recovery was not successful.",
-          "answer": "xfs_repair $device_name"
+          "answer": "xfs_repair $device_name",
+          "explanation": ""
         }
       ]
     },
@@ -3712,22 +4064,26 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Expand the underlying block device (e.g., resize a virtual disk or add space to a partition).",
-          "answer": "Follow steps for resizing the block device using your hypervisor or partition tool."
+          "answer": "Follow steps for resizing the block device using your hypervisor or partition tool.",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Run `partprobe` to inform the kernel of the changes to the block device.",
-          "answer": "partprobe"
+          "answer": "partprobe",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Run `xfs_growfs` on the mounted XFS filesystem to use the newly available space.",
-          "answer": "xfs_growfs /mnt"
+          "answer": "xfs_growfs /mnt",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Verify the expansion by checking the filesystem's size with `df -h`.",
-          "answer": "df -h /mnt"
+          "answer": "df -h /mnt",
+          "explanation": ""
         }
       ]
     },
@@ -3738,52 +4094,62 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Prompt the user to enter the file or directory name to manage ACLs and store it in a variable named 'file_name'.",
-          "answer": "read -p 'Enter the file or directory name to manage ACLs: ' file_name"
+          "answer": "read -p 'Enter the file or directory name to manage ACLs: ' file_name",
+          "explanation": ""
         },
         {
           "id": 2,
           "instruction": "Display the current ACLs for the specified file or directory using getfacl.",
-          "answer": "getfacl $file_name"
+          "answer": "getfacl $file_name",
+          "explanation": ""
         },
         {
           "id": 3,
           "instruction": "Prompt the user to enter a username and permissions (e.g., rwx) to set an ACL for the user. Store the inputs in variables 'username' and 'permissions'.",
-          "answer": "read -p 'Enter the username: ' username; read -p 'Enter the permissions (e.g., rwx): ' permissions"
+          "answer": "read -p 'Enter the username: ' username; read -p 'Enter the permissions (e.g., rwx): ' permissions",
+          "explanation": ""
         },
         {
           "id": 4,
           "instruction": "Set the specified ACL for the user on the given file or directory using setfacl.",
-          "answer": "setfacl -m u:$username:$permissions $file_name"
+          "answer": "setfacl -m u:$username:$permissions $file_name",
+          "explanation": ""
         },
         {
           "id": 5,
           "instruction": "Prompt the user to enter a group name and permissions to set an ACL for the group. Store the inputs in variables 'groupname' and 'permissions'.",
-          "answer": "read -p 'Enter the group name: ' groupname; read -p 'Enter the permissions (e.g., rwx): ' permissions"
+          "answer": "read -p 'Enter the group name: ' groupname; read -p 'Enter the permissions (e.g., rwx): ' permissions",
+          "explanation": ""
         },
         {
           "id": 6,
           "instruction": "Set the specified ACL for the group on the given file or directory using setfacl.",
-          "answer": "setfacl -m g:$groupname:$permissions $file_name"
+          "answer": "setfacl -m g:$groupname:$permissions $file_name",
+          "explanation": ""
         },
         {
           "id": 7,
           "instruction": "Prompt the user to enter a default ACL for all files in a directory (if applicable). Store the inputs in variables 'default_permissions'.",
-          "answer": "read -p 'Enter the default permissions for the directory (e.g., rwx): ' default_permissions"
+          "answer": "read -p 'Enter the default permissions for the directory (e.g., rwx): ' default_permissions",
+          "explanation": ""
         },
         {
           "id": 8,
           "instruction": "Set the default ACL for all files in a directory using setfacl.",
-          "answer": "setfacl -d -m u:$username:$default_permissions $file_name"
+          "answer": "setfacl -d -m u:$username:$default_permissions $file_name",
+          "explanation": ""
         },
         {
           "id": 9,
           "instruction": "Remove an ACL entry for a specific user. Prompt the user to enter the username and store it in a variable 'username'.",
-          "answer": "read -p 'Enter the username to remove ACL for: ' username; setfacl -x u:$username $file_name"
+          "answer": "read -p 'Enter the username to remove ACL for: ' username; setfacl -x u:$username $file_name",
+          "explanation": ""
         },
         {
           "id": 10,
           "instruction": "Verify the updated ACLs for the specified file or directory.",
-          "answer": "getfacl $file_name"
+          "answer": "getfacl $file_name",
+          "explanation": ""
         }
       ]
     }
