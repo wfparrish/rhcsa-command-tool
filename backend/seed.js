@@ -504,7 +504,7 @@ const Question = require('./models/Question');
         },
         {
           "id": 11,
-          "instruction": "Specify the base URL for the AppStream repository  Use the IP address 172.16.127.100 as your server's address.",
+          "instruction": "Specify the base URL for the AppStream repository. Use the IP address 172.16.127.100 as your server's address.",
           "answer": "baseurl=http://172.16.127.100/AppStream",
           "explanation": "The baseurl directive defines the location of the repository’s metadata and packages. By setting baseurl=http://172.16.127.100/AppStream, the repository is linked to the AppStream directory hosted on the HTTP server configured on ServerA. This step ensures that the client machine knows where to fetch repository data and packages from. This configuration is essential for accessing the AppStream repository without relying on external sources, aligning with the goal of local, offline repository management."
         },
@@ -530,7 +530,7 @@ const Question = require('./models/Question');
           "id": 15,
           "instruction": "Clean the DNF cache to ensure the new repositories are recognized.",
           "answer": "sudo dnf clean all",
-          "explanation": "The dnf clean all command clears all cached metadata and package files used by the DNF package manager. This step ensures that the system does not rely on outdated or incorrect cache data when querying repositories, forcing it to fetch fresh metadata from the newly configured repositories. By running this command, you prepare the package manager to recognize the BaseOS and AppStream repositories configured in the previous steps. Using sudo ensures the command is executed with administrative privileges, as managing the DNF cache affects system-wide configurations. This step is vital for validating repository changes and avoiding potential issues during package installation or repository verification."
+          "explanation": "The dnf clean all command clears all cached metadata, package files, and other temporary data used by the DNF package manager. This step ensures that the system does not rely on outdated or incorrect cache data when querying repositories, forcing it to fetch fresh metadata from the newly configured repositories. The all argument specifies that all types of cached data should be removed, including metadata, packages, database caches, and plugin data, making it the most comprehensive cleaning option. By running this command, you prepare the package manager to recognize the BaseOS and AppStream repositories configured in the previous steps. Using sudo ensures the command is executed with administrative privileges, as managing the DNF cache affects system-wide configurations. This step is vital for validating repository changes and avoiding potential issues during package installation or repository verification."
         },
         {
           "id": 16,
@@ -688,7 +688,7 @@ const Question = require('./models/Question');
         {
           "id": 4,
           "instruction": "Attach the newly added disk to the virtual machine or server.",
-          "answer": "Attach the new disk to the VM or server.",
+          "answer": "Attach the newly added diskf.",
           "explanation": "After creating the new disk in the hypervisor or hardware management interface, it must be attached to the virtual machine or server. This process makes the disk available to the operating system during the next boot. Depending on the hypervisor, this may involve selecting the target VM, specifying the disk file or storage location, and connecting the disk as a new SATA or SCSI device. Ensuring the disk is properly attached is critical for its detection by the operating system, enabling further operations like partitioning and volume management. This step transitions the disk from being merely created to being operationally accessible."
         },
         {
@@ -724,20 +724,20 @@ const Question = require('./models/Question');
         {
           "id": 10,
           "instruction": "Press Enter to confirm the default first sector.",
-          "answer": "Press Enter",
+          "answer": "Enter",
           "explanation": "When prompted in the fdisk utility, pressing Enter confirms the default value for the first sector of the partition. By default, fdisk aligns the partition to start at the first available sector, ensuring optimal use of the disk's space and alignment for performance. Accepting the default simplifies the partitioning process and avoids manual misalignment issues, which could impact disk performance. This step is essential in creating a well-aligned partition for subsequent configuration and use in LVM or other disk management tasks."
         },
         {
           "id": 11,
-          "instruction": "Specify the last sector to create a 2GiB partition.",
+          "instruction": "Specify the size of the partition as 2GiB.",
           "answer": "+2GiB",
-          "explanation": "In the fdisk utility, entering +2GiB defines the size of the partition by specifying that it should end 2 GiB from the starting sector. The + prefix indicates that the input is relative to the start of the partition, and GiB denotes gibibytes as the unit of measurement. This ensures precise control over the partition size, which is crucial when creating partitions for specific use cases, such as setting up a volume group in LVM. By explicitly defining the size, this step ensures the partition meets the requirements for storage allocation and subsequent configuration tasks."
+          "explanation": "In the fdisk utility, entering +2GiB specifies the size of the partition relative to its starting sector, ensuring it ends exactly 2 GiB from the start. The + prefix simplifies the process by letting fdisk calculate the last sector automatically, avoiding manual calculations. This step ensures precise control over the partition size, which is crucial for creating partitions tailored to specific use cases, such as setting up Logical Volume Management (LVM). Correctly defining the partition size here ensures it aligns with storage allocation requirements for later tasks, such as initializing the partition as a physical volume for LVM."
         },
         {
           "id": 12,
           "instruction": "Change the partition type by selecting the appropriate fdisk option.",
           "answer": "t",
-          "explanation": "The t command in the fdisk utility is used to change the type of the selected partition. This step is necessary because the default partition type may not align with the intended use. In this case, the partition is being prepared for use with LVM (Logical Volume Management), which requires the partition type to be set to Linux LVM. This step ensures the partition is properly identified and can be initialized for LVM during subsequent configuration. Changing the partition type is critical to align the partition's metadata with its intended purpose."
+          "explanation": "The t command in the fdisk utility is used to change the type of the selected partition. This step is necessary because the default partition type may not align with the intended use. For example, partitions intended for Logical Volume Management (LVM) require the type to be explicitly set to Linux LVM (hex code 8e) to ensure compatibility with LVM tools. Setting the correct partition type updates the metadata stored in the partition table, signaling to the operating system and associated utilities how the partition should be utilized. In this case, setting the type to Linux LVM ensures the partition can be initialized as a physical volume and added to a volume group for flexible disk management. This step is crucial for aligning the partition's configuration with its intended role, avoiding errors or incompatibilities during subsequent operations. For RHCSA objectives, understanding how to change and verify the partition type is vital, as the t command can also be used to set types for other purposes, such as standard Linux filesystems (83), swap space (82), or RAID (fd). Finally, after using the t command, you should confirm the changes by viewing the updated partition table with the p command. This ensures that the correct type has been applied before writing changes to disk and proceeding with further configurations."
         },
         {
           "id": 13,
