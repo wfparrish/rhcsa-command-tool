@@ -773,7 +773,7 @@ const Question = require('./models/Question');
           "id": 18,
           "instruction": "Display information about configured physical volumes.",
           "answer": "pvs",
-          "explanation": "The pvs command provides a summary of all physical volumes on the system that are configured for use with LVM. Running pvs displays details such as the physical volume name, volume group association, size, and status. This step is critical for verifying that the physical volume /dev/sdb1 has been successfully initialized and is ready to be added to a volume group. By using pvs, you ensure that the setup process is progressing correctly, avoiding potential errors in later steps."
+          "explanation": "The command pvs stands for 'Physical Volume Summary'. The pvs command provides a summary of all physical volumes on the system that are configured for use with LVM. Running pvs displays details such as the physical volume name, volume group association, size, and status. This step is critical for verifying that the physical volume /dev/sdb1 has been successfully initialized and is ready to be added to a volume group. By using pvs, you ensure that the setup process is progressing correctly, avoiding potential errors in later steps."
         },
         {
           "id": 19,
