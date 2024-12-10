@@ -785,7 +785,7 @@ const Question = require('./models/Question');
           "id": 20,
           "instruction": "Verify that the volume group 'myvg' has been created.",
           "answer": "vgs",
-          "explanation": "The vgs command displays information about all volume groups configured on the system. Running this command after creating the volume group myvg allows you to confirm its existence and inspect its attributes, such as the group size, free space, and the number of physical volumes it includes. This verification step is essential for ensuring that the volume group was created correctly and is ready for further logical volume management operations. In practice, confirming configurations after each step reduces errors and aids in troubleshooting during tasks like those encountered in the RHCSA exam."
+          "explanation": "The command vgs stands for 'Volume Group Summary'. The vgs command displays information about all volume groups configured on the system. Running this command after creating the volume group myvg allows you to confirm its existence and inspect its attributes, such as the group size, free space, and the number of physical volumes it includes. This verification step is essential for ensuring that the volume group was created correctly and is ready for further logical volume management operations. In practice, confirming configurations after each step reduces errors and aids in troubleshooting during tasks like those encountered in the RHCSA exam."
         }
       ]
     }, {
