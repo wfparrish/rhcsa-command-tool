@@ -445,8 +445,8 @@ const Question = require('./models/Question');
         {
           "id": 1,
           "instruction": "Create the repository file for the BaseOS repository.",
-          "answer": "sudo vi /etc/yum.repos.d/local_BaseOS.repo",
-          "explanation": "This command opens a new or existing file at /etc/yum.repos.d/local_BaseOS.repo in the vi editor with superuser privileges. The file will store the configuration details for the BaseOS repository. The /etc/yum.repos.d/ directory is the default location for repository configuration files in systems using yum or dnf. Each .repo file defines one or more repositories that dnf can use for package management. Naming the file clearly (e.g., local_BaseOS.repo) makes it easier to identify and manage the repository settings. This step is foundational in the process of configuring the repository to ensure the client machine can access it through the HTTP server."
+          "answer": "sudo vim /etc/yum.repos.d/local_BaseOS.repo",
+          "explanation": "This command opens a new or existing file at /etc/yum.repos.d/local_BaseOS.repo in the vim editor with superuser privileges. The file will store the configuration details for the BaseOS repository. The /etc/yum.repos.d/ directory is the default location for repository configuration files in systems using yum or dnf. Each .repo file defines one or more repositories that dnf can use for package management. Naming the file clearly (e.g., local_BaseOS.repo) makes it easier to identify and manage the repository settings. This step is foundational in the process of configuring the repository to ensure the client machine can access it through the HTTP server."
         },
         {
           "id": 2,
@@ -456,15 +456,15 @@ const Question = require('./models/Question');
         },
         {
           "id": 3,
-          "instruction": "Set the name for the BaseOS repository.",
+          "instruction": "Set the name for the BaseOS repository to this value ==> Local BaseOS Repository.",
           "answer": "name=Local BaseOS Repository",
           "explanation": "The name directive assigns a human-readable name to the repository, displayed in output from commands like dnf repolist. Setting name=Local BaseOS Repository provides clarity about the repository's purpose and source, helping administrators identify it easily. This step does not affect the functionality of the repository but improves the usability and organization of repository configurations, particularly in environments with multiple repositories. A descriptive name aligns with best practices for managing and documenting system configurations."
         },
         {
           "id": 4,
-          "instruction": "Specify the base URL for the BaseOS repository (replace 'your-server-ip' with the server's IP address).",
-          "answer": "baseurl=http://your-server-ip/BaseOS",
-          "explanation": "The baseurl directive specifies the location of the repository's package files. By setting baseurl=http://your-server-ip/BaseOS, the repository is configured to retrieve packages from the BaseOS directory served by the HTTP server on ServerA. The your-server-ip placeholder must be replaced with the actual IP address or hostname of the server hosting the repository. This step ensures the client machine knows where to access the repository files, enabling package management through DNF. Correctly setting the base URL is essential for establishing connectivity and verifying that the repository is reachable."
+          "instruction": "Specify the base URL for the BaseOS repository. Use the IP address 172.16.127.100 as your server's address.",
+          "answer": "baseurl=http://172.16.127.100/BaseOS",
+          "explanation": "The baseurl directive specifies the location of the repository's package files. By setting baseurl=http://172.16.127.100/BaseOS, the repository is configured to retrieve packages from the BaseOS directory served by the HTTP server on ServerA. This step ensures the client machine knows where to access the repository files, enabling package management through DNF. Correctly setting the base URL is essential for establishing connectivity and verifying that the repository is reachable."
         },
         {
           "id": 5,
@@ -482,31 +482,31 @@ const Question = require('./models/Question');
           "id": 7,
           "instruction": "Save and exit the repository file.",
           "answer": ":wq",
-          "explanation": "The :wq command in the vi editor writes (saves) the changes made to the file and exits the editor. In this step, it finalizes the creation or modification of the repository file for the BaseOS repository by saving the specified configurations, such as the repository ID, name, base URL, and GPG check setting. This ensures the repository configuration is stored persistently in /etc/yum.repos.d/local_BaseOS.repo, allowing the system to recognize and use it for package management. This step is crucial for completing the setup process and preparing for testing the repository. Mastering basic vi commands like :wq is essential for efficient configuration and troubleshooting in the RHCSA exam and real-world scenarios."
+          "explanation": "The :wq command in the vim editor writes (saves) the changes made to the file and exits the editor. In this step, it finalizes the creation or modification of the repository file for the BaseOS repository by saving the specified configurations, such as the repository ID, name, base URL, and GPG check setting. This ensures the repository configuration is stored persistently in /etc/yum.repos.d/local_BaseOS.repo, allowing the system to recognize and use it for package management. This step is crucial for completing the setup process and preparing for testing the repository. Mastering basic vi commands like :wq is essential for efficient configuration and troubleshooting in the RHCSA exam and real-world scenarios."
         },
         {
           "id": 8,
           "instruction": "Create the repository file for the AppStream repository.",
-          "answer": "sudo vi /etc/yum.repos.d/local_AppStream.repo",
-          "explanation": "The sudo vi command opens the vi text editor with elevated privileges, allowing you to create or edit files in directories requiring administrative access. In this step, a new repository file named local_AppStream.repo is created in the /etc/yum.repos.d/ directory. This file will store the configuration for the AppStream repository, which provides modular content and additional packages. The use of sudo ensures you have the necessary permissions to create and edit this system-critical file, and vi provides a reliable editor for making precise modifications. This is a foundational step in setting up the repository, as it initializes the configuration process for the AppStream repository."
+          "answer": "sudo vim /etc/yum.repos.d/local_AppStream.repo",
+          "explanation": "The sudo vim command opens the vim text editor with elevated privileges, allowing you to create or edit files in directories requiring administrative access. In this step, a new repository file named local_AppStream.repo is created in the /etc/yum.repos.d/ directory. This file will store the configuration for the AppStream repository, which provides modular content and additional packages. The use of sudo ensures you have the necessary permissions to create and edit this system-critical file, and vim provides a reliable editor for making precise modifications. This is a foundational step in setting up the repository, as it initializes the configuration process for the AppStream repository."
         },
         {
           "id": 9,
-          "instruction": "Add the repository ID for the AppStream repository.",
+          "instruction": "Add the repository ID for the AppStream repository using this id --> local-appstream.",
           "answer": "[local-appstream]",
           "explanation": "The repository ID [local-appstream] is added as the first line in the repository configuration file. This ID uniquely identifies the repository within the system and serves as a reference for DNF operations. By defining [local-appstream], subsequent configurations in the file, such as the base URL, name, and other attributes, are associated with this specific repository. This step is crucial for distinguishing the AppStream repository from other repositories in the system, ensuring that packages can be retrieved correctly when requested."
         },
         {
           "id": 10,
-          "instruction": "Set the name for the AppStream repository.",
+          "instruction": "Set the name for the AppStream repository to --> Local AppStream Repository.",
           "answer": "name=Local AppStream Repository",
           "explanation": "The name directive assigns a human-readable label to the repository, in this case, 'Local AppStream Repository.' This label is displayed when listing repositories, making it easier to identify and manage the repository during DNF operations. While the repository ID is used for system references, the name provides clarity for administrators. This step ensures that the repository is properly documented and easily recognizable in outputs such as dnf repolist."
         },
         {
           "id": 11,
-          "instruction": "Specify the base URL for the AppStream repository (replace 'your-server-ip' with the server's IP address).",
-          "answer": "baseurl=http://your-server-ip/AppStream",
-          "explanation": "The baseurl directive defines the location of the repository’s metadata and packages. By setting baseurl=http://your-server-ip/AppStream, the repository is linked to the AppStream directory hosted on the HTTP server configured on ServerA. This step ensures that the client machine knows where to fetch repository data and packages from. Replace your-server-ip with the actual IP address of the server to establish a proper connection. This configuration is essential for accessing the AppStream repository without relying on external sources, aligning with the goal of local, offline repository management."
+          "instruction": "Specify the base URL for the AppStream repository  Use the IP address 172.16.127.100 as your server's address.",
+          "answer": "baseurl=http://172.16.127.100/AppStream",
+          "explanation": "The baseurl directive defines the location of the repository’s metadata and packages. By setting baseurl=http://172.16.127.100/AppStream, the repository is linked to the AppStream directory hosted on the HTTP server configured on ServerA. This step ensures that the client machine knows where to fetch repository data and packages from. This configuration is essential for accessing the AppStream repository without relying on external sources, aligning with the goal of local, offline repository management."
         },
         {
           "id": 12,
@@ -553,7 +553,7 @@ const Question = require('./models/Question');
           "id": 2,
           "instruction": "List all available timezones to find the desired timezone.",
           "answer": "timedatectl list-timezones",
-          "explanation": "The timedatectl list-timezones command outputs a complete list of valid timezones supported by the system. This step is essential for identifying the exact string representation of the desired timezone, in this case, 'America/New_York.' It ensures precision in selecting and setting the timezone, as even minor discrepancies in spelling or capitalization can cause errors. By reviewing this list, you can locate the appropriate timezone identifier, which is required for the timedatectl set-timezone command later in the process."
+          "explanation": "The timedatectl list-timezones command outputs a complete list of valid timezones supported by the system. This step is essential for identifying the exact string representation of the desired timezone, in this case, 'America/New_York.' It ensures precision in selecting and setting the timezone, as even minor discrepancies in spelling or capitalization can cause errors. By reviewing this list, you can locate the appropriate timezone identifier, which is required for the a command later used in a later Step."
         },
         {
           "id": 3,
