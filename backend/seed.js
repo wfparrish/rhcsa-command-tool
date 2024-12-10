@@ -450,7 +450,7 @@ const Question = require('./models/Question');
         },
         {
           "id": 2,
-          "instruction": "Add the repository ID for the BaseOS repository.",
+          "instruction": "Add the repository ID for the BaseOS repository. Use this ID ==> local-baseos",
           "answer": "[local-baseos]",
           "explanation": "Adding [local-baseos] as the repository ID in the repository file defines a unique identifier for this repository. This ID is used by dnf to reference the repository in commands and operations. The square brackets are required syntax in .repo files, and the content inside them specifies the repository's logical name. Choosing a clear and descriptive ID, such as local-baseos, helps distinguish it from other repositories in the system. This step is crucial as it establishes the foundation for the repository's configuration in subsequent entries."
         },
@@ -464,7 +464,7 @@ const Question = require('./models/Question');
           "id": 4,
           "instruction": "Specify the base URL for the BaseOS repository. Use the IP address 172.16.127.100 as your server's address.",
           "answer": "baseurl=http://172.16.127.100/BaseOS",
-          "explanation": "The baseurl directive specifies the location of the repository's package files. By setting baseurl=http://172.16.127.100/BaseOS, the repository is configured to retrieve packages from the BaseOS directory served by the HTTP server on ServerA. This step ensures the client machine knows where to access the repository files, enabling package management through DNF. Correctly setting the base URL is essential for establishing connectivity and verifying that the repository is reachable."
+          "explanation": "The baseurl directive specifies the location of the repository's package files. By setting baseurl=http://172.16.127.100/BaseOS, the repository is configured to retrieve packages from the BaseOS directory served by the HTTP server on ServerA. This step ensures the client machine knows where to access the repository files, enabling package management through DNF. Correctly setting the base URL is essential for establishing connectivity and verifying that the repository is reachable. In this configuration, ServerA can also act as its own client, accessing the repository it hosts via the HTTP server to ensure consistency across systems."
         },
         {
           "id": 5,
