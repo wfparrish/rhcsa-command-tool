@@ -1866,25 +1866,25 @@ const Question = require('./models/Question');
       "steps": [
         {
           "id": 1,
-          "instruction": "List all files in the directory '/path/to/directory' along with their current permissions using the command 'ls -l /path/to/directory'. Replace '/path/to/directory' with the desired directory path.",
+          "instruction": "List all files in the directory '/path/to/directory' along with their current permissions using the command 'ls -l /path/to/directory'.",
           "answer": "ls -l /path/to/directory",
           "explanation": "In this step, the ls -l command is used to list all files and directories in the specified path, /path/to/directory, along with their detailed attributes, including permissions. The -l flag provides a long listing format that displays file permissions, ownership, size, and modification date. This command helps users identify the current permissions of files and directories, serving as a baseline for subsequent changes. Understanding and interpreting the output of ls -l is crucial for managing permissions effectively, aligning with RHCSA objectives of file system navigation and permission management."
         },
         {
           "id": 2,
-          "instruction": "Prompt the user to enter the name of the file to change permissions to 755 by displaying the message: 'Enter the name of the file to change permissions to 755: '. Store the input in a variable named 'file1' and use the 'chmod' command to set the permissions.",
+          "instruction": "Prompt the user to enter the name of the file to change permissions to 755 by displaying the message: 'Enter the name of the file: '. Store the input in a variable named 'file1' and use the 'chmod' command to set the permissions.",
           "answer": "read -p 'Enter the name of the file to change permissions to 755: ' file1; chmod 755 $file1",
           "explanation": "In this step, the read command prompts the user to enter the name of a file whose permissions need to be changed to 755. The input is stored in the file1 variable, dynamically created to hold the user's response. The command chmod 755 $file1 is then executed, where 755 sets the permissions to allow the owner full access (read, write, execute) and grants read and execute permissions to the group and others. This step ensures precise control over file permissions based on user input, aligning with RHCSA objectives of managing and modifying file permissions dynamically."
         },
         {
           "id": 3,
-          "instruction": "Prompt the user to enter the name of the file to change permissions to 644 by displaying the message: 'Enter the name of the file to change permissions to 644: '. Store the input in a variable named 'file2' and use the 'chmod' command to set the permissions.",
+          "instruction": "Prompt the user to enter the name of the file to change permissions to 644 by displaying the message: 'Enter the name of the file: '. Store the input in a variable named 'file2' and use the 'chmod' command to set the permissions.",
           "answer": "read -p 'Enter the name of the file to change permissions to 644: ' file2; chmod 644 $file2",
           "explanation": "In this step, the read command prompts the user to enter the name of a file whose permissions need to be changed to 644. The input is stored in the file2 variable, which is dynamically created to hold the user's response. The command chmod 644 $file2 is then executed, setting the permissions so that the owner has read and write access, while the group and others have read-only access. This step ensures the script can modify file permissions dynamically based on user input, demonstrating flexibility and adherence to RHCSA objectives of managing file permissions effectively."
         },
         {
           "id": 4,
-          "instruction": "Prompt the user to enter the directory path to recursively set permissions to 600 by displaying the message: 'Enter the directory path to recursively set permissions to 600: '. Store the input in a variable named 'target_directory' and use the 'chmod -R' command to apply the permissions.",
+          "instruction": "Prompt the user to enter the directory path to recursively set permissions to 600 by displaying the message: 'Enter the directory path: '. Store the input in a variable named 'target_directory' and use the 'chmod -R' command to apply the permissions.",
           "answer": "read -p 'Enter the directory path to recursively set permissions to 600: ' target_directory; chmod -R 600 $target_directory",
           "explanation": "In this step, the read command prompts the user to enter the path of a directory where permissions need to be recursively set to 600. The input is stored in the target_directory variable, dynamically created to hold the user's response. The command chmod -R 600 $target_directory is then executed, where the -R flag applies the permission change recursively to the directory and all its contents. The 600 permissions ensure that the owner has read and write access, while the group and others have no access. This step demonstrates the script's capability to handle recursive permission changes dynamically, aligning with RHCSA objectives of managing directory and file permissions efficiently."
         },
