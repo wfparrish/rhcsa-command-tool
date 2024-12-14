@@ -3671,61 +3671,61 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Schedule a one-time task to display 'Hello, World!' after 5 minutes using `at`.",
           "answer": "echo 'echo Hello, World!' | at now + 5 minutes",
-          "explanation": ""
+          "explanation": "Step 1: To schedule a one-time task using at that displays \"Hello, World!\" after 5 minutes, you can use the command echo 'echo Hello, World!' | at now + 5 minutes. The at command is used to schedule tasks that run at a specific time. In this case, echo 'echo Hello, World!' is the command to be executed, and it will print \"Hello, World!\" to the terminal. The at command is followed by now + 5 minutes, which specifies the task will be executed 5 minutes from the current time. The echo command passes the task to at, which then schedules it for execution. You can replace Hello, World! with any other command you wish to run at the specified time. This method is helpful for scheduling tasks that only need to run once, such as alerts, reminders, or simple commands."
         },
         {
           "id": 2,
           "instruction": "Verify the list of scheduled tasks created with `at`.",
           "answer": "atq",
-          "explanation": ""
+          "explanation": "Step 2: To verify the list of scheduled tasks created with at, you can use the atq command. The atq command lists all jobs that are scheduled to run but have not yet been executed. Each job will be shown with a job number, the date and time it is scheduled to run, and the user who scheduled it. This allows you to check the status of any pending one-time tasks. If you want to remove a task, you would reference the job number listed by atq. The atq command is useful for ensuring that your tasks are correctly scheduled and helps with managing pending jobs."
         },
         {
           "id": 3,
           "instruction": "Remove a specific job from the `at` queue by its job number (e.g., job number 2).",
           "answer": "atrm 2",
-          "explanation": ""
+          "explanation": "Step 3: To remove a specific job from the at queue, use the atrm command followed by the job number. For example, to remove job number 2, the command would be atrm 2. This removes the specified job from the queue, ensuring that it will not be executed at the scheduled time. It's important to double-check the job number using the atq command before removing a task, as deleting a job that you still want to run would prevent it from executing. The atrm command helps you manage the jobs in the at queue and ensures that unnecessary or unwanted tasks can be canceled efficiently."
         },
         {
           "id": 4,
           "instruction": "Check if the `at` service is active and enable it if necessary.",
           "answer": "sudo systemctl status atd && sudo systemctl enable --now atd",
-          "explanation": ""
+          "explanation": "Step 4: To check if the at service is active and running, use the systemctl status atd command. This will show the current status of the at daemon, which is responsible for managing scheduled tasks created with at. If the service is not running or enabled, you can enable and start it using sudo systemctl enable --now atd. This command ensures that the at service starts automatically on boot and is immediately running. It's essential to have the at service active to schedule one-time tasks successfully, as the tasks rely on this daemon to be executed at their specified times."
         },
         {
           "id": 5,
           "instruction": "Schedule a task to reboot the system at a specific time (e.g., 02:00 AM).",
           "answer": "echo 'sudo reboot' | at 02:00",
-          "explanation": ""
+          "explanation": "Step 5: To schedule a task that reboots the system at a specific time, such as 02:00 AM, you can use the at command with the desired time. The command you would run is echo 'sudo reboot' | at 02:00. This command tells the system to execute the sudo reboot command at 02:00 AM, which will initiate a system reboot at that specified time. It is important to note that the user running this command needs sufficient privileges to execute sudo commands without being prompted for a password, or you would need to configure the system to allow this for the at job to run successfully."
         },
         {
           "id": 6,
           "instruction": "Schedule a one-time task to create a backup file after 10 minutes using `at`.",
           "answer": "echo 'cp /path/to/file /path/to/backup' | at now + 10 minutes",
-          "explanation": ""
+          "explanation": "Step 6: To schedule a one-time task that creates a backup file after 10 minutes using the at command, you would use the following command: echo 'cp /path/to/file /path/to/backup' | at now + 10 minutes. This command schedules the task of copying a file from /path/to/file to /path/to/backup to run exactly 10 minutes after the command is entered. The at command is used here with the now + 10 minutes syntax to specify the timing for the execution of the backup task. It's important that the file paths are correct and that the user has permission to access the files and directories involved in the task for it to run successfully."
         },
         {
           "id": 7,
           "instruction": "Display the contents of a scheduled `at` job by its job number (e.g., job number 1).",
           "answer": "at -c 1",
-          "explanation": ""
+          "explanation": "Step 7: To display the contents of a scheduled at job by its job number (e.g., job number 1), you would use the at -c command followed by the job number, like this: at -c 1. This command retrieves and shows the script that will be executed for the specified job number. The -c option tells at to print the content of the scheduled job, which allows you to verify the exact command or script that will be run when the job executes. This is useful for troubleshooting or confirming the details of a scheduled task."
         },
         {
           "id": 8,
           "instruction": "Schedule a task to display the current date in a file after 15 minutes.",
           "answer": "echo 'date > /tmp/current_date.txt' | at now + 15 minutes",
-          "explanation": ""
+          "explanation": "Step 8: To schedule a task that displays the current date in a file after 15 minutes, you would use the at command with the echo command to write the date to a file. The full command would be: echo 'date > /tmp/current_date.txt' | at now + 15 minutes. This will schedule the system to execute the command date > /tmp/current_date.txt 15 minutes from now, writing the current date and time to the file /tmp/current_date.txt. Using the at command in this way allows you to automate one-time tasks, and in this case, it captures the system’s current date and saves it in a file for future reference."
         },
         {
           "id": 9,
           "instruction": "Configure a user to be allowed to use `at` by editing the `/etc/at.allow` file.",
           "answer": "sudo sh -c 'echo \"username\" >> /etc/at.allow'",
-          "explanation": ""
+          "explanation": "Step 9: To configure a user to be allowed to use at for scheduling tasks, you need to edit the /etc/at.allow file, which contains a list of users authorized to use the at command. To add a user (e.g., username) to this file, you can use the following command: sudo sh -c 'echo \"username\" >> /etc/at.allow'. This command appends the specified username to the /etc/at.allow file, granting them permission to use the at command for scheduling tasks. If the /etc/at.allow file does not exist, it will be created automatically. Users not listed in /etc/at.allow are denied access to at, and only users explicitly listed in this file are permitted to schedule tasks using at."
         },
         {
           "id": 10,
           "instruction": "Check the logs to confirm if a scheduled `at` job ran successfully.",
           "answer": "sudo journalctl -u atd",
-          "explanation": ""
+          "explanation": "Step 10: To check the logs and confirm whether a scheduled at job ran successfully, you can use the journalctl command to examine the service logs for the atd daemon, which handles the scheduling of at jobs. Run the command sudo journalctl -u atd to view the logs for the atd service. This will display entries related to the execution of scheduled at jobs, allowing you to verify if the jobs were triggered and if there were any errors during execution. You can also use additional journalctl options, such as -n to limit the number of recent log entries shown, or -f to follow the log in real time."
         }
       ]
     }, {
@@ -3736,25 +3736,25 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the name of the file to view using `cat`. Store the input in a variable named 'file_name'.",
           "answer": "read -p 'Enter the name of the file to view: ' file_name",
-          "explanation": ""
+          "explanation": "Step 1: To start the process of viewing a file’s contents, the user is prompted to input the name of the file they wish to view. This is done using the read command, which is designed to capture user input. The user is asked to enter the file name, and the input is stored in a variable called file_name. This allows the script to reference the specific file the user wishes to view. The variable ensures that the file name can be used throughout the subsequent steps, making it easier to work with the file's contents in later commands. It is important that the user provides the correct path or file name to avoid errors when attempting to access the file."
         },
         {
           "id": 2,
           "instruction": "Use the `cat` command to display the file's contents.",
           "answer": "cat $file_name",
-          "explanation": ""
+          "explanation": "Step 2: In this step, the script uses the cat command to display the contents of the file specified by the user in Step 1. The command cat $file_name takes the file name stored in the file_name variable and outputs its contents directly to the terminal. The cat command is a simple and effective tool for viewing the entire contents of a file at once. It is particularly useful for smaller files or when the user wants to quickly see the entire contents of a file without any interruptions. However, for larger files, cat might display too much content at once, making it harder to navigate through the file."
         },
         {
           "id": 3,
           "instruction": "Open the same file in `less` for navigation.",
           "answer": "less $file_name",
-          "explanation": ""
+          "explanation": "Step 3: In this step, the script uses the less command to open the same file specified in Step 1, allowing for easier navigation through the file's contents. The less command is more suitable for large files compared to cat, as it doesn't display the entire content at once but instead allows you to scroll through it line by line or page by page. This is particularly helpful for files that are too large to view comfortably with cat. Once opened with less, the user can scroll using the arrow keys, move to specific sections using search features, and more, providing a much more flexible way to view files. Additionally, less allows you to navigate both forwards and backwards, unlike cat, which only displays the content in one continuous stream."
         },
         {
           "id": 4,
           "instruction": "Exit the `less` viewer by pressing 'q'.",
           "answer": "Press 'q' to exit.",
-          "explanation": ""
+          "explanation": "Step 4: In this step, the user is instructed to exit the less viewer by pressing 'q'. The less command, unlike cat, doesn't automatically terminate after displaying the content, allowing users to navigate freely through the file. To exit and return to the shell prompt, pressing 'q' is the standard command. This is a common behavior in pagers like less, which are designed for viewing files interactively. After pressing 'q', the user will exit the less viewer, and the terminal will be ready for the next command. This functionality is helpful for efficiently navigating and quitting large files without overwhelming the terminal with unnecessary output."
         }
       ]
     },
@@ -3766,25 +3766,25 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the name of the file to view specific lines from. Store the input in a variable named 'file_name'.",
           "answer": "read -p 'Enter the name of the file: ' file_name",
-          "explanation": ""
+          "explanation": "Step 1: In this step, the user is prompted to enter the name of the file from which they want to extract specific lines. The input is stored in a variable named file_name, which will be used in subsequent commands to manipulate or view the contents of the specified file. By using the read command, the user can interactively provide the filename. This step ensures that the correct file is targeted for the operations in the following steps, allowing for more efficient manipulation and display of file contents."
         },
         {
           "id": 2,
           "instruction": "Display the first 10 lines of the file using `head`.",
           "answer": "head $file_name",
-          "explanation": ""
+          "explanation": "Step 2: The second step displays the first 10 lines of the file using the head command. The head command is designed to show the beginning portion of a file by default, displaying the first 10 lines. This is useful for quickly inspecting the start of a file, especially if the file is large. The command uses the variable $file_name that was set in step 1 to specify the target file. It provides an easy way to get a quick overview of a file’s content without needing to open the entire file."
         },
         {
           "id": 3,
           "instruction": "Display the last 5 lines of the file using `tail`.",
           "answer": "tail -n 5 $file_name",
-          "explanation": ""
+          "explanation": "Step 3: In this step, the user displays the last 5 lines of the file using the tail command with the -n option. The tail command by default shows the last 10 lines of a file, but by specifying -n 5, only the last 5 lines are displayed. This is particularly useful for viewing the most recent content in a log file or any file where the most recent data is of interest. Like in the previous step, $file_name is used to specify the file from which the lines will be displayed."
         },
         {
           "id": 4,
           "instruction": "Prompt the user to enter the number of lines from the start of the file to view. Store this input in a variable named 'line_count'.",
           "answer": "read -p 'Enter the number of lines to view from the start: ' line_count; head -n $line_count $file_name",
-          "explanation": ""
+          "explanation": "Step 4: Here, the user is prompted to enter a custom number of lines they wish to view from the start of the file. This input is stored in the variable line_count, which is then used with the head command to display that specific number of lines. The head -n $line_count $file_name command allows the user to dynamically control how many lines from the top of the file they want to see. This step adds flexibility, making it easy to preview a certain portion of the file based on the user's need."
         }
       ]
     },
@@ -3796,25 +3796,25 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the file name and store it in a variable named 'file_name'.",
           "answer": "read -p 'Enter the file name: ' file_name",
-          "explanation": ""
+          "explanation": "In step 1, the user is prompted to enter the file name they want to search in. The input is stored in a variable called file_name, which will later be used in the search process. This allows for dynamic interaction with the file, ensuring the correct file is targeted for the search operation. By using the read command, the script captures the file name provided by the user, allowing it to be used in subsequent commands for searching or counting occurrences."
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter a keyword to search for and store it in a variable named 'keyword'.",
           "answer": "read -p 'Enter the keyword to search for: ' keyword",
-          "explanation": ""
+          "explanation": "Step 2 asks the user to enter the keyword they wish to search for within the file. This keyword is stored in a variable called keyword, which is later used by the grep command to perform the search. The flexibility of this step lies in the ability to search for any word or phrase in the specified file, making the process adaptable to various use cases. Using read ensures the user can interactively input their desired search term, tailoring the search to their specific needs."
         },
         {
           "id": 3,
           "instruction": "Search the file for the keyword using `grep`.",
           "answer": "grep \"$keyword\" $file_name",
-          "explanation": ""
+          "explanation": "In step 3, the grep command is used to search the file for the keyword provided by the user. The command grep \"$keyword\" $file_name looks for occurrences of the keyword within the file specified by $file_name. The grep command is a powerful tool for searching through text, and by wrapping the keyword in double quotes, it ensures that any special characters in the keyword are properly handled. This step effectively returns all the lines in the file that contain the specified keyword, allowing the user to quickly locate the term within the document."
         },
         {
           "id": 4,
           "instruction": "Count the number of occurrences of the keyword in the file using `grep`.",
           "answer": "grep -c \"$keyword\" $file_name",
-          "explanation": ""
+          "explanation": "Step 4 builds upon the search performed in step 3 by counting how many times the keyword appears in the file. The command grep -c \"$keyword\" $file_name uses the -c option with grep to return the number of occurrences of the keyword in the file, rather than displaying the matching lines themselves. This can be particularly useful when the user is interested in the frequency of the keyword's appearance, rather than the specific lines where it occurs. It provides a concise and efficient way to gather information about how often a term is used within the file."
         }
       ]
     },
@@ -3826,19 +3826,19 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the name of the file to process. Store the input in a variable named 'file_name'.",
           "answer": "read -p 'Enter the name of the file: ' file_name",
-          "explanation": ""
+          "explanation": "In step 1, the user is prompted to enter the name of the file they wish to process. This file name is stored in a variable called file_name, which will later be used to reference the file in the script. By using the read command, the user can dynamically input the file name, making this script adaptable to various files. This interaction ensures the correct file is specified for processing, allowing for flexible file handling."
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the field number to display (assuming the file is space-delimited). Store this input in a variable named 'field_number'.",
           "answer": "read -p 'Enter the field number to display: ' field_number",
-          "explanation": ""
+          "explanation": "Step 2 asks the user to enter the field number they want to display from the specified file. In a space-delimited file, the fields are typically separated by whitespace, and each field is assigned a number, starting from 1. This field number is stored in the variable field_number, which is then used in the awk command to extract the specific field from the file. By using the read command, the script allows the user to input any field number they want to focus on, providing control over which part of the data is displayed."
         },
         {
           "id": 3,
           "instruction": "Use `awk` to extract and display the specified field from the file.",
           "answer": "awk '{print $field_number}' $file_name",
-          "explanation": ""
+          "explanation": "In step 3, the awk command is used to extract and display the field specified by the user from the input file. The command awk '{print $field_number}' $file_name processes each line of the file and prints the value of the field identified by the user. The $field_number represents the field to be printed, where awk automatically treats the file as a set of space-delimited columns. This step allows the user to filter and display specific data from a file based on the field they are interested in, making it a powerful tool for text processing and analysis."
         }
       ]
     },
@@ -3850,25 +3850,25 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the file name. Store the input in a variable named 'file_name'.",
           "answer": "read -p 'Enter the file name: ' file_name",
-          "explanation": ""
+          "explanation": "In step 1, the user is prompted to enter the name of the file that they wish to process, and this input is stored in a variable called file_name. The read command is used to capture the user's input, allowing for dynamic file selection. This step ensures that the file being worked on is correctly identified and provides flexibility, as the script can be used on different files by simply entering the corresponding file name."
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the text to search for. Store this input in a variable named 'search_text'.",
           "answer": "read -p 'Enter the text to search for: ' search_text",
-          "explanation": ""
+          "explanation": "Step 2 asks the user to enter the text they want to search for within the specified file. This search text is stored in the variable search_text. The read command once again allows the user to specify the exact text they wish to search for, providing flexibility in the search process. This step is critical as it determines which content in the file will be targeted for replacement."
         },
         {
           "id": 3,
           "instruction": "Prompt the user to enter the replacement text. Store this input in a variable named 'replacement_text'.",
           "answer": "read -p 'Enter the replacement text: ' replacement_text",
-          "explanation": ""
+          "explanation": "In step 3, the user is asked to input the replacement text that will replace the occurrences of the search text. This replacement text is stored in the variable replacement_text. By using read, the script allows the user to define what they want the search text to be replaced with, ensuring that the replacement operation is fully customizable."
         },
         {
           "id": 4,
           "instruction": "Use `sed` to replace all occurrences of the search text with the replacement text in the file. Save the output to a new file named 'output_file'.",
           "answer": "sed 's/$search_text/$replacement_text/g' $file_name > output_file",
-          "explanation": ""
+          "explanation": "Step 4 uses the sed command to perform the replacement of all occurrences of the search_text with replacement_text throughout the file. The sed 's/$search_text/$replacement_text/g' $file_name > output_file command is used here, with g ensuring that all instances of the search text are replaced globally in the file. The result is saved to a new file named output_file, leaving the original file unmodified. This step demonstrates how sed can be utilized for simple text replacement operations, and the output is stored in a new file to preserve the original data."
         }
       ]
     },
@@ -3880,31 +3880,31 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the log file name. Store the input in a variable named 'log_file'.",
           "answer": "read -p 'Enter the log file name: ' log_file",
-          "explanation": ""
+          "explanation": "In step 1, the user is prompted to enter the log file name, which is stored in a variable called log_file. The read command is used to capture the input, allowing the script to dynamically work with different log files based on user input. This provides flexibility for the user to specify which log file they want to analyze."
         },
         {
           "id": 2,
           "instruction": "Prompt the user to enter the log level to search for (e.g., INFO, ERROR). Store the input in a variable named 'log_level'.",
           "answer": "read -p 'Enter the log level to search for (e.g., INFO, ERROR): ' log_level",
-          "explanation": ""
+          "explanation": "Step 2 asks the user to enter the log level they wish to search for, such as \"INFO\" or \"ERROR,\" and stores this input in the variable log_level. By using read, the user can specify the type of log entries they are interested in, ensuring that the search is targeted to specific log levels."
         },
         {
           "id": 3,
           "instruction": "Use `grep` to extract all lines with the specified log level.",
           "answer": "grep \"$log_level\" $log_file",
-          "explanation": ""
+          "explanation": "In step 3, the grep command is used to extract all lines from the specified log file that match the given log level. The grep \"$log_level\" $log_file command searches for the log level string within the file and returns all lines containing that log level. This step allows the user to focus on specific log entries, filtering out unnecessary information."
         },
         {
           "id": 4,
           "instruction": "Use `awk` to extract and display the timestamp and log message from the extracted lines.",
           "answer": "grep \"$log_level\" $log_file | awk '{print $1, $2, $3, $4}'",
-          "explanation": ""
+          "explanation": "Step 4 builds on the previous step by piping the grep output to awk, which is used to extract and display the timestamp and log message from the lines that match the specified log level. The awk '{print $1, $2, $3, $4}' command specifies which fields to display, providing the user with a clean and focused view of the relevant log entries, such as the timestamp and the log message."
         },
         {
           "id": 5,
           "instruction": "Use `sed` to replace the log level with '[LOG]'.",
           "answer": "grep \"$log_level\" $log_file | sed 's/$log_level/[LOG]/g'",
-          "explanation": ""
+          "explanation": "In step 5, the sed command is used to replace the log level with a more generalized tag, [LOG], for each line that contains the specified log level. The sed 's/$log_level/[LOG]/g' command performs this substitution, making it easier to standardize the appearance of log entries by replacing various log levels with a consistent tag. This operation helps in preparing the logs for further processing or presentation."
         }
       ]
     }, {
@@ -3915,31 +3915,31 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the name of the XFS device to repair (e.g., /dev/sdb1). Store the input in a variable named 'device_name'.",
           "answer": "read -p 'Enter the XFS device to repair: ' device_name",
-          "explanation": ""
+          "explanation": "In step 1, the user is prompted to enter the name of the XFS device that needs to be repaired, such as /dev/sdb1. This input is stored in the device_name variable, which will be used in subsequent commands to target the specific device for repair. The read command is used to capture the user input dynamically, allowing flexibility in choosing the device to repair."
         },
         {
           "id": 2,
           "instruction": "Ensure the device is unmounted. If the device is mounted, unmount it using the `umount` command.",
           "answer": "umount $device_name",
-          "explanation": ""
+          "explanation": "Step 2 ensures that the device is unmounted before running the repair. The umount command is used to unmount the device specified by device_name. This is a critical step, as attempting to repair a mounted filesystem can result in data corruption or incomplete repairs. The user is prompted to ensure the device is unmounted before proceeding with the repair process."
         },
         {
           "id": 3,
           "instruction": "Run `xfs_repair` on the specified device to repair the filesystem.",
           "answer": "xfs_repair $device_name",
-          "explanation": ""
+          "explanation": "In step 3, the xfs_repair command is used to repair the filesystem on the specified device. This command scans the filesystem for inconsistencies and automatically attempts to fix them. If the filesystem is damaged, this repair tool is effective in restoring the integrity of the XFS filesystem, allowing it to be used normally again. The xfs_repair command is run on the device identified earlier in the process."
         },
         {
           "id": 4,
           "instruction": "If `xfs_repair` reports a need to mount the device for log recovery, mount the device and immediately unmount it, then re-run `xfs_repair`.",
           "answer": "mount $device_name && umount $device_name && xfs_repair $device_name",
-          "explanation": ""
+          "explanation": "Step 4 addresses a scenario where xfs_repair reports the need to mount the device for log recovery. In this case, the device is first mounted using the mount command, then immediately unmounted to allow xfs_repair to properly access and recover the logs. The repair tool is then re-run on the device to ensure it is fully repaired after the log recovery process."
         },
         {
           "id": 5,
           "instruction": "Display the device's status using `blkid` to ensure the repair was successful.",
           "answer": "blkid $device_name",
-          "explanation": ""
+          "explanation": "Finally, in step 5, the user is instructed to use the blkid command to display the status of the device after the repair process. This command verifies that the device is properly identified and provides details about its filesystem, ensuring that the repair was successful. By using blkid, the user can confirm that the XFS filesystem is now in a healthy state and ready for use."
         }
       ]
     },
@@ -3951,31 +3951,31 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the mount point of the XFS filesystem to expand (e.g., /mnt/data). Store the input in a variable named 'mount_point'.",
           "answer": "read -p 'Enter the mount point of the XFS filesystem to expand: ' mount_point",
-          "explanation": ""
+          "explanation": "In step 1, the user is prompted to enter the mount point of the XFS filesystem they want to expand (e.g., /mnt/data). This mount point is stored in a variable named mount_point. By prompting for the mount point, the user ensures that the correct filesystem is targeted for expansion, as a single system can have multiple mounted filesystems. The use of the read command allows for dynamic input, making the process flexible and adaptable to different configurations. This input is crucial because it specifies where the XFS filesystem is located, ensuring the following steps can properly reference the intended filesystem for expansion."
         },
         {
           "id": 2,
           "instruction": "Ensure the filesystem is mounted. If not, mount the filesystem to the specified mount point.",
           "answer": "mount | grep $mount_point || mount /dev/sdX1 $mount_point",
-          "explanation": ""
+          "explanation": "In step 2, the system checks whether the XFS filesystem is already mounted at the specified mount point. The mount | grep $mount_point command is used to search through the list of mounted filesystems and verify that the filesystem is present. If the filesystem is not mounted, the command mount /dev/sdX1 $mount_point is executed to mount it. This ensures that the filesystem is accessible and ready for expansion. By using mount with the specified device (e.g., /dev/sdX1) and mount point, the user can ensure that the filesystem is correctly set up before attempting any modifications. This step is critical because xfs_growfs requires the filesystem to be mounted in order to expand it."
         },
         {
           "id": 3,
           "instruction": "Prompt the user to enter the new size or specify 'max' to grow the filesystem to use all available space. Store the input in a variable named 'new_size'.",
           "answer": "read -p 'Enter the new size for the filesystem (or type max for full expansion): ' new_size",
-          "explanation": ""
+          "explanation": "In step 3, the user is prompted to specify the new size for the XFS filesystem. The input can either be a specific size or the keyword \"max,\" which tells the system to expand the filesystem to use all available space on the underlying volume. The command read -p 'Enter the new size for the filesystem (or type max for full expansion): ' new_size stores this input in a variable called new_size. This step is important because it defines how much space the filesystem will use after the expansion. If the user chooses a specific size, they will specify the number of blocks or the desired amount of space. If \"max\" is entered, the filesystem will automatically expand to take up the entire remaining space on the device. This flexibility allows for both precise and maximum expansions based on the user’s needs."
         },
         {
           "id": 4,
           "instruction": "Run `xfs_growfs` on the mount point to expand the filesystem. If 'max' is specified, omit the size parameter.",
           "answer": "if [[ $new_size == 'max' ]]; then xfs_growfs $mount_point; else xfs_growfs $mount_point -D $new_size; fi",
-          "explanation": ""
+          "explanation": "In step 4, the user is instructed to run the xfs_growfs command to expand the XFS filesystem according to the size specified in the previous step. If the user entered \"max\" for the expansion size, the command will simply be xfs_growfs $mount_point, which will cause the filesystem to expand to use all available space on the device. If a specific size was entered, the command will be xfs_growfs $mount_point -D $new_size, where $new_size is the specified size in the appropriate unit (usually the number of filesystem blocks). This command directly modifies the filesystem to accommodate the additional space. After the command runs, the filesystem will now reflect the new, larger size, either using all the available space or the specified amount. It's crucial to ensure the filesystem is mounted before executing this command, as xfs_growfs operates on the active filesystem and requires access to the mount point for the operation."
         },
         {
           "id": 5,
           "instruction": "Verify the expansion by checking the filesystem's size with the `df -h` command.",
           "answer": "df -h $mount_point",
-          "explanation": ""
+          "explanation": "In step 5, the user is instructed to verify the expansion of the XFS filesystem by using the df -h command. This command displays the disk space usage of mounted filesystems in a human-readable format, showing the size, used space, available space, and the mount point. By running df -h $mount_point, the user can confirm that the filesystem at the specified mount point has been successfully expanded. The output will reflect the new size of the filesystem, allowing the user to verify that the space has been added as expected. This step is essential for ensuring that the expansion was successful and that the filesystem is now utilizing the newly available space."
         }
       ]
     },
@@ -3987,19 +3987,19 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the device name of the XFS filesystem (e.g., /dev/sdb1). Store the input in a variable named 'device_name'.",
           "answer": "read -p 'Enter the XFS device to check: ' device_name",
-          "explanation": ""
+          "explanation": "In step 1, the user is prompted to input the device name of the XFS filesystem they wish to check, such as /dev/sdb1, and the entered value is stored in the variable device_name. This step ensures that the user specifies the correct target device for checking the filesystem's integrity. Step 2 involves running the xfs_check command on the provided device to inspect the filesystem for any errors. If the xfs_check tool is unavailable, an alternative is suggested—using xfs_repair in dry-run mode (-n), which simulates a repair without making any changes, allowing the user to identify potential issues without actually modifying the filesystem. In step 3, if errors are found during the check, the user is prompted with a yes/no question asking if they wish to proceed with repairing the filesystem. If the user confirms by entering \"yes,\" the xfs_repair command is executed to repair the filesystem. This step provides the user with a chance to review potential issues and decide whether to proceed with the repair process."
         },
         {
           "id": 2,
           "instruction": "Run `xfs_check` to inspect the filesystem for errors. (If unavailable, advise using `xfs_repair` in dry-run mode.)",
           "answer": "xfs_check $device_name || echo 'xfs_check unavailable, consider dry-run repair with xfs_repair -n $device_name'",
-          "explanation": ""
+          "explanation": "In step 2, the xfs_check command is used to examine the integrity of the XFS filesystem specified by the user. This tool scans the filesystem for inconsistencies or errors that may have occurred. If the xfs_check utility is unavailable on the system, an alternative approach is provided: the user is advised to use xfs_repair in dry-run mode by adding the -n flag, which simulates the repair process without actually making any changes to the filesystem. This dry-run option allows the user to safely check for potential errors while avoiding any unintended modifications. By running this command, the user can assess the health of the filesystem and determine if a repair is necessary."
         },
         {
           "id": 3,
           "instruction": "If errors are found, prompt the user to decide whether to proceed with repair.",
           "answer": "read -p 'Errors found. Proceed with repair? (yes/no): ' proceed && [[ $proceed == 'yes' ]] && xfs_repair $device_name",
-          "explanation": ""
+          "explanation": "In step 3, if the xfs_check or xfs_repair in dry-run mode reports errors on the filesystem, the user is prompted to decide whether to proceed with the actual repair. The prompt asks for user input, specifically whether they want to proceed with the repair process. If the user answers \"yes,\" the command xfs_repair is executed on the specified device to fix the detected issues. The xfs_repair tool is a powerful utility that automatically attempts to correct any errors found in the filesystem, potentially preventing data loss or corruption. This step is essential for ensuring the filesystem is healthy before it is mounted or used in production, minimizing the risk of further issues arising from uncorrected errors."
         }
       ]
     },
@@ -4011,19 +4011,19 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the device name of the XFS filesystem (e.g., /dev/sdb1). Store the input in a variable named 'device_name'.",
           "answer": "read -p 'Enter the XFS device to simulate repair: ' device_name",
-          "explanation": ""
+          "explanation": "In step 1, the user is prompted to enter the device name of the XFS filesystem they wish to simulate a dry-run repair on, such as /dev/sdb1. This input is stored in a variable called device_name. Step 2 involves running the xfs_repair tool with the -n (dry-run) flag on the specified device, which allows the user to check for any errors in the filesystem without making any changes. This is useful for assessing potential issues without affecting the data. In step 3, after running the dry-run repair, the output is reviewed. The user is instructed to look for any errors reported by xfs_repair and then decide whether a full repair is necessary. If errors are found, the user may choose to run the repair tool again without the -n flag to perform actual fixes to the filesystem."
         },
         {
           "id": 2,
           "instruction": "Run `xfs_repair` in dry-run mode to check for errors without making changes.",
           "answer": "xfs_repair -n $device_name",
-          "explanation": ""
+          "explanation": "In step 2, the user is instructed to run the xfs_repair tool in dry-run mode by using the -n flag. The dry-run mode allows the user to check the integrity of the XFS filesystem without actually making any changes. The command used is xfs_repair -n $device_name, where $device_name is the variable holding the path to the device that the user wants to inspect. This command performs a read-only check of the filesystem, simulating the repair process to detect any potential issues such as corruption or inconsistencies. The tool outputs information about the detected problems, if any, but does not apply any fixes to the filesystem during this step. The dry-run mode is particularly useful for identifying issues without altering the data on the device, allowing the user to safely assess the health of the filesystem before performing any real repairs."
         },
         {
           "id": 3,
           "instruction": "Interpret the output and decide if full repair is needed.",
           "answer": "echo 'Review output for errors and decide on further action.'",
-          "explanation": ""
+          "explanation": "In step 3, after running the xfs_repair tool in dry-run mode, the user is instructed to interpret the output of the command and decide whether a full repair is necessary. The dry-run output will indicate any detected errors or problems with the XFS filesystem, but it will not apply any changes or fixes. The user should review the output carefully to identify the severity of the issues. If errors are found, the user will need to determine if the repair should be performed immediately, or if further investigation is needed. The decision to proceed with a full repair depends on the nature of the errors reported and the user’s assessment of the filesystem's health. If the issues appear critical or if the filesystem is not functioning as expected, the user can proceed with running xfs_repair without the -n flag to actually fix the filesystem."
         }
       ]
     },
@@ -4035,25 +4035,25 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the device name of the XFS filesystem (e.g., /dev/sdb1). Store the input in a variable named 'device_name'.",
           "answer": "read -p 'Enter the XFS device for log recovery: ' device_name",
-          "explanation": ""
+          "explanation": "In Step 1, the user is prompted to enter the device name of the XFS filesystem that requires log recovery. The input is stored in a variable named device_name. This device is typically a partition or disk that is formatted with the XFS filesystem. The device_name should point to a valid XFS filesystem, for example, /dev/sdb1. Prompting the user for the device name allows the procedure to be flexible, enabling it to work with any device the user specifies. By gathering this input, the script ensures it operates on the correct target device, which is essential before performing any filesystem recovery or repair actions."
         },
         {
           "id": 2,
           "instruction": "Mount the device to trigger automatic log recovery by the XFS kernel module.",
           "answer": "mount $device_name /mnt",
-          "explanation": ""
+          "explanation": "In Step 2, the user is instructed to mount the device specified in the previous step using the mount command. This action is necessary to trigger automatic log recovery by the XFS kernel module. The XFS filesystem has an internal journal or log that keeps track of operations, which can be helpful in recovering the filesystem after an unexpected shutdown or error. By mounting the device, the system allows the kernel to check and recover any outstanding journal entries, thus ensuring the integrity of the filesystem. If the log recovery is successful, the filesystem should be in a stable state and ready for further use. If not, additional repair steps will be required, as indicated in later steps."
         },
         {
           "id": 3,
           "instruction": "Unmount the device once the log recovery is complete.",
           "answer": "umount $device_name",
-          "explanation": ""
+          "explanation": "In Step 3, after mounting the XFS filesystem using the mount command, the user is instructed to unmount the device once the log recovery process is complete. This is necessary because, in some cases, mounting the filesystem triggers automatic log recovery by the XFS kernel module, which checks the filesystem for any inconsistencies or issues. Once the log recovery process has been successfully triggered and completed, unmounting the device ensures that no further changes are made to the filesystem while it is being worked on, and it prepares the filesystem for further operations, such as repair if necessary. This step helps maintain the integrity of the filesystem and prevents data corruption during recovery."
         },
         {
           "id": 4,
           "instruction": "Run `xfs_repair` on the device if log recovery was not successful.",
           "answer": "xfs_repair $device_name",
-          "explanation": ""
+          "explanation": "In Step 4, after attempting log recovery by mounting the device, the next instruction is to run xfs_repair on the device if log recovery was unsuccessful. This step is critical as it manually triggers a filesystem check and repair process on the XFS filesystem. The xfs_repair command is designed to find and fix any corruption or inconsistencies in the filesystem structure, ensuring the system is returned to a stable state. By running xfs_repair, you are performing a deeper inspection and automatic repair of the filesystem's metadata, which is essential if the kernel module’s automatic log recovery fails to address the issue. This command can correct a wide range of problems, from inode inconsistencies to data block issues, ensuring that the filesystem can be safely used again."
         }
       ]
     },
@@ -4065,25 +4065,25 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Expand the underlying block device (e.g., resize a virtual disk or add space to a partition).",
           "answer": "Follow steps for resizing the block device using your hypervisor or partition tool.",
-          "explanation": ""
+          "explanation": "In Step 1, the task is to expand the underlying block device, which may involve resizing a virtual disk or adding space to an existing partition. This can be done through the appropriate tools or hypervisor interfaces, such as VMware, KVM, or any other system you are using. For example, in the case of a virtual machine, you would expand the virtual disk size in the hypervisor settings or use a partitioning tool to modify the partition size. After increasing the block device's size, the next steps ensure the changes are recognized and applied by the system."
         },
         {
           "id": 2,
           "instruction": "Run `partprobe` to inform the kernel of the changes to the block device.",
           "answer": "partprobe",
-          "explanation": ""
+          "explanation": "In Step 2, the partprobe command is used to inform the kernel of changes made to the partition table. When a partition is resized or a new partition is added, the kernel needs to be updated about these changes to ensure the operating system recognizes the newly available space. Running partprobe will allow the kernel to read the updated partition table and take action accordingly."
         },
         {
           "id": 3,
           "instruction": "Run `xfs_growfs` on the mounted XFS filesystem to use the newly available space.",
           "answer": "xfs_growfs /mnt",
-          "explanation": ""
+          "explanation": "Step 3 involves running the xfs_growfs command to expand the XFS filesystem so it can utilize the newly available space on the underlying block device. This command will adjust the filesystem’s size to take full advantage of the extra space that was added in Step 1. Importantly, xfs_growfs can only be run on a mounted filesystem, meaning the filesystem must be accessible (typically mounted at a directory such as /mnt)."
         },
         {
           "id": 4,
           "instruction": "Verify the expansion by checking the filesystem's size with `df -h`.",
           "answer": "df -h /mnt",
-          "explanation": ""
+          "explanation": "Finally, in Step 4, after expanding the filesystem, the df -h command is used to verify the new size of the filesystem. The df command reports the amount of disk space used and available on filesystems, and the -h option formats the output in a human-readable format. This ensures that the filesystem has indeed been resized successfully and that the new space is available for use."
         }
       ]
     },
@@ -4095,61 +4095,61 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Prompt the user to enter the file or directory name to manage ACLs and store it in a variable named 'file_name'.",
           "answer": "read -p 'Enter the file or directory name to manage ACLs: ' file_name",
-          "explanation": ""
+          "explanation": "In Step 1, the task is to prompt the user to enter the file or directory name for managing ACLs (Access Control Lists). This is done by using the read command to capture user input. The read command will display a prompt asking the user for the file or directory name, which will then be stored in a variable named file_name. The file_name variable will hold the name of the file or directory where ACLs are to be applied or managed. The input is then used in subsequent steps to check and modify ACL settings for that specific file or directory."
         },
         {
           "id": 2,
           "instruction": "Display the current ACLs for the specified file or directory using getfacl.",
           "answer": "getfacl $file_name",
-          "explanation": ""
+          "explanation": "In Step 2, the task is to display the current ACLs (Access Control Lists) for the specified file or directory. This is accomplished by using the getfacl command. The getfacl command is used to retrieve and display the current ACL settings, including the permissions granted to users, groups, and others for a specific file or directory. The file_name variable, which was set in the previous step, is passed as an argument to getfacl, allowing the command to display the current access control information for that particular file or directory. The output will show details such as user and group permissions, default permissions, and any extended ACL entries that have been configured."
         },
         {
           "id": 3,
           "instruction": "Prompt the user to enter a username and permissions (e.g., rwx) to set an ACL for the user. Store the inputs in variables 'username' and 'permissions'.",
           "answer": "read -p 'Enter the username: ' username; read -p 'Enter the permissions (e.g., rwx): ' permissions",
-          "explanation": ""
+          "explanation": "In Step 3, the user is prompted to enter the username and the permissions they wish to set for that user. The permissions should be entered in the standard format, such as rwx, which represents read, write, and execute permissions, respectively. The input is stored in two variables: username for the username and permissions for the specific permissions to be granted. This step is crucial as it allows for the customization of ACLs for individual users. The permissions set here will define the level of access the specified user has for the given file or directory. The input is collected interactively using the read command, making the process dynamic and user-driven. The next step would be to apply these permissions using the setfacl command."
         },
         {
           "id": 4,
           "instruction": "Set the specified ACL for the user on the given file or directory using setfacl.",
           "answer": "setfacl -m u:$username:$permissions $file_name",
-          "explanation": ""
+          "explanation": "In Step 4, the specified Access Control List (ACL) is applied to the file or directory for the given user. Using the setfacl command, the following syntax is used: setfacl -m u:$username:$permissions $file_name. Here, -m is the option to modify the ACL, u:$username:$permissions defines the user and their permissions, and $file_name represents the file or directory on which the ACL will be set. This command grants the specified user ($username) the permissions ($permissions) for the file or directory ($file_name). The setfacl command modifies the file's ACL without changing the file’s original permissions, ensuring that the file’s default permissions are retained, while allowing more granular control over access. The permissions can be r, w, x for read, write, and execute, respectively. If rwx is specified, the user will have full access to the file, while combinations like rw- will grant read and write permissions without execute rights. This step allows for fine-grained control over who can access a file and what they can do with it."
         },
         {
           "id": 5,
           "instruction": "Prompt the user to enter a group name and permissions to set an ACL for the group. Store the inputs in variables 'groupname' and 'permissions'.",
           "answer": "read -p 'Enter the group name: ' groupname; read -p 'Enter the permissions (e.g., rwx): ' permissions",
-          "explanation": ""
+          "explanation": "In Step 5, the user is prompted to enter a group name and the desired permissions for that group, which are stored in the variables groupname and permissions. The setfacl command is then used to apply the specified ACL for the group on the given file or directory. The command syntax setfacl -m g:$groupname:$permissions $file_name is employed, where -m modifies the ACL, g:$groupname:$permissions specifies the group ($groupname) and the permissions ($permissions) to be set, and $file_name is the target file or directory. This allows the user to control group access by assigning permissions such as r (read), w (write), and x (execute) to the group, providing a flexible way to manage group-based access."
         },
         {
           "id": 6,
           "instruction": "Set the specified ACL for the group on the given file or directory using setfacl.",
           "answer": "setfacl -m g:$groupname:$permissions $file_name",
-          "explanation": ""
+          "explanation": "In Step 6, the user is prompted to enter a group name and the desired permissions for the group, which are stored in the variables groupname and permissions. The setfacl command is then used to apply the specified ACL for the group on the given file or directory. The command syntax setfacl -m g:$groupname:$permissions $file_name is employed, where -m modifies the ACL, g:$groupname:$permissions specifies the group ($groupname) and the permissions ($permissions) to be set, and $file_name is the target file or directory. This enables the user to control group access by assigning permissions such as r (read), w (write), and x (execute), offering flexibility in managing group-based access to resources."
         },
         {
           "id": 7,
           "instruction": "Prompt the user to enter a default ACL for all files in a directory (if applicable). Store the inputs in variables 'default_permissions'.",
           "answer": "read -p 'Enter the default permissions for the directory (e.g., rwx): ' default_permissions",
-          "explanation": ""
+          "explanation": "In Step 7, the user is prompted to enter the default permissions for all files within a directory, which are stored in the variable default_permissions. The setfacl command is then used to apply these default permissions to all files within the directory. The command syntax setfacl -d -m u:$username:$default_permissions $file_name is employed, where -d specifies that the ACL being set is a default ACL, -m modifies the ACL, u:$username:$default_permissions assigns the default permissions to the specified user ($username), and $file_name refers to the directory in question. By setting default ACLs, any new files created in the directory will automatically inherit the specified permissions, providing an efficient way to manage access for new files without needing to apply permissions individually."
         },
         {
           "id": 8,
           "instruction": "Set the default ACL for all files in a directory using setfacl.",
           "answer": "setfacl -d -m u:$username:$default_permissions $file_name",
-          "explanation": ""
+          "explanation": "In Step 8, the user is instructed to set the default Access Control List (ACL) for all files within a directory by using the setfacl command. The command setfacl -d -m u:$username:$default_permissions $file_name is used again, where -d indicates that the ACL being applied is a default ACL, which means that the specified permissions will be inherited by all new files created within the directory. The -m option is used to modify the ACL, and u:$username:$default_permissions sets the permissions for the specified user ($username) to the provided default permissions ($default_permissions). This ensures that all new files created within the directory will automatically adopt these default permissions, making it easier to manage user access across multiple files in the directory."
         },
         {
           "id": 9,
           "instruction": "Remove an ACL entry for a specific user. Prompt the user to enter the username and store it in a variable 'username'.",
           "answer": "read -p 'Enter the username to remove ACL for: ' username; setfacl -x u:$username $file_name",
-          "explanation": ""
+          "explanation": "In Step 9, the user is instructed to remove an Access Control List (ACL) entry for a specific user. The command setfacl -x u:$username $file_name is used for this purpose. The -x option tells setfacl to remove the ACL entry for the specified user. The user is prompted to enter the username of the user whose ACL should be removed, which is then stored in the username variable. This ensures that the specified user no longer has any special access permissions for the file or directory, effectively reverting the file to its original state before any ACL was applied for that user. This step is useful for revoking access when it is no longer needed."
         },
         {
           "id": 10,
           "instruction": "Verify the updated ACLs for the specified file or directory.",
           "answer": "getfacl $file_name",
-          "explanation": ""
+          "explanation": "In Step 10, the user is instructed to verify the updated ACLs for the specified file or directory after making changes. The command getfacl $file_name is used to display the current ACLs, showing the permissions associated with the file or directory. This ensures that any modifications, such as adding or removing ACL entries, have been successfully applied. By running this command, the user can confirm that the ACLs reflect the intended access control changes, such as new permissions for users or groups, or the removal of ACL entries for specific users. This step helps ensure that the security settings are correctly configured and that the file or directory's access controls are up to date."
         }
       ]
     }
