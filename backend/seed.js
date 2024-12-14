@@ -3018,7 +3018,7 @@ const Question = require('./models/Question');
         },
         {
           "id": 2,
-          "instruction": "Use command to display real-time process information. Explore the available sorting options.",
+          "instruction": "Use the command to display real-time process information. Explore the available sorting options.",
           "answer": "top",
           "explanation": "In the second step, the user is instructed to use the top command to display real-time process information. The top command provides a dynamic, real-time view of the system's processes, including details such as CPU and memory usage, and allows for easy monitoring of system performance. The user is also encouraged to explore the sorting options available within top. By pressing M, the processes are sorted by memory usage, allowing the user to identify processes consuming the most memory. Pressing P sorts processes by CPU usage, helping to pinpoint processes that are using the most CPU resources. This step demonstrates how to interactively monitor system resources and prioritize troubleshooting based on resource consumption."
         },
