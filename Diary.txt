@@ -150,3 +150,10 @@ npm start
 
 Created more explanations for questions, stopped at 31
 
+-------------------------------------------------------------------------------------------
+
+12/14
+
+Completed all the questions, will need to go question by question to modify the answers
+Should start with question 1 and update so that the questions are unique to this program with original language
+
