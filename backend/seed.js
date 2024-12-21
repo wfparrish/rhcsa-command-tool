@@ -665,7 +665,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 9,
-      "title": "On ServerA, add a new disk, create a 2GiB partition on /dev/sdb, and use it to create a volume group named 'myvg'.",
+      "title": "On the Jump Server, add a new disk to the system and configure it for use with Logical Volume Management (LVM). Create a 2GiB partition on the newly added disk (/dev/sdb) and initialize it as a physical volume. Use this physical volume to create a new volume group named 'myvg'. Verify each step to ensure the disk, partition, and volume group are configured correctly.",
       "steps": [
         {
           "id": 1,
@@ -688,12 +688,12 @@ const Question = require('./models/Question');
         {
           "id": 4,
           "instruction": "Attach the newly added disk to the virtual machine or server.",
-          "answer": "Attach the newly added diskf.",
+          "answer": "Attach the newly added disk.",
           "explanation": "After creating the new disk in the hypervisor or hardware management interface, it must be attached to the virtual machine or server. This process makes the disk available to the operating system during the next boot. Depending on the hypervisor, this may involve selecting the target VM, specifying the disk file or storage location, and connecting the disk as a new SATA or SCSI device. Ensuring the disk is properly attached is critical for its detection by the operating system, enabling further operations like partitioning and volume management. This step transitions the disk from being merely created to being operationally accessible."
         },
         {
           "id": 5,
-          "instruction": "Start the virtual machine and verify that the new disk appears as 'sdb'.",
+          "instruction": "Assume we started the virtual machine. Run the command that will let us verify that the new disk appears as 'sdb'.",
           "answer": "lsblk",
           "explanation": "After attaching the new disk, starting the virtual machine initializes the system, allowing the operating system to detect the added hardware. The lsblk command lists all available block devices, including their names, sizes, and types. Running lsblk verifies that the new disk has been detected by the system and is identified as /dev/sdb. Confirming the disk’s presence ensures that subsequent steps, such as partitioning and volume creation, target the correct device, avoiding accidental changes to existing disks or data. This verification step is crucial for ensuring proper system configuration and preparation for further disk operations."
         },
