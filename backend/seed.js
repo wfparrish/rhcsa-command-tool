@@ -8,7 +8,7 @@ const Question = require('./models/Question');
   const sampleQuestions = [
     {
       "id": 1,
-      "title": "Establish a local repository by mounting a RHEL-9 ISO on the /mnt directory.",
+      "title": "To set up a local repository, begin by obtaining the RHEL-9 ISO provided through the exam interface. Mount this ISO to the /mnt directory to make its contents accessible. Once mounted, configure it as a local repository, allowing you to install packages directly from the ISO during the exam.",
       "steps": [
         {
           "id": 1,
