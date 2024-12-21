@@ -338,7 +338,7 @@ const Question = require('./models/Question');
     },
     {
       "id": 5,
-      "title": "On ServerA, configure a Local Yum/DNF Repository using the RHEL-9 ISO image mounted on the /repo directory. Additionally, set up an HTTP server to allow client machines to access the repository via HTTP. Ensure the repository includes both the BaseOS and AppStream directories and is accessible without an internet connection.\n\nOnce the HTTP server is configured, prepare the client machines to use the HTTP server as their repository source. Test the setup by verifying the repository configuration and availability on the client machines.",
+      "title": "On the Jump Server, configure a local YUM/DNF repository using the RHEL-9 ISO image mounted on the /repo directory. Ensure the repository includes both the BaseOS and AppStream directories to provide comprehensive package availability. Set up an HTTP server, such as Apache (httpd), on the Jump Server to serve the repository files, allowing client machines to access them via HTTP. This configuration must function entirely offline, ensuring that the repository is accessible without an internet connection. Once the HTTP server is configured, update the repository settings on the client machines to use the Jump Server's HTTP repository as their primary source. Finally, test the setup by verifying repository access and functionality on the client machines through package management tasks.",
       "steps": [
         {
           "id": 1,
@@ -440,7 +440,7 @@ const Question = require('./models/Question');
     },
     {
       "id": 6,
-      "title": "On the client machines, configure the repositories to use the HTTP server on ServerA. Test the setup by verifying that the repositories are correctly configured and available.",
+      "title": "On Client Server 1, configure the repository settings to use the HTTP server hosted on the Jump Server as the primary package source. Update the repository files to point to the BaseOS and AppStream directories served over HTTP. Disable GPG checks if required to streamline repository usage in this controlled environment. Once the repository configuration is complete, verify its functionality. Finally, test the repository's availability and functionality by installing a package, such as vim, to ensure seamless communication between the client machines and the Jump Server's HTTP-based repository.",
       "steps": [
         {
           "id": 1,
@@ -536,12 +536,12 @@ const Question = require('./models/Question');
           "id": 16,
           "instruction": "Verify that the repositories are correctly configured and available.",
           "answer": "sudo dnf repolist",
-          "explanation": "The dnf repolist command displays a list of all enabled repositories on the system, including their IDs, names, and the number of packages they provide. Running this command confirms that the newly configured BaseOS and AppStream repositories are active and correctly recognized by the package manager. The output will include repository IDs such as local-baseos and local-appstream, along with the respective package counts. Using sudo ensures sufficient privileges to query the repository configuration. This step is critical to validate that the client machine can access the HTTP server repositories on ServerA, ensuring the repositories are operational and ready for package installation."
+          "explanation": "The dnf repolist command displays a list of all enabled repositories on the system, including their IDs, names, and the number of packages they provide. Running this command confirms that the newly configured BaseOS and AppStream repositories are active and correctly recognized by the package manager. The output will include repository IDs such as local-baseos and local-appstream, along with the respective package counts. Using sudo ensures sufficient privileges to query the repository configuration. This step is critical to validate that the client machine can access the HTTP server repositories on the Jump Server, ensuring the repositories are operational and ready for package installation."
         }
       ]
     }, {
       "id": 7,
-      "title": "On ServerA, configure the system time to the 'America/New_York' timezone.",
+      "title": "On the Jump Server, configure the system timezone to 'America/New_York' to ensure accurate timekeeping for system logs, scheduled tasks, and time-sensitive operations. Verify the current timezone configuration, identify the correct timezone from the available options, and update the system settings to reflect the new timezone. Finally, confirm that the change has been applied successfully to ensure consistency across system operations.",
       "steps": [
         {
           "id": 1,
@@ -576,7 +576,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 8,
-      "title": "Configure Time Synchronization and Timezone Using Chrony.",
+      "title": "On the Jump Server, configure time synchronization using Chrony to ensure the system clock is accurate and aligned with network time servers. Update the configuration to include at least two preferred NTP servers and allow NTP traffic through the firewall. Additionally, set the system timezone to 'America/New_York' to ensure accurate local timekeeping. Verify the configuration by checking time synchronization status, current time sources, and timezone settings. Perform an immediate synchronization to confirm the system is operating with precise time.",
       "steps": [
         {
           "id": 1,
@@ -622,13 +622,13 @@ const Question = require('./models/Question');
         },
         {
           "id": 8,
-          "instruction": "Add a preferred NTP server configuration to the /etc/chrony.conf file.",
+          "instruction": "Add a preferred NTP server configuration to the /etc/chrony.conf file. Use the name 'time1.example.com' as the server.",
           "answer": "server time1.example.com iburst",
           "explanation": "Adding the line server time1.example.com iburst to the /etc/chrony.conf file configures Chrony to use time1.example.com as a preferred NTP server for time synchronization. The server keyword specifies the hostname or IP address of the NTP server, while the iburst option speeds up initial synchronization by sending multiple requests in quick succession if the server is unreachable. This ensures the system quickly achieves accurate timekeeping, especially after a reboot or network downtime. Properly setting an NTP server in the configuration file is critical for maintaining precise and consistent time across systems, which is essential for tasks such as logging, authentication, and scheduled jobs."
         },
         {
           "id": 9,
-          "instruction": "Add a second preferred NTP server configuration to the /etc/chrony.conf file.",
+          "instruction": "Add a second NTP server configuration to the /etc/chrony.conf file. Use the name 'time2.example.com' as the server.",
           "answer": "server time2.example.com iburst",
           "explanation": "Adding the line server time2.example.com iburst to the /etc/chrony.conf file configures Chrony to use time2.example.com as an additional NTP server for time synchronization. This redundancy ensures that if the primary server (time1.example.com) is unavailable, Chrony can still synchronize time using this secondary server. The iburst option accelerates the synchronization process if the server is initially unreachable by sending multiple requests in quick succession. Configuring multiple NTP servers enhances reliability and accuracy, ensuring that the system maintains precise time even in cases of network interruptions or server failures. This practice is particularly valuable in environments requiring strict time consistency across systems."
         },
