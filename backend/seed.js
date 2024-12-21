@@ -884,7 +884,7 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Display information about the volume groups to confirm sufficient space is available in 'volgroup1'.",
           "answer": "vgs",
-          "explanation": "The vgs command provides an overview of all volume groups on the system, showing details like their total size, free space, and allocated storage. Running this command ensures that the volgroup1 volume group has enough unallocated space to accommodate the additional 500MiB before attempting the extension. This step prevents errors that could occur if the volume group lacks sufficient space. By verifying storage availability in advance, this practice demonstrates careful resource management, which is essential for RHCSA and effective system administration in real-world environments."
+          "explanation": "The vgs command provides an overview of all volume groups on the system, showing details like their total size, free space, and allocated storage. Running this command ensures that the volgroup1 volume group has enough unallocated space to accommodate the additional 600MiB before attempting the extension. This step prevents errors that could occur if the volume group lacks sufficient space. By verifying storage availability in advance, this practice demonstrates careful resource management, which is essential for RHCSA and effective system administration in real-world environments."
         },
         {
           "id": 2,
