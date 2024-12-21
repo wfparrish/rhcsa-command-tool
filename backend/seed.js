@@ -665,7 +665,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 9,
-      "title": "On the Jump Server, add a new disk to the system and configure it for use with Logical Volume Management (LVM). Create a 2GiB partition on /dev/sdb and initialize it as a physical volume. Use this physical volume to create a new volume group named 'volgroup1'. Verify each step to ensure the disk, partition, and volume group are configured correctly.",
+      "title": "On the Jump Server, add a new disk to the system and configure it for use with Logical Volume Management (LVM). Create a 3GiB partition on /dev/sdb and initialize it as a physical volume. Use this physical volume to create a new volume group named 'volgroup1'. Verify each step to ensure the disk, partition, and volume group are configured correctly.",
       "steps": [
         {
           "id": 1,
