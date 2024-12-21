@@ -426,15 +426,15 @@ const Question = require('./models/Question');
         },
         {
           "id": 15,
-          "instruction": "Verify the repository configuration on the client machine.",
+          "instruction": "Verify the repository configuration on Client Server 1.",
           "answer": "sudo dnf repolist",
-          "explanation": "The dnf repolist command displays all enabled repositories configured on the system, including their IDs, names, and the number of available packages. By running this command on the client machine, you can confirm that the HTTP server hosting the BaseOS and AppStream repositories is accessible and properly configured as a source for package management. This step is crucial in ensuring that the client machine can fetch package metadata and install software from the local repository, meeting the goal of offline package management in the RHCSA context. "
+          "explanation": "The dnf repolist command displays all enabled repositories configured on the system, including their IDs, names, and the number of available packages. By running this command on Client Server 1, you can confirm that the HTTP server hosting the BaseOS and AppStream repositories is accessible and properly configured as a source for package management. This step is crucial in ensuring that the client machine can fetch package metadata and install software from the local repository, meeting the goal of offline package management in the RHCSA context. "
         },
         {
           "id": 16,
-          "instruction": "Test the repository by installing a package on the client machine.",
+          "instruction": "Test the repository by installing a package on Client Server 1.",
           "answer": "sudo dnf install vim",
-          "explanation": "The sudo dnf install vim command installs the vim package on the client machine, verifying that the repository configured through the HTTP server is functional and accessible. During installation, dnf retrieves the package metadata and files from the BaseOS or AppStream directories on the HTTP server, ensuring the repository is correctly set up. This step tests the end-to-end functionality of the repository configuration, validating that both the server and client systems are properly connected. Successful installation demonstrates that the repository can support package management operations without requiring internet access, aligning with the RHCSA exam scenario's requirements."
+          "explanation": "The sudo dnf install vim command installs the vim package on Client Server 1, verifying that the repository configured through the HTTP server is functional and accessible. During installation, dnf retrieves the package metadata and files from the BaseOS or AppStream directories on the HTTP server, ensuring the repository is correctly set up. This step tests the end-to-end functionality of the repository configuration, validating that both the server and client systems are properly connected. Successful installation demonstrates that the repository can support package management operations without requiring internet access, aligning with the RHCSA exam scenario's requirements."
         }
       ]
     },
