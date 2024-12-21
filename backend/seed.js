@@ -790,31 +790,31 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 10,
-      "title": "On ServerA, create a 500MiB logical volume named 'mylv' within the 'myvg' volume group on /dev/sdb.",
+      "title": "On the Jump Server, create a 500MiB logical volume named 'logvol1' within the 'volgroup1' volume group on the disk /dev/sdb. Verify the existence of the volume group, create the logical volume, and confirm its successful creation. Ensure that the volume group reflects the newly created logical volume.",
       "steps": [
         {
           "id": 1,
-          "instruction": "Display information about the existing volume groups to confirm 'myvg' exists.",
+          "instruction": "Display information about the existing volume groups to confirm 'volgroup1' exists.",
           "answer": "vgs",
-          "explanation": "The vgs command is used to display information about all volume groups present on the system. This step is critical for confirming the existence and readiness of the myvg volume group before proceeding with the creation of a logical volume. The output provides details such as the volume group's name, total size, and free space, ensuring that the group has sufficient space to accommodate the 500MiB logical volume to be created. This verification aligns with the RHCSA focus on precise and efficient system management, reducing the likelihood of errors in subsequent steps."
+          "explanation": "The vgs command is used to display information about all volume groups present on the system. This step is critical for confirming the existence and readiness of the volgroup1 volume group before proceeding with the creation of a logical volume. The output provides details such as the volume group's name, total size, and free space, ensuring that the group has sufficient space to accommodate the 500MiB logical volume to be created. This verification aligns with the RHCSA focus on precise and efficient system management, reducing the likelihood of errors in subsequent steps."
         },
         {
           "id": 2,
-          "instruction": "Create a logical volume named 'mylv' with a size of 500MiB in the 'myvg' volume group.",
-          "answer": "lvcreate -n mylv -L 500MiB myvg",
-          "explanation": "The lvcreate command creates a logical volume within a specified volume group. The -n mylv option assigns the name mylv to the new logical volume, while the -L 500MiB option sets its size to 500 MiB. Finally, myvg specifies the volume group where the logical volume is to be created. This step ensures that storage is allocated efficiently for specific use cases, such as creating filesystems or managing applications. Understanding logical volume management is a core component of RHCSA, and creating logical volumes enables administrators to flexibly allocate and manage disk space in Linux systems."
+          "instruction": "Create a logical volume named 'logvol1' with a size of 500MiB in the 'volgroup1' volume group.",
+          "answer": "lvcreate -n logvol1 -L 500MiB volgroup1",
+          "explanation": "The lvcreate command creates a logical volume within a specified volume group. The -n logvol1 option assigns the name logvol1 to the new logical volume, while the -L 500MiB option sets its size to 500 MiB. Finally, volgroup1 specifies the volume group where the logical volume is to be created. This step ensures that storage is allocated efficiently for specific use cases, such as creating filesystems or managing applications. Understanding logical volume management is a core component of RHCSA, and creating logical volumes enables administrators to flexibly allocate and manage disk space in Linux systems."
         },
         {
           "id": 3,
-          "instruction": "Verify that the logical volume 'mylv' has been created successfully.",
+          "instruction": "Verify that the logical volume 'logvol1' has been created successfully.",
           "answer": "lvs",
-          "explanation": "The lvs command displays detailed information about all logical volumes configured on the system. Running this command after creating the mylv logical volume confirms its successful creation by listing its properties, such as its name, size, and the volume group it belongs to (myvg). This verification step ensures that the logical volume exists and is correctly associated with the intended volume group, which is critical for reliable system administration and aligns with RHCSA objectives for managing storage efficiently."
+          "explanation": "The lvs command displays detailed information about all logical volumes configured on the system. Running this command after creating the logvol1 logical volume confirms its successful creation by listing its properties, such as its name, size, and the volume group it belongs to (volgroup1). This verification step ensures that the logical volume exists and is correctly associated with the intended volume group, which is critical for reliable system administration and aligns with RHCSA objectives for managing storage efficiently."
         },
         {
           "id": 4,
           "instruction": "Recheck the volume group to ensure it reflects the new logical volume.",
           "answer": "vgs",
-          "explanation": "The vgs command provides an overview of all volume groups on the system, including their total size, free space, and the number of logical volumes they contain. Running this command after creating the mylv logical volume confirms that the myvg volume group now includes the new logical volume and shows how the available space within the volume group has been adjusted. This step ensures that the volume group is functioning correctly and that the logical volume has been properly integrated into its structure, a key task in RHCSA storage management."
+          "explanation": "The vgs command provides an overview of all volume groups on the system, including their total size, free space, and the number of logical volumes they contain. Running this command after creating the logvol1 logical volume confirms that the volgroup1 volume group now includes the new logical volume and shows how the available space within the volume group has been adjusted. This step ensures that the volume group is functioning correctly and that the logical volume has been properly integrated into its structure, a key task in RHCSA storage management."
         }
       ]
     }, {
