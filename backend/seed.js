@@ -140,7 +140,7 @@ const Question = require('./models/Question');
     },
     {
       "id": 2,
-      "title": "Create a new user and group. After the user is created, give the user sudo privileges.",
+      "title": "Create a new user along with an associated group. Once the user is set up, assign them sudo privileges to allow administrative access when needed.",
       "steps": [
         {
           "id": 1,
@@ -182,7 +182,7 @@ const Question = require('./models/Question');
     },
     {
       "id": 3,
-      "title": "Assume that you forget the root password. Reset the root password for ServerB. Change it to “secret” to gain access to the system.",
+      "title": "Reset the root password on Client Server 1 to regain administrative access. Begin by rebooting the server to interrupt the boot process, then access the boot menu to modify kernel parameters. Boot the system into a minimal shell environment, remount the root filesystem with write permissions, and reset the root password to 'secret.' Ensure the proper SELinux context is applied to critical files before resuming the normal boot process to fully restore system functionality.",
       "steps": [
         {
           "id": 1,
