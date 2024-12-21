@@ -665,7 +665,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 9,
-      "title": "On the Jump Server, add a new disk to the system and configure it for use with Logical Volume Management (LVM). Create a 2GiB partition on the newly added disk (/dev/sdb) and initialize it as a physical volume. Use this physical volume to create a new volume group named 'myvg'. Verify each step to ensure the disk, partition, and volume group are configured correctly.",
+      "title": "On the Jump Server, add a new disk to the system and configure it for use with Logical Volume Management (LVM). Create a 2GiB partition on /dev/sdb and initialize it as a physical volume. Use this physical volume to create a new volume group named 'volgroup1'. Verify each step to ensure the disk, partition, and volume group are configured correctly.",
       "steps": [
         {
           "id": 1,
@@ -777,15 +777,15 @@ const Question = require('./models/Question');
         },
         {
           "id": 19,
-          "instruction": "Create a volume group named 'myvg' using /dev/sdb1.",
-          "answer": "vgcreate myvg /dev/sdb1",
-          "explanation": "The vgcreate command is used to create a new volume group in LVM, which is a logical aggregation of one or more physical volumes. In this step, the command creates a volume group named myvg and includes the physical volume /dev/sdb1. By aggregating physical storage into a volume group, you enable flexible allocation of storage to logical volumes. This is a foundational step in LVM setup, as the volume group serves as the pool from which logical volumes are created. Successful execution of this command confirms that the physical volume has been correctly initialized and incorporated into the logical volume management system."
+          "instruction": "Create a volume group named 'volgroup1' using /dev/sdb1.",
+          "answer": "vgcreate volgroup1 /dev/sdb1",
+          "explanation": "The vgcreate command is used to create a new volume group in LVM, which is a logical aggregation of one or more physical volumes. In this step, the command creates a volume group named volgroup1 and includes the physical volume /dev/sdb1. By aggregating physical storage into a volume group, you enable flexible allocation of storage to logical volumes. This is a foundational step in LVM setup, as the volume group serves as the pool from which logical volumes are created. Successful execution of this command confirms that the physical volume has been correctly initialized and incorporated into the logical volume management system."
         },
         {
           "id": 20,
-          "instruction": "Verify that the volume group 'myvg' has been created.",
+          "instruction": "Verify that the volume group 'volgroup1' has been created.",
           "answer": "vgs",
-          "explanation": "The command vgs stands for 'Volume Group Summary'. The vgs command displays information about all volume groups configured on the system. Running this command after creating the volume group myvg allows you to confirm its existence and inspect its attributes, such as the group size, free space, and the number of physical volumes it includes. This verification step is essential for ensuring that the volume group was created correctly and is ready for further logical volume management operations. In practice, confirming configurations after each step reduces errors and aids in troubleshooting during tasks like those encountered in the RHCSA exam."
+          "explanation": "The command vgs stands for 'Volume Group Summary'. The vgs command displays information about all volume groups configured on the system. Running this command after creating the volume group volgroup1 allows you to confirm its existence and inspect its attributes, such as the group size, free space, and the number of physical volumes it includes. This verification step is essential for ensuring that the volume group was created correctly and is ready for further logical volume management operations. In practice, confirming configurations after each step reduces errors and aids in troubleshooting during tasks like those encountered in the RHCSA exam."
         }
       ]
     }, {
