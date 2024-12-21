@@ -907,7 +907,7 @@ const Question = require('./models/Question');
           "id": 1,
           "instruction": "Install the Apache web server.",
           "answer": "dnf install httpd -y",
-          "explanation": "The dnf install command installs the specified package, in this case, httpd, which is the Apache web server package for RHEL-based systems. The -y option automatically answers 'yes' to any prompts, ensuring a non-interactive installation process. This step sets up the foundational web server software required for hosting web content on ServerA. Installing Apache is critical for this task, as it enables the system to serve HTTP requests, forming the basis for verifying web access and firewall configurations. This command also ensures dependencies are resolved and installed, preparing the environment for subsequent configurations."
+          "explanation": "The dnf install command installs the specified package, in this case, httpd, which is the Apache web server package for RHEL-based systems. The -y option automatically answers 'yes' to any prompts, ensuring a non-interactive installation process. This step sets up the foundational web server software required for hosting web content on the Jump Server. Installing Apache is critical for this task, as it enables the system to serve HTTP requests, forming the basis for verifying web access and firewall configurations. This command also ensures dependencies are resolved and installed, preparing the environment for subsequent configurations."
         },
         {
           "id": 2,
@@ -936,7 +936,7 @@ const Question = require('./models/Question');
         {
           "id": 6,
           "instruction": "Add the text 'Welcome to the webserver!' to the 'index.html' file.",
-          "answer": "Enter: Welcome to the webserver!",
+          "answer": "Welcome to the webserver!",
           "explanation": "After opening the index.html file with Vim, entering the text Welcome to the webserver! adds a custom message that will be displayed as the main content of the web page served by the Apache server. This step personalizes the web server’s default response to HTTP requests. Ensuring the message is accurately added to the file is critical for confirming the server is functioning correctly and for verifying custom configurations during testing or deployment."
         },
         {
