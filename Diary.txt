@@ -163,9 +163,9 @@ Should start with question 1 and update so that the questions are unique to this
 
 Here’s a summary of the updates we made:
 
-Server Name:
+Server Names:
 Original: Referenced generically (e.g., "Server" or "ServerB").
-Updated: Explicitly named the interface as ens160, reflecting the actual network interface on the system.
+Updated: Jump Server or Client Server 1, Client Server 2, etc...
 
 Connection Name:
 Original: myprofile1.
