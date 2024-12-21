@@ -878,25 +878,25 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 12,
-      "title": "On ServerA, extend the ext4 filesystem on 'mylv' by 500MiB.",
+      "title": "On the Jump Server, expand the storage capacity of the logical volume 'logvol1' within the 'volgroup1' volume group by extending it with an additional 600MiB. Ensure that the ext4 filesystem on the logical volume is resized to utilize the newly added space. Verify each step to confirm the successful extension of both the logical volume and its filesystem",
       "steps": [
         {
           "id": 1,
-          "instruction": "Display information about the volume groups to confirm sufficient space is available.",
+          "instruction": "Display information about the volume groups to confirm sufficient space is available in 'volgroup1'.",
           "answer": "vgs",
-          "explanation": "The vgs command provides a concise overview of all volume groups on the system, including their total size, free space, and allocated storage. Running this command before extending the logical volume ensures that the volume group myvg has enough unallocated space to accommodate the additional 500MiB. This step is critical because attempting to extend a logical volume without sufficient space in the volume group will fail. The vgs command is an essential tool for managing logical volume configurations, verifying storage resources, and preparing for resizing tasks, making it a vital skill for the RHCSA exam and practical system administration."
+          "explanation": "The vgs command provides an overview of all volume groups on the system, showing details like their total size, free space, and allocated storage. Running this command ensures that the volgroup1 volume group has enough unallocated space to accommodate the additional 500MiB before attempting the extension. This step prevents errors that could occur if the volume group lacks sufficient space. By verifying storage availability in advance, this practice demonstrates careful resource management, which is essential for RHCSA and effective system administration in real-world environments."
         },
         {
           "id": 2,
-          "instruction": "Extend the logical volume 'myvg-mylv' by 500MiB and resize the filesystem to match the new size.",
-          "answer": "lvextend -r -L +500M /dev/mapper/myvg-mylv",
-          "explanation": "The lvextend command is used to increase the size of an existing logical volume. The -L +500M option specifies the amount to extend the logical volume, in this case, 500MiB. The -r option (short for --resizefs) ensures that the associated filesystem is resized simultaneously to utilize the newly added space, eliminating the need for a separate filesystem resizing step. This command is applied to /dev/mapper/myvg-mylv, the full path to the logical volume. By combining volume extension and filesystem resizing, this step efficiently increases storage capacity, ensuring the logical volume and its filesystem are immediately ready for use. This approach aligns with RHCSA exam objectives, demonstrating effective storage management in real-world scenarios."
+          "instruction": "Extend the logical volume 'volgroup1-logvol1' by 600MiB and resize the filesystem to match the new size.",
+          "answer": "lvextend -r -L +600M /dev/mapper/volgroup1-logvol1",
+          "explanation": "The lvextend command increases the size of an existing logical volume. The -L +500M option specifies an increase of 600MiB, while the -r option (short for --resizefs) ensures that the associated filesystem is resized simultaneously to utilize the additional space. Applying this to /dev/mapper/volgroup1-logvol1 updates both the logical volume and its filesystem in one step, ensuring they are ready for immediate use. This efficient approach simplifies storage management, aligns with RHCSA objectives, and demonstrates practical skills for maintaining flexible and responsive storage systems."
         },
         {
           "id": 3,
-          "instruction": "Verify that the logical volume 'myvg-mylv' has been extended successfully.",
+          "instruction": "Verify that the logical volume 'volgroup1-logvol1' has been extended successfully.",
           "answer": "lvs",
-          "explanation": "The lvs command displays detailed information about all logical volumes in the system. Running this command after extending the logical volume ensures that the new size of 'myvg-mylv' is correctly reflected. This verification step is essential to confirm that the extension process was successful and that the logical volume is properly updated. Observing the output also helps identify any discrepancies or errors, ensuring storage configurations align with expectations. This step is crucial for effective system administration, especially in environments where precise storage management is critical, such as during the RHCSA exam."
+          "explanation": "The lvs command displays detailed information about all logical volumes in the system, including their names, sizes, and associated volume groups. Running this command after the extension ensures that the updated size of volgroup1-logvol1 is correctly reflected. This verification step confirms that the extension process was successful and the logical volume is ready for use. Observing the output also helps identify any potential discrepancies or errors, ensuring reliable storage configurations. This step underscores the importance of verification in storage management, a critical aspect of the RHCSA exam and practical system administration."
         }
       ]
     }, {
