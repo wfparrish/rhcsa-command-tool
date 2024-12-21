@@ -182,7 +182,7 @@ const Question = require('./models/Question');
     },
     {
       "id": 3,
-      "title": "Reset the root password on Client Server 1 to regain administrative access. Begin by rebooting the server to interrupt the boot process, then access the boot menu to modify kernel parameters. Boot the system into a minimal shell environment, remount the root filesystem with write permissions, and reset the root password to 'secret.' Ensure the proper SELinux context is applied to critical files before resuming the normal boot process to fully restore system functionality.",
+      "title": "Reset the root password on Client Server 1 to regain administrative access. Begin by rebooting the server to interrupt the boot process, then access the boot menu to modify kernel parameters. Boot the system into a minimal shell environment, remount the root filesystem with write permissions, and reset the root password to 'secret'. Ensure the proper SELinux context is applied to critical files before resuming the normal boot process to fully restore system functionality.",
       "steps": [
         {
           "id": 1,
