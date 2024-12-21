@@ -819,61 +819,61 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 11,
-      "title": "On ServerA, format the 'mylv' logical volume with the ext4 filesystem and mount it persistently on the /mylv directory.",
+      "title": "On the Jump Server, format the logical volume 'logvol1' with the ext4 filesystem and configure it for persistent mounting on the /logvol1 directory. Verify the existence of the logical volume, prepare the filesystem, create the mount point, and update the /etc/fstab file to ensure the logical volume is mounted automatically at boot.",
       "steps": [
         {
           "id": 1,
-          "instruction": "Display information about the logical volumes to confirm 'mylv' exists.",
+          "instruction": "Display information about the logical volumes to confirm 'logvol1' exists.",
           "answer": "lvs",
-          "explanation": "The lvs command provides detailed information about all logical volumes in the system, including their names, volume groups, sizes, and other attributes. Running this command verifies that the logical volume mylv within the myvg volume group exists and is ready for formatting. This step ensures that the logical volume creation process was successful before proceeding with the next steps to format and mount it. Confirming the existence and integrity of the mylv logical volume aligns with RHCSA best practices for storage management and prevents errors later in the configuration process."
+          "explanation": "The lvs command provides detailed information about all logical volumes in the system, including their names, volume groups, sizes, and other attributes. Running this command verifies that the logical volume logvol1 within the volgroup1 volume group exists and is ready for formatting. This step ensures that the logical volume creation process was successful before proceeding with the next steps to format and mount it. Confirming the existence and integrity of the logvol1 logical volume aligns with RHCSA best practices for storage management and prevents errors later in the configuration process."
         },
         {
           "id": 2,
-          "instruction": "Create an ext4 filesystem on the 'mylv' logical volume.",
-          "answer": "mkfs.ext4 /dev/mapper/myvg-mylv",
-          "explanation": "The mkfs.ext4 command formats a specified block device with the ext4 filesystem. Here, /dev/mapper/myvg-mylv refers to the logical volume mylv within the myvg volume group. The mkfs utility creates a new filesystem, overwriting any existing data on the volume. The ext4 filesystem is a widely used Linux filesystem that supports journaling, large storage capacities, and efficient performance, making it ideal for general-purpose usage. This step is critical to prepare the logical volume for mounting and use, ensuring it can store files and directories effectively. Ensuring the correct device is specified prevents accidental data loss on unrelated volumes."
+          "instruction": "Create an ext4 filesystem on the 'logvol1' logical volume.",
+          "answer": "mkfs.ext4 /dev/mapper/volgroup1-logvol1",
+          "explanation": "The mkfs.ext4 command formats a specified block device with the ext4 filesystem. Here, /dev/mapper/volgroup1-logvol1 refers to the logical volume logvol1 within the volgroup1 volume group. The mkfs utility creates a new filesystem, overwriting any existing data on the volume. The ext4 filesystem is a widely used Linux filesystem that supports journaling, large storage capacities, and efficient performance, making it ideal for general-purpose usage. This step is critical to prepare the logical volume for mounting and use, ensuring it can store files and directories effectively. Ensuring the correct device is specified prevents accidental data loss on unrelated volumes."
         },
         {
           "id": 3,
-          "instruction": "Create a directory named '/mylv' to serve as the mount point.",
-          "answer": "mkdir /mylv",
-          "explanation": "The mkdir command, short for 'make directory,' is used to create a new directory within the filesystem. Here, the /mylv directory is created to serve as the mount point for the mylv logical volume. A mount point is a designated directory where the contents of a storage device or volume are accessed. This step is essential for making the formatted logical volume accessible to the operating system and users. By choosing a clear and descriptive directory name, such as /mylv, you ensure that the purpose of the mount point is easy to understand and maintain, both for this setup and for future troubleshooting or modifications."
+          "instruction": "Create a directory named '/logvol1' to serve as the mount point.",
+          "answer": "mkdir /logvol1",
+          "explanation": "The mkdir command, short for 'make directory,' is used to create a new directory within the filesystem. Here, the /logvol1 directory is created to serve as the mount point for the logvol1 logical volume. A mount point is a designated directory where the contents of a storage device or volume are accessed. This step is essential for making the formatted logical volume accessible to the operating system and users. By choosing a clear and descriptive directory name, such as /logvol1, you ensure that the purpose of the mount point is easy to understand and maintain, both for this setup and for future troubleshooting or modifications."
         },
         {
           "id": 4,
           "instruction": "Open the '/etc/fstab' file for editing using Vim.",
           "answer": "vim /etc/fstab",
-          "explanation": "The vim editor is a powerful text editor used to modify files in Linux. Opening the /etc/fstab file allows you to configure persistent mounts for filesystems. The /etc/fstab file contains a list of filesystems, mount points, and their mounting options, which the system uses during boot to automatically mount specified devices or partitions. Using vim ensures you can precisely edit the file to add the required entry for mounting the mylv logical volume persistently. This step is critical for ensuring the mount persists across reboots, a common requirement for maintaining operational consistency in both production and exam environments."
+          "explanation": "The vim editor is a powerful text editor used to modify files in Linux. Opening the /etc/fstab file allows you to configure persistent mounts for filesystems. The /etc/fstab file contains a list of filesystems, mount points, and their mounting options, which the system uses during boot to automatically mount specified devices or partitions. Using vim ensures you can precisely edit the file to add the required entry for mounting the logvol1 logical volume persistently. This step is critical for ensuring the mount persists across reboots, a common requirement for maintaining operational consistency in both production and exam environments."
         },
         {
           "id": 5,
           "instruction": "Navigate to the last line in the file and insert a new line below it.",
           "answer": "Press Shift + G, then press o",
-          "explanation": "In vim, navigating to the last line is achieved by pressing Shift + G, which places the cursor at the end of the file. Pressing o then opens a new line below the current cursor position and puts the editor in insert mode, allowing you to add a new entry. This step prepares the file for adding the mount configuration for the mylv logical volume, ensuring the configuration is appended without overwriting existing entries. This precise sequence ensures modifications are made efficiently and accurately in the /etc/fstab file."
+          "explanation": "In vim, navigating to the last line is achieved by pressing Shift + G, which places the cursor at the end of the file. Pressing o then opens a new line below the current cursor position and puts the editor in insert mode, allowing you to add a new entry. This step prepares the file for adding the mount configuration for the logvol1 logical volume, ensuring the configuration is appended without overwriting existing entries. This precise sequence ensures modifications are made efficiently and accurately in the /etc/fstab file."
         },
         {
           "id": 6,
-          "instruction": "Add the following entry to mount 'mylv' persistently:\n/dev/mapper/myvg-mylv /mylv ext4 defaults 0 0",
-          "answer": "/dev/mapper/myvg-mylv /mylv ext4 defaults 0 0",
-          "explanation": "Adding this line to the /etc/fstab file ensures that the mylv logical volume is mounted persistently across reboots. Each component of the line serves a specific purpose. /dev/mapper/myvg-mylv identifies the logical volume device created within the myvg volume group. /mylv specifies the mount point directory where the filesystem will be accessible. The ext4 filesystem type indicates the formatting applied to the logical volume. The defaults option enables standard mount options such as read-write permissions and asynchronous writes. The final two zeros indicate that the filesystem is excluded from the dump backup utility (0) and does not require a filesystem check (fsck) on boot (0). This configuration is critical for ensuring the logical volume is mounted reliably in alignment with system startup processes."
+          "instruction": "Add the following entry to mount 'logvol1' persistently:\n/dev/mapper/volgroup1-logvol1 /logvol1 ext4 defaults 0 0",
+          "answer": "/dev/mapper/volgroup1-logvol1 /logvol1 ext4 defaults 0 0",
+          "explanation": "Adding this line to the /etc/fstab file ensures that the logvol1 logical volume is mounted persistently across reboots. Each component of the line serves a specific purpose: /dev/mapper/volgroup1-logvol1 identifies the logical volume device created within the volgroup1 volume group. /logvol1 specifies the mount point directory where the filesystem will be accessible. The ext4 filesystem type indicates the formatting applied to the logical volume. The defaults option enables standard mount options such as read-write permissions and asynchronous writes. The final two zeros exclude the filesystem from the dump backup utility (0) and prevent a filesystem check (fsck) on boot (0). This configuration is critical for ensuring the logical volume is mounted reliably during system startup, providing seamless access to storage."
         },
         {
           "id": 7,
           "instruction": "Save and exit the Vim editor.",
           "answer": "Press Esc, then type :wq and press Enter",
-          "explanation": "The command sequence :wq in Vim saves changes made to the currently opened file and exits the editor. After entering the /etc/fstab entry to persistently mount the mylv logical volume, saving and exiting ensures that the configuration is stored and ready for use. Pressing Esc switches Vim to command mode, where you can type :wq to write (save) the file (w) and quit (q). This step is essential to apply the changes made to the /etc/fstab file, enabling the system to recognize and implement the updated mount configuration during subsequent operations or reboots."
+          "explanation": "The command sequence :wq in Vim saves changes made to the currently opened file and exits the editor. After entering the /etc/fstab entry to persistently mount the logvol1 logical volume, saving and exiting ensures that the configuration is stored and ready for use. Pressing Esc switches Vim to command mode, allowing you to type :wq to write (save) the file (w) and quit (q). This step ensures the /etc/fstab modifications are committed, enabling the system to apply the updated mount configuration for the logvol1 logical volume during subsequent operations or reboots."
         },
         {
           "id": 8,
           "instruction": "Mount all file systems specified in '/etc/fstab' to ensure the changes take effect.",
           "answer": "mount -a",
-          "explanation": "The mount -a command is used to mount all file systems specified in the /etc/fstab file, except those explicitly marked with the noauto option. This step applies the changes made to the /etc/fstab file without requiring a reboot, ensuring the mylv logical volume is mounted on the /mylv directory as specified. By executing this command, the system reads the updated file, verifies the mount configurations, and activates any new or updated entries. This is a critical step to confirm that the logical volume is accessible immediately after configuration changes. On the RHCSA, understanding the mount -a command demonstrates proficiency in filesystem management and ensures configurations are correctly implemented in real-time."
+          "explanation": "The mount -a command mounts all filesystems specified in the /etc/fstab file, except those marked with the noauto option. This step applies the changes made to the /etc/fstab file without requiring a reboot, ensuring the logvol1 logical volume is mounted at the /logvol1 directory as specified. By executing this command, the system reads the updated /etc/fstab file, verifies the mount configurations, and activates any new or updated entries. This is a crucial step to confirm that the logical volume is accessible immediately after configuration changes, demonstrating expertise in real-time filesystem management, a key RHCSA skill."
         },
         {
           "id": 9,
-          "instruction": "List all available block devices to confirm '/mylv' is mounted correctly.",
+          "instruction": "List all available block devices to confirm '/logvol1' is mounted correctly.",
           "answer": "lsblk",
-          "explanation": "The lsblk command displays detailed information about all block devices attached to the system, including their mount points, sizes, and types. By running lsblk, you can verify that the mylv logical volume is mounted at the /mylv directory as intended. This step ensures that the logical volume was successfully formatted, added to /etc/fstab, and mounted correctly. Observing the output provides a clear view of the relationship between physical and logical storage devices, validating the setup. This step is crucial for confirming filesystem and storage configurations during the RHCSA exam and in practical system administration tasks."
+          "explanation": "The lsblk command provides a detailed overview of all block devices attached to the system, including their mount points, sizes, and types. Running lsblk verifies that the logvol1 logical volume is mounted at the /logvol1 directory as intended. This step confirms the successful formatting, mounting, and persistence of the logical volume. Observing the output validates that the storage setup is correctly aligned with the configuration, ensuring reliability. This verification is vital for maintaining confidence in your filesystem and storage management during RHCSA preparation and in real-world scenarios."
         }
       ]
     }, {
