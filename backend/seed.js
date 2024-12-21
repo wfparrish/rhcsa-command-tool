@@ -901,7 +901,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 13,
-      "title": "On ServerA, configure a basic web server that displays 'Welcome to the webserver!' and ensure the firewall allows HTTP/HTTPS services.",
+      "title": "On the Jump Server, set up a basic web server to serve a simple HTML page displaying the message 'Welcome to the webserver!' Ensure the necessary services are started and configured to launch automatically on boot. Configure the firewall to allow HTTP and HTTPS traffic, verifying that the web server is accessible from client systems. Confirm functionality by testing the web server's response through a browser or command-line tools.",
       "steps": [
         {
           "id": 1,
