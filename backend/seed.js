@@ -890,7 +890,7 @@ const Question = require('./models/Question');
           "id": 2,
           "instruction": "Extend the logical volume 'volgroup1-logvol1' by 600MiB and resize the filesystem to match the new size.",
           "answer": "lvextend -r -L +600M /dev/mapper/volgroup1-logvol1",
-          "explanation": "The lvextend command increases the size of an existing logical volume. The -L +500M option specifies an increase of 600MiB, while the -r option (short for --resizefs) ensures that the associated filesystem is resized simultaneously to utilize the additional space. Applying this to /dev/mapper/volgroup1-logvol1 updates both the logical volume and its filesystem in one step, ensuring they are ready for immediate use. This efficient approach simplifies storage management, aligns with RHCSA objectives, and demonstrates practical skills for maintaining flexible and responsive storage systems."
+          "explanation": "The lvextend command increases the size of an existing logical volume. The -L +600M option specifies an increase of 600MiB, while the -r option (short for --resizefs) ensures that the associated filesystem is resized simultaneously to utilize the additional space. Applying this to /dev/mapper/volgroup1-logvol1 updates both the logical volume and its filesystem in one step, ensuring they are ready for immediate use. This efficient approach simplifies storage management, aligns with RHCSA objectives, and demonstrates practical skills for maintaining flexible and responsive storage systems."
         },
         {
           "id": 3,
