@@ -1938,7 +1938,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 35,
-      "title": "On ServerA, create a set-GID directory and configure its permissions for collaborative use.",
+      "title": "On the Jump Server, create a script to manage a directory with set-GID for collaborative purposes. Prompt the user to provide both a directory name and group name as command-line arguments. If these inputs are not provided, display a usage message and exit. Create the specified directory if it does not already exist and assign the given group as its owner. Apply the set-GID bit to ensure new files inherit group ownership, and validate the permissions to confirm the setup. This task highlights robust input validation, ownership management, and advanced permission settings, aligning with RHCSA objectives.",
       "steps": [
         {
           "id": 1,
