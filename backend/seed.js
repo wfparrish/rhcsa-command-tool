@@ -1628,7 +1628,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 24,
-      "title": "On ServerA, create and edit a text file using user-specified methods and tools.",
+      "title": "On the Jump Server, create a script that allows a user to create and modify a text file interactively. Prompt the user to specify the file name, select a creation method, choose whether to append or overwrite content, and open the file in their preferred text editor. Ensure the script dynamically adjusts based on user inputs and handles file operations securely and efficiently. These steps demonstrate proficiency in scripting for file management and user interaction in a Linux environment.",
       "steps": [
         {
           "id": 1,
