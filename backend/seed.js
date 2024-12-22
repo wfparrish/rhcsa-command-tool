@@ -1019,7 +1019,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 15,
-      "title": "On ServerA, ensure that boot messages are present (not silenced).",
+      "title": "On Client Server 1, ensure that boot messages are displayed during startup by modifying the GRUB configuration. Access the GRUB configuration file, remove options that suppress boot messages, and regenerate the GRUB configuration to apply the changes. Finally, reboot the server to confirm that boot messages are visible, demonstrating effective system configuration and startup troubleshooting.",
       "steps": [
         {
           "id": 1,
