@@ -996,7 +996,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 14,
-      "title": "On ServerA, find all files larger than 3MB in the '/etc' directory and copy them to '/find/3mfiles'.",
+      "title": "On the Jump Server, locate all files larger than 3MB within the /etc directory. Before proceeding, create the /find/3mfiles directory on the server to serve as the destination, including any necessary parent directories. Use tools to efficiently identify and copy the files to this directory. Finally, verify the contents of /find/3mfiles to ensure all files were successfully transferred.'.",
       "steps": [
         {
           "id": 1,
