@@ -1352,7 +1352,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 18,
-      "title": "Perform directory management tasks.",
+      "title": "Perform a series of directory management tasks on the Jump Server to practice navigating, creating, and managing directories efficiently. Confirm your current location in the filesystem, conditionally create a new directory named TestDir, navigate into it, and validate the navigation. Finally, return to the original directory to complete the task. These steps emphasize the importance of directory management, path verification, and efficient navigation using Linux commands, foundational skills for system administration.",
       "steps": [
         {
           "id": 1,
