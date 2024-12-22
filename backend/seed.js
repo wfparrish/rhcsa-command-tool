@@ -1774,7 +1774,7 @@ const Question = require('./models/Question');
     },
     {
       "id": 30,
-      "title": "On ServerA, copy a file to a new location.",
+      "title": "On the Jump Server, automate the process of copying a file to a new location. Prompt the user to provide both the source file path and the destination path, storing these inputs dynamically in variables. Use the cp command to perform the file copy operation, ensuring the original file remains intact while creating a duplicate at the specified destination. This task emphasizes interactive scripting, precise file management, and the effective use of system utilities.",
       "steps": [
         {
           "id": 1,
