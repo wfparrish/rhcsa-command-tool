@@ -1410,7 +1410,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 20,
-      "title": "Given this file: sample.log 2024-08-10 12:00:00 INFO Starting application 2024-08-10 12:01:00 ERROR Failed to connect to database 2024-08-10 12:02:00 WARN Disk space running low 2024-08-10 12:03:00 INFO User login successful 2024-08-10 2:04:00 ERROR Unexpected error occurred Analyze logs from 'sample.log' to extract, filter, and count log entries based on specific criteria.",
+      "title": "Given this file: sample.log 2024-08-10 12:00:00 INFO Starting application 2024-08-10 12:01:00 ERROR Failed to connect to database 2024-08-10 12:02:00 WARN Disk space running low 2024-08-10 12:03:00 INFO User login successful 2024-08-10 2:04:00 ERROR Unexpected error occurred... Analyze and process log entries from the file sample.log to extract, filter, and count entries based on specified criteria. Isolate errors, focus on informational logs for a particular date, count occurrences of disk-related events, and extract specific warnings. These tasks demonstrate effective use of text processing tools to manage and analyze system logs efficiently.",
       "steps": [
         {
           "id": 1,
