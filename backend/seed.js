@@ -1563,7 +1563,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 23,
-      "title": "On ServerA, archive a directory, compress it using gzip, then decompress and extract it using user-specified inputs.",
+      "title": "On the Jump Server, automate the process of archiving and compressing a directory using tar and gzip, followed by decompression and extraction based on user-specified inputs. Validate user inputs to ensure the directory and file names are valid, then dynamically create, compress, and restore the archive while providing clear and interactive feedback. These steps demonstrate effective use of scripting for file management and data recovery in Linux environments.",
       "steps": [
         {
           "id": 1,
