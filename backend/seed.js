@@ -1439,7 +1439,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 21,
-      "title": "On ServerA, establish secure SSH access with user-provided credentials, validate inputs, and handle connection errors.",
+      "title": "Establish secure SSH access on the Jump Server by dynamically configuring the connection using user-provided inputs. Validate each input to ensure correctness, construct a flexible SSH command that adapts to key-based or password-based authentication, and handle errors gracefully to provide meaningful feedback to the user. These steps demonstrate effective use of Bash scripting for secure, interactive system administration tasks.",
       "steps": [
         {
           "id": 1,
