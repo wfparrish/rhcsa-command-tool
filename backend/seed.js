@@ -1979,7 +1979,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 36,
-      "title": "On ServerA, create and manage cron jobs for scheduled task automation.",
+      "title": "On the Jump Server, create and manage cron jobs for scheduled task automation.",
       "steps": [
         {
           "id": 1,
@@ -2026,7 +2026,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 37,
-      "title": "On ServerA, manage a service by starting, stopping, enabling, disabling, and verifying its status.",
+      "title": "On the Jump Server, manage a service by starting, stopping, enabling, disabling, and verifying its status.",
       "steps": [
         {
           "id": 1,
@@ -2067,7 +2067,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 38,
-      "title": "On ServerA, configure the system to boot into a specific target using systemd.",
+      "title": "On the Jump Server, configure the system to boot into a specific target using systemd.",
       "steps": [
         {
           "id": 1,
@@ -2096,7 +2096,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 39,
-      "title": "On ServerA, manage the GRUB bootloader by backing up the configuration, updating it, adding a custom entry, and setting the default boot entry.",
+      "title": "On the Jump Server, manage the GRUB bootloader by backing up the configuration, updating it, adding a custom entry, and setting the default boot entry.",
       "steps": [
         {
           "id": 1,
@@ -2143,7 +2143,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 40,
-      "title": "On ServerA, configure hostname resolution by setting up DNS and updating the hosts file.",
+      "title": "On the Jump Server, configure hostname resolution by setting up DNS and updating the hosts file.",
       "steps": [
         {
           "id": 1,
@@ -2196,7 +2196,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 41,
-      "title": "On ServerA, manage firewall rules by adding, removing, listing, and checking the firewall status.",
+      "title": "On the Jump Server, manage firewall rules by adding, removing, listing, and checking the firewall status.",
       "steps": [
         {
           "id": 1,
@@ -2255,7 +2255,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 42,
-      "title": "On ServerA, configure the firewall to allow HTTP and HTTPS traffic, block traffic on port 1234, and set the default zone to public.",
+      "title": "On the Jump Server, configure the firewall to allow HTTP and HTTPS traffic, block traffic on port 1234, and set the default zone to public.",
       "steps": [
         {
           "id": 1,
@@ -2308,7 +2308,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 43,
-      "title": "On ServerA, automate the setup of SSH key-based authentication for a remote server.",
+      "title": "On the Jump Server, automate the setup of SSH key-based authentication for a remote server.",
       "steps": [
         {
           "id": 1,
@@ -2337,7 +2337,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 44,
-      "title": "On ServerA, manage SELinux modes for the current session using a shell script.",
+      "title": "On the Jump Server, manage SELinux modes for the current session using a shell script.",
       "steps": [
         {
           "id": 1,
@@ -2378,7 +2378,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 45,
-      "title": "On ServerA, manage and verify SELinux file contexts using a shell script.",
+      "title": "On the Jump Server, manage and verify SELinux file contexts using a shell script.",
       "steps": [
         {
           "id": 1,
@@ -2419,7 +2419,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 46,
-      "title": "On ServerA, restore default SELinux file contexts for a specified directory and its contents.",
+      "title": "On the Jump Server, restore default SELinux file contexts for a specified directory and its contents.",
       "steps": [
         {
           "id": 1,
@@ -2448,7 +2448,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 47,
-      "title": "On ServerA, manage SELinux port labels by adding and verifying a new label for a specific port.",
+      "title": "On the Jump Server, manage SELinux port labels by adding and verifying a new label for a specific port.",
       "steps": [
         {
           "id": 1,
@@ -2483,7 +2483,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 48,
-      "title": "On ServerA, automate retrieving container images and handle errors with logging and notifications.",
+      "title": "On the Jump Server, automate retrieving container images and handle errors with logging and notifications.",
       "steps": [
         {
           "id": 1,
@@ -2524,7 +2524,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 49,
-      "title": "On ServerA, retrieve and inspect a container image, then parse its metadata for specific details.",
+      "title": "On the Jump Server, retrieve and inspect a container image, then parse its metadata for specific details.",
       "steps": [
         {
           "id": 1,
@@ -2565,7 +2565,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 50,
-      "title": "On ServerA, manage container images by pulling, inspecting, pushing to another registry, and cleaning up.",
+      "title": "On the Jump Server, manage container images by pulling, inspecting, pushing to another registry, and cleaning up.",
       "steps": [
         {
           "id": 1,
@@ -2606,7 +2606,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 51,
-      "title": "On ServerA, manage a container by pulling an image, creating, starting, stopping, and removing it using podman or docker.",
+      "title": "On the Jump Server, manage a container by pulling an image, creating, starting, stopping, and removing it using podman or docker.",
       "steps": [
         {
           "id": 1,
@@ -2647,7 +2647,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 52,
-      "title": "On ServerA, deploy an nginx web server inside a container and manage its lifecycle.",
+      "title": "On the Jump Server, deploy an nginx web server inside a container and manage its lifecycle.",
       "steps": [
         {
           "id": 1,
@@ -2688,7 +2688,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 53,
-      "title": "On ServerA, configure a container as a systemd service using Podman.",
+      "title": "On the Jump Server, configure a container as a systemd service using Podman.",
       "steps": [
         {
           "id": 1,
@@ -2735,7 +2735,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 54,
-      "title": "On ServerA, configure persistent storage for a Podman container.",
+      "title": "On the Jump Server, configure persistent storage for a Podman container.",
       "steps": [
         {
           "id": 1,
@@ -2776,7 +2776,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 55,
-      "title": "On ServerA, manage software packages using yum, dnf, and rpm for package management.",
+      "title": "On the Jump Server, manage software packages using yum, dnf, and rpm for package management.",
       "steps": [
         {
           "id": 1,
@@ -2901,7 +2901,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 56,
-      "title": "Configuring SSH and Key-Based Authentication: Securing SSH access on ServerA.",
+      "title": "Configuring SSH and Key-Based Authentication: Securing SSH access on the Jump Server.",
       "steps": [
         {
           "id": 1,
