@@ -1516,7 +1516,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 22,
-      "title": "On ServerA, log in as one user and optionally switch to another user, validating input and ensuring the users exist.",
+      "title": "On the Jump Server, write a script that facilitates user login and optional user switching. Prompt the user to input a login username and optionally specify a target user for switching. Validate inputs to ensure the users exist and dynamically handle the login and switching process, providing clear feedback for success or failure. These steps demonstrate proficiency in interactive scripting, input validation, and user management in Linux environments.",
       "steps": [
         {
           "id": 1,
