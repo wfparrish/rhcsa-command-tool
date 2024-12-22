@@ -1054,7 +1054,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 16,
-      "title": "On ServerA, create users and groups, then configure access to '/admins' and '/developers' directories.",
+      "title": "On ServerA, create users and groups, then configure access to '/admins' and '/programmers' directories.",
       "steps": [
         {
           "id": 1,
@@ -1064,9 +1064,9 @@ const Question = require('./models/Question');
         },
         {
           "id": 2,
-          "instruction": "Create the 'developers' group if it does not already exist.",
-          "answer": "groupadd developers",
-          "explanation": "The groupadd developers command creates a new group named 'developers' on the system. Groups in Linux are essential for managing user permissions and access to shared resources. By creating the 'developers' group, you establish a collective structure for assigning permissions to users who will work on shared projects or files within designated directories. This step ensures that access control for the 'developers' group can be configured effectively in later steps."
+          "instruction": "Create the 'programmers' group if it does not already exist.",
+          "answer": "groupadd programmers",
+          "explanation": "The groupadd programmers command creates a new group named 'programmers' on the system. Groups in Linux are essential for managing user permissions and access to shared resources. By creating the 'programmers' group, you establish a collective structure for assigning permissions to users who will work on shared projects or files within designated directories. This step ensures that access control for the 'programmers' group can be configured effectively in later steps."
         },
         {
           "id": 3,
@@ -1084,13 +1084,13 @@ const Question = require('./models/Question');
           "id": 5,
           "instruction": "Create the user 'carlos'.",
           "answer": "useradd carlos",
-          "explanation": "The useradd carlos command creates a new user named 'carlos' on the system. This step adds 'carlos' to the system's user database, assigns a unique User ID (UID), and creates a home directory at /home/carlos with default user configuration files. Later, 'carlos' will be assigned to the 'developers' group to align with their role in managing or accessing the /developers directory. This step is a foundational part of configuring user-based access control and ensuring proper directory ownership and permissions."
+          "explanation": "The useradd carlos command creates a new user named 'carlos' on the system. This step adds 'carlos' to the system's user database, assigns a unique User ID (UID), and creates a home directory at /home/carlos with default user configuration files. Later, 'carlos' will be assigned to the 'programmers' group to align with their role in managing or accessing the /programmers directory. This step is a foundational part of configuring user-based access control and ensuring proper directory ownership and permissions."
         },
         {
           "id": 6,
           "instruction": "Create the user 'david'.",
           "answer": "useradd david",
-          "explanation": "The useradd david command creates a new user named 'david' on the system. This step ensures that 'david' is added to the system's user database with a unique User ID (UID) and a default home directory at /home/david. The user will later be assigned to the 'developers' group to facilitate role-based access to the /developers directory. Adding users like 'david' is critical for setting up controlled access to resources and ensuring that permissions are allocated appropriately based on group membership."
+          "explanation": "The useradd david command creates a new user named 'david' on the system. This step ensures that 'david' is added to the system's user database with a unique User ID (UID) and a default home directory at /home/david. The user will later be assigned to the 'programmers' group to facilitate role-based access to the /programmers directory. Adding users like 'david' is critical for setting up controlled access to resources and ensuring that permissions are allocated appropriately based on group membership."
         },
         {
           "id": 7,
@@ -1106,15 +1106,15 @@ const Question = require('./models/Question');
         },
         {
           "id": 9,
-          "instruction": "Add the user 'carlos' to the 'developers' group as a secondary group.",
-          "answer": "usermod -aG developers carlos",
-          "explanation": "The usermod -aG developers carlos command adds the user 'carlos' to the 'developers' group as a secondary group. The -a (append) option ensures that 'carlos' retains membership in any existing groups while adding them to the specified group. The -G flag specifies the group to which the user is being added. This step is crucial for granting 'carlos' the appropriate permissions and access rights associated with the 'developers' group, enabling collaborative work in the /developers directory without affecting other group memberships."
+          "instruction": "Add the user 'carlos' to the 'programmers' group as a secondary group.",
+          "answer": "usermod -aG programmers carlos",
+          "explanation": "The usermod -aG programmers carlos command adds the user 'carlos' to the 'programmers' group as a secondary group. The -a (append) option ensures that 'carlos' retains membership in any existing groups while adding them to the specified group. The -G flag specifies the group to which the user is being added. This step is crucial for granting 'carlos' the appropriate permissions and access rights associated with the 'programmers' group, enabling collaborative work in the /programmers directory without affecting other group memberships."
         },
         {
           "id": 10,
-          "instruction": "Add the user 'david' to the 'developers' group as a secondary group.",
-          "answer": "usermod -aG developers david",
-          "explanation": "The usermod -aG developers david command adds the user 'david' to the 'developers' group as a secondary group. The -a option ensures that 'david' is appended to the 'developers' group without removing membership from any existing groups, and the -G flag specifies the group being added. This is an essential step for providing 'david' with the permissions and access rights associated with the 'developers' group, ensuring they can collaborate on resources within the /developers directory while retaining other group memberships."
+          "instruction": "Add the user 'david' to the 'programmers' group as a secondary group.",
+          "answer": "usermod -aG programmers david",
+          "explanation": "The usermod -aG programmers david command adds the user 'david' to the 'programmers' group as a secondary group. The -a option ensures that 'david' is appended to the 'programmers' group without removing membership from any existing groups, and the -G flag specifies the group being added. This is an essential step for providing 'david' with the permissions and access rights associated with the 'programmers' group, ensuring they can collaborate on resources within the /programmers directory while retaining other group memberships."
         },
         {
           "id": 11,
@@ -1124,21 +1124,21 @@ const Question = require('./models/Question');
         },
         {
           "id": 12,
-          "instruction": "Create the '/developers' directory.",
-          "answer": "mkdir /developers",
-          "explanation": "The mkdir /developers command creates the /developers directory in the root filesystem. This directory is intended to serve as the dedicated workspace or resource area for the 'developers' group. Creating this directory lays the foundation for configuring ownership and permissions tailored to the group, ensuring secure access and proper organization of group-specific resources. This step is essential for setting up a controlled environment where only authorized users can access or modify the contents."
+          "instruction": "Create the '/programmers' directory.",
+          "answer": "mkdir /programmers",
+          "explanation": "The mkdir /programmers command creates the /programmers directory in the root filesystem. This directory is intended to serve as the dedicated workspace or resource area for the 'programmers' group. Creating this directory lays the foundation for configuring ownership and permissions tailored to the group, ensuring secure access and proper organization of group-specific resources. This step is essential for setting up a controlled environment where only authorized users can access or modify the contents."
         },
         {
           "id": 13,
           "instruction": "Set the ownership of the '/admins' directory to the user 'biko' and the group 'admins'.",
           "answer": "chown biko:admins /admins",
-          "explanation": "The chown carlos:developers /developers command changes the ownership of the /developers directory. Here, the ownership is assigned to the user 'carlos' and the group 'developers'. This ensures that 'carlos', as the owner, has full control over the directory, and members of the 'developers' group can access and modify its contents as allowed by the permissions. Assigning proper ownership is critical for maintaining security and proper access control within the directory."
+          "explanation": "The chown biko:admins /admins command changes the ownership of the /admins directory. Here, the ownership is assigned to the user 'biko' and the group 'admins'. This ensures that 'biko', as the owner, has full control over the directory, and members of the 'admins' group can access and modify its contents as allowed by the permissions. Assigning proper ownership is critical for maintaining security and proper access control within the directory."
         },
         {
           "id": 14,
-          "instruction": "Set the ownership of the '/developers' directory to the user 'carlos' and the group 'developers'.",
-          "answer": "chown carlos:developers /developers",
-          "explanation": "The chown carlos:developers /developers command changes the ownership of the /developers directory. Here, the ownership is assigned to the user 'carlos' and the group 'developers'. This ensures that 'carlos', as the owner, has full control over the directory, and members of the 'developers' group can access and modify its contents as allowed by the permissions. Assigning proper ownership is critical for maintaining security and proper access control within the directory."
+          "instruction": "Set the ownership of the '/programmers' directory to the user 'carlos' and the group 'programmers'.",
+          "answer": "chown carlos:programmers /programmers",
+          "explanation": "The chown carlos:programmers /programmers command changes the ownership of the /programmers directory. Here, the ownership is assigned to the user 'carlos' and the group 'programmers'. This ensures that 'carlos', as the owner, has full control over the directory, and members of the 'programmers' group can access and modify its contents as allowed by the permissions. Assigning proper ownership is critical for maintaining security and proper access control within the directory."
         },
         {
           "id": 15,
@@ -1148,9 +1148,9 @@ const Question = require('./models/Question');
         },
         {
           "id": 16,
-          "instruction": "Set the permissions of the '/developers' directory so only the owner and group members have access.",
-          "answer": "chmod 770 /developers",
-          "explanation": "The chmod 770 /developers command configures the permissions for the /developers directory, ensuring that only the owner and members of the group have access. In this case, the numeric value 770 means the owner has full access (rwx), the group has full access (rwx), and others are denied access (---). This setup restricts access to authorized users only, ensuring that the directory's contents are secure and available exclusively to the intended individuals."
+          "instruction": "Set the permissions of the '/programmers' directory so only the owner and group members have access.",
+          "answer": "chmod 770 /programmers",
+          "explanation": "The chmod 770 /programmers command configures the permissions for the /programmers directory, ensuring that only the owner and members of the group have access. In this case, the numeric value 770 means the owner has full access (rwx), the group has full access (rwx), and others are denied access (---). This setup restricts access to authorized users only, ensuring that the directory's contents are secure and available exclusively to the intended individuals."
         },
         {
           "id": 17,
@@ -1160,9 +1160,9 @@ const Question = require('./models/Question');
         },
         {
           "id": 18,
-          "instruction": "Set the SGID (Set Group ID) bit on the '/developers' directory to ensure new files inherit the group owner.",
-          "answer": "chmod g+s /developers",
-          "explanation": "The chmod g+s /developers command sets the SGID (Set Group ID) bit on the /developers directory. This ensures that any new files or subdirectories created within /developers automatically inherit the group ownership of the parent directory, which is the developers group in this case. This setting is crucial for maintaining consistent group ownership, streamlining collaboration among members of the developers group. By applying the SGID, administrative overhead is reduced as permissions for newly created files remain aligned with the group's access requirements."
+          "instruction": "Set the SGID (Set Group ID) bit on the '/programmers' directory to ensure new files inherit the group owner.",
+          "answer": "chmod g+s /programmers",
+          "explanation": "The chmod g+s /programmers command sets the SGID (Set Group ID) bit on the /programmers directory. This ensures that any new files or subdirectories created within /programmers automatically inherit the group ownership of the parent directory, which is the programmers group in this case. This setting is crucial for maintaining consistent group ownership, streamlining collaboration among members of the programmers group. By applying the SGID, administrative overhead is reduced as permissions for newly created files remain aligned with the group's access requirements."
         },
         {
           "id": 19,
@@ -1172,9 +1172,9 @@ const Question = require('./models/Question');
         },
         {
           "id": 20,
-          "instruction": "Prevent users other than the file creator from deleting files in the '/developers' directory by setting the sticky bit.",
-          "answer": "chmod +t /developers",
-          "explanation": "The chmod +t /developers command sets the sticky bit on the /developers directory. This ensures that only the owner of a file or the directory owner (in this case, carlos) can delete or rename files within the directory. This is particularly useful in shared environments, as it prevents other members of the developers group from accidentally or intentionally deleting files they do not own. By applying the sticky bit, the directory gains added protection, ensuring that the contents are managed securely and reducing the risk of unintended modifications."
+          "instruction": "Prevent users other than the file creator from deleting files in the '/programmers' directory by setting the sticky bit.",
+          "answer": "chmod +t /programmers",
+          "explanation": "The chmod +t /programmers command sets the sticky bit on the /programmers directory. This ensures that only the owner of a file or the directory owner (in this case, carlos) can delete or rename files within the directory. This is particularly useful in shared environments, as it prevents other members of the programmers group from accidentally or intentionally deleting files they do not own. By applying the sticky bit, the directory gains added protection, ensuring that the contents are managed securely and reducing the risk of unintended modifications."
         },
         {
           "id": 21,
@@ -1184,9 +1184,9 @@ const Question = require('./models/Question');
         },
         {
           "id": 22,
-          "instruction": "Verify the ownership, permissions, SGID, and sticky bit on the '/developers' directory.",
-          "answer": "ls -ld /developers",
-          "explanation": "The ls -ld /developers command is used to display detailed information about the /developers directory, including its ownership, permissions, and special attributes such as the SGID and sticky bit. The -l option provides a long listing format, showing details like the directory’s owner (carlos), group (developers), and permission settings (rwxrwx--T if configured correctly). The -d option ensures the output pertains to the directory itself rather than its contents. Executing this command confirms that the directory’s setup meets the specified requirements, including proper ownership, access permissions, and inheritance behavior for newly created files."
+          "instruction": "Verify the ownership, permissions, SGID, and sticky bit on the '/programmers' directory.",
+          "answer": "ls -ld /programmers",
+          "explanation": "The ls -ld /programmers command is used to display detailed information about the /programmers directory, including its ownership, permissions, and special attributes such as the SGID and sticky bit. The -l option provides a long listing format, showing details like the directory’s owner (carlos), group (programmers), and permission settings (rwxrwx--T if configured correctly). The -d option ensures the output pertains to the directory itself rather than its contents. Executing this command confirms that the directory’s setup meets the specified requirements, including proper ownership, access permissions, and inheritance behavior for newly created files."
         }
       ]
     }, {
