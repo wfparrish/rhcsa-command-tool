@@ -1675,7 +1675,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 25,
-      "title": "On ServerA, delete a file using the correct command.",
+      "title": "On the Jump Server, write a script to interactively delete a file specified by the user. Prompt the user to enter the file name, validate the input, and use the appropriate command to remove the file securely. These steps demonstrate proficiency in automating file management tasks and ensuring safe execution of file deletion in Linux environments.",
       "steps": [
         {
           "id": 1,
@@ -1692,7 +1692,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 26,
-      "title": "On ServerA, delete an empty directory.",
+      "title": "On the Jump Server, write a script to interactively delete an empty directory. Prompt the user to specify the directory name, validate the input, and use the appropriate command to remove it, ensuring that the directory is empty before deletion. This task highlights your ability to automate directory management tasks securely and dynamically in Linux environments.",
       "steps": [
         {
           "id": 1,
@@ -1709,7 +1709,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 27,
-      "title": "On ServerA, delete a directory and its contents.",
+      "title": "On the Jump Server, automate the deletion of a directory and all its contents. Prompt the user to specify the directory, validate the input, and use the appropriate command to remove the directory recursively. Ensure the user understands the implications of this operation, reinforcing secure and efficient directory management practices in Linux.",
       "steps": [
         {
           "id": 1,
@@ -1726,7 +1726,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 28,
-      "title": "On ServerA, move a file to a new location.",
+      "title": "On the Jump Server, automate the relocation of a file to a new destination. Prompt the user to specify the source file path and the desired destination path. Validate the inputs, ensuring the source file exists, and then use the appropriate command to move the file to the specified location. This task demonstrates efficient file management techniques and emphasizes user interaction in scripting.",
       "steps": [
         {
           "id": 1,
@@ -1750,7 +1750,7 @@ const Question = require('./models/Question');
     },
     {
       "id": 29,
-      "title": "On ServerA, move a directory to a new location.",
+      "title": "On the Jump Server, automate the relocation of a directory by dynamically assigning source and destination paths to variables. Ensure that the source directory is moved to the specified destination, accurately reflecting the resulting directory structure. This task emphasizes effective use of variables, directory management, and the mv command for scripting automation.",
       "steps": [
         {
           "id": 1,
