@@ -1387,7 +1387,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 19,
-      "title": "Demonstrate standard output, error, and combined redirection.",
+      "title": "Demonstrate your understanding of standard output, error, and combined redirection by performing a series of commands that showcase efficient handling of output streams. Redirect the results of directory listing, capture error messages from failed commands, and combine both standard output and error into a single file while ensuring all outputs are appended to existing files. These tasks highlight essential Linux skills for managing outputs and debugging effectively.",
       "steps": [
         {
           "id": 1,
