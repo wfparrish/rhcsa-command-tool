@@ -996,7 +996,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 14,
-      "title": "On the Jump Server, locate all files larger than 3MB within the /etc directory. Before proceeding, create the /find/3mfiles directory on the server to serve as the destination, including any necessary parent directories. Use tools to efficiently identify and copy the files to this directory. Finally, verify the contents of /find/3mfiles to ensure all files were successfully transferred.'.",
+      "title": "On the Jump Server, locate all files larger than 3MB within the /etc directory. Before proceeding, create the /find/3mfiles directory on the server to serve as the destination, including any necessary parent directories. Use tools to efficiently identify and copy the files to this directory. Finally, verify the contents of /find/3mfiles to ensure all files were successfully transferred.",
       "steps": [
         {
           "id": 1,
@@ -1054,7 +1054,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 16,
-      "title": "On ServerA, create users and groups, then configure access to '/admins' and '/programmers' directories.",
+      "title": "On the Jump Server, create and configure user accounts and groups for managing access to shared directories. Set up the /admins directory for the admins group and the /programmers directory for the programmers group. Assign users to their respective groups, configure ownership and permissions to enforce secure and organized access control, and apply special attributes like SGID and sticky bits to ensure consistent behavior. Verify all configurations to confirm correct implementation of the access policies.",
       "steps": [
         {
           "id": 1,
@@ -1191,7 +1191,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 17,
-      "title": "On ServerA, create a 200MB swap partition on /dev/sdb and ensure it takes effect automatically at boot.",
+      "title": "On the Jump Server, create a 200MB swap partition on /dev/sdb to enhance system performance by providing additional virtual memory. Partition the disk, format it as swap, and update the system configuration to ensure the swap partition is activated automatically at boot. Verify the setup to confirm the new swap space is fully operational and persistently enabled for future reboots.",
       "steps": [
         {
           "id": 1,
