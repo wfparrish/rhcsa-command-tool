@@ -1798,7 +1798,7 @@ const Question = require('./models/Question');
     },
     {
       "id": 31,
-      "title": "On ServerA, copy a directory and its contents to a new location.",
+      "title": "On the Jump Server, automate the process of copying a directory and all its contents to a new location. Prompt the user to provide both the source directory path and the destination directory path, dynamically storing these inputs in variables. Use the cp -r command to perform a recursive copy, ensuring all files and subdirectories are transferred to the specified destination. This task highlights interactive scripting, comprehensive directory management, and effective use of system commands, aligning with RHCSA objectives.",
       "steps": [
         {
           "id": 1,
@@ -1821,7 +1821,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 32,
-      "title": "On ServerA, create hard or symbolic links for files based on user input.",
+      "title": "On the Jump Server, automate the creation of file links based on user input. Prompt the user to specify the type of link they want to create—either a hard link or a symbolic link. Gather the path of the target file and the desired name for the link from the user. Validate the link type input and dynamically create the appropriate link using the ln command, ensuring proper handling for both types of links. If the input is invalid, provide an error message and terminate the script. Display a success message upon the successful creation of the link, demonstrating RHCSA-level scripting proficiency for managing file links.",
       "steps": [
         {
           "id": 1,
@@ -1862,7 +1862,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 33,
-      "title": "On ServerA, manage file and directory permissions using chmod.",
+      "title": "On the Jump Server, dynamically manage file and directory permissions using the chmod command based on user input and specific scenarios. Start by listing the current permissions of all files and directories within a specified path for reference. Prompt the user to change the permissions of individual files to specific values such as 755 and 644. Allow recursive permission changes to directories based on user-specified input and predefined permissions like 600. Finally, create a new file, set its permissions to 700, and verify the change by displaying its attributes, demonstrating RHCSA-level expertise in permission management and system configuration validation.",
       "steps": [
         {
           "id": 1,
@@ -1897,7 +1897,7 @@ const Question = require('./models/Question');
       ]
     }, {
       "id": 34,
-      "title": "On ServerA, configure autofs to automatically mount a network file system (NFS) when accessed.",
+      "title": "On the Jump Server, configure autofs to automatically mount a network file system (NFS) when accessed.",
       "steps": [
         {
           "id": 1,
