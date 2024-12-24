@@ -37,7 +37,7 @@ const Question = require('./models/Question');
         {
           "id": 5,
           "instruction": "Search the system for the ISO file to locate its directory.",
-          "answer": "find / -type f -name \"<name of the iso>\" 2>/dev/null",
+          "answer": "find / -type f -name '<name of the iso>' 2>/dev/null",
           "explanation": "The `find` command is used to search for files and directories across the filesystem. Here, the root directory (`/`) is specified as the starting point to perform a thorough system-wide search. The `-type f` flag limits the search to regular files, excluding directories and other special files, while the `-name` flag specifies the name of the file or a pattern to match. For example, to search for `RHEL-9.iso`, replace `<name of the iso>` with `RHEL-9.iso`. The `2>/dev/null` portion suppresses error messages from inaccessible directories (e.g., due to permissions), allowing the search results to be displayed cleanly. This command is particularly useful when the location of an ISO file is unknown and needs to be determined manually. On the RHCSA, this skill is essential for scenarios requiring you to locate critical files that are not readily accessible or documented."
         },
         {
