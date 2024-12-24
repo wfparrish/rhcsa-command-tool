@@ -115,7 +115,7 @@ const Question = require('./models/Question');
           "id": 18,
           "instruction": "Save and exit the '/etc/fstab' file.",
           "answer": ":wq",
-          "explanation": "The `:wq` command in `vim` is used to write (save) the changes to the file and then quit the editor. This ensures that any modifications made to the `/etc/fstab` file, such as the removal of problematic entries, are preserved. By saving and exiting properly, you finalize the configuration changes, preventing the system from attempting to mount faulty or incorrect filesystems during subsequent boots. This step is crucial to ensure the system can boot and function without encountering errors related to the `/etc/fstab` file. Mastery of basic `vim` commands like `:wq` is essential for effective file editing during troubleshooting, a skill emphasized in the RHCSA exam."
+          "explanation": "Pressing ':' enters Command-line mode in Vim, allowing you to execute commands. The `:wq` command in `vim` is used to write (save) the changes to the file and then quit the editor. This ensures that any modifications made to the `/etc/fstab` file, such as the removal of problematic entries, are preserved. By saving and exiting properly, you finalize the configuration changes, preventing the system from attempting to mount faulty or incorrect filesystems during subsequent boots. This step is crucial to ensure the system can boot and function without encountering errors related to the `/etc/fstab` file. Mastery of basic `vim` commands like `:wq` is essential for effective file editing during troubleshooting, a skill emphasized in the RHCSA exam."
         },
         {
           "id": 19,
