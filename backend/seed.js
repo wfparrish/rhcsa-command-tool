@@ -49,12 +49,12 @@ const Question = require('./models/Question');
         {
           "id": 7,
           "instruction": "If the RHCSA has you mount the ISO device, then add the ISO device to the '/etc/fstab' file to ensure it mounts on boot.",
-          "answer": "echo \"/dev/sr0 /repo iso9660 defaults 0 0\" >> /etc/fstab",
+          "answer": "echo '/dev/sr0 /repo iso9660 defaults 0 0' >> /etc/fstab",
           "explanation": "The `echo` command appends a line to the `/etc/fstab` file, ensuring the ISO device is mounted automatically at boot. This step eliminates the need to remount the ISO manually after each system restart, which is especially useful in production or exam scenarios requiring persistent configurations. The line added specifies that the ISO device `/dev/sr0` should be mounted at `/repo` using the `iso9660` filesystem type, a standard for optical disks. The `defaults` option specifies standard mount options such as `rw` (read-write) and `auto` (automatic mounting at boot). The first `0` indicates that the filesystem does not need to be included in the `dump` backup process, while the second `0` specifies that the filesystem does not require a consistency check (`fsck`) at boot time. Finally, the `>> /etc/fstab` appends this configuration to the file without overwriting existing entries, ensuring all previous mount points remain intact."
         }, {
           "id": 8,
           "instruction": "If the RHCSA has you mount the ISO file stored on disk, then add the ISO file to the '/etc/fstab' file to ensure it mounts on boot.",
-          "answer": "echo \"/path/to/RHEL-9.iso /repo iso9660 loop 0 0\" >> /etc/fstab",
+          "answer": "echo '/path/to/RHEL-9.iso /repo iso9660 loop 0 0' >> /etc/fstab",
           "explanation": "The `echo` command appends a line to the `/etc/fstab` file, ensuring the ISO file is mounted automatically at boot. This step eliminates the need to remount the ISO manually after each system restart, which is especially useful in production or exam scenarios requiring persistent configurations. The line added specifies that the ISO file located at `/path/to/RHEL-9.iso` should be mounted at `/repo` using the `iso9660` filesystem type, a standard for ISO images. The `loop` option allows the ISO file to be treated as a block device, enabling it to be mounted like a physical disk. The first `0` indicates that the filesystem does not need to be included in the `dump` backup process, while the second `0` specifies that the filesystem does not require a consistency check (`fsck`) at boot time. Finally, the `>> /etc/fstab` appends this configuration to the file without overwriting existing entries, ensuring all previous mount points remain intact."
         },
         {
