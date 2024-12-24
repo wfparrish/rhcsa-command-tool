@@ -155,15 +155,15 @@ const Question = require('./models/Question');
         },
         {
           "id": 2,
-          "instruction": "Create a group named 'developers'.",
-          "answer": "groupadd developers",
-          "explanation": "The `groupadd` command is used to create a new user group, in this case, named 'developers'. Groups are a core component of Linux's permissions and access control system. By organizing users into groups, administrators can efficiently assign and manage permissions for shared resources such as files, directories, or services. Creating a dedicated group like 'developers' is a common practice in multi-user environments to streamline access management for specific teams or roles."
+          "instruction": "Create a group named 'accountants'.",
+          "answer": "groupadd accountants",
+          "explanation": "The `groupadd` command is used to create a new user group, in this case, named 'accountants'. Groups are a core component of Linux's permissions and access control system. By organizing users into groups, administrators can efficiently assign and manage permissions for shared resources such as files, directories, or services. Creating a dedicated group like 'accountants' is a common practice in multi-user environments to streamline access management for specific teams or roles."
         },
         {
           "id": 3,
-          "instruction": "Add 'agent' to the 'developers' group.",
-          "answer": "usermod -aG developers agent",
-          "explanation": "The `usermod` command is used to modify an existing user account. Here, the `-aG` option performs two critical functions: `-a` (append) ensures the user is added to the specified group without being removed from other groups, and `-G` specifies the supplementary group to which the user is being added. In this step, the user 'agent' is appended to the 'developers' group. This command is essential for managing user access to shared resources efficiently, especially in environments where users need multiple group memberships for different permissions."
+          "instruction": "Add 'agent' to the 'accountants' group.",
+          "answer": "usermod -aG accountants agent",
+          "explanation": "The `usermod` command is used to modify an existing user account. Here, the `-aG` option performs two critical functions: `-a` (append) ensures the user is added to the specified group without being removed from other groups, and `-G` specifies the supplementary group to which the user is being added. In this step, the user 'agent' is appended to the 'accountants' group. This command is essential for managing user access to shared resources efficiently, especially in environments where users need multiple group memberships for different permissions."
         },
         {
           "id": 4,
