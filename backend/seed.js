@@ -18,9 +18,9 @@ const Question = require('./models/Question');
         },
         {
           "id": 2,
-          "instruction": "Identify the ISO device using the command to list block devices.",
-          "answer": "lsblk",
-          "explanation": "The `lsblk` (list block devices) command displays information about all available or the specified block devices, including their mount points. In the context of the RHCSA exam, using `lsblk` helps identify the device name (e.g., `/dev/sr0`) associated with the RHEL-9 ISO. This step is crucial for ensuring that you are referencing the correct device in subsequent steps, such as mounting the ISO to a directory or updating `/etc/fstab`. While UUIDs and LABELs can be used for more consistent device identification, in this process, device paths are used directly for simplicity and clarity."
+          "instruction": "Use the `blkid` command to verify the details of a block device, such as its UUID or LABEL.",
+          "answer": "blkid",
+          "explanation": "The `blkid` command is used to display detailed information about block devices, including their UUIDs, file system types, and labels. This is particularly useful when you need to verify or use the unique identifiers for a device, such as when creating persistent mounts in `/etc/fstab`. For example, running `blkid /dev/sr0` will provide information about the ISO device, if it is correctly identified. In the RHCSA exam, this command is often employed to cross-check or confirm device attributes after identifying the device with a command like `lsblk`."
         },
         {
           "id": 3,
