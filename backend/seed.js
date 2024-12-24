@@ -149,9 +149,9 @@ const Question = require('./models/Question');
       "steps": [
         {
           "id": 1,
-          "instruction": "Create a user named 'student'.",
-          "answer": "useradd student",
-          "explanation": "The `useradd` command is a fundamental utility for creating new user accounts on Linux systems. By specifying the name 'student', a user account is created with default settings, including a unique user ID (UID), a default home directory (usually under `/home`), and default shell (often `/bin/bash`). This step is foundational in system administration as managing user accounts is crucial for granting access and organizing system resources effectively."
+          "instruction": "Create a user named 'agent'.",
+          "answer": "useradd agent",
+          "explanation": "The `useradd` command is a fundamental utility for creating new user accounts on Linux systems. By specifying the name 'agent', a user account is created with default settings, including a unique user ID (UID), a default home directory (usually under `/home`), and default shell (often `/bin/bash`). This step is foundational in system administration as managing user accounts is crucial for granting access and organizing system resources effectively."
         },
         {
           "id": 2,
@@ -161,27 +161,27 @@ const Question = require('./models/Question');
         },
         {
           "id": 3,
-          "instruction": "Add 'student' to the 'developers' group.",
-          "answer": "usermod -aG developers student",
-          "explanation": "The `usermod` command is used to modify an existing user account. Here, the `-aG` option performs two critical functions: `-a` (append) ensures the user is added to the specified group without being removed from other groups, and `-G` specifies the supplementary group to which the user is being added. In this step, the user 'student' is appended to the 'developers' group. This command is essential for managing user access to shared resources efficiently, especially in environments where users need multiple group memberships for different permissions."
+          "instruction": "Add 'agent' to the 'developers' group.",
+          "answer": "usermod -aG developers agent",
+          "explanation": "The `usermod` command is used to modify an existing user account. Here, the `-aG` option performs two critical functions: `-a` (append) ensures the user is added to the specified group without being removed from other groups, and `-G` specifies the supplementary group to which the user is being added. In this step, the user 'agent' is appended to the 'developers' group. This command is essential for managing user access to shared resources efficiently, especially in environments where users need multiple group memberships for different permissions."
         },
         {
           "id": 4,
-          "instruction": "Grant sudo privileges to 'student'.",
-          "answer": "usermod -aG wheel student",
-          "explanation": "The `usermod` command is used to modify an existing user account. By appending the user 'student' to the 'wheel' group using the `-aG` option, the user gains sudo privileges. The `wheel` group is a special group configured on many Linux distributions to grant its members administrative rights, allowing them to execute commands as the superuser or another user with the `sudo` command. This step is crucial for enabling elevated permissions while maintaining controlled access to administrative tasks."
+          "instruction": "Grant sudo privileges to 'agent'.",
+          "answer": "usermod -aG wheel agent",
+          "explanation": "The `usermod` command is used to modify an existing user account. By appending the user 'agent' to the 'wheel' group using the `-aG` option, the user gains sudo privileges. The `wheel` group is a special group configured on many Linux distributions to grant its members administrative rights, allowing them to execute commands as the superuser or another user with the `sudo` command. This step is crucial for enabling elevated permissions while maintaining controlled access to administrative tasks."
         },
         {
           "id": 5,
-          "instruction": "Verify 'student' has been added to the group that grants sudo privileges.",
-          "answer": "groups student",
-          "explanation": "The `groups` command displays all the groups to which a user belongs. Running `groups student` checks and confirms that the user 'student' has been successfully added to the 'wheel' group, which grants sudo privileges. Verifying group membership ensures that the intended permissions are correctly applied, a critical step in managing system access securely."
+          "instruction": "Verify 'agent' has been added to the group that grants sudo privileges.",
+          "answer": "groups agent",
+          "explanation": "The `groups` command displays all the groups to which a user belongs. Running `groups agent` checks and confirms that the user 'agent' has been successfully added to the 'wheel' group, which grants sudo privileges. Verifying group membership ensures that the intended permissions are correctly applied, a critical step in managing system access securely."
         },
         {
           "id": 6,
-          "instruction": "Test sudo privileges by running a command as 'student' that displays the info on the current user.",
+          "instruction": "Test sudo privileges by running a command as 'agent' that displays the info on the current user.",
           "answer": "sudo whoami",
-          "explanation": "The `sudo` command enables a user to execute commands with elevated privileges. The `whoami` command displays the current user. Combining them, `sudo whoami` verifies if 'student' has been granted sudo privileges by printing 'root', which indicates superuser access. This test confirms that the configuration changes for 'student' are correctly applied, ensuring they can perform administrative tasks securely."
+          "explanation": "The `sudo` command enables a user to execute commands with elevated privileges. The `whoami` command displays the current user. Combining them, `sudo whoami` verifies if 'agent' has been granted sudo privileges by printing 'root', which indicates superuser access. This test confirms that the configuration changes for 'agent' are correctly applied, ensuring they can perform administrative tasks securely."
         }
       ]
     },
